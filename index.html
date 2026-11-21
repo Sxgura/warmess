@@ -8,9 +8,7 @@
 <title>WarMess · By Sxgura Inc</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a84ff'/%3E%3Cpath d='M14 16h36a3 3 0 0 1 3 3v21a3 3 0 0 1-3 3H27l-12 9V43a3 3 0 0 1-3-3V19a3 3 0 0 1 3-3z' fill='white'/%3E%3C/svg%3E">
 <style>
-:root,:root[data-theme="default"]{--bg:#08080b;--card:#121217;--card2:#18181f;--line:#23232c;--txt:#f2f2f7;--mut:#8e8e93;--acc:#0a84ff;--acc2:#5e5ce6;--ok:#30d158;--bad:#ff453a;--warn:#ff9f0a;--vh:100dvh;--r:16px;--bubble-me:linear-gradient(180deg,#2b92ff,#0a74ff);--bubble-him:#1e1e25}
-:root[data-theme="ios"]{--bg:#000000;--card:#1c1c1e;--card2:#2c2c2e;--line:#38383a;--txt:#ffffff;--mut:#8e8e93;--acc:#0a84ff;--acc2:#5e5ce6;--ok:#30d158;--bad:#ff453a;--warn:#ff9f0a;--bubble-me:#0a84ff;--bubble-him:#2c2c2e}
-:root[data-theme="android"]{--bg:#0b141a;--card:#1f2c34;--card2:#1a252c;--line:#2a3942;--txt:#e9edef;--mut:#8696a0;--acc:#00a884;--acc2:#008069;--ok:#25d366;--bad:#ea0038;--warn:#f59e0b;--bubble-me:#005c4b;--bubble-him:#1f2c34}
+:root{--bg:#08080b;--card:#121217;--card2:#18181f;--line:#23232c;--txt:#f2f2f7;--mut:#8e8e93;--acc:#0a84ff;--acc2:#5e5ce6;--ok:#30d158;--bad:#ff453a;--warn:#ff9f0a;--vh:100dvh;--r:16px}
 [hidden]{display:none!important}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;overflow:hidden}
@@ -112,8 +110,8 @@ label.f{display:block;font-size:12.5px;font-weight:600;color:var(--mut);margin:1
 .msgs{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:12px 12px 6px;display:flex;flex-direction:column;gap:3px;background:radial-gradient(circle at 20% 10%,rgba(94,92,230,.06),transparent 50%),#0b0b0f}
 .b{max-width:80%;padding:8px 12px 6px;border-radius:18px;font-size:15.5px;line-height:1.38;white-space:pre-wrap;overflow-wrap:anywhere;position:relative;animation:bi .2s}
 @keyframes bi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.b.me{align-self:flex-end;background:var(--bubble-me);border-bottom-right-radius:5px}
-.b.him{align-self:flex-start;background:var(--bubble-him);border-bottom-left-radius:5px}
+.b.me{align-self:flex-end;background:linear-gradient(180deg,#2b92ff,#0a74ff);border-bottom-right-radius:5px}
+.b.him{align-self:flex-start;background:#1e1e25;border-bottom-left-radius:5px}
 .b .tm{display:flex;justify-content:flex-end;align-items:center;gap:4px;font-size:11px;opacity:.7;margin:2px 0 0 14px;float:right;position:relative;top:3px}
 .b .tm svg{width:15px;height:15px;stroke-width:2.4}
 .b .tm.rd{opacity:1;color:#bfe3ff}
@@ -174,16 +172,63 @@ label.f{display:block;font-size:12.5px;font-weight:600;color:var(--mut);margin:1
 .ml b{color:#64b5ff}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
+/* ---- v16 ---- */
+.hero{display:flex;flex-direction:column;align-items:center}
+.logo.xl{width:104px;height:104px;border-radius:30px;background:linear-gradient(145deg,#0a84ff 0%,#5e5ce6 55%,#bf5af2 100%);box-shadow:0 18px 50px rgba(94,92,230,.45),inset 0 1px 0 rgba(255,255,255,.35);position:relative}
+.logo.xl:after{content:"";position:absolute;inset:-9px;border-radius:38px;border:1px solid rgba(94,92,230,.35);animation:pulse 3s ease-in-out infinite}
+.logo.xl svg{width:62px;height:62px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.25))}
+@keyframes pulse{0%,100%{opacity:.25;transform:scale(1)}50%{opacity:.8;transform:scale(1.05)}}
+.hero .brand{font-size:36px;margin-top:20px;background:linear-gradient(90deg,#fff,#b9c8ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tag{font-size:14px;color:#a5a5ad;font-weight:500;margin-top:2px;letter-spacing:.2px}
+.logo svg{fill:none}
+.foot{margin-top:22px;text-align:center;font-size:12px;line-height:1.6;color:#6e6e76}
+.foot b{color:#a5a5ad}
+.uwrap{position:relative}.uwrap span{position:absolute;left:14px;top:13px;color:var(--mut);font-size:16px}.uwrap .in{padding-left:30px}
+.ustat{font-size:12.5px;min-height:18px;margin:6px 2px 0;color:var(--mut)}.ustat.ok{color:var(--ok)}.ustat.bad{color:#ff8a82}
+.vb{display:inline-block;width:17px;height:17px;vertical-align:-3px;margin-left:5px;flex:none}
+.rk{display:inline-block;font-size:11px;font-weight:700;padding:2px 10px;border-radius:999px;background:rgba(94,92,230,.2);color:#b3b1ff;margin-top:6px;letter-spacing:.2px}
+.rk.cr{background:linear-gradient(135deg,rgba(191,90,242,.28),rgba(255,69,58,.28));color:#ff9ad5}
+.unm{color:var(--mut);font-size:14px}
+.phd{margin:-18px -18px 0;padding:26px 18px 18px;text-align:center;background:linear-gradient(170deg,rgba(10,132,255,.22),rgba(94,92,230,.12) 60%,transparent);border-radius:24px 24px 0 0;position:relative}
+.phd .x{position:absolute;right:14px;top:14px}
+.phd .nmx{font-size:22px;font-weight:800;letter-spacing:-.4px;margin-top:10px;display:flex;align-items:center;justify-content:center}
+.phd .bio{color:#c7c7cc;font-size:14.5px;margin-top:8px;line-height:1.4;overflow-wrap:anywhere}
+.chip{display:inline-flex;align-items:center;gap:8px;background:#0d0d11;border:1px solid var(--line);border-radius:999px;padding:6px 8px 6px 14px;margin-top:12px;font-size:13.5px;color:#d1d1d6}
+.chip b{letter-spacing:1.5px;font-variant-numeric:tabular-nums}
+.chip button{background:#1b1b23;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:600;color:#e5e5ea}
+.grp{background:#0d0d11;border:1px solid var(--line);border-radius:16px;margin-top:14px;overflow:hidden}
+.grp .gt{font-size:12px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.5px;padding:12px 16px 4px}
+.li{display:flex;align-items:center;gap:13px;padding:14px 16px;width:100%;text-align:left;border-bottom:1px solid #17171d;font-size:15.5px}
+.li:last-child{border-bottom:0}
+.li svg{width:21px;height:21px;color:#8e8e93}
+.li.red,.li.red svg{color:#ff6b61}
+.li:active{background:#14141a}
+.fld{padding:10px 16px 12px;border-bottom:1px solid #17171d}
+.fld:last-child{border-bottom:0}
+.fld label{display:block;font-size:12px;font-weight:600;color:var(--mut);margin-bottom:5px}
+.fld .in{background:#15151b;padding:11px 13px;font-size:15.5px}
+.socs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.soc{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:999px;font-size:13.5px;font-weight:600;background:#1b1b23;border:1px solid var(--line);color:#e5e5ea;text-decoration:none}
+.soc.wa{color:#5be28a;border-color:rgba(48,209,88,.4)}.soc.ig{color:#ff8fc0;border-color:rgba(255,105,180,.4)}.soc.ln{color:#6fb6ff;border-color:rgba(10,132,255,.4)}
+.tk{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin-top:12px;text-align:left;font-size:14px;line-height:1.5;overflow-wrap:anywhere}
+.tk .rsp{margin-top:8px;background:rgba(10,132,255,.12);border-radius:12px;padding:9px 12px;color:#bcdcff}
+.mline{padding:7px 10px;font-size:13.5px;line-height:1.45;border-radius:10px;background:#0d0d11;margin-top:6px;overflow-wrap:anywhere}
+.mline.b2{background:#12202f}
+.mline small{color:var(--mut);display:block;font-size:11.5px}
+.fld .uwrap .in{padding-left:30px}
+
 </style>
 </head>
 <body>
-<div class="scr on" id="boot"><div class="logo"><svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg></div><div class="brand">WarMess<small>Plataforma de mensajería instantánea</small></div><div class="spin"></div></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="lgb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dbe8ff"/></linearGradient><linearGradient id="lgz" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a84ff"/><stop offset="1" stop-color="#bf5af2"/></linearGradient></defs><symbol id="lg" viewBox="0 0 24 24"><path d="M5 3h14a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3h-8.2l-4.3 3.7c-.6.5-1.5.1-1.5-.7V17.4A3 3 0 0 1 2 14.5V6a3 3 0 0 1 3-3z" fill="url(#lgb)"/><path d="M13.2 5.6 8 11.6h3.3l-.9 4.8 5.4-6.3h-3.4z" fill="url(#lgz)"/></symbol></svg>
+<div class="scr on" id="boot"><div class="logo"><svg viewBox="0 0 24 24"><use href="#lg"/></svg></div><div class="brand">WarMess<small>By Sxgura Inc</small></div><div class="spin"></div></div>
 
 <!-- ACCESO -->
 <div class="scr" id="auth"><div class="center"><div class="box">
-  <div class="logo" style="margin:0 auto"><svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg></div>
-  <div class="brand">WarMess<small>Plataforma de mensajería instantánea</small></div>
-  <p class="lead">Chatea en tiempo real de forma segura. Usa tu <b>nombre de usuario</b> o ID para encontrar a otras personas.</p>
+  <div class="hero"><div class="logo xl"><svg viewBox="0 0 24 24"><use href="#lg"/></svg></div>
+  <div class="brand">WarMess</div>
+  <div class="tag">Plataforma de mensajería instantánea</div></div>
+  <p class="lead">Para usar este servicio debes <b>registrarte</b>. Chatea en tiempo real con personas de todo el mundo.</p>
   <div class="card">
     <button class="btn gbtn" data-act="google" id="gBtn"><svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.9 2.4 30.4 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.6 5.9c4.4-4.1 7-10.1 7-17.6z"/><path fill="#FBBC05" d="M10.5 28.7a14.5 14.5 0 0 1 0-9.4l-7.9-6.1a24 24 0 0 0 0 21.6l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.9 2.3-8.3 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg>Continuar con Google</button>
     <div class="or">o con tu correo</div>
@@ -199,11 +244,8 @@ label.f{display:block;font-size:12.5px;font-weight:600;color:var(--mut);margin:1
     <div class="msg" id="aMsg"></div>
     <div style="text-align:center"><button class="lnk" data-act="forgot" id="aForgot">¿Olvidaste tu contraseña?</button></div>
   </div>
-  <p class="fine">Al continuar aceptas las <button data-act="legal">normas de uso y privacidad</button> y el tratamiento de datos personales para mejorar la experiencia del servicio.</p>
-  <div style="margin-top:28px;padding-top:16px;border-top:1px solid var(--line);text-align:center">
-    <div style="font-size:13px;font-weight:700;letter-spacing:.3px;color:#fff">WarMess</div>
-    <div style="font-size:11.5px;color:var(--mut);margin-top:3px">By Sxgura Inc · © 2026</div>
-  </div>
+  <p class="fine">Al continuar aceptas las <button data-act="legal">normas de uso y privacidad</button>.</p>
+  <div class="foot">WarMess · Plataforma de mensajería instantánea<br>Atentamente, <b>Sxgura Inc</b></div>
 </div></div></div>
 
 <!-- VERIFICAR CORREO -->
@@ -212,36 +254,50 @@ label.f{display:block;font-size:12.5px;font-weight:600;color:var(--mut);margin:1
   <div class="brand" style="font-size:24px">Verifica tu correo</div>
   <p class="lead">Te enviamos un enlace a <b id="vEm"></b>. Ábrelo y vuelve aquí: se actualiza solo. Revisa también la carpeta de spam.</p>
   <div class="card">
-    <button class="btn" data-act="vcheck" id="vCheck">Ya lo verifiqué</button>
-    <button class="btn ghost" data-act="vresend" id="vResend">Reenviar correo</button>
+    <button class="btn" data-act="vcheck" id="vCheck">✓ Ya verifiqué mi correo</button>
+    <button class="btn ghost" data-act="vresend" id="vResend">Reenviar el correo de verificación</button>
     <div class="msg" id="vMsg"></div>
-    <div style="text-align:center"><button class="lnk" data-act="logout">Cerrar sesión</button></div>
+    <div style="text-align:center"><button class="lnk" data-act="logout">Usar otra cuenta</button></div>
   </div>
+  <div class="foot">WarMess · Plataforma de mensajería instantánea<br>Atentamente, <b>Sxgura Inc</b></div>
 </div></div></div>
 
 <!-- CREAR PERFIL -->
 <div class="scr" id="onb"><div class="center"><div class="box">
   <div class="brand" style="font-size:25px;margin-top:0">Crea tu perfil</div>
-  <p class="lead">Así te verán las demás personas. Elige un <b>nombre de usuario</b> único para que te encuentren fácilmente.</p>
+  <p class="lead">Así te verán las demás personas. Después de crearlo recibirás tu <b>ID de usuario</b>.</p>
   <div class="card">
     <div class="avpick" data-act="pickAv" data-t="onb"><div class="av lg" id="onbAv">?</div><div class="cam"><svg class="i" viewBox="0 0 24 24"><path d="M4 8h3l2-2h6l2 2h3v11H4zM12 17a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg></div></div>
     <label class="f" for="onbNm">Nombre o cómo quieres que te llamen</label>
     <input class="in" id="onbNm" maxlength="40" placeholder="Tu nombre" autocomplete="nickname">
-    <label class="f" for="onbUser">Nombre de usuario <span style="font-weight:400">(único)</span></label>
-    <div style="position:relative">
-      <span style="position:absolute;left:14px;top:13px;color:var(--mut);font-weight:600">@</span>
-      <input class="in" id="onbUser" maxlength="20" placeholder="usuario" style="padding-left:28px" autocomplete="username" pattern="[a-zA-Z0-9_]+">
-    </div>
-    <div style="font-size:12px;color:var(--mut);margin-top:4px">Solo letras, números y _ · entre 3 y 20 caracteres</div>
+    <label class="f" for="onbUs">Nombre de usuario</label>
+    <div class="uwrap"><span>@</span><input class="in" id="onbUs" maxlength="20" autocapitalize="none" autocorrect="off" spellcheck="false" autocomplete="username" placeholder="tu_usuario"></div>
+    <div class="ustat" id="onbUst"></div>
     <label class="f" for="onbBd">Fecha de nacimiento</label>
     <input class="in" id="onbBd" type="date" autocomplete="bday">
-    <label class="f" for="onbBio">Estado / descripción <span style="font-weight:400">(opcional)</span></label>
-    <input class="in" id="onbBio" maxlength="120" placeholder="Ej: Disponible · Hola 👋">
-    <label class="chk"><input type="checkbox" id="onbOk"><span>Tengo al menos <b id="minAge">13</b> años y acepto las <button type="button" data-act="legal" style="color:var(--acc);text-decoration:underline;font-size:inherit">normas de uso y privacidad</button> y el tratamiento de mis datos personales.</span></label>
+    <label class="f" for="onbBio">Descripción <span style="font-weight:400">(opcional)</span></label>
+    <input class="in" id="onbBio" maxlength="100" placeholder="Cuéntanos algo sobre ti">
+    <label class="chk"><input type="checkbox" id="onbOk"><span>Tengo al menos <b id="minAge">13</b> años, acepto las <button type="button" data-act="legal" style="color:var(--acc);text-decoration:underline;font-size:inherit">normas de uso y privacidad</button> y autorizo el tratamiento de mis datos personales para prestar y mejorar el servicio y la seguridad de la plataforma (incluida la revisión de contenido cuando sea necesario).</span></label>
     <button class="btn" data-act="onbGo" id="onbGo">Crear mi perfil</button>
     <div class="msg" id="onbMsg"></div>
     <div style="text-align:center"><button class="lnk" data-act="logout">Cerrar sesión</button></div>
   </div>
+  <div class="foot">WarMess · Plataforma de mensajería instantánea<br>Atentamente, <b>Sxgura Inc</b></div>
+</div></div></div>
+
+<!-- ELEGIR USUARIO (cuentas creadas antes del sistema de usuarios) -->
+<div class="scr" id="uscr"><div class="center"><div class="box">
+  <div class="brand" style="font-size:25px;margin-top:0">Elige tu nombre de usuario</div>
+  <p class="lead">Es único y sirve para que otras personas te encuentren, por ejemplo <b>@tuusuario</b>.</p>
+  <div class="card">
+    <label class="f" for="usIn">Nombre de usuario</label>
+    <div class="uwrap"><span>@</span><input class="in" id="usIn" maxlength="20" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="tu_usuario"></div>
+    <div class="ustat" id="usSt"></div>
+    <button class="btn" data-act="uscrGo" id="usGo">Guardar y continuar</button>
+    <div class="msg" id="usMsg"></div>
+    <div style="text-align:center"><button class="lnk" data-act="logout">Cerrar sesión</button></div>
+  </div>
+  <div class="foot">WarMess · Plataforma de mensajería instantánea<br>Atentamente, <b>Sxgura Inc</b></div>
 </div></div></div>
 
 <!-- CUENTA RESTRINGIDA -->
@@ -249,7 +305,9 @@ label.f{display:block;font-size:12.5px;font-weight:600;color:var(--mut);margin:1
   <div class="logo" style="margin:0 auto;background:linear-gradient(135deg,#ff453a,#c4271d)"><svg viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5 3.8 9.3 9 10 5.2-.7 9-5 9-10V6zm1 13h-2v-2h2zm0-4h-2V7h2z"/></svg></div>
   <div class="brand" style="font-size:24px" id="blkT">Cuenta restringida</div>
   <p class="lead" id="blkP"></p>
-  <div class="card"><button class="btn" data-act="retry" style="margin-top:0">Reintentar</button><button class="btn ghost" data-act="logout">Cerrar sesión</button></div>
+  <div class="card"><button class="btn" data-act="ticket" style="margin-top:0">📩 Solicitar revisión</button><button class="btn ghost" data-act="retry">Reintentar</button><button class="btn ghost" data-act="logout">Cerrar sesión</button></div>
+  <div id="tkList"></div>
+  <div class="foot">WarMess · Plataforma de mensajería instantánea<br>Atentamente, <b>Sxgura Inc</b></div>
 </div></div></div>
 
 <!-- APP -->
@@ -262,7 +320,7 @@ label.f{display:block;font-size:12.5px;font-weight:600;color:var(--mut);margin:1
       <button class="ibtn" id="admBtn" data-act="admin" aria-label="Configuración" hidden><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
     </div>
     <div class="srch"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" inputmode="search" placeholder="Buscar @usuario, ID o chat" autocomplete="off" maxlength="30" aria-label="Buscar"></div>
-    <div class="ptabs" id="ptabs"><button class="on" data-act="ptab" data-t="chats">Chats</button><button data-act="ptab" data-t="reqs">Solicitudes <b id="reqN" hidden>0</b></button><button data-act="ptab" data-t="groups">Grupos</button></div>
+    <div class="ptabs" id="ptabs"><button class="on" data-act="ptab" data-t="chats">Chats</button><button data-act="ptab" data-t="reqs">Solicitudes <b id="reqN" hidden>0</b></button></div>
     <div class="list" id="list"></div>
   </aside>
   <main class="main" id="main"></main>
@@ -272,14 +330,15 @@ label.f{display:block;font-size:12.5px;font-weight:600;color:var(--mut);margin:1
 <!-- HOJAS -->
 <div class="ov" id="ovProf" data-close><div class="sheet" id="shProf"></div></div>
 <div class="ov" id="ovInfo" data-close><div class="sheet" id="shInfo"></div></div>
+<div class="ov" id="ovTk" data-close style="z-index:70"><div class="sheet" id="shTk"></div></div>
 <div class="ov" id="ovConn" data-close><div class="sheet" id="shConn"></div></div>
 <div class="ov" id="ovLegal" data-close><div class="sheet legal">
   <h2>Normas de uso y privacidad <button class="ibtn" data-act="closeov" aria-label="Cerrar"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></h2>
-  <h3>Uso respetuoso</h3><p>WarMess es un servicio de mensajería instantánea entre personas. No está permitido el acoso, las amenazas, el spam, las estafas, el contenido sexual, violento o ilegal, ni hacerse pasar por otra persona. Si incumples estas normas, tu cuenta puede ser <b>suspendida, bloqueada o eliminada</b>.</p>
+  <h3>Uso respetuoso</h3><p>WarMess es un servicio de mensajes entre personas. No está permitido el acoso, las amenazas, el spam, las estafas, el contenido sexual, violento o ilegal, ni hacerse pasar por otra persona. Si incumples estas normas, tu cuenta puede ser <b>suspendida, bloqueada o eliminada</b> sin previo aviso.</p>
   <h3>Edad mínima</h3><p>Debes tener al menos <span class="minAge">13</span> años para usar el servicio.</p>
-  <h3>Tratamiento de datos</h3><p>Al registrarte autorizas el tratamiento de tus datos personales (correo, nombre, foto, estado, fecha de nacimiento y datos técnicos de uso) para mejorar la experiencia del servicio, prevenir abusos y garantizar la seguridad de la plataforma.</p>
-  <h3>Tus mensajes</h3><p>Los mensajes solo los ven las personas del chat. Si se reporta una conversación, el administrador podrá revisar el historial incluido en el reporte para aplicar las normas.</p>
-  <h3>Tu cuenta</h3><p>Puedes editar tu perfil, bloquear o reportar a otras personas. Las cuentas eliminadas o bloqueadas no pueden reutilizarse con el mismo correo. Los nombres de usuario de cuentas sancionadas quedan reservados.</p>
+  <h3>Datos que guardamos</h3><p>Tu correo, nombre, foto, estado y fecha de nacimiento. Además, por seguridad y para prevenir abusos, registramos datos técnicos de tus visitas: dirección IP, ubicación aproximada, dispositivo, navegador y tiempo de uso.</p>
+  <h3>Tus mensajes</h3><p>Solo los ven las dos personas del chat. Si alguien reporta una conversación, el administrador podrá ver los últimos mensajes que esa persona incluya en el reporte.</p>
+  <h3>Tu cuenta</h3><p>Puedes editar tu perfil cuando quieras y bloquear o reportar a otras personas. Para eliminar tu cuenta contáctanos por nuestros medios oficiales.</p>
 </div></div>
 
 <!-- ADMIN -->
@@ -293,7 +352,7 @@ label.f{display:block;font-size:12.5px;font-weight:600;color:var(--mut);margin:1
     <button class="btn" data-act="admPin">Entrar</button>
   </div>
   <div id="admMain" style="display:none;flex-direction:column;flex:1;min-height:0">
-    <div class="atabs" id="atabs"><button class="on" data-act="atab" data-t="res">Resumen</button><button data-act="atab" data-t="usr">Usuarios</button><button data-act="atab" data-t="vis">Visitas</button><button data-act="atab" data-t="rep">Reportes <span class="pill nuevo" id="repN" hidden>0</span></button><button data-act="atab" data-t="insp">Inspeccionar</button><button data-act="atab" data-t="users">@Usuarios</button><button data-act="atab" data-t="grps">Grupos</button></div>
+    <div class="atabs" id="atabs"><button class="on" data-act="atab" data-t="res">Resumen</button><button data-act="atab" data-t="usr">Usuarios</button><button data-act="atab" data-t="vis">Visitas</button><button data-act="atab" data-t="rep">Reportes <span class="pill nuevo" id="repN" hidden>0</span></button><button data-act="atab" data-t="ins">Inspeccionar</button><button data-act="atab" data-t="sop">Soporte <span class="pill nuevo" id="tkN" hidden>0</span></button><button data-act="atab" data-t="log">Registro</button><button data-act="atab" data-t="blq">Bloqueados</button></div>
     <div class="abody" id="abody"></div>
   </div>
 </div>
@@ -307,7 +366,7 @@ import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signI
   createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { getFirestore, collection, doc, getDoc, getDocs, setDoc, updateDoc, deleteDoc, addDoc, query, where, orderBy, limit,
-  onSnapshot, serverTimestamp, writeBatch, increment, arrayUnion, arrayRemove
+  onSnapshot, serverTimestamp, writeBatch, increment
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 /* ================= CONFIGURACIÓN ================= */
@@ -326,6 +385,9 @@ const ONLINE_MS = 100000;                                   // "en línea" si se
 const fbApp = initializeApp(firebaseConfig);
 const auth = getAuth(fbApp);
 const db = getFirestore(fbApp);
+auth.languageCode = "es";                                  // los correos de Firebase (verificación, contraseña) salen en español
+const RESERVED = ["admin","administrador","soporte","support","warmess","sxgura","sxguraInc".toLowerCase(),"moderador","creador","owner","root","system","sistema","ayuda","help","staff","oficial","official"];
+const UNAME_RE = /^[a-z][a-z0-9_.]{2,19}$/;
 
 /* ================= UTILIDADES ================= */
 const $ = (id) => document.getElementById(id);
@@ -345,17 +407,42 @@ const av = (name, foto, cls = "") => {
   return photoOk(foto) ? `<div class="av ${cls}" style="background-image:url('${esc(foto)}')"></div>`
     : `<div class="av ${cls}" style="background:hsl(${hue(n)} 50% 38%)">${esc(Array.from(n)[0] || "?")}</div>`;
 };
+const badge = (p) => (p && p.verificado) ? `<svg class="vb" viewBox="0 0 24 24" aria-label="Cuenta verificada"><circle cx="12" cy="12" r="10.5" fill="${p.rango === "Creador" ? "#bf5af2" : "#0a84ff"}"/><path d="M7.6 12.4l3 3 5.8-6.2" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>` : "";
+const rkTag = (p) => (p && p.rango) ? `<div><span class="rk ${p.rango === "Creador" ? "cr" : ""}">${esc(p.rango)}</span></div>` : "";
+const normU = (v) => String(v || "").trim().replace(/^@/, "").toLowerCase();
+const unameFmt = (u) => UNAME_RE.test(u) && !u.includes("..") && (!RESERVED.includes(u) || (user && (user.email || "").toLowerCase() === ADMIN_EMAIL));
+const socials = (p) => {
+  const o = [];
+  if(p && /^\d{7,15}$/.test(p.wa || "")) o.push(`<a class="soc wa" target="_blank" rel="noopener noreferrer" href="https://wa.me/${p.wa}">WhatsApp</a>`);
+  if(p && /^[A-Za-z0-9._]{1,30}$/.test(p.ig || "")) o.push(`<a class="soc ig" target="_blank" rel="noopener noreferrer" href="https://instagram.com/${p.ig}">Instagram</a>`);
+  if(p && /^https:\/\//.test(p.link || "")){ try{ const u = new URL(p.link); o.push(`<a class="soc ln" target="_blank" rel="noopener noreferrer" href="${esc(u.href)}">🔗 ${esc(u.hostname.replace(/^www\./, "").slice(0, 28))}</a>`); }catch(e){} }
+  return o.length ? `<div class="socs">${o.join("")}</div>` : "";
+};
+let unT = null;
+function watchUname(inp, st, own){
+  inp.addEventListener("input", () => {
+    clearTimeout(unT); const u = normU(inp.value); st.className = "ustat";
+    if(!u){ st.textContent = ""; return; }
+    if(!unameFmt(u)){ st.className = "ustat bad"; st.textContent = "De 3 a 20 caracteres: letras minúsculas, números, _ y . (debe empezar por letra)."; return; }
+    if(u === (typeof own === "function" ? own() : own)){ st.className = "ustat ok"; st.textContent = "Este es tu usuario actual."; return; }
+    st.textContent = "Comprobando…";
+    unT = setTimeout(async () => {
+      try{ const s = await getDoc(doc(db, "wm_usernames", u)); if(normU(inp.value) !== u) return; st.className = "ustat " + (s.exists() ? "bad" : "ok"); st.textContent = s.exists() ? "@" + u + " no está disponible." : "@" + u + " está disponible ✓"; }
+      catch(e){ st.textContent = ""; }
+    }, 350);
+  });
+}
+async function claimUsername(u){
+  if(!unameFmt(u)) throw { code:"wm/ufmt" };
+  const r = doc(db, "wm_usernames", u), s = await getDoc(r);
+  if(s.exists()){ const d = s.data(); if(d.uid === me() && !d.anulado) return; throw { code:"wm/utaken" }; }
+  try{ await setDoc(r, { uid: me(), anulado: false, creado: serverTimestamp() }); }catch(e){ if(e.code === "permission-denied") throw { code:"wm/utaken" }; throw e; }
+}
+const unameErr = (e) => e && e.code === "wm/utaken" ? "Ese nombre de usuario no está disponible. Prueba con otro." : e && e.code === "wm/ufmt" ? "Usuario no válido: de 3 a 20 caracteres, letras minúsculas, números, _ y . (empieza por letra)." : null;
 let toastT = null;
 function toast(t){ const e = $("toast"); e.textContent = t; e.classList.add("on"); clearTimeout(toastT); toastT = setTimeout(() => e.classList.remove("on"), 3200); }
 const pad2 = (n) => String(n).padStart(2, "0");
-const fmtT = (t) => {
-  const d = new Date(t);
-  let h = d.getHours();
-  const m = pad2(d.getMinutes());
-  const ampm = h >= 12 ? "p. m." : "a. m.";
-  h = h % 12 || 12;
-  return h + ":" + m + " " + ampm;
-};
+const fmtT = (t) => new Date(t).toLocaleTimeString("es-CO", { hour:"numeric", minute:"2-digit", hour12:true }).replace(/\s+/g, " ");
 const sameDay = (a, b) => new Date(a).toDateString() === new Date(b).toDateString();
 function dayLabel(t){
   const n = Date.now(); if(sameDay(t, n)) return "Hoy"; if(sameDay(t, n - 864e5)) return "Ayer";
@@ -398,7 +485,7 @@ async function fileToAvatar(file){
 /* ================= ESTADO ================= */
 let user = null, prof = null, priv = null, isAdm = false, seq = 0;
 let chats = new Map(), peers = new Map(), cur = null, msgsData = [], msgLimit = 40, ptab = "chats", qtxt = "", qSeq = 0, qRes = null;
-let unsubChats = null, unsubMsgs = null, unsubPeer = null, unsubSelf = null, statusT = null, verT = null, compSig = "", firstChats = true, olderFlag = false, firstMsgs = true;
+let unsubTk = null, unsubChats = null, unsubMsgs = null, unsubPeer = null, unsubSelf = null, statusT = null, verT = null, compSig = "", firstChats = true, olderFlag = false, firstMsgs = true;
 let photo = { onb: null, prof: null }, avTarget = "onb", lastSend = 0, markBusy = false;
 const me = () => user && user.uid;
 const keyOf = (c, who) => (c.a === who ? "A" : "B");
@@ -492,6 +579,7 @@ async function route(my){
     if(!s.exists()) return showOnb();
     prof = s.data();
     if(prof.estado !== "activo") return showBlocked(prof.estado);
+    if(!prof.usuario) return showUscr();
     try{ const p = await getDoc(doc(db, "wm_priv", user.uid)); priv = p.exists() ? p.data() : {}; }catch(e){ priv = {}; }
     enterApp();
   }catch(e){
@@ -501,55 +589,57 @@ async function route(my){
   }
 }
 function showBlocked(st){
-  const t = {
-    suspendido:["Tu cuenta ha sido suspendida", "Tu cuenta ha sido suspendida por incumplimiento de nuestras normas. Si crees que se trata de un error, puedes solicitar una revisión."],
-    bloqueado:["Cuenta bloqueada", "Tu cuenta fue bloqueada por incumplir las normas de uso."],
-    eliminado:["Cuenta eliminada", "Esta cuenta fue eliminada. No podrás crear una nueva cuenta con el mismo correo."]
-  }[st] || ["Cuenta restringida", "No puedes usar el servicio en este momento."];
-  $("blkT").textContent = t[0]; $("blkP").textContent = t[1];
-  const card = document.querySelector("#blocked .card");
-  if(card){
-    let extra = `<button class="btn" data-act="retry" style="margin-top:0">Reintentar</button>`;
-    if(st === "suspendido"){
-      extra = `<button class="btn" data-act="supportTicket" style="margin-top:0">Solicitar revisión</button>
-               <button class="btn ghost" data-act="retry">Reintentar</button>
-               <button class="btn ghost" data-act="logout">Cerrar sesión</button>`;
-    } else {
-      extra += `<button class="btn ghost" data-act="logout">Cerrar sesión</button>`;
-    }
-    card.innerHTML = extra;
-  }
-  scr("blocked");
+  const t = { suspendido:["Cuenta suspendida", "Tu cuenta ha sido suspendida por incumplimiento de nuestras normas. Si crees que es un error, solicita una revisión y nuestro equipo de soporte te responderá."],
+    bloqueado:["Cuenta bloqueada", "Tu cuenta ha sido bloqueada por incumplimiento de nuestras normas. Si crees que es un error, solicita una revisión."],
+    eliminado:["Cuenta eliminada", "Esta cuenta fue eliminada por incumplimiento de nuestras normas. Si crees que es un error, solicita una revisión."] }[st] || ["Cuenta restringida", "No puedes usar el servicio en este momento."];
+  $("blkT").textContent = t[0]; $("blkP").textContent = t[1]; scr("blocked");
+  try{ unsubTk && unsubTk(); }catch(e){}
+  unsubTk = onSnapshot(query(collection(db, "wm_tickets"), where("uid", "==", user.uid)), (s) => {
+    const ts = s.docs.map((d) => d.data({ serverTimestamps:"estimate" })).sort((a, b) => ms(b.creado) - ms(a.creado));
+    $("tkList").innerHTML = ts.map((x) => `<div class="tk"><b>Tu solicitud</b> · ${esc(fmtFull(ms(x.creado)))} <span class="pill ${x.estado === "abierto" ? "nuevo" : "revisado"}">${x.estado === "abierto" ? "en revisión" : esc(x.estado)}</span><br>${esc(x.mensaje)}${x.respuesta ? `<div class="rsp"><b>Respuesta de soporte:</b><br>${esc(x.respuesta)}</div>` : ""}</div>`).join("");
+  }, () => {});
+}
+function ticketSheet(){
+  $("shTk").innerHTML = `<h2>Solicitar revisión<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
+    <p class="lead" style="margin:6px 0 0">Cuéntanos por qué crees que tu cuenta no debería estar restringida. Esto llega directamente a nuestro equipo.</p>
+    <label class="f">Correo de tu cuenta</label><input class="in" value="${esc(user.email || "")}" readonly>
+    <label class="f" for="tkMsg">Tu mensaje</label><textarea class="in" id="tkMsg" rows="5" maxlength="800" placeholder="Explica qué pasó y por qué debemos revisar tu caso…" style="resize:none"></textarea>
+    <div class="msg" id="tkErr"></div><button class="btn" data-act="tkSend" id="tkGo">Enviar solicitud</button>`;
+  openOv("ovTk");
+}
+async function ticketSend(){
+  const m = $("tkMsg").value.trim(); if(m.length < 10) return setMsg("tkErr", "Escribe al menos 10 caracteres.");
+  busy("tkGo", true, "Enviando…");
+  try{
+    await addDoc(collection(db, "wm_tickets"), { uid: user.uid, email: user.email || "", nombre: prof ? prof.nombre : "", usuario: prof ? prof.usuario || "" : "", estadoCuenta: prof ? prof.estado : "", mensaje: m, creado: serverTimestamp(), estado:"abierto" });
+    closeOv("ovTk"); toast("Solicitud enviada. Te responderemos aquí ✅");
+  }catch(e){ console.log(e); setMsg("tkErr", "No se pudo enviar. Inténtalo de nuevo."); busy("tkGo", false); }
 }
 
 /* ---- crear perfil ---- */
 function showOnb(){
   $("minAge").textContent = MIN_AGE; document.querySelectorAll(".minAge").forEach((e) => e.textContent = MIN_AGE);
   const nm = $("onbNm"); if(!nm.value) nm.value = (user.displayName || (user.email || "").split("@")[0] || "").slice(0, 40);
+  const us = $("onbUs"); if(!us.value){ const s = (user.email || "").split("@")[0].toLowerCase().replace(/[^a-z0-9_.]/g, "").replace(/^[^a-z]+/, "").slice(0, 16); if(s.length >= 3) us.value = s; }
+  if(us.value) us.dispatchEvent(new Event("input"));
   $("onbBd").max = new Date().toISOString().slice(0, 10);
   setMsg("onbMsg", ""); paintOnbAv(); scr("onb");
   if(!photo.onb && user.photoURL){ loadImg(user.photoURL, true).then(squareJpeg).then((d) => { if(!photo.onb){ photo.onb = d; paintOnbAv(); } }).catch(() => {}); }
 }
 function paintOnbAv(){ const n = $("onbNm").value || "?"; $("onbAv").outerHTML = av(n, photo.onb, "lg").replace('class="av lg"', 'class="av lg" id="onbAv"'); }
 async function createProfile(){
-  const nombre = $("onbNm").value.replace(/\s+/g, " ").trim();
-  const username = ($("onbUser").value || "").trim().toLowerCase().replace(/[^a-z0-9_]/g, "");
-  const bd = $("onbBd").value, bio = $("onbBio").value.trim().slice(0, 120);
+  const nombre = $("onbNm").value.replace(/\s+/g, " ").trim(), bd = $("onbBd").value, bio = $("onbBio").value.trim().slice(0, 100), us = normU($("onbUs").value);
   if(nombre.length < 2) return setMsg("onbMsg", "Escribe tu nombre (mínimo 2 letras).");
-  if(username.length < 3 || username.length > 20) return setMsg("onbMsg", "El nombre de usuario debe tener entre 3 y 20 caracteres.");
-  if(!/^[a-z0-9_]+$/.test(username)) return setMsg("onbMsg", "Solo se permiten letras, números y guion bajo (_).");
-  if(/^[0-9]+$/.test(username)) return setMsg("onbMsg", "El nombre de usuario no puede ser solo números.");
+  if(!unameFmt(us)) return setMsg("onbMsg", unameErr({ code:"wm/ufmt" }));
   const a = ageOf(bd);
   if(a < 0) return setMsg("onbMsg", "Indica tu fecha de nacimiento.");
   if(a < MIN_AGE) return setMsg("onbMsg", `Debes tener al menos ${MIN_AGE} años para usar WarMess.`);
   if(a > 110) return setMsg("onbMsg", "Revisa tu fecha de nacimiento.");
-  if(!$("onbOk").checked) return setMsg("onbMsg", "Debes aceptar las normas para continuar.");
+  if(!$("onbOk").checked) return setMsg("onbMsg", "Debes aceptar las normas y el tratamiento de datos para continuar.");
   setMsg("onbMsg", ""); busy("onbGo", true, "Creando…");
   try{
-    // Verificar que el username no esté tomado
-    const uCheck = await getDoc(doc(db, "wm_usernames", username));
-    if(uCheck.exists()) return setMsg("onbMsg", "Ese nombre de usuario ya está en uso. Elige otro."), busy("onbGo", false);
-    
+    try{ const bl = await getDoc(doc(db, "wm_blocked_emails", (user.email || "").toLowerCase())); if(bl.exists()){ setMsg("onbMsg", "Este correo no puede registrarse en WarMess. Usa un correo diferente."); busy("onbGo", false); return; } }catch(e){}
+    await claimUsername(us);
     let id = null;
     const ex = await getDocs(query(collection(db, "wm_ids"), where("uid", "==", user.uid)));
     if(!ex.empty) id = ex.docs[0].id;
@@ -558,31 +648,32 @@ async function createProfile(){
       try{ await setDoc(doc(db, "wm_ids", c), { uid: user.uid, creado: serverTimestamp() }); id = c; }catch(e){ if(e.code !== "permission-denied") throw e; }
     }
     if(!id) throw { code:"wm/id" };
-    
-    // Reservar username
-    await setDoc(doc(db, "wm_usernames", username), { uid: user.uid, creado: serverTimestamp() });
-    
-    const isCreator = (user.email || "").toLowerCase() === ADMIN_EMAIL;
-    await setDoc(doc(db, "wm_users", user.uid), {
-      id, username, nombre, foto: photo.onb || "", bio, estado:"activo",
-      verificado: isCreator, rango: isCreator ? "creador" : "",
-      links: { whatsapp:"", instagram:"", web:"" },
-      creado: serverTimestamp(), ultimaConexion: serverTimestamp()
-    });
+    await setDoc(doc(db, "wm_users", user.uid), { id, usuario: us, nombre, foto: photo.onb || "", bio, estado:"activo", creado: serverTimestamp(), ultimaConexion: serverTimestamp() });
     await setDoc(doc(db, "wm_priv", user.uid), { email: user.email, nacimiento: bd, proveedor: (user.providerData[0] && user.providerData[0].providerId) || "", nVisitas: 0, creado: serverTimestamp() });
     photo.onb = null; await route(); if(prof && prof.estado === "activo") openProfile(true);
   }catch(e){
     console.log("Perfil:", e);
-    setMsg("onbMsg", e.code === "wm/id" || e.code === "permission-denied" ? "No se pudo crear tu perfil. Si eres el administrador, revisa que las reglas de Firestore permitan escribir en wm_usernames y wm_ids." : (e.message || "No se pudo crear tu perfil. Inténtalo de nuevo."));
+    setMsg("onbMsg", unameErr(e) || (e.code === "wm/id" || e.code === "permission-denied" ? "No se pudo crear tu perfil. Si eres el administrador, revisa que las reglas de Firestore v16 estén publicadas." : "No se pudo crear tu perfil. Inténtalo de nuevo."));
   }
   busy("onbGo", false);
+}
+/* cuentas anteriores al sistema de usuarios: deben elegir uno */
+function showUscr(){
+  const i = $("usIn"); if(!i.value){ const s = (user.email || "").split("@")[0].toLowerCase().replace(/[^a-z0-9_.]/g, "").replace(/^[^a-z]+/, "").slice(0, 16); if(s.length >= 3) i.value = s; }
+  setMsg("usMsg", ""); scr("uscr"); if(i.value) i.dispatchEvent(new Event("input"));
+}
+async function uscrGo(){
+  const u = normU($("usIn").value); if(!unameFmt(u)) return setMsg("usMsg", unameErr({ code:"wm/ufmt" }));
+  busy("usGo", true, "Guardando…");
+  try{ await claimUsername(u); await updateDoc(doc(db, "wm_users", user.uid), { usuario: u }); busy("usGo", false); return route(); }
+  catch(e){ console.log(e); setMsg("usMsg", unameErr(e) || "No se pudo guardar. Inténtalo de nuevo."); }
+  busy("usGo", false);
 }
 
 /* ================= APP ================= */
 function teardown(){
-  [unsubChats, unsubMsgs, unsubPeer, unsubSelf, unsubGroups].forEach((f) => { try{ f && f(); }catch(e){} });
-  unsubChats = unsubMsgs = unsubPeer = unsubSelf = unsubGroups = null;
-  groups = new Map(); curGroup = null;
+  [unsubChats, unsubMsgs, unsubPeer, unsubSelf, unsubTk].forEach((f) => { try{ f && f(); }catch(e){} });
+  unsubChats = unsubMsgs = unsubPeer = unsubSelf = unsubTk = null;
   clearInterval(statusT); clearInterval(verT); clearInterval(sessT); clearInterval(secT); sessT = secT = null;
   admStop(); closeAllOv(); $("adm").classList.remove("on");
   chats = new Map(); peers = new Map(); cur = null; msgsData = []; prof = priv = null; isAdm = false; qtxt = ""; qRes = null; ptab = "chats";
@@ -590,25 +681,19 @@ function teardown(){
   $("shell").classList.remove("chat"); $("main").innerHTML = welcomeHTML(); $("q").value = "";
   document.title = "WarMess · By Sxgura Inc";
 }
-const welcomeHTML = () => `<div class="welcome" style="margin:auto"><div class="logo"><svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg></div><b style="color:#fff;font-size:20px">WarMess</b><p>Elige un chat o busca por <b>@usuario</b> o ID para conectarte.</p></div>`;
-
-let groups = new Map(), unsubGroups = null, curGroup = null;
+const welcomeHTML = () => `<div class="welcome" style="margin:auto"><div class="logo"><svg viewBox="0 0 24 24"><use href="#lg"/></svg></div><b style="color:#fff;font-size:20px">WarMess</b><p>Elige un chat o busca el <b>@usuario</b> o el ID de otra persona para conectarte.</p></div>`;
 
 function enterApp(){
   isAdm = (user.email || "").toLowerCase() === ADMIN_EMAIL && user.emailVerified;
   $("admBtn").hidden = !isAdm;
   renderMe(); scr("app"); $("main").innerHTML = welcomeHTML(); setPtab("chats");
   unsubChats = onSnapshot(query(collection(db, "wm_chats"), where("miembros", "array-contains", user.uid)), onChats, (e) => { console.log("Chats:", e); toast("No se pudieron cargar los chats. ¿Reglas v15 publicadas?"); });
-  unsubGroups = onSnapshot(query(collection(db, "wm_groups"), where("miembros", "array-contains", user.uid)), (snap) => {
-    groups = new Map();
-    snap.docs.forEach(d => groups.set(d.id, { id: d.id, ...d.data({ serverTimestamps:"estimate" }) }));
-    if(ptab === "groups") renderList();
-  }, (e) => console.log("Grupos:", e));
   unsubSelf = onSnapshot(doc(db, "wm_users", user.uid), (s) => {
     if(!s.exists()) return; prof = s.data(); renderMe();
     if(prof.estado !== "activo"){ teardownLive(); showBlocked(prof.estado); }
   }, () => {});
   startSession();
+  if(isAdm && (prof.rango !== "Creador" || !prof.verificado)) updateDoc(doc(db, "wm_users", user.uid), { verificado:true, rango:"Creador" }).catch(() => {});
 }
 function teardownLive(){ [unsubChats, unsubMsgs, unsubPeer].forEach((f) => { try{ f && f(); }catch(e){} }); unsubChats = unsubMsgs = unsubPeer = null; clearInterval(sessT); clearInterval(secT); closeAllOv(); }
 function renderMe(){
@@ -663,95 +748,52 @@ function setPtab(t){
 function chatRow(c){
   const p = peers.get(otherOf(c)), nm = nameOf(c), un = unreadOf(c);
   let sub = c.estado === "pendiente" ? "Solicitud enviada · esperando respuesta" : (c.ultimoMsg ? (c.ultimoDe === me() ? "Tú: " : "") + c.ultimoMsg : "Conectados · escribe el primer mensaje");
-  return `<button class="row ${c.id === cur ? "sel" : ""}" data-act="open" data-c="${esc(c.id)}">${av(nm, p && p.foto)}<div class="mid"><div class="nm">${esc(nm)}</div><div class="sub ${un ? "un" : ""}">${esc(sub)}</div></div><div class="meta"><span>${esc(fmtList(ms(c.ultimoMsgAt)))}</span>${un ? '<span class="unr"></span>' : ""}</div></button>`;
+  return `<button class="row ${c.id === cur ? "sel" : ""}" data-act="open" data-c="${esc(c.id)}">${av(nm, p && p.foto)}<div class="mid"><div class="nm">${esc(nm)}${badge(p)}</div><div class="sub ${un ? "un" : ""}">${esc(sub)}</div></div><div class="meta"><span>${esc(fmtList(ms(c.ultimoMsgAt)))}</span>${un ? '<span class="unr"></span>' : ""}</div></button>`;
 }
+const qMode = () => { const q = qtxt.trim(), raw = q.replace(/^@/, ""); if(/^\d+$/.test(raw)) return "id"; if(raw && (q.startsWith("@") || raw.length >= 3)) return "u"; return ""; };
 function renderList(){
   const L = $("list"); if(!L) return;
   const q = qtxt.trim(), all = [...chats.values()];
   if(ptab === "reqs"){
     const rs = all.filter((c) => c.estado === "pendiente" && c.solicita !== me()).sort((a, b) => ms(b.creado) - ms(a.creado));
     L.innerHTML = rs.length ? rs.map((c) => { const p = peers.get(otherOf(c)), nm = (p && p.nombre) || "…";
-      return `<div class="req"><div class="rq">${av(nm, p && p.foto)}<div class="mid" style="flex:1;min-width:0"><div class="nm" style="font-weight:650">${esc(nm)}</div><div class="sub" style="font-size:13px;color:var(--mut)">ID ${esc((p && p.id) || "…")} · ${esc(fmtList(ms(c.creado)))}</div></div></div>${c.primerMsg ? `<div class="q">${esc(c.primerMsg)}</div>` : ""}<div class="acts"><button class="btn sm" data-act="accept" data-c="${esc(c.id)}">Aceptar</button><button class="btn sm ghost" data-act="reject" data-c="${esc(c.id)}">Rechazar</button></div></div>`; }).join("")
+      return `<div class="req"><div class="rq">${av(nm, p && p.foto)}<div class="mid" style="flex:1;min-width:0"><div class="nm" style="font-weight:650">${esc(nm)}${badge(p)}</div><div class="sub" style="font-size:13px;color:var(--mut)">${p && p.usuario ? "@" + esc(p.usuario) + " · " : ""}ID ${esc((p && p.id) || "…")} · ${esc(fmtList(ms(c.creado)))}</div></div></div>${c.primerMsg ? `<div class="q">${esc(c.primerMsg)}</div>` : ""}<div class="acts"><button class="btn sm" data-act="accept" data-c="${esc(c.id)}">Aceptar</button><button class="btn sm ghost" data-act="reject" data-c="${esc(c.id)}">Rechazar</button></div></div>`; }).join("")
       : `<div class="empty"><div class="big">📭</div>No tienes solicitudes pendientes.</div>`;
     return;
   }
-  if(ptab === "groups"){
-    const gs = [...groups.values()].sort((a,b) => ms(b.ultimoMsgAt) - ms(a.ultimoMsgAt));
-    let html = `<div style="padding:10px 14px"><button class="btn" data-act="createGroup" style="margin:0">+ Crear grupo</button></div>`;
-    if(!gs.length){
-      html += `<div class="empty"><div class="big">👥</div>Aún no estás en ningún grupo.<br>Crea uno e invita personas por @usuario o ID.</div>`;
-    } else {
-      html += gs.map(g => {
-        const isAdmin = (g.admins || []).includes(me()) || g.creador === me();
-        return `<button class="row" data-act="openGroup" data-g="${esc(g.id)}">
-          ${av(g.nombre, g.foto)}
-          <div class="mid"><div class="nm">${esc(g.nombre)} ${isAdmin?'<span class="pill nuevo">Admin</span>':''}</div>
-          <div class="sub">@${esc(g.username)} · ${(g.miembros||[]).length} miembros${g.ultimoMsg ? ' · '+esc(g.ultimoMsg.slice(0,40)) : ''}</div></div>
-          <div class="meta"><span>${esc(fmtList(ms(g.ultimoMsgAt)))}</span></div>
-        </button>`;
-      }).join("");
-    }
-    L.innerHTML = html;
-    return;
-  }
-  const isId = /^\d+$/.test(q);
-  const isUser = /^@?[a-zA-Z0-9_]{2,}$/.test(q) && !isId;
+  const mode = qMode(), raw = q.replace(/^@/, "");
   let html = "";
-  let rows = all.filter((c) => {
-    if(c["eliminado"+keyOf(c, me())] || c["archivado"+keyOf(c, me())] || c["oculto"+keyOf(c, me())]) return false;
-    return c.estado === "activo" || (c.estado === "pendiente" && c.solicita === me()) || c.estado === "bloqueado";
-  });
-  if(q && !isId && !isUser){ const n = q.toLowerCase(); rows = rows.filter((c) => nameOf(c).toLowerCase().includes(n)); }
+  let rows = all.filter((c) => c.estado === "activo" || (c.estado === "pendiente" && c.solicita === me()) || c.estado === "bloqueado");
+  if(q && mode !== "id"){ const n = raw.toLowerCase(); rows = rows.filter((c) => { const p = peers.get(otherOf(c)); return nameOf(c).toLowerCase().includes(n) || (p && String(p.usuario || "").includes(n)); }); }
   rows.sort((a, b) => ms(b.ultimoMsgAt) - ms(a.ultimoMsgAt));
-  if(isId || isUser){
-    const label = isId ? `ID <b>${esc(q)}</b>` : `usuario <b>@${esc(q.replace(/^@/,""))}</b>`;
-    html += `<div class="hint">Resultados para ${label}</div>`;
-    if((isId && q.length < 3) || (isUser && q.replace(/^@/,"").length < 2)) html += `<div class="empty" style="padding:24px">Escribe al menos ${isId ? "3 dígitos" : "2 caracteres"}.</div>`;
+  if(mode){
+    html += `<div class="hint">${mode === "id" ? `Resultados para el ID <b>${esc(raw)}</b>` : `Usuarios que coinciden con <b>@${esc(raw.toLowerCase())}</b>`}</div>`;
+    if(raw.length < 3) html += `<div class="empty" style="padding:24px">Escribe al menos 3 ${mode === "id" ? "dígitos del ID" : "letras del usuario"}.</div>`;
     else if(qRes === null) html += `<div class="empty" style="padding:24px">Buscando…</div>`;
-    else if(!qRes.length) html += `<div class="empty" style="padding:24px"><div class="big">🔎</div>No se encontró a nadie con ese ${isId ? "ID" : "nombre de usuario"}.</div>`;
+    else if(!qRes.length) html += `<div class="empty" style="padding:24px"><div class="big">🔎</div>No hay usuarios con ${mode === "id" ? "ese ID" : "ese usuario"}.</div>`;
     else html += qRes.map((u) => {
       const cid = [me(), u.uid].sort().join("_"), ex = chats.get(cid), self = u.uid === me();
       const btn = self ? '<span style="color:var(--mut);font-size:13px">Eres tú</span>' : ex ? `<button class="btn sm ghost" data-act="open" data-c="${esc(cid)}">${ex.estado === "pendiente" ? (ex.solicita === me() ? "Pendiente" : "Ver solicitud") : "Abrir"}</button>` : `<button class="btn sm" data-act="connect" data-u="${esc(u.uid)}">Conectar</button>`;
-      const badge = u.verificado ? ' <span style="color:var(--acc)">✓</span>' : '';
-      const rango = u.rango === "creador" ? ' <span class="pill" style="background:rgba(175,82,222,.2);color:#bf5af2">Creador</span>' : (u.rango ? ` <span class="pill nuevo">${esc(u.rango)}</span>` : '');
-      return `<div class="row" style="cursor:default">${av(u.nombre, u.foto)}<div class="mid"><div class="nm">${esc(u.nombre)}${badge}${rango}</div><div class="sub">@${esc(u.username || "—")} · ID ${esc(u.id)}${u.bio ? " · " + esc(u.bio) : ""}</div></div>${btn}</div>`; }).join("");
+      return `<div class="row" style="cursor:default">${av(u.nombre, u.foto)}<div class="mid"><div class="nm">${esc(u.nombre)}${badge(u)}</div><div class="sub">${u.usuario ? "@" + esc(u.usuario) + " · " : ""}ID ${esc(u.id)}</div></div>${btn}</div>`; }).join("");
     if(rows.length) html += `<div class="hint" style="margin-top:6px">Tus chats</div>`;
   }
-  html += rows.length ? rows.map(chatRow).join("") : (!(isId || isUser) ? (q ? `<div class="empty">Ningún chat coincide con «${esc(q)}».<br>Para buscar a alguien nuevo, escribe su <b>@usuario</b> o <b>ID</b>.</div>` : `<div class="empty"><div class="big">💬</div>Aún no tienes chats.<br>Busca a alguien por su <b>@nombredeusuario</b> o <b>ID</b> para conectarte.</div>`) : "");
+  html += rows.length ? rows.map(chatRow).join("") : (!mode ? (q ? `<div class="empty">Ningún chat coincide con «${esc(q)}».<br>Para buscar a alguien nuevo escribe su <b>@usuario</b> o su <b>ID</b>.</div>` : `<div class="empty"><div class="big">💬</div>Aún no tienes chats.<br>Pide a alguien su <b>@usuario</b> o <b>ID</b> y búscalo arriba para conectarte. Los tuyos están en tu perfil.</div>`) : "");
   L.innerHTML = html;
 }
 let qT = null;
 function onSearch(){
   qtxt = $("q").value; clearTimeout(qT);
-  const q = qtxt.trim();
+  const q = qtxt.trim(), raw = q.replace(/^@/, ""), mode = qMode();
   if(q && ptab === "reqs") setPtab("chats");
-  if(/^\d{3,}$/.test(q) || /^@?[a-zA-Z0-9_]{2,}$/.test(q)){ qRes = null; renderList(); qT = setTimeout(() => runSearch(q), 280); }
+  if(mode && raw.length >= 3){ qRes = null; renderList(); qT = setTimeout(() => runSearch(raw, mode), 250); }
   else{ qRes = []; renderList(); }
 }
-async function runSearch(q){
-  const my = ++qSeq;
+async function runSearch(q, mode){
+  const my = ++qSeq, f = mode === "id" ? "id" : "usuario", v = mode === "id" ? q : q.toLowerCase();
   try{
-    let results = [];
-    if(/^\d+$/.test(q)){
-      const s = await getDocs(query(collection(db, "wm_users"), where("id", ">=", q), where("id", "<=", q + ""), limit(6)));
-      results = s.docs.map((d) => ({ uid:d.id, ...d.data() }));
-    } else {
-      const uname = q.replace(/^@/, "").toLowerCase();
-      // Buscar por username exacto primero
-      const exact = await getDoc(doc(db, "wm_usernames", uname));
-      if(exact.exists()){
-        const uid = exact.data().uid;
-        const u = await getDoc(doc(db, "wm_users", uid));
-        if(u.exists()) results.push({ uid, ...u.data() });
-      }
-      // También por prefijo si no hay exacto
-      if(!results.length){
-        const s = await getDocs(query(collection(db, "wm_users"), where("username", ">=", uname), where("username", "<=", uname + ""), limit(6)));
-        results = s.docs.map((d) => ({ uid:d.id, ...d.data() }));
-      }
-    }
+    const s = await getDocs(query(collection(db, "wm_users"), where(f, ">=", v), where(f, "<=", v + "\uf8ff"), limit(8)));
     if(my !== qSeq) return;
-    qRes = results.filter((u) => u.estado === "activo" || u.uid === me());
+    qRes = s.docs.map((d) => ({ uid:d.id, ...d.data() })).filter((u) => u.estado === "activo" || u.uid === me());
   }catch(e){ console.log("Búsqueda:", e); if(my !== qSeq) return; qRes = []; toast("No se pudo buscar. Revisa tu conexión."); }
   renderList();
 }
@@ -760,7 +802,7 @@ async function runSearch(q){
 function connectSheet(uid){
   const u = (qRes || []).find((x) => x.uid === uid); if(!u) return;
   $("shConn").innerHTML = `<h2>Conectar<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
-    <div style="text-align:center;margin:10px 0 6px"><div style="display:flex;justify-content:center">${av(u.nombre, u.foto, "lg")}</div><div style="font-size:19px;font-weight:700;margin-top:10px">${esc(u.nombre)}</div><div style="color:var(--mut);font-size:14px">ID ${esc(u.id)}</div></div>
+    <div style="text-align:center;margin:10px 0 6px"><div style="display:flex;justify-content:center">${av(u.nombre, u.foto, "lg")}</div><div style="font-size:19px;font-weight:700;margin-top:10px">${esc(u.nombre)}${badge(u)}</div><div style="color:var(--mut);font-size:14px">${u.usuario ? "@" + esc(u.usuario) + " · " : ""}ID ${esc(u.id)}</div></div>
     <label class="f" for="cnMsg">Mensaje de presentación <span style="font-weight:400">(opcional)</span></label>
     <textarea class="in" id="cnMsg" rows="3" maxlength="200" placeholder="Hola, soy…" style="resize:none"></textarea>
     <div class="msg" id="cnErr"></div>
@@ -798,8 +840,7 @@ function openChat(cid){
 }
 function closeChatUI(){
   try{ unsubMsgs && unsubMsgs(); unsubPeer && unsubPeer(); }catch(e){} unsubMsgs = unsubPeer = null; clearInterval(statusT);
-  cur = null; curGroup = null; msgsData = []; selectedMsg = null;
-  $("shell").classList.remove("chat"); $("main").innerHTML = welcomeHTML(); closeOv("ovInfo"); renderList();
+  cur = null; msgsData = []; $("shell").classList.remove("chat"); $("main").innerHTML = welcomeHTML(); closeOv("ovInfo"); renderList();
 }
 function subMsgs(){
   const cid = cur; try{ unsubMsgs && unsubMsgs(); }catch(e){}
@@ -815,7 +856,7 @@ function subMsgs(){
 function renderHeader(){
   const c = chats.get(cur); if(!c || !$("mhN")) return;
   const p = peers.get(otherOf(c)), nm = nameOf(c);
-  $("mhAv").innerHTML = av(nm, p && p.foto, "sm"); $("mhN").textContent = nm;
+  $("mhAv").innerHTML = av(nm, p && p.foto, "sm"); $("mhN").innerHTML = esc(nm) + badge(p);
   const s = $("mhS"); let t = "", on = false;
   if(c.estado === "pendiente") t = c.solicita === me() ? "Solicitud pendiente" : "Solicitud de conexión";
   else if(!p) t = "";
@@ -827,18 +868,10 @@ function renderHeader(){
 }
 function renderComp(){
   const c = chats.get(cur), w = $("compWrap"); if(!c || !w) return;
-  const sig = c.estado + "|" + (c.bloqueadoPor || "") + "|" + c.solicita + "|" + msgTimerMode;
+  const sig = c.estado + "|" + (c.bloqueadoPor || "") + "|" + c.solicita;
   if(sig === compSig) return; compSig = sig;
   if(c.estado === "activo" && !c.bloqueadoPor){
-    const t24 = msgTimerMode === "24h" ? "on" : "";
-    const tOnce = msgTimerMode === "once" ? "on" : "";
-    w.innerHTML = `
-      <div style="display:flex;gap:6px;padding:6px 10px 0;flex-wrap:wrap">
-        <button class="btn sm ghost ${t24}" data-act="setTemp" data-m="24h" style="font-size:12px;padding:5px 10px">⏱ 24h</button>
-        <button class="btn sm ghost ${tOnce}" data-act="setTemp" data-m="once" style="font-size:12px;padding:5px 10px">🔥 Al leer</button>
-        <button class="btn sm ghost" data-act="chatMenu" style="font-size:12px;padding:5px 10px;margin-left:auto">⋯</button>
-      </div>
-      <form class="comp" id="cForm" autocomplete="off"><textarea id="cTxt" rows="1" maxlength="1000" placeholder="${msgTimerMode==='24h'?'Mensaje temporal (24h)':msgTimerMode==='once'?'Mensaje que se autodestruye':'Escribe un mensaje'}" enterkeyhint="send"></textarea><button class="send" type="submit" aria-label="Enviar">${IC.send}</button></form>`;
+    w.innerHTML = `<form class="comp" id="cForm" autocomplete="off"><textarea id="cTxt" rows="1" maxlength="1000" placeholder="Escribe un mensaje" enterkeyhint="send"></textarea><button class="send" type="submit" aria-label="Enviar">${IC.send}</button></form>`;
     const ta = $("cTxt"), fit = () => { ta.style.height = "auto"; ta.style.height = Math.min(ta.scrollHeight, 130) + "px"; };
     ta.addEventListener("input", fit);
     ta.addEventListener("keydown", (e) => { if(e.key === "Enter" && !e.shiftKey && !e.isComposing && !matchMedia("(pointer:coarse)").matches){ e.preventDefault(); $("cForm").requestSubmit(); } });
@@ -851,8 +884,6 @@ function renderComp(){
   }else if(c.bloqueadoPor){ w.innerHTML = `<div class="lockbar">No puedes enviar mensajes en este chat.</div>`;
   }else{ w.innerHTML = `<div class="lockbar">${c.estado === "rechazado" || c.estado === "pendiente" ? "Esperando respuesta a tu solicitud." : "Chat no disponible."}</div>`; }
 }
-let selectedMsg = null, msgTimerMode = "none"; // none | 24h | once
-
 function renderMsgs(){
   const el = $("msgs"); if(!el) return;
   const c = chats.get(cur); if(!c) return;
@@ -866,20 +897,11 @@ function renderMsgs(){
     h += `<div class="sysm">${mine ? "Tu mensaje de presentación" : esc(nameOf(c)) + " te escribió"}:<br><b>«${esc(c.primerMsg)}»</b></div>`;
   }else if(all && c.estado === "activo" && !msgsData.length){ h += `<div class="sysm">Ya están conectados. ¡Escribe el primer mensaje! 👋</div>`; }
   let lastDay = 0;
-  const now = Date.now();
   msgsData.forEach((m) => {
-    // Auto-destruir mensajes temporales ya leídos o expirados
-    if(m.temp === "once" && m.visto && m.de !== me()) return;
-    if(m.temp === "24h" && ms(m.creado) && (now - ms(m.creado) > 86400000)) return;
-    if(m.borrado) return; // sin rastro
-    if(Array.isArray(m.borradoPor) && m.borradoPor.includes(me())) return;
-
     const t = ms(m.creado) || Date.now(), mine = m.de === me();
     if(!lastDay || !sameDay(lastDay, t)){ h += `<div class="day">${esc(dayLabel(t))}</div>`; lastDay = t; }
     const st = !mine ? "" : m.pend ? IC.clock : ms(m.creado) && ms(m.creado) <= peerRead ? IC.checks : IC.check;
-    const tempIcon = m.temp === "24h" ? " ⏱" : (m.temp === "once" ? " 🔥" : "");
-    const sel = selectedMsg === m.id ? " style=\"outline:2px solid var(--acc);outline-offset:2px\"" : "";
-    h += `<div class="b ${mine ? "me" : "him"}" data-mid="${esc(m.id)}" data-act="selMsg"${sel}>${esc(m.texto)}${tempIcon}<span class="tm ${mine && st === IC.checks ? "rd" : ""}">${fmtT(t)}${st}</span></div>`;
+    h += `<div class="b ${mine ? "me" : "him"}">${esc(m.texto)}<span class="tm ${mine && st === IC.checks ? "rd" : ""}">${fmtT(t)}${st}</span></div>`;
   });
   el.innerHTML = h;
   if(olderFlag){ el.scrollTop = el.scrollHeight - prevH + prevTop; olderFlag = false; }
@@ -889,143 +911,51 @@ function renderMsgs(){
 async function markRead(){
   const c = chats.get(cur); if(!c || document.hidden || markBusy || !unreadOf(c)) return;
   markBusy = true;
-  try{
-    await updateDoc(doc(db, "wm_chats", c.id), { ["leido" + keyOf(c, me())]: serverTimestamp() });
-    // Marcar mensajes "once" del otro como vistos para que se autodestruyan
-    const onceMsgs = msgsData.filter(m => m.temp === "once" && m.de !== me() && !m.visto);
-    if(onceMsgs.length){
-      const b = writeBatch(db);
-      onceMsgs.forEach(m => b.update(doc(db, "wm_chats", c.id, "msgs", m.id), { visto: true, vistoAt: serverTimestamp() }));
-      await b.commit().catch(()=>{});
-    }
-  }catch(e){}
+  try{ await updateDoc(doc(db, "wm_chats", c.id), { ["leido" + keyOf(c, me())]: serverTimestamp() }); }catch(e){}
   markBusy = false;
 }
 document.addEventListener("visibilitychange", () => { if(!document.hidden){ markRead(); tickConn(); } });
-
 function sendMsg(){
   const ta = $("cTxt"), c = chats.get(cur); if(!ta || !c) return;
   const text = ta.value.trim(); if(!text) return;
-  if(Date.now() - lastSend < 280) return; lastSend = Date.now();
+  if(Date.now() - lastSend < 350) return; lastSend = Date.now();
   ta.value = ""; ta.style.height = "auto"; ta.focus();
   const b = writeBatch(db), mref = doc(collection(db, "wm_chats", c.id, "msgs"));
-  const payload = { de: me(), texto: text.slice(0, 1000), creado: serverTimestamp() };
-  if(msgTimerMode === "24h") payload.temp = "24h";
-  if(msgTimerMode === "once") payload.temp = "once";
-  b.set(mref, payload);
+  b.set(mref, { de: me(), texto: text.slice(0, 1000), creado: serverTimestamp() });
   b.update(doc(db, "wm_chats", c.id), { ultimoMsg: text.slice(0, 80), ultimoMsgAt: serverTimestamp(), ultimoDe: me() });
   b.commit().catch((e) => { console.log("Envío:", e); toast("No se pudo enviar el mensaje."); const t = $("cTxt"); if(t && !t.value) t.value = text; });
-  const el = $("msgs"); if(el) setTimeout(() => { el.scrollTop = el.scrollHeight; }, 20);
-}
-
-function selectMsg(mid){
-  selectedMsg = selectedMsg === mid ? null : mid;
-  renderMsgs();
-  if(!selectedMsg){ closeOv("ovMsg"); return; }
-  const m = msgsData.find(x => x.id === mid);
-  if(!m) return;
-  const c = chats.get(cur);
-  const peerRead = c ? ms(c["leido" + (c.a === me() ? "B" : "A")]) : 0;
-  const enviado = fmtFull(ms(m.creado));
-  const visto = m.de === me() && peerRead && ms(m.creado) <= peerRead ? fmtFull(peerRead) : (m.vistoAt ? fmtFull(ms(m.vistoAt)) : "—");
-  $("shInfo").innerHTML = `<h2>Mensaje<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
-    <div class="kv"><span>Enviado</span><span>${esc(enviado)}</span></div>
-    <div class="kv"><span>Visto</span><span>${esc(visto)}</span></div>
-    ${m.temp ? `<div class="kv"><span>Temporal</span><span>${m.temp === "24h" ? "24 horas" : "Se autodestruye al leer"}</span></div>` : ""}
-    <div class="acts" style="margin-top:16px;flex-direction:column">
-      <button class="btn bad" data-act="delMsgBoth" data-mid="${esc(mid)}">Eliminar para ambos</button>
-      <button class="btn ghost" data-act="delMsgMe" data-mid="${esc(mid)}">Eliminar solo para mí</button>
-    </div>`;
-  openOv("ovInfo");
-}
-
-async function deleteMsg(mid, both){
-  const c = chats.get(cur); if(!c || !mid) return;
-  try{
-    if(both){
-      // Borrar sin rastro para ambos
-      await deleteDoc(doc(db, "wm_chats", c.id, "msgs", mid));
-      // Si era el último mensaje, actualizar preview
-      const last = msgsData.filter(m => m.id !== mid).pop();
-      if(last) await updateDoc(doc(db, "wm_chats", c.id), { ultimoMsg: (last.texto || "").slice(0,80), ultimoMsgAt: last.creado || serverTimestamp(), ultimoDe: last.de });
-      else await updateDoc(doc(db, "wm_chats", c.id), { ultimoMsg: "", ultimoDe: "" });
-    } else {
-      // Solo para mí: marcar como borrado localmente (no se muestra)
-      await updateDoc(doc(db, "wm_chats", c.id, "msgs", mid), { borradoPor: arrayUnion(me()) });
-    }
-    selectedMsg = null; closeAllOv(); toast("Mensaje eliminado");
-  }catch(e){ console.log(e); toast("No se pudo eliminar"); }
-}
-
-async function clearChat(both){
-  const c = chats.get(cur); if(!c) return;
-  if(!confirm(both ? "¿Vaciar este chat para ambos? Se borrarán todos los mensajes sin dejar rastro." : "¿Vaciar este chat solo para ti?")) return;
-  try{
-    if(both){
-      const snap = await getDocs(collection(db, "wm_chats", c.id, "msgs"));
-      for(let i=0; i<snap.docs.length; i+=400){
-        const b = writeBatch(db);
-        snap.docs.slice(i,i+400).forEach(d => b.delete(d.ref));
-        await b.commit();
-      }
-      await updateDoc(doc(db, "wm_chats", c.id), { ultimoMsg:"", ultimoDe:"", ultimoMsgAt: serverTimestamp() });
-    } else {
-      await updateDoc(doc(db, "wm_chats", c.id), { ["oculto"+keyOf(c, me())]: true });
-    }
-    closeChatUI(); toast("Chat vaciado");
-  }catch(e){ toast("No se pudo vaciar el chat"); }
-}
-
-async function archiveChat(){
-  const c = chats.get(cur); if(!c) return;
-  try{
-    await updateDoc(doc(db, "wm_chats", c.id), { ["archivado"+keyOf(c, me())]: true });
-    closeChatUI(); toast("Chat archivado");
-  }catch(e){ toast("No se pudo archivar"); }
-}
-
-async function deleteChat(){
-  const c = chats.get(cur); if(!c) return;
-  if(!confirm("¿Eliminar este chat? Podrás volver a conectarte más tarde.")) return;
-  try{
-    await updateDoc(doc(db, "wm_chats", c.id), { ["eliminado"+keyOf(c, me())]: true, estado: "eliminado_user" });
-    closeChatUI(); toast("Chat eliminado");
-  }catch(e){ toast("No se pudo eliminar"); }
+  const el = $("msgs"); if(el) setTimeout(() => { el.scrollTop = el.scrollHeight; }, 30);
 }
 
 /* ---- información del contacto, apodo, bloqueo y reporte ---- */
 function infoSheet(){
   const c = chats.get(cur); if(!c) return;
   const p = peers.get(otherOf(c)) || {}, ap = c["apodo" + keyOf(c, me())] || "", blk = c.bloqueadoPor === me();
-  const links = p.links || {};
-  const badge = p.verificado ? ' <span style="color:var(--acc)">✓</span>' : '';
-  const rangoHtml = p.rango === "creador" ? '<div style="display:inline-block;margin-top:5px;background:linear-gradient(135deg,#af52de,#bf5af2);color:#fff;font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px">CREADOR</div>' : (p.rango ? `<div style="display:inline-block;margin-top:5px;background:rgba(10,132,255,.2);color:#64b5ff;font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px">${esc(p.rango.toUpperCase())}</div>` : "");
-  let linksHtml = "";
-  if(links.whatsapp || links.instagram || links.web){
-    linksHtml = `<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px">`;
-    if(links.whatsapp) linksHtml += `<a class="btn sm ghost" href="https://wa.me/${esc(links.whatsapp.replace(/[^0-9+]/g,""))}" target="_blank" rel="noopener">WhatsApp</a>`;
-    if(links.instagram) linksHtml += `<a class="btn sm ghost" href="https://instagram.com/${esc(links.instagram)}" target="_blank" rel="noopener">Instagram</a>`;
-    if(links.web) linksHtml += `<a class="btn sm ghost" href="${esc(links.web.startsWith("http") ? links.web : "https://" + links.web)}" target="_blank" rel="noopener">Enlace</a>`;
-    linksHtml += `</div>`;
-  }
-  $("shInfo").innerHTML = `<h2>Información<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
-    <div style="text-align:center;margin:8px 0"><div style="display:flex;justify-content:center">${av(p.nombre, p.foto, "lg")}</div>
-      <div style="font-size:20px;font-weight:700;margin-top:10px">${esc(p.nombre || "Usuario")}${badge}</div>
-      ${rangoHtml}
-      ${p.username ? `<div style="color:var(--acc);font-size:14px;margin-top:4px;font-weight:600">@${esc(p.username)}</div>` : ""}
-      ${p.bio ? `<div style="color:var(--mut);font-size:14px;margin-top:6px">${esc(p.bio)}</div>` : ""}
-    </div>
-    ${linksHtml}
-    <div class="kv"><span>ID numérico</span><span><b>${esc(p.id || "—")}</b></span></div>
-    <label class="f" for="apIn">Cómo quieres llamarle <span style="font-weight:400">(solo lo ves tú)</span></label>
-    <div style="display:flex;gap:8px"><input class="in" id="apIn" maxlength="40" placeholder="${esc(p.nombre || "Apodo")}" value="${esc(ap)}"><button class="btn sm" data-act="saveAp" style="flex:none">Guardar</button></div>
-    <div class="acts" style="margin-top:18px"><button class="btn ghost sm" data-act="${blk ? "unblock" : "block"}" style="flex:1">${blk ? "Desbloquear" : "Bloquear"}</button><button class="btn bad sm" data-act="repForm" style="flex:1">Reportar</button></div>
+  const I = { ban: P('<circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/>'), flag: P('<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>') };
+  $("shInfo").innerHTML = `<div class="phd"><button class="ibtn x" data-act="closeov" aria-label="Cerrar">${IC.x}</button>
+      <div style="display:flex;justify-content:center">${av(p.nombre, p.foto, "lg")}</div>
+      <div class="nmx">${esc(p.nombre || "Usuario")}${badge(p)}</div>
+      ${p.usuario ? `<div class="unm">@${esc(p.usuario)}</div>` : ""}${rkTag(p)}
+      ${p.bio ? `<div class="bio">${esc(p.bio)}</div>` : ""}${socials(p)}
+      <div class="chip">ID <b>${esc(p.id || "—")}</b></div></div>
+    <div class="grp"><div class="gt">Personalizar</div><div class="fld"><label for="apIn">Apodo <span style="font-weight:400">(solo lo ves tú)</span></label>
+      <div style="display:flex;gap:8px"><input class="in" id="apIn" maxlength="40" placeholder="${esc(p.nombre || "Apodo")}" value="${esc(ap)}"><button class="btn sm" data-act="saveAp" style="flex:none">Guardar</button></div></div></div>
+    <div class="grp"><button class="li ${blk ? "" : "red"}" data-act="${blk ? "unblock" : "block"}">${I.ban}<span>${blk ? "Desbloquear contacto" : "Bloquear contacto"}</span></button>
+      <button class="li red" data-act="repForm">${I.flag}<span>Reportar contacto</span></button></div>
     <div id="repBox"></div>`;
   openOv("ovInfo");
 }
 async function saveApodo(){
   const c = chats.get(cur); if(!c) return; const v = $("apIn").value.replace(/\s+/g, " ").trim().slice(0, 40);
-  try{ await updateDoc(doc(db, "wm_chats", c.id), { ["apodo" + keyOf(c, me())]: v }); toast(v ? "Nombre guardado" : "Nombre restablecido"); closeOv("ovInfo"); }catch(e){ toast("No se pudo guardar."); }
+  const old = (c["apodo" + keyOf(c, me())] || "").trim(), p = peers.get(otherOf(c)) || {};
+  if(v === old){ closeOv("ovInfo"); return; }
+  try{
+    await updateDoc(doc(db, "wm_chats", c.id), { ["apodo" + keyOf(c, me())]: v });
+    const lbl = (n, u, id) => `${n || "Usuario"}${u ? " (@" + u + ")" : ""} · ID ${id || "—"}`;
+    addDoc(collection(db, "wm_logs"), { tipo:"apodo", uid: me(), autor: lbl(prof && prof.nombre, prof && prof.usuario, prof && prof.id), chatId: c.id,
+      objetivo: lbl(p.nombre, p.usuario, p.id), anterior: old.slice(0, 40), nuevo: v.slice(0, 40), creado: serverTimestamp() }).catch((e) => console.log("Registro:", e));
+    toast(v ? "Apodo guardado" : "Apodo restablecido"); closeOv("ovInfo");
+  }catch(e){ toast("No se pudo guardar."); }
 }
 async function setBlock(on){
   const c = chats.get(cur); if(!c) return;
@@ -1043,7 +973,7 @@ async function sendReport(){
   const c = chats.get(cur); if(!c) return; busy("rpGo", true, "Enviando…");
   try{
     await addDoc(collection(db, "wm_reportes"), { reportante: me(), reportado: otherOf(c), chatId: c.id, motivo: $("rpM").value, detalle: $("rpD").value.trim().slice(0, 300),
-      mensajes: msgsData.slice(-80).map((m) => ({ de: m.de, t: String(m.texto || "").slice(0, 300), ts: ms(m.creado) || Date.now() })), creado: serverTimestamp(), estado: "nuevo" });
+      mensajes: msgsData.slice(-20).map((m) => ({ de: m.de, t: String(m.texto || "").slice(0, 200), ts: ms(m.creado) || Date.now() })), creado: serverTimestamp(), estado: "nuevo" });
     toast("Reporte enviado. Gracias 🙏"); closeOv("ovInfo");
   }catch(e){ console.log(e); toast("No se pudo enviar el reporte."); busy("rpGo", false); }
 }
@@ -1052,35 +982,27 @@ async function sendReport(){
 function openProfile(first){
   if(!prof) return;
   photo.prof = null;
-  const links = prof.links || {};
-  const badge = prof.verificado ? ' <span style="color:var(--acc);font-size:18px">✓</span>' : '';
-  const rangoHtml = prof.rango === "creador" ? '<div style="display:inline-block;margin-top:6px;background:linear-gradient(135deg,#af52de,#bf5af2);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.3px">CREADOR</div>' : (prof.rango ? `<div style="display:inline-block;margin-top:6px;background:rgba(10,132,255,.2);color:#64b5ff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px">${esc(prof.rango.toUpperCase())}</div>` : "");
-  $("shProf").innerHTML = `<h2>${first ? "¡Bienvenido a WarMess! 🎉" : "Mi perfil"}<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
-    ${first ? '<p class="lead" style="margin:4px 0 0">Tu cuenta está lista. Comparte tu @usuario para que te encuentren.</p>' : ""}
-    <div class="idbox" style="flex-direction:column;align-items:stretch;gap:8px">
-      <div style="display:flex;align-items:center;gap:10px"><div style="flex:1"><small>Tu nombre de usuario</small><b style="font-size:20px">@${esc(prof.username || "—")}</b></div><button class="btn sm ghost" data-act="copyUser" style="flex:none">${IC.copy}</button></div>
-      <div style="display:flex;align-items:center;gap:10px"><div style="flex:1"><small>ID numérico</small><b>${esc(prof.id)}</b></div><button class="btn sm ghost" data-act="copyId" style="flex:none">${IC.copy}</button></div>
-    </div>
-    <div class="avpick" data-act="pickAv" data-t="prof" style="margin-top:18px"><div id="pfAv">${av(prof.nombre, prof.foto, "lg")}</div><div class="cam"><svg class="i" viewBox="0 0 24 24"><path d="M4 8h3l2-2h6l2 2h3v11H4zM12 17a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg></div></div>
-    <div style="text-align:center;margin-bottom:8px"><div style="font-size:18px;font-weight:700">${esc(prof.nombre)}${badge}</div>${rangoHtml}</div>
-    <label class="f" for="pfNm">Nombre</label><input class="in" id="pfNm" maxlength="40" value="${esc(prof.nombre)}">
-    <label class="f" for="pfBd">Fecha de nacimiento</label><input class="in" id="pfBd" type="date" value="${esc((priv && priv.nacimiento) || "")}" max="${new Date().toISOString().slice(0, 10)}">
-    <label class="f" for="pfBio">Descripción / estado</label><input class="in" id="pfBio" maxlength="120" value="${esc(prof.bio || "")}" placeholder="Ej: Disponible · Hola 👋">
-    <label class="f" style="margin-top:16px">Enlaces (opcional)</label>
-    <label class="f" for="pfWa" style="margin-top:6px">WhatsApp</label><input class="in" id="pfWa" maxlength="30" value="${esc(links.whatsapp || "")}" placeholder="+57 300 123 4567">
-    <label class="f" for="pfIg">Instagram</label><input class="in" id="pfIg" maxlength="40" value="${esc(links.instagram || "")}" placeholder="tuusuario">
-    <label class="f" for="pfWeb">Enlace / web</label><input class="in" id="pfWeb" maxlength="120" value="${esc(links.web || "")}" placeholder="https://...">
-    <label class="f" style="margin-top:16px">Temática</label>
-    <div style="display:flex;gap:8px;margin-top:6px">
-      <button class="btn sm ghost" data-act="setTheme" data-th="default" style="flex:1">Oscura</button>
-      <button class="btn sm ghost" data-act="setTheme" data-th="ios" style="flex:1">iOS</button>
-      <button class="btn sm ghost" data-act="setTheme" data-th="android" style="flex:1">Android</button>
-    </div>
+  $("shProf").innerHTML = `<div class="phd"><button class="ibtn x" data-act="closeov" aria-label="Cerrar">${IC.x}</button>
+      ${first ? '<div style="font-size:15px;font-weight:700;margin-bottom:12px">¡Bienvenido a WarMess! 🎉</div>' : ""}
+      <div class="avpick" data-act="pickAv" data-t="prof" style="margin:0 auto"><div id="pfAv">${av(prof.nombre, prof.foto, "lg")}</div><div class="cam"><svg class="i" viewBox="0 0 24 24"><path d="M4 8h3l2-2h6l2 2h3v11H4zM12 17a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg></div></div>
+      <div class="nmx">${esc(prof.nombre)}${badge(prof)}</div><div class="unm">@${esc(prof.usuario || "")}</div>${rkTag(prof)}
+      <div class="chip">Tu ID <b>${esc(prof.id)}</b><button data-act="copyId">Copiar</button></div></div>
+    <div class="grp"><div class="gt">Información</div>
+      <div class="fld"><label for="pfNm">Nombre</label><input class="in" id="pfNm" maxlength="40" value="${esc(prof.nombre)}"></div>
+      <div class="fld"><label for="pfUs">Nombre de usuario</label><div class="uwrap"><span style="top:12px">@</span><input class="in" id="pfUs" maxlength="20" autocapitalize="none" autocorrect="off" spellcheck="false" value="${esc(prof.usuario || "")}"></div><div class="ustat" id="pfUst"></div></div>
+      <div class="fld"><label for="pfBio">Descripción</label><input class="in" id="pfBio" maxlength="100" value="${esc(prof.bio || "")}" placeholder="Cuéntanos algo sobre ti"></div>
+      <div class="fld"><label for="pfBd">Fecha de nacimiento</label><input class="in" id="pfBd" type="date" value="${esc((priv && priv.nacimiento) || "")}" max="${new Date().toISOString().slice(0, 10)}"></div></div>
+    <div class="grp"><div class="gt">Enlaces (opcionales)</div>
+      <div class="fld"><label for="pfWa">WhatsApp (con código de país, solo números)</label><input class="in" id="pfWa" inputmode="numeric" maxlength="18" value="${esc(prof.wa || "")}" placeholder="573001234567"></div>
+      <div class="fld"><label for="pfIg">Instagram (usuario)</label><input class="in" id="pfIg" maxlength="31" autocapitalize="none" value="${esc(prof.ig || "")}" placeholder="tu.usuario"></div>
+      <div class="fld"><label for="pfLn">Enlace</label><input class="in" id="pfLn" type="url" maxlength="200" value="${esc(prof.link || "")}" placeholder="https://…"></div></div>
     <div class="kv" style="margin-top:12px"><span>Correo</span><span>${esc(user.email || "")}</span></div>
     <div class="msg" id="pfMsg"></div>
     <button class="btn" data-act="saveProf" id="pfGo">Guardar cambios</button>
     <button class="btn ghost" data-act="legal">Normas de uso y privacidad</button>
-    <button class="btn bad" data-act="logout">Cerrar sesión</button>`;
+    <button class="btn bad" data-act="logout">Cerrar sesión</button>
+    <div class="foot">WarMess · By <b>Sxgura Inc</b></div>`;
+  watchUname($("pfUs"), $("pfUst"), () => prof.usuario);
   openOv("ovProf");
 }
 async function savePriv(fields){
@@ -1089,21 +1011,23 @@ async function savePriv(fields){
   catch(e){ if(e.code === "not-found") await setDoc(r, { email: user.email, nacimiento:"", proveedor: (user.providerData[0] && user.providerData[0].providerId) || "", nVisitas:0, creado: serverTimestamp(), ...fields }); else throw e; }
 }
 async function saveProfile(){
-  const nombre = $("pfNm").value.replace(/\s+/g, " ").trim(), bd = $("pfBd").value, bio = $("pfBio").value.trim().slice(0, 120);
+  const nombre = $("pfNm").value.replace(/\s+/g, " ").trim(), bd = $("pfBd").value, bio = $("pfBio").value.trim().slice(0, 100), us = normU($("pfUs").value);
   if(nombre.length < 2) return setMsg("pfMsg", "Escribe un nombre válido (mínimo 2 letras).");
+  if(!unameFmt(us)) return setMsg("pfMsg", unameErr({ code:"wm/ufmt" }));
   const a = ageOf(bd); if(a < MIN_AGE || a > 110) return setMsg("pfMsg", a < 0 ? "Indica tu fecha de nacimiento." : `Debes tener al menos ${MIN_AGE} años.`);
+  const wa = $("pfWa").value.replace(/[\s+\-()]/g, ""), ig = $("pfIg").value.trim().replace(/^@/, "").replace(/^https?:\/\/(www\.)?instagram\.com\//i, "").replace(/\/.*$/, ""), ln = $("pfLn").value.trim();
+  if(wa && !/^\d{7,15}$/.test(wa)) return setMsg("pfMsg", "WhatsApp: escribe solo números con código de país (7 a 15 dígitos).");
+  if(ig && !/^[A-Za-z0-9._]{1,30}$/.test(ig)) return setMsg("pfMsg", "Instagram: usuario no válido.");
+  if(ln){ let ok = false; try{ ok = new URL(ln).protocol === "https:"; }catch(e){} if(!ok) return setMsg("pfMsg", "El enlace debe empezar por https://"); }
   setMsg("pfMsg", ""); busy("pfGo", true, "Guardando…");
   try{
-    const links = {
-      whatsapp: ($("pfWa").value || "").trim().slice(0, 30),
-      instagram: ($("pfIg").value || "").trim().replace(/^@/, "").slice(0, 40),
-      web: ($("pfWeb").value || "").trim().slice(0, 120)
-    };
-    const up = { nombre, bio, links }; if(photo.prof) up.foto = photo.prof;
+    const old = prof.usuario; if(us !== old) await claimUsername(us);
+    const up = { nombre, bio, usuario: us, wa, ig, link: ln }; if(photo.prof) up.foto = photo.prof;
     await updateDoc(doc(db, "wm_users", user.uid), up);
+    if(us !== old && old){ deleteDoc(doc(db, "wm_usernames", old)).catch(() => {}); }
     if(!priv || priv.nacimiento !== bd){ await savePriv({ nacimiento: bd }); priv = { ...(priv || {}), nacimiento: bd }; }
     prof = { ...prof, ...up }; photo.prof = null; renderMe(); toast("Perfil actualizado ✅"); closeOv("ovProf");
-  }catch(e){ console.log(e); setMsg("pfMsg", "No se pudo guardar. Inténtalo de nuevo."); }
+  }catch(e){ console.log(e); setMsg("pfMsg", unameErr(e) || "No se pudo guardar. Inténtalo de nuevo."); }
   busy("pfGo", false);
 }
 async function onAvatarFile(){
@@ -1174,7 +1098,7 @@ async function tickConn(){
 }
 
 /* ================= PANEL ADMIN (Configuración) ================= */
-let aUsers = new Map(), aPriv = new Map(), aVis = [], aRep = [], aUnsubs = [], aTab = "res", aSel = null, pinFails = 0, pinLockUntil = 0;
+let aUsers = new Map(), aPriv = new Map(), aVis = [], aRep = [], aChats = [], aLogs = [], aTk = [], aUn = [], aBe = [], aUnsubs = [], aTab = "res", aSel = null, pinFails = 0, pinLockUntil = 0;
 function openAdmin(){
   if(!isAdm) return;
   $("adm").classList.add("on"); $("admGate").style.display = ""; $("admMain").style.display = "none"; $("admPin").value = ""; setMsg("admMsg", "");
@@ -1188,7 +1112,7 @@ async function admPinGo(){
   if((await hashText(v)) === CODE_HASH){ pinFails = 0; $("admPin").value = ""; setMsg("admMsg", ""); $("admGate").style.display = "none"; $("admMain").style.display = "flex"; admStart(); setATab("res"); }
   else{ pinFails++; $("admPin").value = ""; if(pinFails >= 5){ pinLockUntil = Date.now() + 60000; pinFails = 0; setMsg("admMsg", "Código incorrecto. Bloqueado 60 s."); } else setMsg("admMsg", "Código incorrecto."); }
 }
-function admStop(){ aUnsubs.forEach((f) => { try{ f(); }catch(e){} }); aUnsubs = []; aUsers = new Map(); aPriv = new Map(); aVis = []; aRep = []; aSel = null; }
+function admStop(){ aUnsubs.forEach((f) => { try{ f(); }catch(e){} }); aUnsubs = []; aUsers = new Map(); aPriv = new Map(); aVis = []; aRep = []; aChats = []; aLogs = []; aTk = []; aUn = []; aBe = []; aSel = null; }
 function admStart(){
   admStop();
   const err = (e) => { console.log("Admin:", e); $("abody").innerHTML = `<div class="empty">Sin permiso para leer los datos.<br>Publica las reglas de Firestore v15 e inicia sesión con el correo de administrador.</div>`; };
@@ -1197,7 +1121,12 @@ function admStart(){
     onSnapshot(query(collection(db, "wm_users"), orderBy("creado", "desc"), limit(500)), (s) => { aUsers = new Map(s.docs.map((d) => [d.id, { uid:d.id, ...d.data(opt) }])); aRender(); }, err),
     onSnapshot(query(collection(db, "wm_priv"), limit(500)), (s) => { aPriv = new Map(s.docs.map((d) => [d.id, d.data(opt)])); aRender(); }, () => {}),
     onSnapshot(query(collection(db, "wm_visitas"), orderBy("creado", "desc"), limit(100)), (s) => { aVis = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
-    onSnapshot(query(collection(db, "wm_reportes"), orderBy("creado", "desc"), limit(100)), (s) => { aRep = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {})
+    onSnapshot(query(collection(db, "wm_reportes"), orderBy("creado", "desc"), limit(100)), (s) => { aRep = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
+    onSnapshot(query(collection(db, "wm_chats"), orderBy("ultimoMsgAt", "desc"), limit(100)), (s) => { aChats = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
+    onSnapshot(query(collection(db, "wm_logs"), orderBy("creado", "desc"), limit(100)), (s) => { aLogs = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
+    onSnapshot(query(collection(db, "wm_tickets"), orderBy("creado", "desc"), limit(100)), (s) => { aTk = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
+    onSnapshot(query(collection(db, "wm_usernames"), where("anulado", "==", true), limit(200)), (s) => { aUn = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
+    onSnapshot(query(collection(db, "wm_blocked_emails"), limit(200)), (s) => { aBe = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {})
   ];
 }
 function setATab(t){
@@ -1207,103 +1136,20 @@ function setATab(t){
   else b.innerHTML = `<div id="acont"></div>`;
   aRender();
 }
-const aName = (uid) => { const u = aUsers.get(uid); return u ? `${u.nombre} (ID ${u.id})` : uid; };
+const aName = (uid) => { const u = aUsers.get(uid); return u ? `${u.nombre}${u.usuario ? " (@" + u.usuario + ")" : ""} · ID ${u.id}` : uid; };
 const isToday = (t) => t && sameDay(t, Date.now());
 function aRender(){
   const nr = aRep.filter((r) => r.estado === "nuevo").length; const rn = $("repN"); if(rn){ rn.textContent = nr; rn.hidden = !nr; }
+  const nt = aTk.filter((t) => t.estado === "abierto").length; const tn = $("tkN"); if(tn){ tn.textContent = nt; tn.hidden = !nt; }
   if(!$("adm").classList.contains("on") || $("admMain").style.display === "none") return;
-  if(aTab === "res") renderRes();
-  else if(aTab === "usr") renderUsers();
-  else if(aTab === "vis") renderVis();
-  else if(aTab === "rep") renderRep();
-  else if(aTab === "insp") renderInsp();
-  else if(aTab === "users") renderUsernames();
-  else if(aTab === "grps") renderAdminGroups();
+  if(aTab === "res") renderRes(); else if(aTab === "usr") renderUsers(); else if(aTab === "vis") renderVis(); else if(aTab === "rep") renderRep(); else if(aTab === "ins") renderIns(); else if(aTab === "sop"){ if(!document.activeElement || document.activeElement.tagName !== "TEXTAREA") renderSop(); } else if(aTab === "log") renderLog(); else renderBlq();
   if(aSel && $("ovAdm").classList.contains("on") && $("shAdm").dataset.k === "u") userSheet(aSel, true);
-}
-
-async function renderAdminGroups(){
-  const c = $("acont"); if(!c) return;
-  c.innerHTML = `<div class="empty">Cargando grupos…</div>`;
-  try{
-    const s = await getDocs(query(collection(db, "wm_groups"), limit(100)));
-    const list = s.docs.map(d => ({ id:d.id, ...d.data() }));
-    c.innerHTML = list.length ? list.map(g => `<div class="acard">
-      <b>${esc(g.nombre)}</b> <span style="color:var(--acc)">@${esc(g.username)}</span>
-      <div style="color:var(--mut);font-size:13px">${(g.miembros||[]).length} miembros · Creador: ${esc(aName(g.creador))}</div>
-      <div class="acts"><button class="btn sm bad" data-act="delGroup" data-g="${esc(g.id)}">Eliminar grupo</button></div>
-    </div>`).join("") : `<div class="empty">No hay grupos.</div>`;
-  }catch(e){ c.innerHTML = `<div class="empty">Error al cargar grupos.</div>`; }
-}
-
-let aChats = [];
-async function loadAllChats(){
-  try{
-    const s = await getDocs(query(collection(db, "wm_chats"), limit(200)));
-    aChats = s.docs.map(d => ({ id: d.id, ...d.data({ serverTimestamps:"estimate" }) }));
-  }catch(e){ console.log("Insp chats:", e); aChats = []; }
-}
-
-async function renderInsp(){
-  const c = $("acont"); if(!c) return;
-  c.innerHTML = `<div class="empty">Cargando chats…</div>`;
-  await loadAllChats();
-  if(!aChats.length){ c.innerHTML = `<div class="empty">No hay chats registrados.</div>`; return; }
-  c.innerHTML = aChats.map(ch => {
-    const na = aName(ch.a), nb = aName(ch.b);
-    return `<div class="acard">
-      <div style="font-weight:650">${esc(na)} ↔ ${esc(nb)}</div>
-      <div style="color:var(--mut);font-size:13px;margin-top:4px">Estado: <b>${esc(ch.estado)}</b> · Último: ${esc((ch.ultimoMsg||"").slice(0,60))}</div>
-      <div style="color:var(--mut);font-size:12px">${esc(fmtFull(ms(ch.ultimoMsgAt || ch.creado)))}</div>
-      <div class="acts"><button class="btn sm ghost" data-act="inspChat" data-c="${esc(ch.id)}">Ver mensajes</button></div>
-    </div>`;
-  }).join("");
-}
-
-async function inspChat(cid){
-  try{
-    const snap = await getDocs(query(collection(db, "wm_chats", cid, "msgs"), orderBy("creado","desc"), limit(100)));
-    const msgs = snap.docs.map(d => ({ id:d.id, ...d.data() })).reverse();
-    const ch = aChats.find(x => x.id === cid) || {};
-    $("shAdm").dataset.k = "insp";
-    $("shAdm").innerHTML = `<h2>Inspección<button class="ibtn" data-act="closeov">${IC.x}</button></h2>
-      <div style="color:var(--mut);font-size:13px;margin-bottom:10px">${esc(aName(ch.a))} ↔ ${esc(aName(ch.b))}</div>
-      ${msgs.length ? msgs.map(m => `<div class="ml"><b>${m.de === ch.a ? "A" : "B"}</b> · ${esc(fmtT(ms(m.creado)))}: ${esc(m.texto||"")}${m.temp?" ["+m.temp+"]":""}${m.borrado?" [borrado]":""}</div>`).join("") : '<span style="color:var(--mut)">Sin mensajes</span>'}`;
-    openOv("ovAdm");
-  }catch(e){ toast("No se pudieron cargar los mensajes"); }
-}
-
-let aUsernames = [];
-async function renderUsernames(){
-  const c = $("acont"); if(!c) return;
-  c.innerHTML = `<div class="empty">Cargando usernames…</div>`;
-  try{
-    const s = await getDocs(query(collection(db, "wm_usernames"), limit(300)));
-    aUsernames = s.docs.map(d => ({ username: d.id, ...d.data() }));
-  }catch(e){ aUsernames = []; }
-  c.innerHTML = aUsernames.length ? aUsernames.map(u => {
-    const user = aUsers.get(u.uid);
-    const st = user ? user.estado : "—";
-    return `<div class="acard" style="display:flex;align-items:center;gap:12px">
-      <div style="flex:1"><b>@${esc(u.username)}</b><div style="font-size:13px;color:var(--mut)">${user ? esc(user.nombre) : u.uid} · <span class="pill ${esc(st)}">${esc(st)}</span></div></div>
-      ${(st === "bloqueado" || st === "suspendido" || st === "eliminado") ? `<button class="btn sm ok" data-act="freeUser" data-u="${esc(u.username)}">Liberar</button>` : ""}
-    </div>`;
-  }).join("") : `<div class="empty">No hay usernames registrados.</div>`;
-}
-
-async function freeUsername(uname){
-  if(!confirm(`¿Liberar el username @${uname} para que otra persona lo pueda usar?`)) return;
-  try{
-    await deleteDoc(doc(db, "wm_usernames", uname));
-    toast("@usuario liberado");
-    renderUsernames();
-  }catch(e){ toast("No se pudo liberar"); }
 }
 function renderRes(){
   const c = $("acont"); if(!c) return;
   const us = [...aUsers.values()], on = us.filter((u) => u.estado === "activo" && Date.now() - ms(u.ultimaConexion) < ONLINE_MS).length;
   const st = [["Usuarios", us.length], ["En línea ahora", on], ["Nuevos hoy", us.filter((u) => isToday(ms(u.creado))).length], ["Visitas hoy (últ. 100)", aVis.filter((v) => isToday(ms(v.creado))).length],
-    ["Suspendidos / bloqueados", us.filter((u) => u.estado === "suspendido" || u.estado === "bloqueado").length], ["Reportes nuevos", aRep.filter((r) => r.estado === "nuevo").length]];
+    ["Suspendidos / bloqueados", us.filter((u) => u.estado === "suspendido" || u.estado === "bloqueado").length], ["Reportes nuevos", aRep.filter((r) => r.estado === "nuevo").length], ["Solicitudes de soporte", aTk.filter((t) => t.estado === "abierto").length]];
   const byC = {}; aVis.forEach((v) => { const k = v.codigoPais || "?"; byC[k] = (byC[k] || 0) + 1; });
   const top = Object.entries(byC).sort((a, b) => b[1] - a[1]).slice(0, 6);
   c.innerHTML = `<div class="stats">${st.map(([l, n]) => `<div class="stat"><b>${n}</b><span>${l}</span></div>`).join("")}</div>
@@ -1313,10 +1159,10 @@ function renderRes(){
 function renderUsers(){
   const L = $("ulist"); if(!L) return; const q = (($("aq") && $("aq").value) || "").trim().toLowerCase();
   let us = [...aUsers.values()];
-  if(q) us = us.filter((u) => { const p = aPriv.get(u.uid) || {}; return [u.nombre, u.id, p.email, p.ip].some((x) => String(x || "").toLowerCase().includes(q)); });
+  if(q) us = us.filter((u) => { const p = aPriv.get(u.uid) || {}; return [u.nombre, u.usuario, u.id, p.email, p.ip].some((x) => String(x || "").toLowerCase().includes(q)); });
   L.innerHTML = us.length ? us.map((u) => { const p = aPriv.get(u.uid) || {}, on = u.estado === "activo" && Date.now() - ms(u.ultimaConexion) < ONLINE_MS;
     const cc = (p.datosVisita && p.datosVisita.codigoPais) || "";
-    return `<button class="row" data-act="auser" data-u="${esc(u.uid)}">${av(u.nombre, u.foto)}<div class="mid"><div class="nm">${esc(u.nombre)}<span class="pill ${esc(u.estado)}">${esc(u.estado)}</span></div><div class="sub">ID ${esc(u.id)} · ${esc(p.email || "")}</div><div class="sub">${flagOf(cc)} ${esc([p.ciudad, p.pais].filter(Boolean).join(", ") || "—")}${p.ip ? " · " + esc(p.ip) : ""}</div></div><div class="meta"><span style="color:${on ? "var(--ok)" : "var(--mut)"}">${on ? "en línea" : esc(fmtList(ms(u.ultimaConexion)))}</span></div></button>`; }).join("")
+    return `<button class="row" data-act="auser" data-u="${esc(u.uid)}">${av(u.nombre, u.foto)}<div class="mid"><div class="nm">${esc(u.nombre)}${badge(u)}<span class="pill ${esc(u.estado)}">${esc(u.estado)}</span></div><div class="sub">${u.usuario ? "@" + esc(u.usuario) + " · " : ""}ID ${esc(u.id)} · ${esc(p.email || "")}</div><div class="sub">${flagOf(cc)} ${esc([p.ciudad, p.pais].filter(Boolean).join(", ") || "—")}${p.ip ? " · " + esc(p.ip) : ""}</div></div><div class="meta"><span style="color:${on ? "var(--ok)" : "var(--mut)"}">${on ? "en línea" : esc(fmtList(ms(u.ultimaConexion)))}</span></div></button>`; }).join("")
     : `<div class="empty">${q ? "Sin resultados." : "Aún no hay usuarios registrados."}</div>`;
 }
 function renderVis(){
@@ -1332,7 +1178,7 @@ function renderRep(){
     Reporta: <b>${esc(aName(r.reportante))}</b><br>Reportado: <b>${esc(aName(r.reportado))}</b>
     ${r.detalle ? `<div class="ml">${esc(r.detalle)}</div>` : ""}
     <h4 style="margin-top:10px">Mensajes del chat</h4>${(r.mensajes || []).map((m) => `<div class="ml"><b>${m.de === r.reportante ? "Reportante" : "Reportado"}</b> · ${esc(fmtT(m.ts))}: ${esc(m.t)}</div>`).join("") || '<span style="color:var(--mut)">Sin mensajes.</span>'}
-    <div class="acts"><button class="btn sm ghost" data-act="auser" data-u="${esc(r.reportado)}">Ver usuario</button>${r.estado === "nuevo" ? `<button class="btn sm ok" data-act="repDone" data-r="${esc(r.id)}">Marcar revisado</button>` : ""}<button class="btn sm bad" data-act="repDel" data-r="${esc(r.id)}">Borrar</button></div></div>`).join("") : `<div class="empty"><div class="big">🎉</div>No hay reportes.</div>`;
+    <div class="acts"><button class="btn sm ghost" data-act="aChat" data-c="${esc(r.chatId)}">Ver chat completo</button><button class="btn sm ghost" data-act="auser" data-u="${esc(r.reportado)}">Ver usuario</button>${r.estado === "nuevo" ? `<button class="btn sm ok" data-act="repDone" data-r="${esc(r.id)}">Marcar revisado</button>` : ""}<button class="btn sm bad" data-act="repDel" data-r="${esc(r.id)}">Borrar</button></div></div>`).join("") : `<div class="empty"><div class="big">🎉</div>No hay reportes.</div>`;
 }
 const VL = { ip:"IP", pais:"País", region:"Región", ciudad:"Ciudad", continente:"Continente", codigoPostal:"Código postal", isp:"Proveedor (ISP)", asn:"ASN", zonaHoraria:"Zona horaria", dispositivo:"Dispositivo", modelo:"Modelo", so:"Sistema", navegador:"Navegador", navegadorVersion:"Versión navegador", resolucion:"Pantalla", viewport:"Ventana", dpr:"DPR", idioma:"Idioma", memoriaGB:"Memoria (GB)", nucleos:"Núcleos", tactil:"Puntos táctiles", conexion:"Conexión", referrer:"Llegó desde", fecha:"Fecha", hora:"Hora" };
 async function userSheet(uid, refresh){
@@ -1344,21 +1190,11 @@ async function userSheet(uid, refresh){
     else btns.push(`<button class="btn sm ok" data-act="aset" data-u="${esc(uid)}" data-s="activo">Reactivar</button>`);
     btns.push(`<button class="btn sm bad" data-act="adel" data-u="${esc(uid)}">Eliminar</button>`);
   }
-  // Verificación y rangos
-  if(!self){
-    btns.push(u.verificado
-      ? `<button class="btn sm ghost" data-act="setVerify" data-u="${esc(uid)}" data-v="0">Quitar verificación</button>`
-      : `<button class="btn sm ok" data-act="setVerify" data-u="${esc(uid)}" data-v="1">Verificar ✓</button>`);
-  }
   const rows = (o) => Object.entries(o).filter(([k, x]) => x !== "" && x != null && typeof x !== "object" && !["lat", "lon", "offsetMin", "codigoPais"].includes(k)).map(([k, x]) => `<div class="kv"><span>${esc(VL[k] || k)}</span><span>${esc(x)}</span></div>`).join("");
   $("shAdm").dataset.k = "u";
   $("shAdm").innerHTML = `<h2>Usuario<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
-    <div style="display:flex;gap:14px;align-items:center;margin:10px 0">${av(u.nombre, u.foto, "lg")}<div style="min-width:0"><div style="font-size:20px;font-weight:700">${esc(u.nombre)}${u.verificado?' <span style="color:var(--acc)">✓</span>':''}<span class="pill ${esc(u.estado)}">${esc(u.estado)}</span></div>
-      ${u.username ? `<div style="color:var(--acc);font-size:14px">@${esc(u.username)}</div>` : ""}
-      ${u.rango ? `<div style="margin-top:4px"><span class="pill nuevo">${esc(u.rango)}</span></div>` : ""}
-      <div style="color:var(--mut)">${esc(u.bio || "")}</div></div></div>
+    <div style="display:flex;gap:14px;align-items:center;margin:10px 0">${av(u.nombre, u.foto, "lg")}<div style="min-width:0"><div style="font-size:20px;font-weight:700">${esc(u.nombre)}${badge(u)}<span class="pill ${esc(u.estado)}">${esc(u.estado)}</span></div><div class="unm">${u.usuario ? "@" + esc(u.usuario) : "sin usuario"}</div>${rkTag(u)}<div style="color:var(--mut);margin-top:4px">${esc(u.bio || "")}</div></div></div>
     <div class="kv"><span>ID de usuario</span><span><b>${esc(u.id)}</b></span></div>
-    <div class="kv"><span>Username</span><span><b>@${esc(u.username || "—")}</b></span></div>
     <div class="kv"><span>UID</span><span style="font-size:12px">${esc(uid)}</span></div>
     <div class="kv"><span>Correo</span><span>${esc(p.email || "—")}</span></div>
     <div class="kv"><span>Registro con</span><span>${esc(p.proveedor === "google.com" ? "Google" : p.proveedor === "password" ? "Correo y contraseña" : p.proveedor || "—")}</span></div>
@@ -1369,13 +1205,7 @@ async function userSheet(uid, refresh){
     <div class="kv"><span>N.º de ingresos</span><span>${esc(p.nVisitas ?? 0)}</span></div>
     ${v.lat != null && v.lon != null ? `<div class="kv"><span>Coordenadas</span><span><a style="color:var(--acc)" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps?q=${encodeURIComponent(v.lat + "," + v.lon)}">${esc(v.lat + ", " + v.lon)}</a></span></div>` : ""}
     ${btns.length ? `<div class="acts">${btns.join("")}</div>` : ""}
-    <label class="f" style="margin-top:14px">Asignar rango</label>
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn sm ghost" data-act="setRank" data-u="${esc(uid)}" data-r="">Ninguno</button>
-      <button class="btn sm ghost" data-act="setRank" data-u="${esc(uid)}" data-r="verificado">Verificado</button>
-      <button class="btn sm ghost" data-act="setRank" data-u="${esc(uid)}" data-r="suscriptor">Suscriptor</button>
-      <button class="btn sm ghost" data-act="setRank" data-u="${esc(uid)}" data-r="moderador">Moderador</button>
-    </div>
+    ${u.estado !== "eliminado" ? `<div class="grp"><div class="gt">Verificación y rango</div><div class="fld"><label for="rgIn">Rango visible bajo el nombre (ej: Suscriptor, VIP, Verificado)</label><div style="display:flex;gap:8px"><input class="in" id="rgIn" maxlength="20" value="${esc(u.rango || "")}" placeholder="Verificado"><button class="btn sm" data-act="aVer" data-u="${esc(uid)}" style="flex:none">${u.verificado ? "Actualizar" : "Verificar"}</button></div>${u.verificado && !self ? `<button class="btn sm bad" data-act="aUnver" data-u="${esc(uid)}" style="margin-top:10px">Quitar verificación</button>` : ""}</div></div>` : ""}
     <h4 style="margin:18px 0 2px;color:var(--mut);font-size:13px;text-transform:uppercase;letter-spacing:.5px">Datos de la última visita</h4>${rows(v) || '<span style="color:var(--mut)">Sin datos.</span>'}
     <h4 style="margin:18px 0 2px;color:var(--mut);font-size:13px;text-transform:uppercase;letter-spacing:.5px">Historial de visitas</h4><div id="uVis"><span style="color:var(--mut)">Cargando…</span></div>`;
   openOv("ovAdm");
@@ -1389,12 +1219,18 @@ async function userSheet(uid, refresh){
 async function setEstado(uid, st){
   const u = aUsers.get(uid); if(!u || uid === me()) return;
   const txt = { suspendido:"suspender", bloqueado:"bloquear", activo:"reactivar" }[st];
-  if(!confirm(`¿Quieres ${txt} a ${u.nombre} (ID ${u.id})?`)) return;
-  try{ await updateDoc(doc(db, "wm_users", uid), { estado: st }); toast("Listo ✅"); }catch(e){ console.log(e); toast("No se pudo actualizar. ¿Reglas v15 publicadas?"); }
+  if(!confirm(`¿Quieres ${txt} a ${u.nombre} (ID ${u.id})?` + (st !== "activo" ? "\n\nSu nombre de usuario quedará anulado." : ""))) return;
+  try{
+    await updateDoc(doc(db, "wm_users", uid), { estado: st });
+    if(u.usuario){ try{ await updateDoc(doc(db, "wm_usernames", u.usuario), { anulado: st !== "activo" }); }catch(e){ console.log(e); } }
+    const em = ((aPriv.get(uid) || {}).email || "").toLowerCase();
+    if(em){ try{ if(st === "bloqueado") await setDoc(doc(db, "wm_blocked_emails", em), { email: em, motivo: "bloqueado", creado: serverTimestamp() }); else if(st === "activo") await deleteDoc(doc(db, "wm_blocked_emails", em)); }catch(e){ console.log(e); } }
+    toast("Listo ✅");
+  }catch(e){ console.log(e); toast("No se pudo actualizar. ¿Reglas v16 publicadas?"); }
 }
 async function delUser(uid){
   const u = aUsers.get(uid); if(!u || uid === me()) return;
-  if(!confirm(`¿ELIMINAR la cuenta de ${u.nombre} (ID ${u.id})?\n\nSe borrarán sus chats, mensajes y datos personales. No se puede deshacer.`)) return;
+  if(!confirm(`¿ELIMINAR la cuenta de ${u.nombre} (ID ${u.id})?\n\nSe borrarán sus chats, mensajes y datos personales. Su correo y su usuario quedarán bloqueados. No se puede deshacer.`)) return;
   if((prompt('Para confirmar escribe: ELIMINAR') || "").trim() !== "ELIMINAR") return toast("Cancelado");
   try{
     const cs = await getDocs(query(collection(db, "wm_chats"), where("miembros", "array-contains", uid)));
@@ -1403,12 +1239,66 @@ async function delUser(uid){
       for(let i = 0; i < ms_.docs.length; i += 400){ const b = writeBatch(db); ms_.docs.slice(i, i + 400).forEach((d) => b.delete(d.ref)); await b.commit(); }
       await deleteDoc(c.ref);
     }
-    const p = aPriv.get(uid) || {};
-    await updateDoc(doc(db, "wm_users", uid), { estado:"eliminado", nombre:"Cuenta eliminada", foto:"", bio:"", eliminadoEn: serverTimestamp() });
+    const p = aPriv.get(uid) || {}, em = (p.email || "").toLowerCase();
+    await updateDoc(doc(db, "wm_users", uid), { estado:"eliminado", nombre:"Cuenta eliminada", foto:"", bio:"", verificado:false, rango:"", eliminadoEn: serverTimestamp() });
     await setDoc(doc(db, "wm_priv", uid), { email: p.email || "", eliminado:true, creado: p.creado || serverTimestamp() });
+    if(u.usuario){ try{ await updateDoc(doc(db, "wm_usernames", u.usuario), { anulado:true }); }catch(e){} }
+    if(em){ try{ await setDoc(doc(db, "wm_blocked_emails", em), { email: em, motivo: "eliminado", creado: serverTimestamp() }); }catch(e){} }
     toast("Cuenta eliminada ✅ (borra también su acceso en Firebase → Authentication)");
   }catch(e){ console.log(e); toast("No se pudo eliminar por completo. Inténtalo de nuevo."); }
 }
+async function setVerif(uid, on){
+  const u = aUsers.get(uid); if(!u) return;
+  const rg = on ? ($("rgIn").value.replace(/\s+/g, " ").trim().slice(0, 20) || "Verificado") : "";
+  try{ await updateDoc(doc(db, "wm_users", uid), { verificado: on, rango: rg }); toast(on ? "Cuenta verificada ✅" : "Verificación quitada"); }catch(e){ console.log(e); toast("No se pudo actualizar."); }
+}
+/* ---- Inspeccionar: conversaciones, aunque las personas las hayan eliminado ---- */
+function renderIns(){
+  const c = $("acont"); if(!c) return;
+  c.innerHTML = `<p class="hint" style="padding:6px 2px">Conversaciones 1 a 1 (las 100 más recientes). Toca una para ver el historial completo.</p>` + (aChats.length ? aChats.map((x) =>
+    `<button class="row" data-act="aChat" data-c="${esc(x.id)}" style="border:1px solid var(--line);border-radius:14px;margin-top:8px;background:var(--card)"><div class="mid"><div class="nm" style="white-space:normal">${esc(aName(x.a))}<br><span style="color:var(--mut)">↔</span> ${esc(aName(x.b))}</div><div class="sub">${esc(x.ultimoMsg || x.primerMsg || "(sin mensajes)")}</div></div><div class="meta"><span class="pill ${x.estado === "activo" ? "activo" : x.estado === "pendiente" ? "nuevo" : "suspendido"}" style="margin:0">${esc(x.estado)}</span><span>${esc(fmtList(ms(x.ultimoMsgAt)))}</span></div></button>`).join("") : `<div class="empty">No hay conversaciones todavía.</div>`);
+}
+async function chatSheet(cid){
+  $("shAdm").dataset.k = "c"; aSel = null;
+  $("shAdm").innerHTML = `<h2>Conversación<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div id="cInfo" style="color:var(--mut);font-size:13.5px;margin-top:6px">Cargando…</div><div id="cMsgs"></div>`;
+  openOv("ovAdm");
+  try{
+    const cs = await getDoc(doc(db, "wm_chats", cid));
+    const s = await getDocs(query(collection(db, "wm_chats", cid, "msgs"), orderBy("creado", "asc"), limit(500)));
+    const ch = cs.exists() ? cs.data() : null;
+    $("cInfo").innerHTML = ch ? `${esc(aName(ch.a))} ↔ ${esc(aName(ch.b))}<br>Estado: <b>${esc(ch.estado)}</b>${ch.bloqueadoPor ? " · bloqueado por " + esc(aName(ch.bloqueadoPor)) : ""} · ${s.size} mensaje(s)${ch.primerMsg ? `<br>Presentación: «${esc(ch.primerMsg)}»` : ""}` : "Este chat ya no existe.";
+    $("cMsgs").innerHTML = s.docs.map((d) => { const m = d.data({ serverTimestamps:"estimate" }); return `<div class="mline ${ch && m.de === ch.a ? "" : "b2"}"><small>${esc(aName(m.de))} · ${esc(fmtFull(ms(m.creado)))}</small>${esc(m.texto)}</div>`; }).join("") || '<div class="empty">Sin mensajes.</div>';
+  }catch(e){ console.log(e); $("cInfo").textContent = "No se pudo cargar el historial."; }
+}
+/* ---- Registro de actividad (apodos…) ---- */
+function renderLog(){
+  const c = $("acont"); if(!c) return;
+  c.innerHTML = aLogs.length ? aLogs.map((l) => `<div class="acard"><span class="pill nuevo" style="margin:0">apodo</span> <span style="color:var(--mut)">${esc(fmtFull(ms(l.creado)))}</span><br><b>${esc(l.autor)}</b> cambió el apodo de <b>${esc(l.objetivo)}</b>${l.anterior ? ` de «${esc(l.anterior)}»` : ""} a ${l.nuevo ? `«<b>${esc(l.nuevo)}</b>»` : "(sin apodo)"}.<div class="acts" style="margin-top:8px"><button class="btn sm ghost" data-act="aChat" data-c="${esc(l.chatId)}">Ver chat</button></div></div>`).join("") : `<div class="empty">Aún no hay actividad registrada.</div>`;
+}
+/* ---- Soporte (solicitudes de revisión) ---- */
+function renderSop(){
+  const c = $("acont"); if(!c) return;
+  c.innerHTML = aTk.length ? aTk.map((t) => `<div class="acard"><span class="pill ${t.estado === "abierto" ? "nuevo" : "revisado"}" style="margin:0">${esc(t.estado)}</span> <b>${esc(t.nombre || "—")}</b> ${t.usuario ? "@" + esc(t.usuario) : ""} <span style="color:var(--mut)">· ${esc(t.email)} · cuenta ${esc(t.estadoCuenta)} · ${esc(fmtFull(ms(t.creado)))}</span>
+    <div class="ml">${esc(t.mensaje)}</div>${t.respuesta ? `<div class="ml" style="background:#12202f"><b>Tu respuesta:</b> ${esc(t.respuesta)}</div>` : ""}
+    <textarea class="in" id="tr_${esc(t.id)}" rows="2" maxlength="500" placeholder="Escribe una respuesta para el usuario…" style="margin-top:8px;resize:none"></textarea>
+    <div class="acts"><button class="btn sm" data-act="tkRep" data-r="${esc(t.id)}">Responder</button><button class="btn sm ghost" data-act="auser" data-u="${esc(t.uid)}">Ver usuario</button>${t.estado === "abierto" ? `<button class="btn sm ghost" data-act="tkClose" data-r="${esc(t.id)}">Cerrar</button>` : ""}</div></div>`).join("") : `<div class="empty"><div class="big">📭</div>No hay solicitudes de soporte.</div>`;
+}
+async function tkReply(id){
+  const v = ($("tr_" + id) || {}).value || ""; if(v.trim().length < 2) return toast("Escribe una respuesta.");
+  try{ await updateDoc(doc(db, "wm_tickets", id), { respuesta: v.trim().slice(0, 500), estado:"respondido", respondidoEn: serverTimestamp() }); toast("Respuesta enviada ✅"); }catch(e){ console.log(e); toast("No se pudo responder."); }
+}
+async function tkClose(id){ try{ await updateDoc(doc(db, "wm_tickets", id), { estado:"cerrado" }); }catch(e){ toast("No se pudo cerrar."); } }
+/* ---- Nombres de usuario y correos bloqueados ---- */
+function renderBlq(){
+  const c = $("acont"); if(!c) return;
+  c.innerHTML = `<div class="acard"><h4>Nombres de usuario anulados (${aUn.length})</h4>${aUn.length ? aUn.map((x) => `<div class="kv"><span>@${esc(x.id)} <span style="color:var(--mut);font-size:12.5px">${esc(aName(x.uid))}</span></span><span><button class="btn sm ghost" data-act="unFree" data-n="${esc(x.id)}" data-u="${esc(x.uid)}">Liberar</button></span></div>`).join("") : '<span style="color:var(--mut)">Ninguno.</span>'}<p class="fine" style="text-align:left">«Liberar» permite que otra persona use ese nombre. Si el dueño sigue activo, tendrá que elegir uno nuevo.</p></div>
+    <div class="acard"><h4>Correos bloqueados (${aBe.length})</h4>${aBe.length ? aBe.map((x) => `<div class="kv"><span>${esc(x.email || x.id)} <span style="color:var(--mut);font-size:12.5px">${esc(x.motivo || "")}</span></span><span><button class="btn sm ghost" data-act="beFree" data-n="${esc(x.id)}">Permitir</button></span></div>`).join("") : '<span style="color:var(--mut)">Ninguno.</span>'}</div>`;
+}
+async function freeUser(n, uid){
+  if(!confirm(`¿Liberar el usuario @${n}?`)) return;
+  try{ await deleteDoc(doc(db, "wm_usernames", n)); if(uid){ try{ await updateDoc(doc(db, "wm_users", uid), { usuario:"" }); }catch(e){} } toast("Usuario liberado ✅"); }catch(e){ console.log(e); toast("No se pudo liberar."); }
+}
+async function freeEmail(n){ if(!confirm(`¿Permitir de nuevo el correo ${n}?`)) return; try{ await deleteDoc(doc(db, "wm_blocked_emails", n)); toast("Correo permitido ✅"); }catch(e){ toast("No se pudo actualizar."); } }
 async function repSet(id, done){
   try{ if(done) await updateDoc(doc(db, "wm_reportes", id), { estado:"revisado" }); else if(confirm("¿Borrar este reporte?")) await deleteDoc(doc(db, "wm_reportes", id)); }catch(e){ toast("No se pudo actualizar el reporte."); }
 }
@@ -1419,237 +1309,18 @@ const A = {
   pickAv: (t) => { avTarget = t.dataset.t; $("avFile").click(); }, onbGo: createProfile, legal: () => openOv("ovLegal"),
   closeov: (t) => t.closest(".ov").classList.remove("on"), profile: () => openProfile(),
   copyId: () => { const id = prof && prof.id; if(!id) return; (navigator.clipboard ? navigator.clipboard.writeText(id) : Promise.reject()).then(() => toast("ID copiado"), () => { try{ prompt("Copia tu ID:", id); }catch(e){} }); },
-  copyUser: () => { const u = prof && prof.username; if(!u) return; (navigator.clipboard ? navigator.clipboard.writeText("@" + u) : Promise.reject()).then(() => toast("@usuario copiado"), () => { try{ prompt("Copia tu usuario:", "@" + u); }catch(e){} }); },
-  supportTicket: () => {
-    const em = (user && user.email) || "";
-    $("shInfo").innerHTML = `<h2>Solicitar revisión<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
-      <p class="lead" style="margin:0 0 12px">Explica por qué crees que tu cuenta fue suspendida por error. Nuestro equipo revisará tu caso.</p>
-      <label class="f">Correo de la cuenta</label><input class="in" id="supEm" value="${esc(em)}" readonly>
-      <label class="f">Motivo / detalles</label><textarea class="in" id="supTx" rows="4" maxlength="500" placeholder="Cuéntanos qué pasó…" style="resize:none"></textarea>
-      <div class="msg" id="supMsg"></div>
-      <button class="btn" data-act="sendSupport" id="supGo">Enviar solicitud</button>`;
-    openOv("ovInfo");
-  },
-  sendSupport: async () => {
-    const detalle = ($("supTx").value || "").trim();
-    if(detalle.length < 10) return setMsg("supMsg", "Escribe al menos 10 caracteres explicando tu caso.");
-    busy("supGo", true, "Enviando…");
-    try{
-      await addDoc(collection(db, "wm_soporte"), { uid: me(), email: user.email, detalle: detalle.slice(0,500), tipo:"revision_suspension", estado:"nuevo", creado: serverTimestamp() });
-      toast("Solicitud enviada. Te responderemos pronto."); closeAllOv();
-    }catch(e){ setMsg("supMsg", "No se pudo enviar. Inténtalo más tarde."); busy("supGo", false); }
-  },
   saveProf: saveProfile, ptab: (t) => setPtab(t.dataset.t), open: (t) => openChat(t.dataset.c),
   accept: (t) => answerReq(t.dataset.c, true), reject: (t) => answerReq(t.dataset.c, false),
   connect: (t) => connectSheet(t.dataset.u), sendReq: (t) => sendReq(t.dataset.u),
-  back: () => { closeChatUI(); },
+  back: () => { if(history.state && history.state.wm){ history.back(); } else closeChatUI(); },
   info: infoSheet, saveAp: saveApodo, block: () => setBlock(true), unblock: () => setBlock(false), repForm: reportForm, repSend: sendReport,
   older: () => { msgLimit += 40; olderFlag = true; subMsgs(); },
-  selMsg: (t) => selectMsg(t.dataset.mid),
-  delMsgBoth: (t) => deleteMsg(t.dataset.mid, true),
-  delMsgMe: (t) => deleteMsg(t.dataset.mid, false),
-  setTemp: (t) => {
-    const m = t.dataset.m;
-    msgTimerMode = msgTimerMode === m ? "none" : m;
-    compSig = ""; renderComp();
-    toast(msgTimerMode === "24h" ? "Mensajes temporales: 24 horas" : msgTimerMode === "once" ? "Mensajes se autodestruyen al leer" : "Mensajes normales");
-  },
-  chatMenu: () => {
-    $("shInfo").innerHTML = `<h2>Opciones del chat<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
-      <button class="btn ghost" data-act="clearChatMe" style="margin-top:8px">Vaciar chat (solo para mí)</button>
-      <button class="btn ghost" data-act="clearChatBoth">Vaciar chat (para ambos)</button>
-      <button class="btn ghost" data-act="archiveChat">Archivar chat</button>
-      <button class="btn bad" data-act="deleteChat">Eliminar chat</button>
-      <button class="btn ghost" data-act="info" style="margin-top:12px">Ver contacto</button>`;
-    openOv("ovInfo");
-  },
-  clearChatMe: () => clearChat(false),
-  clearChatBoth: () => clearChat(true),
-  archiveChat, deleteChat,
-  setTheme: (t) => {
-    const th = t.dataset.th || "default";
-    document.documentElement.setAttribute("data-theme", th);
-    try{ localStorage.setItem("wm_theme", th); }catch(e){}
-    toast(th === "ios" ? "Temática iOS activada" : th === "android" ? "Temática Android activada" : "Temática oscura activada");
-  },
   admin: openAdmin, admClose, admPin: admPinGo, atab: (t) => setATab(t.dataset.t), auser: (t) => userSheet(t.dataset.u),
   aset: (t) => setEstado(t.dataset.u, t.dataset.s), adel: (t) => delUser(t.dataset.u), repDone: (t) => repSet(t.dataset.r, true), repDel: (t) => repSet(t.dataset.r, false),
-  inspChat: (t) => inspChat(t.dataset.c),
-  freeUser: (t) => freeUsername(t.dataset.u),
-  setVerify: async (t) => {
-    const uid = t.dataset.u, on = t.dataset.v === "1";
-    try{ await updateDoc(doc(db, "wm_users", uid), { verificado: on }); toast(on ? "Usuario verificado ✓" : "Verificación quitada"); userSheet(uid); }catch(e){ toast("No se pudo actualizar"); }
-  },
-  setRank: async (t) => {
-    const uid = t.dataset.u, r = t.dataset.r || "";
-    try{ await updateDoc(doc(db, "wm_users", uid), { rango: r }); toast(r ? "Rango: " + r : "Rango quitado"); userSheet(uid); }catch(e){ toast("No se pudo actualizar"); }
-  },
-  createGroup: () => {
-    $("shInfo").innerHTML = `<h2>Crear grupo<button class="ibtn" data-act="closeov">${IC.x}</button></h2>
-      <label class="f" for="gName">Nombre del grupo</label>
-      <input class="in" id="gName" maxlength="40" placeholder="Mi grupo">
-      <label class="f" for="gUser">Nombre de usuario del grupo</label>
-      <div style="position:relative"><span style="position:absolute;left:14px;top:13px;color:var(--mut)">@</span>
-      <input class="in" id="gUser" maxlength="20" placeholder="grupousuario" style="padding-left:28px"></div>
-      <label class="f" for="gDesc">Descripción (opcional)</label>
-      <input class="in" id="gDesc" maxlength="120" placeholder="Sobre el grupo…">
-      <div class="msg" id="gMsg"></div>
-      <button class="btn" data-act="saveGroup" id="gGo">Crear grupo</button>`;
-    openOv("ovInfo");
-  },
-  saveGroup: async () => {
-    const nombre = ($("gName").value || "").trim();
-    const username = ($("gUser").value || "").trim().toLowerCase().replace(/[^a-z0-9_]/g,"");
-    const bio = ($("gDesc").value || "").trim().slice(0,120);
-    if(nombre.length < 2) return setMsg("gMsg", "Escribe un nombre para el grupo.");
-    if(username.length < 3) return setMsg("gMsg", "El @ del grupo debe tener al menos 3 caracteres.");
-    busy("gGo", true, "Creando…");
-    try{
-      const uCheck = await getDoc(doc(db, "wm_usernames", username));
-      if(uCheck.exists()) return setMsg("gMsg", "Ese @ ya está en uso."), busy("gGo", false);
-      const gid = "g_" + Date.now().toString(36) + Math.random().toString(36).slice(2,6);
-      await setDoc(doc(db, "wm_usernames", username), { uid: gid, tipo: "grupo", creado: serverTimestamp() });
-      await setDoc(doc(db, "wm_groups", gid), {
-        id: gid, username, nombre, bio, foto: "",
-        creador: me(), admins: [me()], miembros: [me()],
-        permisos: { addAdmin: true, kick: true, deleteMsg: true },
-        tempDefault: "none",
-        creado: serverTimestamp(), ultimoMsg: "", ultimoMsgAt: serverTimestamp()
-      });
-      closeAllOv(); toast("Grupo @" + username + " creado ✅");
-      setPtab("groups");
-    }catch(e){ console.log(e); setMsg("gMsg", "No se pudo crear el grupo. Revisa las reglas de Firestore."); busy("gGo", false); }
-  },
-  openGroup: (t) => openGroup(t.dataset.g),
-  inviteGroup: () => {
-    $("shInfo").innerHTML = `<h2>Invitar al grupo<button class="ibtn" data-act="closeov">${IC.x}</button></h2>
-      <p class="lead" style="margin:0 0 10px">Escribe el @usuario o ID de la persona. Se unirá automáticamente (sin aprobación).</p>
-      <input class="in" id="invQ" placeholder="@usuario o ID" maxlength="30">
-      <div class="msg" id="invMsg"></div>
-      <button class="btn" data-act="doInvite" id="invGo">Invitar</button>`;
-    openOv("ovInfo");
-  },
-  doInvite: async () => {
-    const q = ($("invQ").value || "").trim();
-    if(!q || !curGroup) return;
-    busy("invGo", true, "Buscando…");
-    try{
-      let uid = null;
-      if(/^\d+$/.test(q)){
-        const s = await getDocs(query(collection(db, "wm_users"), where("id", "==", q), limit(1)));
-        if(!s.empty) uid = s.docs[0].id;
-      } else {
-        const uname = q.replace(/^@/,"").toLowerCase();
-        const u = await getDoc(doc(db, "wm_usernames", uname));
-        if(u.exists() && u.data().tipo !== "grupo") uid = u.data().uid;
-      }
-      if(!uid) return setMsg("invMsg", "No se encontró ese usuario."), busy("invGo", false);
-      if((groups.get(curGroup).miembros || []).includes(uid)) return setMsg("invMsg", "Ya está en el grupo."), busy("invGo", false);
-      await updateDoc(doc(db, "wm_groups", curGroup), { miembros: arrayUnion(uid) });
-      toast("Usuario invitado ✅"); closeAllOv();
-    }catch(e){ setMsg("invMsg", "No se pudo invitar."); busy("invGo", false); }
-  },
-  groupInfo: () => {
-    const g = groups.get(curGroup); if(!g) return;
-    const isAdmin = (g.admins||[]).includes(me()) || g.creador === me();
-    $("shInfo").innerHTML = `<h2>${esc(g.nombre)}<button class="ibtn" data-act="closeov">${IC.x}</button></h2>
-      <div style="text-align:center;margin:8px 0">${av(g.nombre, g.foto, "lg")}
-        <div style="font-size:18px;font-weight:700;margin-top:8px">${esc(g.nombre)}</div>
-        <div style="color:var(--acc)">@${esc(g.username)}</div>
-        ${g.bio ? `<div style="color:var(--mut);margin-top:4px">${esc(g.bio)}</div>` : ""}
-        <div style="color:var(--mut);font-size:13px;margin-top:6px">${(g.miembros||[]).length} miembros</div>
-      </div>
-      ${isAdmin ? `<button class="btn" data-act="inviteGroup">Invitar miembro</button>
-        <button class="btn ghost" data-act="leaveGroup">Salir del grupo</button>` : `<button class="btn bad" data-act="leaveGroup">Salir del grupo</button>`}
-      <div style="margin-top:14px"><h4 style="color:var(--mut);font-size:13px">Miembros</h4>
-        ${(g.miembros||[]).map(uid => {
-          const isAdmG = (g.admins||[]).includes(uid) || g.creador === uid;
-          const label = uid === me() ? "Tú" : (peers.get(uid)?.nombre || uid.slice(0,8));
-          return `<div class="kv"><span>${esc(label)}${isAdmG?' <span class="pill nuevo">Admin</span>':''}</span>
-            ${isAdmin && uid !== me() && uid !== g.creador ? `<button class="btn sm bad" data-act="kickMember" data-u="${esc(uid)}">Expulsar</button>` : ""}</div>`;
-        }).join("")}
-      </div>`;
-    openOv("ovInfo");
-  },
-  leaveGroup: async () => {
-    if(!curGroup || !confirm("¿Salir de este grupo?")) return;
-    try{
-      await updateDoc(doc(db, "wm_groups", curGroup), { miembros: arrayRemove(me()), admins: arrayRemove(me()) });
-      closeAllOv(); closeChatUI(); toast("Saliste del grupo");
-    }catch(e){ toast("No se pudo salir"); }
-  },
-  kickMember: async (t) => {
-    const uid = t.dataset.u;
-    if(!curGroup || !confirm("¿Expulsar a este miembro?")) return;
-    try{
-      await updateDoc(doc(db, "wm_groups", curGroup), { miembros: arrayRemove(uid), admins: arrayRemove(uid) });
-      toast("Miembro expulsado"); A.groupInfo();
-    }catch(e){ toast("No se pudo expulsar"); }
-  },
-  delGroup: async (t) => {
-    const gid = t.dataset.g;
-    if(!confirm("¿ELIMINAR este grupo permanentemente?")) return;
-    try{
-      const g = (await getDoc(doc(db, "wm_groups", gid))).data();
-      if(g && g.username) try{ await deleteDoc(doc(db, "wm_usernames", g.username)); }catch(e){}
-      const ms_ = await getDocs(collection(db, "wm_groups", gid, "msgs"));
-      for(let i=0;i<ms_.docs.length;i+=400){ const b=writeBatch(db); ms_.docs.slice(i,i+400).forEach(d=>b.delete(d.ref)); await b.commit(); }
-      await deleteDoc(doc(db, "wm_groups", gid));
-      toast("Grupo eliminado"); renderAdminGroups();
-    }catch(e){ toast("No se pudo eliminar"); }
-  }
+  aChat: (t) => chatSheet(t.dataset.c), aVer: (t) => setVerif(t.dataset.u, true), aUnver: (t) => setVerif(t.dataset.u, false),
+  tkRep: (t) => tkReply(t.dataset.r), tkClose: (t) => tkClose(t.dataset.r), unFree: (t) => freeUser(t.dataset.n, t.dataset.u), beFree: (t) => freeEmail(t.dataset.n),
+  ticket: ticketSheet, tkSend: ticketSend, uscrGo
 };
-
-function openGroup(gid){
-  const g = groups.get(gid); if(!g) return;
-  if(cur) closeChatUI();
-  curGroup = gid; cur = null;
-  $("main").innerHTML = `<div class="mh">
-    <button class="ibtn back" data-act="back" aria-label="Volver">${IC.back}</button>
-    <button class="who" data-act="groupInfo"><span>${av(g.nombre, g.foto, "sm")}</span>
-      <div><div class="t1">${esc(g.nombre)}</div><div class="t2">${(g.miembros||[]).length} miembros · @${esc(g.username)}</div></div>
-    </button>
-  </div>
-  <div class="msgs" id="msgs"></div>
-  <div id="compWrap">
-    <form class="comp" id="cForm" autocomplete="off">
-      <textarea id="cTxt" rows="1" maxlength="1000" placeholder="Mensaje al grupo" enterkeyhint="send"></textarea>
-      <button class="send" type="submit" aria-label="Enviar">${IC.send}</button>
-    </form>
-  </div>`;
-  $("shell").classList.add("chat");
-  // Cargar mensajes del grupo
-  try{ unsubMsgs && unsubMsgs(); }catch(e){}
-  unsubMsgs = onSnapshot(query(collection(db, "wm_groups", gid, "msgs"), orderBy("creado","desc"), limit(50)), (snap) => {
-    if(curGroup !== gid) return;
-    const el = $("msgs"); if(!el) return;
-    const list = snap.docs.map(d => ({ id:d.id, ...d.data({serverTimestamps:"estimate"}) })).reverse();
-    let h = "", lastDay = 0;
-    list.forEach(m => {
-      const t = ms(m.creado) || Date.now();
-      if(!lastDay || !sameDay(lastDay, t)){ h += `<div class="day">${esc(dayLabel(t))}</div>`; lastDay = t; }
-      const mine = m.de === me();
-      const name = mine ? "" : `<div style="font-size:12px;font-weight:600;color:var(--acc);margin-bottom:2px">${esc(m.nombre || "Usuario")}</div>`;
-      h += `<div class="b ${mine?"me":"him"}">${name}${esc(m.texto)}<span class="tm">${fmtT(t)}</span></div>`;
-    });
-    el.innerHTML = h || `<div class="sysm">Grupo creado. ¡Escribe el primer mensaje!</div>`;
-    el.scrollTop = el.scrollHeight;
-  }, e => console.log(e));
-  const form = $("cForm");
-  if(form) form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const ta = $("cTxt"); const text = (ta.value||"").trim(); if(!text) return;
-    ta.value = "";
-    try{
-      await addDoc(collection(db, "wm_groups", gid, "msgs"), {
-        de: me(), nombre: prof.nombre || "", texto: text.slice(0,1000), creado: serverTimestamp()
-      });
-      await updateDoc(doc(db, "wm_groups", gid), { ultimoMsg: text.slice(0,80), ultimoMsgAt: serverTimestamp(), ultimoDe: me() });
-    }catch(err){ toast("No se pudo enviar"); }
-  });
-}
-// Cargar temática guardada
-try{ const th = localStorage.getItem("wm_theme"); if(th) document.documentElement.setAttribute("data-theme", th); }catch(e){}
 document.addEventListener("click", (e) => {
   const t = e.target.closest("[data-act]");
   if(t && A[t.dataset.act]){ A[t.dataset.act](t); return; }
@@ -1664,32 +1335,14 @@ $("aForm").addEventListener("submit", emailSubmit);
 $("avFile").addEventListener("change", onAvatarFile);
 $("q").addEventListener("input", onSearch);
 $("onbNm").addEventListener("input", () => { if(!photo.onb) paintOnbAv(); });
+watchUname($("onbUs"), $("onbUst"), "");
+watchUname($("usIn"), $("usSt"), "");
 window.addEventListener("popstate", () => { if(cur) closeChatUI(); });
 if(window.visualViewport){
   const f = () => { document.documentElement.style.setProperty("--vh", window.visualViewport.height + "px"); if(window.scrollY) window.scrollTo(0, 0); };
   window.visualViewport.addEventListener("resize", f); window.visualViewport.addEventListener("scroll", f); f();
 }
 setAmode("in");
-
-/* Prevenir capturas de pantalla (limitado en web) */
-document.addEventListener("keyup", (e) => {
-  if(e.key === "PrintScreen"){
-    navigator.clipboard.writeText("").catch(()=>{});
-    toast("No se puede realizar capturas de pantalla");
-  }
-});
-document.addEventListener("keydown", (e) => {
-  if((e.metaKey || e.ctrlKey) && e.shiftKey && (e.key === "s" || e.key === "S" || e.key === "3" || e.key === "4")){
-    e.preventDefault();
-    toast("No se puede realizar capturas de pantalla");
-  }
-});
-// Intento de protección visual (no es 100% efectivo)
-try{
-  const style = document.createElement("style");
-  style.textContent = `@media print { body { display:none !important; } }`;
-  document.head.appendChild(style);
-}catch(e){}
 
 </script>
 </body>
