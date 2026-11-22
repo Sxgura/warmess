@@ -217,11 +217,18 @@ label.f{display:block;font-size:12.5px;font-weight:600;color:var(--mut);margin:1
 .mline small{color:var(--mut);display:block;font-size:11.5px}
 .fld .uwrap .in{padding-left:30px}
 
+/* ---- v17 ---- */
+.b.sel{outline:2px solid #64b5ff;outline-offset:1px;filter:brightness(1.18)}
+.b{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.selb{background:#14202e}
+select.in{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,#8e8e93 50%),linear-gradient(135deg,#8e8e93 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:36px}
+.ptabs{overflow-x:auto}.ptabs button{white-space:nowrap}
+
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="lgb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dbe8ff"/></linearGradient><linearGradient id="lgz" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a84ff"/><stop offset="1" stop-color="#bf5af2"/></linearGradient></defs><symbol id="lg" viewBox="0 0 24 24"><path d="M5 3h14a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3h-8.2l-4.3 3.7c-.6.5-1.5.1-1.5-.7V17.4A3 3 0 0 1 2 14.5V6a3 3 0 0 1 3-3z" fill="url(#lgb)"/><path d="M13.2 5.6 8 11.6h3.3l-.9 4.8 5.4-6.3h-3.4z" fill="url(#lgz)"/></symbol></svg>
-<div class="scr on" id="boot"><div class="logo"><svg viewBox="0 0 24 24"><use href="#lg"/></svg></div><div class="brand">WarMess<small>Beta</small></div><div class="spin"></div></div>
+<div class="scr on" id="boot"><div class="logo"><svg viewBox="0 0 24 24"><use href="#lg"/></svg></div><div class="brand">WarMess<small>By Sxgura Inc</small></div><div class="spin"></div></div>
 
 <!-- ACCESO -->
 <div class="scr" id="auth"><div class="center"><div class="box">
@@ -316,11 +323,11 @@ label.f{display:block;font-size:12.5px;font-weight:600;color:var(--mut);margin:1
   <aside class="side">
     <div class="top">
       <button class="av sm" id="meAv" data-act="profile" aria-label="Mi perfil"></button>
-      <h1>WarMess<small>Beta</small></h1>
+      <h1>WarMess<small>By Sxgura Inc</small></h1>
       <button class="ibtn" id="admBtn" data-act="admin" aria-label="Configuración" hidden><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
     </div>
     <div class="srch"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" inputmode="search" placeholder="Buscar @usuario, ID o chat" autocomplete="off" maxlength="30" aria-label="Buscar"></div>
-    <div class="ptabs" id="ptabs"><button class="on" data-act="ptab" data-t="chats">Chats</button><button data-act="ptab" data-t="reqs">Solicitudes <b id="reqN" hidden>0</b></button></div>
+    <div class="ptabs" id="ptabs"><button class="on" data-act="ptab" data-t="chats">Chats</button><button data-act="ptab" data-t="arch">Archivados <b id="archN" hidden>0</b></button><button data-act="ptab" data-t="reqs">Solicitudes <b id="reqN" hidden>0</b></button></div>
     <div class="list" id="list"></div>
   </aside>
   <main class="main" id="main"></main>
@@ -366,7 +373,7 @@ import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signI
   createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { getFirestore, collection, doc, getDoc, getDocs, setDoc, updateDoc, deleteDoc, addDoc, query, where, orderBy, limit,
-  onSnapshot, serverTimestamp, writeBatch, increment
+  onSnapshot, serverTimestamp, writeBatch, increment, Timestamp, arrayUnion, initializeFirestore, persistentLocalCache, persistentMultipleTabManager
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 /* ================= CONFIGURACIÓN ================= */
@@ -384,7 +391,9 @@ const MIN_AGE = 13;                                         // edad mínima para
 const ONLINE_MS = 100000;                                   // "en línea" si se conectó hace menos de esto
 const fbApp = initializeApp(firebaseConfig);
 const auth = getAuth(fbApp);
-const db = getFirestore(fbApp);
+let db;
+try{ db = initializeFirestore(fbApp, { localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() }) }); }   // caché local: abre más rápido y mantiene mensajes sin conexión
+catch(e){ db = getFirestore(fbApp); }
 auth.languageCode = "es";                                  // los correos de Firebase (verificación, contraseña) salen en español
 const RESERVED = ["admin","administrador","soporte","support","warmess","sxgura","sxguraInc".toLowerCase(),"moderador","creador","owner","root","system","sistema","ayuda","help","staff","oficial","official"];
 const UNAME_RE = /^[a-z][a-z0-9_.]{2,19}$/;
@@ -394,6 +403,7 @@ const $ = (id) => document.getElementById(id);
 const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const ms = (t) => (t && typeof t.toMillis === "function") ? t.toMillis() : (typeof t === "number" ? t : 0);
 const sleep = (n) => new Promise((r) => setTimeout(r, n));
+const store = { get(k, d = null){ try{ const v = localStorage.getItem(k); return v === null ? d : v; }catch(e){ return d; } }, set(k, v){ try{ localStorage.setItem(k, v); }catch(e){} } };
 const P = (d) => `<svg class="i" viewBox="0 0 24 24">${d}</svg>`;
 const IC = {
   send: P('<path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/>'), back: P('<path d="M15 18l-6-6 6-6"/>'), x: P('<path d="M6 6l12 12M18 6 6 18"/>'),
@@ -486,12 +496,18 @@ async function fileToAvatar(file){
 let user = null, prof = null, priv = null, isAdm = false, seq = 0;
 let chats = new Map(), peers = new Map(), cur = null, msgsData = [], msgLimit = 40, ptab = "chats", qtxt = "", qSeq = 0, qRes = null;
 let unsubTk = null, unsubChats = null, unsubMsgs = null, unsubPeer = null, unsubSelf = null, statusT = null, verT = null, compSig = "", firstChats = true, olderFlag = false, firstMsgs = true;
+let sel = new Set(), expT = null, noSeen = false, selChat = null;
 let photo = { onb: null, prof: null }, avTarget = "onb", lastSend = 0, markBusy = false;
 const me = () => user && user.uid;
 const keyOf = (c, who) => (c.a === who ? "A" : "B");
 const otherOf = (c) => (c.a === me() ? c.b : c.a);
 const unreadOf = (c) => c.estado === "activo" && c.ultimoDe && c.ultimoDe !== me() && ms(c.ultimoMsgAt) > ms(c["leido" + keyOf(c, me())]);
 const nameOf = (c) => { const p = peers.get(otherOf(c)); return (c["apodo" + keyOf(c, me())] || "").trim() || (p ? p.nombre : "…"); };
+const tempOf = (c) => (c && c.temp) || "off";
+const myClear = (c) => ms(c["limpiado" + keyOf(c, me())]);
+const isArch = (c) => !!c["archivado" + keyOf(c, me())];
+const isDel = (c) => { const d = ms(c["borrado" + keyOf(c, me())]); return d && ms(c.ultimoMsgAt) <= d; };
+const TEMP_LBL = { off:"Desactivados", "24h":"24 horas", ins:"Instantáneos" };
 const peerOnline = (p) => p && p.estado === "activo" && Date.now() - ms(p.ultimaConexion) < ONLINE_MS;
 
 function scr(n){ document.querySelectorAll(".scr").forEach((s) => s.classList.toggle("on", s.id === n)); }
@@ -729,17 +745,23 @@ async function ensurePeers(){
 function updateBadges(){
   const r = [...chats.values()].filter((c) => c.estado === "pendiente" && c.solicita !== me()).length;
   const n = $("reqN"); n.textContent = r; n.hidden = !r;
-  const un = [...chats.values()].filter(unreadOf).length;
+  const un = [...chats.values()].filter((c) => unreadOf(c) && !isDel(c)).length;
+  const an = [...chats.values()].filter((c) => isArch(c) && unreadOf(c) && !isDel(c)).length, ab = $("archN"); if(ab){ ab.textContent = an; ab.hidden = !an; }
   document.title = (un + r ? `(${un + r}) ` : "") + "WarMess · By Sxgura Inc";
 }
 let actx = null;
-function beep(){
-  try{ actx = actx || new (window.AudioContext || window.webkitAudioContext)(); const o = actx.createOscillator(), g = actx.createGain();
-    o.type = "sine"; o.frequency.value = 880; g.gain.setValueAtTime(.0001, actx.currentTime); g.gain.exponentialRampToValueAtTime(.12, actx.currentTime + .02); g.gain.exponentialRampToValueAtTime(.0001, actx.currentTime + .25);
-    o.connect(g); g.connect(actx.destination); o.start(); o.stop(actx.currentTime + .26); }catch(e){}
+const TONES = [["Clásico", [880]], ["Gota", [660, 990]], ["Burbuja", [520, 780, 1040]]];
+const sndOn = () => store.get("wm_snd_on", "1") !== "0", sndTone = () => Math.min(TONES.length - 1, Math.max(0, parseInt(store.get("wm_snd_tone", "0")) || 0));
+function beep(force){
+  if(!force && !sndOn()) return;
+  try{
+    actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+    TONES[sndTone()][1].forEach((f, i) => { const o = actx.createOscillator(), g = actx.createGain(), t0 = actx.currentTime + i * .13;
+      o.type = "sine"; o.frequency.value = f; g.gain.setValueAtTime(.0001, t0); g.gain.exponentialRampToValueAtTime(.12, t0 + .02); g.gain.exponentialRampToValueAtTime(.0001, t0 + .22);
+      o.connect(g); g.connect(actx.destination); o.start(t0); o.stop(t0 + .24); });
+  }catch(e){}
   try{ navigator.vibrate && navigator.vibrate(40); }catch(e){}
 }
-
 /* ---- lista de chats / solicitudes / búsqueda por ID ---- */
 function setPtab(t){
   ptab = t; document.querySelectorAll('[data-act="ptab"]').forEach((b) => b.classList.toggle("on", b.dataset.t === t));
@@ -747,7 +769,8 @@ function setPtab(t){
 }
 function chatRow(c){
   const p = peers.get(otherOf(c)), nm = nameOf(c), un = unreadOf(c);
-  let sub = c.estado === "pendiente" ? "Solicitud enviada · esperando respuesta" : (c.ultimoMsg ? (c.ultimoDe === me() ? "Tú: " : "") + c.ultimoMsg : "Conectados · escribe el primer mensaje");
+  const cleared = ms(c.ultimoMsgAt) <= myClear(c);
+  let sub = c.estado === "pendiente" ? "Solicitud enviada · esperando respuesta" : cleared ? "" : (c.ultimoMsg ? (c.ultimoDe === me() ? "Tú: " : "") + c.ultimoMsg : (!c.ultimoDe ? "Conectados · escribe el primer mensaje" : ""));
   return `<button class="row ${c.id === cur ? "sel" : ""}" data-act="open" data-c="${esc(c.id)}">${av(nm, p && p.foto)}<div class="mid"><div class="nm">${esc(nm)}${badge(p)}</div><div class="sub ${un ? "un" : ""}">${esc(sub)}</div></div><div class="meta"><span>${esc(fmtList(ms(c.ultimoMsgAt)))}</span>${un ? '<span class="unr"></span>' : ""}</div></button>`;
 }
 const qMode = () => { const q = qtxt.trim(), raw = q.replace(/^@/, ""); if(/^\d+$/.test(raw)) return "id"; if(raw && (q.startsWith("@") || raw.length >= 3)) return "u"; return ""; };
@@ -763,7 +786,7 @@ function renderList(){
   }
   const mode = qMode(), raw = q.replace(/^@/, "");
   let html = "";
-  let rows = all.filter((c) => c.estado === "activo" || (c.estado === "pendiente" && c.solicita === me()) || c.estado === "bloqueado");
+  let rows = all.filter((c) => (c.estado === "activo" || (c.estado === "pendiente" && c.solicita === me()) || c.estado === "bloqueado") && !isDel(c) && (ptab === "arch" ? isArch(c) : (!isArch(c) || (mode && q))));
   if(q && mode !== "id"){ const n = raw.toLowerCase(); rows = rows.filter((c) => { const p = peers.get(otherOf(c)); return nameOf(c).toLowerCase().includes(n) || (p && String(p.usuario || "").includes(n)); }); }
   rows.sort((a, b) => ms(b.ultimoMsgAt) - ms(a.ultimoMsgAt));
   if(mode){
@@ -777,7 +800,8 @@ function renderList(){
       return `<div class="row" style="cursor:default">${av(u.nombre, u.foto)}<div class="mid"><div class="nm">${esc(u.nombre)}${badge(u)}</div><div class="sub">${u.usuario ? "@" + esc(u.usuario) + " · " : ""}ID ${esc(u.id)}</div></div>${btn}</div>`; }).join("");
     if(rows.length) html += `<div class="hint" style="margin-top:6px">Tus chats</div>`;
   }
-  html += rows.length ? rows.map(chatRow).join("") : (!mode ? (q ? `<div class="empty">Ningún chat coincide con «${esc(q)}».<br>Para buscar a alguien nuevo escribe su <b>@usuario</b> o su <b>ID</b>.</div>` : `<div class="empty"><div class="big">💬</div>Aún no tienes chats.<br>Pide a alguien su <b>@usuario</b> o <b>ID</b> y búscalo arriba para conectarte. Los tuyos están en tu perfil.</div>`) : "");
+  if(ptab === "arch" && !rows.length && !mode) html += `<div class="empty"><div class="big">🗃️</div>No tienes chats archivados.</div>`;
+  html += rows.length ? rows.map(chatRow).join("") : (!mode && ptab !== "arch" ? (q ? `<div class="empty">Ningún chat coincide con «${esc(q)}».<br>Para buscar a alguien nuevo escribe su <b>@usuario</b> o su <b>ID</b>.</div>` : `<div class="empty"><div class="big">💬</div>Aún no tienes chats.<br>Pide a alguien su <b>@usuario</b> o <b>ID</b> y búscalo arriba para conectarte. Los tuyos están en tu perfil.</div>`) : "");
   L.innerHTML = html;
 }
 let qT = null;
@@ -830,8 +854,9 @@ function openChat(cid){
   if(cur !== cid){
     if(!cur) try{ history.pushState({ wm:1 }, ""); }catch(e){}
     try{ unsubMsgs && unsubMsgs(); unsubPeer && unsubPeer(); }catch(e){}
-    cur = cid; msgsData = []; msgLimit = 40; compSig = ""; firstMsgs = true; olderFlag = false;
-    $("main").innerHTML = `<div class="mh"><button class="ibtn back" data-act="back" aria-label="Volver">${IC.back}</button><button class="who" data-act="info"><span id="mhAv"></span><div><div class="t1" id="mhN"></div><div class="t2" id="mhS"></div></div></button></div><div class="msgs" id="msgs"></div><div id="compWrap"></div>`;
+    cur = cid; msgsData = []; msgLimit = 40; compSig = ""; firstMsgs = true; olderFlag = false; noSeen = false;
+    $("main").innerHTML = `<div class="mh" id="mhBar"><button class="ibtn back" data-act="back" aria-label="Volver">${IC.back}</button><button class="who" data-act="info"><span id="mhAv"></span><div><div class="t1" id="mhN"></div><div class="t2" id="mhS"></div></div></button></div><div class="mh selb" id="selBar" hidden><button class="ibtn" data-act="selX" aria-label="Cancelar">${IC.x}</button><b id="selN" style="flex:1;font-size:16px">1</b><button class="ibtn" data-act="selInfo" id="selInfoB" aria-label="Información del mensaje">${P('<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/>')}</button><button class="ibtn" data-act="selCopy" aria-label="Copiar">${IC.copy}</button><button class="ibtn" data-act="selDel" aria-label="Eliminar" style="color:#ff6b61">${P('<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>')}</button></div><div class="msgs" id="msgs"></div><div id="compWrap"></div>`;
+    sel = new Set(); bindMsgs();
     $("shell").classList.add("chat"); renderList(); renderHeader(); renderComp(); subMsgs();
     const u = otherOf(c);
     unsubPeer = onSnapshot(doc(db, "wm_users", u), (s) => { if(s.exists()){ peers.set(u, { ...s.data(), uid:u, _t: Date.now() }); renderHeader(); } }, () => {});
@@ -840,7 +865,7 @@ function openChat(cid){
 }
 function closeChatUI(){
   try{ unsubMsgs && unsubMsgs(); unsubPeer && unsubPeer(); }catch(e){} unsubMsgs = unsubPeer = null; clearInterval(statusT);
-  cur = null; msgsData = []; $("shell").classList.remove("chat"); $("main").innerHTML = welcomeHTML(); closeOv("ovInfo"); renderList();
+  cur = null; msgsData = []; sel = new Set(); clearTimeout(expT); $("shell").classList.remove("chat"); $("main").innerHTML = welcomeHTML(); closeOv("ovInfo"); renderList();
 }
 function subMsgs(){
   const cid = cur; try{ unsubMsgs && unsubMsgs(); }catch(e){}
@@ -864,15 +889,18 @@ function renderHeader(){
   else if(c.bloqueadoPor) t = "";
   else if(peerOnline(p)){ t = "en línea"; on = true; }
   else{ const l = ms(p.ultimaConexion); t = l ? (sameDay(l, Date.now()) ? "últ. vez hoy a las " + fmtT(l) : sameDay(l, Date.now() - 864e5) ? "últ. vez ayer a las " + fmtT(l) : "últ. vez " + new Date(l).toLocaleDateString("es-CO")) : ""; }
+  if(tempOf(c) !== "off" && c.estado === "activo") t = (t ? t + " · " : "") + "⏱ " + TEMP_LBL[tempOf(c)];
   s.textContent = t; s.className = "t2" + (on ? " on" : "");
 }
 function renderComp(){
   const c = chats.get(cur), w = $("compWrap"); if(!c || !w) return;
-  const sig = c.estado + "|" + (c.bloqueadoPor || "") + "|" + c.solicita;
+  const sig = c.estado + "|" + (c.bloqueadoPor || "") + "|" + c.solicita + "|" + tempOf(c);
   if(sig === compSig) return; compSig = sig;
   if(c.estado === "activo" && !c.bloqueadoPor){
-    w.innerHTML = `<form class="comp" id="cForm" autocomplete="off"><textarea id="cTxt" rows="1" maxlength="1000" placeholder="Escribe un mensaje" enterkeyhint="send"></textarea><button class="send" type="submit" aria-label="Enviar">${IC.send}</button></form>`;
-    const ta = $("cTxt"), fit = () => { ta.style.height = "auto"; ta.style.height = Math.min(ta.scrollHeight, 130) + "px"; };
+    const draft = ($("cTxt") || {}).value || "";
+    w.innerHTML = `<form class="comp" id="cForm" autocomplete="off"><textarea id="cTxt" rows="1" maxlength="1000" placeholder="${tempOf(c) !== "off" ? "⏱ Mensaje temporal" : "Escribe un mensaje"}" enterkeyhint="send"></textarea><button class="send" type="submit" aria-label="Enviar">${IC.send}</button></form>`;
+    const ta = $("cTxt"); ta.value = draft;
+    const fit = () => { ta.style.height = "auto"; ta.style.height = Math.min(ta.scrollHeight, 130) + "px"; };
     ta.addEventListener("input", fit);
     ta.addEventListener("keydown", (e) => { if(e.key === "Enter" && !e.shiftKey && !e.isComposing && !matchMedia("(pointer:coarse)").matches){ e.preventDefault(); $("cForm").requestSubmit(); } });
     $("cForm").addEventListener("submit", (e) => { e.preventDefault(); sendMsg(); });
@@ -884,35 +912,110 @@ function renderComp(){
   }else if(c.bloqueadoPor){ w.innerHTML = `<div class="lockbar">No puedes enviar mensajes en este chat.</div>`;
   }else{ w.innerHTML = `<div class="lockbar">${c.estado === "rechazado" || c.estado === "pendiente" ? "Esperando respuesta a tu solicitud." : "Chat no disponible."}</div>`; }
 }
+const visMsgs = () => {
+  const c = chats.get(cur), cl = c ? myClear(c) : 0, now = Date.now();
+  return msgsData.filter((m) => !m.borrado && !(m.ocultoPor || []).includes(me()) && !(m.expira && ms(m.expira) <= now) && (m.pend || !ms(m.creado) || ms(m.creado) > cl));
+};
 function renderMsgs(){
   const el = $("msgs"); if(!el) return;
   const c = chats.get(cur); if(!c) return;
   const nearBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 90, prevH = el.scrollHeight, prevTop = el.scrollTop;
-  const peerRead = ms(c["leido" + (c.a === me() ? "B" : "A")]);
+  const vis = visMsgs(), cl = myClear(c);
   let h = "";
   const all = msgsData.length < msgLimit;
   if(!all) h += `<button class="more" data-act="older">Cargar mensajes anteriores</button>`;
-  if(all && c.primerMsg){
+  if(all && c.primerMsg && !cl){
     const mine = c.solicita === me();
     h += `<div class="sysm">${mine ? "Tu mensaje de presentación" : esc(nameOf(c)) + " te escribió"}:<br><b>«${esc(c.primerMsg)}»</b></div>`;
-  }else if(all && c.estado === "activo" && !msgsData.length){ h += `<div class="sysm">Ya están conectados. ¡Escribe el primer mensaje! 👋</div>`; }
-  let lastDay = 0;
-  msgsData.forEach((m) => {
-    const t = ms(m.creado) || Date.now(), mine = m.de === me();
+  }else if(all && c.estado === "activo" && !vis.length){ h += `<div class="sysm">${cl ? "Chat vacío." : "Ya están conectados. ¡Escribe el primer mensaje! 👋"}</div>`; }
+  let lastDay = 0, nextExp = 0;
+  vis.forEach((m) => {
+    const t = ms(m.creado) || Date.now();
     if(!lastDay || !sameDay(lastDay, t)){ h += `<div class="day">${esc(dayLabel(t))}</div>`; lastDay = t; }
-    const st = !mine ? "" : m.pend ? IC.clock : ms(m.creado) && ms(m.creado) <= peerRead ? IC.checks : IC.check;
-    h += `<div class="b ${mine ? "me" : "him"}">${esc(m.texto)}<span class="tm ${mine && st === IC.checks ? "rd" : ""}">${fmtT(t)}${st}</span></div>`;
+    if(m.tipo === "sys"){ h += `<div class="sysm" style="margin:6px 0">${esc(m.texto)}</div>`; return; }
+    const mine = m.de === me(), seen = !!m.vistoEn;
+    const st = !mine ? "" : m.pend ? IC.clock : seen ? IC.checks : IC.check;
+    if(m.expira){ const e = ms(m.expira); if(!nextExp || e < nextExp) nextExp = e; }
+    h += `<div class="b ${mine ? "me" : "him"} ${sel.has(m.id) ? "sel" : ""}" data-m="${esc(m.id)}">${esc(m.texto)}<span class="tm ${mine && seen ? "rd" : ""}">${(m.expira || m.ins) ? "⏱ " : ""}${fmtT(t)}${st}</span></div>`;
   });
   el.innerHTML = h;
+  clearTimeout(expT); if(nextExp) expT = setTimeout(renderMsgs, Math.max(200, nextExp - Date.now() + 80));
   if(olderFlag){ el.scrollTop = el.scrollHeight - prevH + prevTop; olderFlag = false; }
   else if(nearBottom || firstMsgs) el.scrollTop = el.scrollHeight;
   else el.scrollTop = prevTop;
+  renderSel();
 }
+/* ---- selección de mensajes (mantén pulsado, clic derecho o doble clic) ---- */
+function bindMsgs(){
+  const el = $("msgs"); if(!el) return; let lp = null, moved = false;
+  const pick = (t) => { const b = t.closest && t.closest(".b[data-m]"); return b ? b.dataset.m : null; };
+  const toggle = (id) => { if(sel.has(id)) sel.delete(id); else{ if(sel.size >= 50) return toast("Máximo 50 mensajes."); sel.add(id); } renderMsgs(); };
+  el.addEventListener("touchstart", (e) => { moved = false; const id = pick(e.target); if(!id) return; lp = setTimeout(() => { lp = null; try{ navigator.vibrate && navigator.vibrate(15); }catch(_){} toggle(id); el._swallow = true; }, 450); }, { passive:true });
+  el.addEventListener("touchmove", () => { moved = true; clearTimeout(lp); lp = null; }, { passive:true });
+  el.addEventListener("touchend", () => { clearTimeout(lp); lp = null; });
+  el.addEventListener("contextmenu", (e) => { const id = pick(e.target); if(id){ e.preventDefault(); if(!sel.has(id)) toggle(id); } });
+  el.addEventListener("dblclick", (e) => { const id = pick(e.target); if(id && !sel.size) toggle(id); });
+  el.addEventListener("click", (e) => { if(el._swallow){ el._swallow = false; return; } const id = pick(e.target); if(id && sel.size) toggle(id); });
+}
+function renderSel(){
+  const on = sel.size > 0, bar = $("selBar"), mh = $("mhBar"); if(!bar) return;
+  // quitar de la selección lo que ya no está visible
+  const vis = new Set(visMsgs().map((m) => m.id)); [...sel].forEach((id) => { if(!vis.has(id)) sel.delete(id); });
+  bar.hidden = !sel.size; if(mh) mh.style.display = sel.size ? "none" : "";
+  $("selN").textContent = sel.size + (sel.size === 1 ? " seleccionado" : " seleccionados");
+  $("selInfoB").style.display = sel.size === 1 ? "" : "none";
+}
+const selMsgs = () => visMsgs().filter((m) => sel.has(m.id));
+function selCopy(){
+  const t = selMsgs().map((m) => m.texto).join("\n");
+  (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => toast("Copiado"), () => toast("No se pudo copiar."));
+  sel = new Set(); renderMsgs();
+}
+function selInfo(){
+  const m = selMsgs()[0]; if(!m) return; const c = chats.get(cur), mine = m.de === me();
+  const row = (a, b) => `<div class="kv"><span>${a}</span><span>${b}</span></div>`;
+  $("shInfo").innerHTML = `<h2>Información del mensaje<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
+    <div class="b ${mine ? "me" : "him"}" style="max-width:100%;margin:12px 0;animation:none;align-self:auto;display:block">${esc(m.texto)}</div>
+    ${row(mine ? "Enviado" : "Recibido", esc(fmtFull(ms(m.creado))))}
+    ${row(mine ? "Visto por " + esc(nameOf(c)) : "Visto por ti", m.vistoEn ? esc(fmtFull(ms(m.vistoEn))) : "Aún no")}
+    ${m.expira ? row("Se elimina", esc(fmtFull(ms(m.expira)))) : m.ins ? row("Mensaje instantáneo", "se elimina segundos después de verse") : ""}`;
+  openOv("ovInfo");
+}
+function selDelSheet(){
+  const ms_ = selMsgs(); if(!ms_.length) return; const allMine = ms_.every((m) => m.de === me());
+  $("shInfo").innerHTML = `<h2>¿Eliminar ${ms_.length === 1 ? "este mensaje" : ms_.length + " mensajes"}?<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
+    <p class="lead" style="margin:6px 0 0">${allMine ? "Puedes eliminarlos para ambos o solo para ti." : "Solo puedes eliminar para todos los mensajes que enviaste tú. Los demás se quitarán solo de tu vista."}</p>
+    <div class="grp" style="margin-top:16px">${allMine ? `<button class="li red" data-act="delAll">${P('<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>')}<span>Eliminar para todos</span></button>` : ""}
+      <button class="li red" data-act="delMe">${P('<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>')}<span>Eliminar para mí</span></button>
+      <button class="li" data-act="closeov">${IC.x}<span>Cancelar</span></button></div>`;
+  openOv("ovInfo");
+}
+async function doDelete(all){
+  const c = chats.get(cur); if(!c) return; const ms_ = selMsgs(); if(!ms_.length) return;
+  const vis = visMsgs(), lastId = vis.filter((m) => m.tipo !== "sys").slice(-1)[0] && vis.filter((m) => m.tipo !== "sys").slice(-1)[0].id;
+  const b = writeBatch(db);
+  ms_.forEach((m) => { const r = doc(db, "wm_chats", c.id, "msgs", m.id); if(all && m.de === me()) b.update(r, { borrado:true, borradoPor: me(), borradoEn: serverTimestamp() }); else b.update(r, { ocultoPor: arrayUnion(me()) }); });
+  if(all && ms_.some((m) => m.id === lastId && m.de === me())) b.update(doc(db, "wm_chats", c.id), { ultimoMsg: "" });
+  closeOv("ovInfo"); sel = new Set(); renderMsgs();
+  try{ await b.commit(); toast("Eliminado"); }catch(e){ console.log("Eliminar:", e); toast("No se pudo eliminar. ¿Reglas v17 publicadas?"); }
+}
+let markAgain = false;
 async function markRead(){
-  const c = chats.get(cur); if(!c || document.hidden || markBusy || !unreadOf(c)) return;
+  if(markBusy){ markAgain = true; return; }
+  const c = chats.get(cur); if(!c || document.hidden) return;
+  const unseen = noSeen ? [] : msgsData.filter((m) => m.de !== me() && m.tipo !== "sys" && !m.vistoEn && !m.pend && ms(m.creado) > Date.now() - 3 * 864e5 && !m.borrado);
+  const needL = unreadOf(c); if(!needL && !unseen.length) return;
   markBusy = true;
-  try{ await updateDoc(doc(db, "wm_chats", c.id), { ["leido" + keyOf(c, me())]: serverTimestamp() }); }catch(e){}
+  if(needL){ try{ await updateDoc(doc(db, "wm_chats", c.id), { ["leido" + keyOf(c, me())]: serverTimestamp() }); }catch(e){} }
+  if(unseen.length){
+    try{
+      const b = writeBatch(db);
+      unseen.slice(0, 200).forEach((m) => { const u = { vistoEn: serverTimestamp() }; if(m.ins) u.expira = Timestamp.fromMillis(Date.now() + 10000); b.update(doc(db, "wm_chats", c.id, "msgs", m.id), u); });
+      await b.commit();
+    }catch(e){ noSeen = true; console.log("Visto:", e); }
+  }
   markBusy = false;
+  if(markAgain){ markAgain = false; setTimeout(markRead, 120); }
 }
 document.addEventListener("visibilitychange", () => { if(!document.hidden){ markRead(); tickConn(); } });
 function sendMsg(){
@@ -920,11 +1023,44 @@ function sendMsg(){
   const text = ta.value.trim(); if(!text) return;
   if(Date.now() - lastSend < 350) return; lastSend = Date.now();
   ta.value = ""; ta.style.height = "auto"; ta.focus();
+  const tmp = tempOf(c), data = { de: me(), texto: text.slice(0, 1000), creado: serverTimestamp() };
+  if(tmp === "24h") data.expira = Timestamp.fromMillis(Date.now() + 864e5); else if(tmp === "ins") data.ins = true;
   const b = writeBatch(db), mref = doc(collection(db, "wm_chats", c.id, "msgs"));
-  b.set(mref, { de: me(), texto: text.slice(0, 1000), creado: serverTimestamp() });
-  b.update(doc(db, "wm_chats", c.id), { ultimoMsg: text.slice(0, 80), ultimoMsgAt: serverTimestamp(), ultimoDe: me() });
+  b.set(mref, data);
+  b.update(doc(db, "wm_chats", c.id), { ultimoMsg: tmp === "off" ? text.slice(0, 80) : "⏱ Mensaje temporal", ultimoMsgAt: serverTimestamp(), ultimoDe: me() });
   b.commit().catch((e) => { console.log("Envío:", e); toast("No se pudo enviar el mensaje."); const t = $("cTxt"); if(t && !t.value) t.value = text; });
   const el = $("msgs"); if(el) setTimeout(() => { el.scrollTop = el.scrollHeight; }, 30);
+}
+async function setTemp(mode){
+  const c = chats.get(cur); if(!c || tempOf(c) === mode) return;
+  const b = writeBatch(db);
+  b.update(doc(db, "wm_chats", c.id), { temp: mode, tempPor: me(), tempEn: serverTimestamp() });
+  const who = (prof && prof.nombre) || "Alguien";
+  b.set(doc(collection(db, "wm_chats", c.id, "msgs")), { de: me(), tipo:"sys", creado: serverTimestamp(), texto: mode === "off" ? `${who} desactivó los mensajes temporales.` : mode === "24h" ? `${who} activó los mensajes temporales: se eliminan a las 24 horas.` : `${who} activó los mensajes instantáneos: se eliminan segundos después de ser vistos.` });
+  try{ await b.commit(); toast("Mensajes temporales: " + TEMP_LBL[mode]); closeOv("ovInfo"); }catch(e){ console.log(e); toast("No se pudo cambiar. ¿Reglas v17 publicadas?"); }
+}
+async function archiveChat(){
+  const c = chats.get(cur); if(!c) return; const on = !isArch(c);
+  try{ await updateDoc(doc(db, "wm_chats", c.id), { ["archivado" + keyOf(c, me())]: on }); toast(on ? "Chat archivado" : "Chat desarchivado"); closeOv("ovInfo"); if(on) closeChatUI(); }catch(e){ console.log(e); toast("No se pudo archivar. ¿Reglas v17 publicadas?"); }
+}
+function clearSheet(){
+  $("shInfo").innerHTML = `<h2>Vaciar chat<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
+    <p class="lead" style="margin:6px 0 0">Se eliminan todos los mensajes de esta conversación. ¿Para quién?</p>
+    <div class="grp" style="margin-top:16px"><button class="li red" data-act="clrBoth"><span>Para ambos</span></button><button class="li red" data-act="clrMe"><span>Solo para mí</span></button><button class="li" data-act="closeov"><span>Cancelar</span></button></div>`;
+}
+async function clearChat(both){
+  const c = chats.get(cur); if(!c) return; const k = keyOf(c, me());
+  try{
+    if(both) await updateDoc(doc(db, "wm_chats", c.id), { limpiadoA: serverTimestamp(), limpiadoB: serverTimestamp(), ultimoMsg: "" });
+    else await updateDoc(doc(db, "wm_chats", c.id), { ["limpiado" + k]: serverTimestamp() });
+    toast("Chat vaciado"); closeOv("ovInfo");
+  }catch(e){ console.log(e); toast("No se pudo vaciar. ¿Reglas v17 publicadas?"); }
+}
+async function deleteChat(){
+  const c = chats.get(cur); if(!c) return; if(!confirm("¿Eliminar este chat de tu lista? Se vaciará para ti; si la otra persona te escribe, volverá a aparecer.")) return;
+  const k = keyOf(c, me());
+  try{ await updateDoc(doc(db, "wm_chats", c.id), { ["limpiado" + k]: serverTimestamp(), ["borrado" + k]: serverTimestamp() }); closeOv("ovInfo"); closeChatUI(); toast("Chat eliminado"); }
+  catch(e){ console.log(e); toast("No se pudo eliminar. ¿Reglas v17 publicadas?"); }
 }
 
 /* ---- información del contacto, apodo, bloqueo y reporte ---- */
@@ -940,6 +1076,10 @@ function infoSheet(){
       <div class="chip">ID <b>${esc(p.id || "—")}</b></div></div>
     <div class="grp"><div class="gt">Personalizar</div><div class="fld"><label for="apIn">Apodo <span style="font-weight:400">(solo lo ves tú)</span></label>
       <div style="display:flex;gap:8px"><input class="in" id="apIn" maxlength="40" placeholder="${esc(p.nombre || "Apodo")}" value="${esc(ap)}"><button class="btn sm" data-act="saveAp" style="flex:none">Guardar</button></div></div></div>
+    <div class="grp"><div class="gt">Mensajes temporales</div>${["off", "24h", "ins"].map((m) => `<button class="li" data-act="setTemp" data-m="${m}"><span style="flex:1">${m === "off" ? "Desactivados" : m === "24h" ? "24 horas" : "Instantáneos"}${m === "ins" ? '<small style="display:block;color:var(--mut);font-size:12px">Se eliminan segundos después de ser vistos</small>' : ""}</span>${tempOf(c) === m ? '<span style="color:var(--acc);font-weight:800">✓</span>' : ""}</button>`).join("")}</div>
+    <div class="grp"><div class="gt">Chat</div><button class="li" data-act="archive">${P('<path d="M3 7h18v4H3zM5 11v9h14v-9M10 15h4"/>')}<span>${isArch(c) ? "Desarchivar chat" : "Archivar chat"}</span></button>
+      <button class="li red" data-act="clrSheet">${P('<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>')}<span>Vaciar chat</span></button>
+      <button class="li red" data-act="delChat">${P('<path d="M6 6l12 12M18 6 6 18"/>')}<span>Eliminar chat</span></button></div>
     <div class="grp"><button class="li ${blk ? "" : "red"}" data-act="${blk ? "unblock" : "block"}">${I.ban}<span>${blk ? "Desbloquear contacto" : "Bloquear contacto"}</span></button>
       <button class="li red" data-act="repForm">${I.flag}<span>Reportar contacto</span></button></div>
     <div id="repBox"></div>`;
@@ -996,6 +1136,8 @@ function openProfile(first){
       <div class="fld"><label for="pfWa">WhatsApp (con código de país, solo números)</label><input class="in" id="pfWa" inputmode="numeric" maxlength="18" value="${esc(prof.wa || "")}" placeholder="573001234567"></div>
       <div class="fld"><label for="pfIg">Instagram (usuario)</label><input class="in" id="pfIg" maxlength="31" autocapitalize="none" value="${esc(prof.ig || "")}" placeholder="tu.usuario"></div>
       <div class="fld"><label for="pfLn">Enlace</label><input class="in" id="pfLn" type="url" maxlength="200" value="${esc(prof.link || "")}" placeholder="https://…"></div></div>
+    <div class="grp"><div class="gt">Notificaciones</div>
+      <div class="fld"><label for="pfSnd">Sonido de mensajes nuevos</label><div style="display:flex;gap:8px"><select class="in" id="pfSnd"><option value="off">Silencio</option>${TONES.map((t, i) => `<option value="${i}">${t[0]}</option>`).join("")}</select><button class="btn sm ghost" data-act="sndTest" style="flex:none">Probar</button></div></div></div>
     <div class="kv" style="margin-top:12px"><span>Correo</span><span>${esc(user.email || "")}</span></div>
     <div class="msg" id="pfMsg"></div>
     <button class="btn" data-act="saveProf" id="pfGo">Guardar cambios</button>
@@ -1003,6 +1145,8 @@ function openProfile(first){
     <button class="btn bad" data-act="logout">Cerrar sesión</button>
     <div class="foot">WarMess · By <b>Sxgura Inc</b></div>`;
   watchUname($("pfUs"), $("pfUst"), () => prof.usuario);
+  $("pfSnd").value = sndOn() ? String(sndTone()) : "off";
+  $("pfSnd").addEventListener("change", () => { const v = $("pfSnd").value; if(v === "off") store.set("wm_snd_on", "0"); else{ store.set("wm_snd_on", "1"); store.set("wm_snd_tone", v); beep(true); } });
   openOv("ovProf");
 }
 async function savePriv(fields){
@@ -1266,8 +1410,9 @@ async function chatSheet(cid){
     const cs = await getDoc(doc(db, "wm_chats", cid));
     const s = await getDocs(query(collection(db, "wm_chats", cid, "msgs"), orderBy("creado", "asc"), limit(500)));
     const ch = cs.exists() ? cs.data() : null;
-    $("cInfo").innerHTML = ch ? `${esc(aName(ch.a))} ↔ ${esc(aName(ch.b))}<br>Estado: <b>${esc(ch.estado)}</b>${ch.bloqueadoPor ? " · bloqueado por " + esc(aName(ch.bloqueadoPor)) : ""} · ${s.size} mensaje(s)${ch.primerMsg ? `<br>Presentación: «${esc(ch.primerMsg)}»` : ""}` : "Este chat ya no existe.";
-    $("cMsgs").innerHTML = s.docs.map((d) => { const m = d.data({ serverTimestamps:"estimate" }); return `<div class="mline ${ch && m.de === ch.a ? "" : "b2"}"><small>${esc(aName(m.de))} · ${esc(fmtFull(ms(m.creado)))}</small>${esc(m.texto)}</div>`; }).join("") || '<div class="empty">Sin mensajes.</div>';
+    $("cInfo").innerHTML = ch ? `${esc(aName(ch.a))} ↔ ${esc(aName(ch.b))}<br>Estado: <b>${esc(ch.estado)}</b>${ch.bloqueadoPor ? " · bloqueado por " + esc(aName(ch.bloqueadoPor)) : ""} · ${s.size} mensaje(s)${ch.primerMsg ? `<br>Presentación: «${esc(ch.primerMsg)}»` : ""}${ch.temp && ch.temp !== "off" ? `<br>Mensajes temporales: ${esc(TEMP_LBL[ch.temp])}` : ""}<br><span style="font-size:12px">Aquí también ves los mensajes que los usuarios eliminaron o que expiraron.</span>` : "Este chat ya no existe.";
+    $("cMsgs").innerHTML = s.docs.map((d) => { const m = d.data({ serverTimestamps:"estimate" }); const fl = [m.tipo === "sys" ? "⚙ aviso del sistema" : "", m.borrado ? "🗑 eliminado por " + esc(aName(m.borradoPor)) + " · " + esc(fmtFull(ms(m.borradoEn))) : "", (m.ocultoPor || []).length ? "👁‍🗨 oculto para " + (m.ocultoPor || []).map((u) => esc(aName(u))).join(", ") : "", m.expira && ms(m.expira) <= Date.now() ? "⏱ expiró " + esc(fmtFull(ms(m.expira))) : m.expira ? "⏱ expira " + esc(fmtFull(ms(m.expira))) : m.ins ? "⏱ instantáneo" : "", m.vistoEn ? "✓✓ visto " + esc(fmtFull(ms(m.vistoEn))) : ""].filter(Boolean).join(" · ");
+      return `<div class="mline ${ch && m.de === ch.a ? "" : "b2"}" ${m.borrado ? 'style="opacity:.75;border:1px dashed #5a2a2a"' : ""}><small>${esc(aName(m.de))} · ${esc(fmtFull(ms(m.creado)))}</small>${esc(m.texto)}${fl ? `<small style="margin-top:3px">${fl}</small>` : ""}</div>`; }).join("") || '<div class="empty">Sin mensajes.</div>';
   }catch(e){ console.log(e); $("cInfo").textContent = "No se pudo cargar el historial."; }
 }
 /* ---- Registro de actividad (apodos…) ---- */
@@ -1319,7 +1464,10 @@ const A = {
   aset: (t) => setEstado(t.dataset.u, t.dataset.s), adel: (t) => delUser(t.dataset.u), repDone: (t) => repSet(t.dataset.r, true), repDel: (t) => repSet(t.dataset.r, false),
   aChat: (t) => chatSheet(t.dataset.c), aVer: (t) => setVerif(t.dataset.u, true), aUnver: (t) => setVerif(t.dataset.u, false),
   tkRep: (t) => tkReply(t.dataset.r), tkClose: (t) => tkClose(t.dataset.r), unFree: (t) => freeUser(t.dataset.n, t.dataset.u), beFree: (t) => freeEmail(t.dataset.n),
-  ticket: ticketSheet, tkSend: ticketSend, uscrGo
+  ticket: ticketSheet, tkSend: ticketSend, uscrGo,
+  selX: () => { sel = new Set(); renderMsgs(); }, selCopy, selInfo, selDel: selDelSheet, delAll: () => doDelete(true), delMe: () => doDelete(false),
+  setTemp: (t) => setTemp(t.dataset.m), archive: archiveChat, clrSheet: clearSheet, clrBoth: () => clearChat(true), clrMe: () => clearChat(false), delChat: deleteChat,
+  sndTest: () => beep(true)
 };
 document.addEventListener("click", (e) => {
   const t = e.target.closest("[data-act]");
@@ -1347,3 +1495,4 @@ setAmode("in");
 </script>
 </body>
 </html>
+
