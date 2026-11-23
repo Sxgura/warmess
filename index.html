@@ -481,6 +481,23 @@ html[data-theme=ios] .pgrp,html[data-theme=ios] .pme{background:#fff}
 html[data-theme=iosdark] .pgrp,html[data-theme=iosdark] .pme{background:#1c1c1e}
 html[data-theme=android] .pgrp,html[data-theme=android] .pme{background:#111b21}
 
+/* ---- fase 7: insignias, asistencia, modal ---- */
+.vb{width:18px;height:18px;vertical-align:-3px;margin-left:5px}
+.av.bot{background:linear-gradient(135deg,#1d8cff,#5e5ce6)}
+.av.bot svg{width:58%;height:58%;fill:#fff}
+.botfoot{flex:none;padding:14px 16px max(14px,env(safe-area-inset-bottom));text-align:center;color:#8e8e93;font-size:13.5px;background:#0e0e13;border-top:1px solid var(--line)}
+.vmod{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.66);display:grid;place-items:center;padding:24px;animation:vfade .25s both;backdrop-filter:blur(4px)}
+.vcard{width:min(100%,340px);background:#1b1b1f;border-radius:26px;padding:26px 22px 20px;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.07);animation:vpop .4s cubic-bezier(.2,.9,.3,1.25) both}
+.vcard .vic{font-size:44px;line-height:1;margin-bottom:10px}
+.vcard .vbig{width:84px;height:84px;filter:drop-shadow(0 6px 18px rgba(29,140,255,.55));animation:vspin .7s cubic-bezier(.2,.9,.3,1.3) both}
+.vcard h3{margin:8px 0 6px;font-size:24px;font-weight:800;letter-spacing:-.3px}
+.vcard p{margin:0 0 18px;color:#c7c7cc;font-size:15px;line-height:1.45}
+@keyframes vfade{from{opacity:0}to{opacity:1}}
+@keyframes vpop{from{opacity:0;transform:scale(.8) translateY(12px)}to{opacity:1;transform:none}}
+@keyframes vspin{from{transform:scale(.3) rotate(-90deg);opacity:0}to{transform:none;opacity:1}}
+html[data-theme=ios] .vcard{background:#fff}html[data-theme=ios] .vcard p{color:#3a3a3c}
+html[data-theme=ios] .botfoot{background:#f2f2f7}
+
 </style>
 </head>
 <body>
@@ -618,7 +635,7 @@ html[data-theme=android] .pgrp,html[data-theme=android] .pme{background:#111b21}
     <button class="btn" data-act="admPin">Entrar</button>
   </div>
   <div id="admMain" style="display:none;flex-direction:column;flex:1;min-height:0">
-    <div class="atabs" id="atabs"><button class="on" data-act="atab" data-t="res">Resumen</button><button data-act="atab" data-t="usr">Usuarios</button><button data-act="atab" data-t="vis">Visitas</button><button data-act="atab" data-t="rep">Reportes <span class="pill nuevo" id="repN" hidden>0</span></button><button data-act="atab" data-t="ins">Inspeccionar</button><button data-act="atab" data-t="grp">Grupos</button><button data-act="atab" data-t="fb">Comentarios</button><button data-act="atab" data-t="sto">Historias</button><button data-act="atab" data-t="not">Notas</button><button data-act="atab" data-t="sop">Soporte <span class="pill nuevo" id="tkN" hidden>0</span></button><button data-act="atab" data-t="log">Registro</button><button data-act="atab" data-t="blq">Bloqueados</button></div>
+    <div class="atabs" id="atabs"><button class="on" data-act="atab" data-t="res">Resumen</button><button data-act="atab" data-t="usr">Usuarios</button><button data-act="atab" data-t="vis">Visitas</button><button data-act="atab" data-t="rep">Reportes <span class="pill nuevo" id="repN" hidden>0</span></button><button data-act="atab" data-t="ins">Inspeccionar</button><button data-act="atab" data-t="grp">Grupos</button><button data-act="atab" data-t="avi">Avisos</button><button data-act="atab" data-t="fb">Comentarios</button><button data-act="atab" data-t="sto">Historias</button><button data-act="atab" data-t="not">Notas</button><button data-act="atab" data-t="sop">Soporte <span class="pill nuevo" id="tkN" hidden>0</span></button><button data-act="atab" data-t="log">Registro</button><button data-act="atab" data-t="blq">Bloqueados</button></div>
     <div class="abody" id="abody"></div>
   </div>
 </div>
@@ -696,7 +713,9 @@ const av = (name, foto, cls = "") => {
   return photoOk(foto) ? `<div class="av ${cls}" style="background-image:url('${esc(foto)}')"></div>`
     : `<div class="av ${cls} dflt" role="img" aria-label="Sin foto de perfil"></div>`;
 };
-const badge = (p) => (p && p.verificado) ? `<svg class="vb" viewBox="0 0 24 24" aria-label="Cuenta verificada"><circle cx="12" cy="12" r="10.5" fill="${p.rango === "Creador" ? "#f5a300" : "#0a84ff"}"/><path d="M7.6 12.4l3 3 5.8-6.2" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>` : "";
+const SEAL = (() => { let d = ""; for(let k = 0; k <= 120; k++){ const t = k / 120 * 2 * Math.PI, r = 10.1 + 1.35 * Math.cos(8 * t); d += (k ? "L" : "M") + (12 + r * Math.cos(t)).toFixed(2) + " " + (12 + r * Math.sin(t)).toFixed(2); } return d + "Z"; })();
+const sealSvg = (col, cls = "vb") => `<svg class="${cls}" viewBox="0 0 24 24" aria-label="Cuenta verificada"><path d="${SEAL}" fill="${col}"/><path d="M7.7 12.3l3 3 5.6-6.1" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const badge = (p) => (p && p.verificado) ? sealSvg(p.rango === "Creador" ? "#f0423c" : "#1d8cff") : "";
 const rkTag = (p) => (p && p.rango) ? `<div><span class="rk ${p.rango === "Creador" ? "cr" : ""}">${esc(p.rango)}</span></div>` : "";
 const normU = (v) => String(v || "").trim().replace(/^@/, "").toLowerCase();
 const unameFmt = (u) => UNAME_RE.test(u) && !u.includes("..") && (!RESERVED.includes(u) || (user && (user.email || "").toLowerCase() === ADMIN_EMAIL));
@@ -775,7 +794,7 @@ async function fileToAvatar(file){
 let user = null, prof = null, priv = null, isAdm = false, seq = 0;
 let chats = new Map(), peers = new Map(), cur = null, msgsData = [], msgLimit = 40, ptab = "chats", qtxt = "", qSeq = 0, qRes = null;
 let unsubTk = null, unsubChats = null, unsubMsgs = null, unsubPeer = null, unsubSelf = null, statusT = null, verT = null, compSig = "", firstChats = true, olderFlag = false, firstMsgs = true;
-let claimTried = false, imgTarget = "", stDraft = null, sv = null, stT = null, notesOn = false, unsubNotes = null, notesData = [], gaRes0 = null;
+let avisos = [], unsubAv = null, botOn = false, avDeliv = new Set(), avSeen = new Set(), claimTried = false, imgTarget = "", stDraft = null, sv = null, stT = null, notesOn = false, unsubNotes = null, notesData = [], gaRes0 = null;
 let sel = new Set(), expT = null, noSeen = false, selChat = null, chatsP = new Map(), groupsP = new Map(), unsubGrp = null;
 let photo = { onb: null, prof: null }, avTarget = "onb", lastSend = 0, markBusy = false;
 const me = () => user && user.uid;
@@ -988,6 +1007,7 @@ async function uscrGo(){
 
 /* ================= APP ================= */
 function teardown(){
+  try{ unsubAv && unsubAv(); }catch(e){} unsubAv = null; avisos = []; botOn = false; avDeliv = new Set(); avSeen = new Set(); try{ const m = document.getElementById("vmod"); m && m.remove(); }catch(e){}
   [unsubChats, unsubMsgs, unsubPeer, unsubSelf, unsubTk].forEach((f) => { try{ f && f(); }catch(e){} });
   unsubChats = unsubMsgs = unsubPeer = unsubSelf = unsubTk = null;
   clearInterval(statusT); clearInterval(verT); clearInterval(sessT); clearInterval(secT); sessT = secT = null;
@@ -1000,14 +1020,15 @@ function teardown(){
 const welcomeHTML = () => `<div class="welcome" style="margin:auto"><div class="logo"><svg viewBox="0 0 24 24"><use href="#lg"/></svg></div><b style="color:#fff;font-size:20px">WarMess</b><p>Elige un chat o busca el <b>@usuario</b> o el ID de otra persona para conectarte.</p></div>`;
 
 const getAccounts = () => { try{ const a = JSON.parse(store.get("wm_accounts", "[]")); return Array.isArray(a) ? a : []; }catch(e){ return []; } };
-const setAccounts = (a) => store.set("wm_accounts", JSON.stringify(a.slice(0, 3)));
+const maxAcc = () => isCreatorP(prof) ? 5 : (prof && prof.verificado) ? 3 : 2;
+const setAccounts = (a) => store.set("wm_accounts", JSON.stringify(a.slice(0, 5)));
 function saveAccount(){
   if(!user || !prof) return; const a = getAccounts().filter((x) => x.slot !== SLOT && x.uid !== user.uid);
   a.unshift({ slot: SLOT, uid: user.uid, email: user.email || "", nombre: prof.nombre || "", usuario: prof.usuario || "", foto: photoOk(prof.foto) ? prof.foto : "" });
   setAccounts(a); store.set("wm_prev_slot", "");
 }
 function enterApp(){
-  saveAccount(); subGinv(); syncEmail();
+  saveAccount(); subGinv(); subAvisos(); syncEmail(); enforceLimit();
   isAdm = (user.email || "").toLowerCase() === ADMIN_EMAIL && user.emailVerified;
   renderMe(); scr("app"); $("main").innerHTML = welcomeHTML(); setPtab("chats");
   unsubChats = onSnapshot(query(collection(db, "wm_chats"), where("miembros", "array-contains", user.uid)), onChats, (e) => { console.log("Chats:", e); toast("No se pudieron cargar los chats. ¿Reglas v15 publicadas?"); });
@@ -1016,9 +1037,8 @@ function enterApp(){
     if(!s.exists()) return; prof = s.data(); renderMe();
     try{
       const k = "wm_ver_" + user.uid;
-      if(prof.verificado && prof.rango !== "Creador" && store.get(k) !== "1"){ store.set(k, "1"); verNotice(); }
-      else if(prof.rango === "Creador") store.set(k, "1");
-      else if(!prof.verificado) store.set(k, "0");
+      if(prof.rango === "Creador" || prof.verificado) store.set(k, "1");
+      else if(store.get(k) === "1"){ store.set(k, "0"); enforceLimit(); }
     }catch(e){}
     if(isAdm && prof.id !== "222222" && !claimTried){ claimTried = true; claimCreatorId(); }
     if(prof.estado !== "activo"){ teardownLive(); showBlocked(prof.estado); }
@@ -1136,12 +1156,14 @@ function renderList(){
   }
   if(ptab === "arch" && !mode) html += backRow("Chats archivados");
   if(ptab === "chats" && !mode && !q){
-    const an = all.filter((c) => isArch(c) && !isDel(c) && c.estado === "activo").length, rn = all.filter((c) => c.estado === "pendiente" && c.solicita !== me()).length + (typeof ginvs !== "undefined" ? ginvs.length : 0), au = all.filter((c) => isArch(c) && unreadOf(c) && !isDel(c)).length;
+    const an = all.filter((c) => isArch(c) && !isDel(c) && c.estado === "activo").length + (botIsArch() ? 1 : 0), rn = all.filter((c) => c.estado === "pendiente" && c.solicita !== me()).length + (typeof ginvs !== "undefined" ? ginvs.length : 0), au = all.filter((c) => isArch(c) && unreadOf(c) && !isDel(c)).length;
     html += `<button class="row arow" data-act="ptab" data-t="arch"><div class="ab">${ICA}</div><div class="mid"><div class="nm mut">Chats archivados</div></div>${au ? `<span class="cnt">${au}</span>` : an ? `<span class="meta"><span>${an}</span></span>` : ""}</button>`;
     if(rn) html += `<button class="row arow" data-act="ptab" data-t="reqs"><div class="ab">${ICQ}</div><div class="mid"><div class="nm">Solicitudes</div><div class="sub">Personas y grupos que quieren conectar</div></div><span class="cnt">${rn}</span></button>`;
   }
+  if(ptab === "chats" && !mode && !q && !botIsArch()) html += botRowHTML();
+  if(ptab === "arch" && !mode && botIsArch()) html += botRowHTML();
   if(ptab === "chats" && !mode && !q && prof) html += notesRowHTML();
-  if(ptab === "arch" && !rows.length && !mode) html += `<div class="empty"><div class="big">🗃️</div>No tienes chats archivados.</div>`;
+  if(ptab === "arch" && !rows.length && !mode && !botIsArch()) html += `<div class="empty"><div class="big">🗃️</div>No tienes chats archivados.</div>`;
   html += rows.length ? rows.map(chatRow).join("") : (!mode && ptab !== "arch" ? (q ? `<div class="empty">Ningún chat coincide con «${esc(q)}».<br>Para buscar a alguien nuevo escribe su <b>@usuario</b> o su <b>ID</b>.</div>` : `<div class="empty"><div class="big">💬</div>Aún no tienes chats.<br>Pide a alguien su <b>@usuario</b> o <b>ID</b> y búscalo arriba para conectarte. Los tuyos están en tu perfil.</div>`) : "");
   L.innerHTML = html;
 }
@@ -1196,7 +1218,7 @@ async function answerReq(cid, ok){
 /* ---- chat ---- */
 function openChat(cid){
   if(typeof pgStack !== "undefined" && pgStack.length) pgClear();
-  const c = chats.get(cid); if(!c) return; if(notesOn) stopNotes(true);
+  const c = chats.get(cid); if(!c) return; if(notesOn) stopNotes(true); botOn = false;
   if(cur !== cid){
     if(!cur) try{ history.pushState({ wm:1 }, ""); }catch(e){}
     try{ unsubMsgs && unsubMsgs(); unsubPeer && unsubPeer(); }catch(e){}
@@ -1576,13 +1598,67 @@ async function stDelete(){
     await b.commit(); stCache.delete(id); logEv("historia", "eliminó una historia", "", ""); toast("Historia eliminada"); sv.ids.splice(sv.i, 1); if(!sv.ids.length) stClose(); else{ if(sv.i >= sv.ids.length) sv.i = sv.ids.length - 1; showStory(); }
   }catch(e){ console.log(e); toast("No se pudo eliminar."); }
 }
+/* ================= ASISTENCIA WARMESS (chat oficial de avisos) ================= */
+const BOT_NAME = "Asistencia WarMess", VBADGE = { verificado:true };
+const botAv = (cls = "") => `<div class="av bot ${cls}"><svg viewBox="0 0 24 24"><use href="#lg"/></svg></div>`;
+const fmtSec = (t) => t ? new Date(t).toLocaleString("es-CO", { dateStyle:"medium", timeStyle:"medium" }) : "—";
+const botArchKey = () => "wm_bot_arch_" + me();
+const botIsArch = () => { const t = Number(store.get(botArchKey(), "0")) || 0; return !!t && Math.max(0, ...avisos.map((x) => ms(x.creado))) <= t; };
+const avUnread = () => avisos.filter((x) => !x.visto).length;
+function botRowHTML(){
+  const l = avisos[avisos.length - 1], un = avUnread();
+  return `<button class="row ${botOn ? "sel" : ""}" data-act="openBot">${botAv()}<div class="mid"><div class="nm">${BOT_NAME}${badge(VBADGE)}</div><div class="sub ${un ? "un" : ""}">${esc(l ? l.texto : "Avisos y novedades de tu cuenta")}</div></div><div class="meta"><span>${l ? esc(fmtList(ms(l.creado))) : ""}</span>${un ? '<span class="unr"></span>' : ""}</div></button>`;
+}
+function subAvisos(){
+  try{ unsubAv && unsubAv(); }catch(e){}
+  unsubAv = onSnapshot(query(collection(db, "wm_avisos"), where("para", "==", me()), limit(200)), (snap) => {
+    avisos = snap.docs.map((d) => ({ id:d.id, ...d.data({ serverTimestamps:"estimate" }) })).sort((x, y) => ms(x.creado) - ms(y.creado));
+    snap.docs.forEach((d) => { if(!d.data().entregado && !avDeliv.has(d.id)){ avDeliv.add(d.id); updateDoc(d.ref, { entregado: serverTimestamp() }).catch(() => {}); } });
+    if(botOn){ renderBot(); botSeen(); }
+    renderList();
+    const v = avisos.find((x) => x.tipo === "verif" && !x.visto && !avSeen.has(x.id));
+    if(v && !document.getElementById("vmod")){ avSeen.add(v.id); vModal(sealSvg("#1d8cff", "vbig"), "¡Genial!", "Tu cuenta ha sido verificada.<br>Puedes verificar en tu perfil y disfrutar de los beneficios exclusivos.", v.id); try{ beep(); }catch(e){} }
+  }, (e) => console.log("Avisos:", e));
+}
+function botSeen(){
+  avisos.filter((x) => !x.visto && !avSeen.has("v" + x.id)).forEach((x) => { avSeen.add("v" + x.id); updateDoc(doc(db, "wm_avisos", x.id), { visto: serverTimestamp() }).catch(() => {}); });
+}
+function vModal(icon, title, text, avId){
+  const old = document.getElementById("vmod"); if(old) old.remove();
+  const d = document.createElement("div"); d.id = "vmod"; d.className = "vmod"; d.setAttribute("role", "alertdialog");
+  d.innerHTML = `<div class="vcard"><div class="vic">${icon}</div><h3>${title}</h3><p>${text}</p><button class="btn" data-act="vmodOk" data-i="${esc(avId || "")}">Ok</button></div>`;
+  document.body.appendChild(d);
+}
+function vmodOk(t){ const id = t.dataset.i; const m = document.getElementById("vmod"); if(m) m.remove(); if(id && !avSeen.has("v" + id)){ avSeen.add("v" + id); updateDoc(doc(db, "wm_avisos", id), { visto: serverTimestamp() }).catch(() => {}); } }
+function openBot(){
+  if(botOn){ $("shell").classList.add("chat"); return; }
+  if(notesOn) stopNotes(true);
+  if(cur){ try{ unsubMsgs && unsubMsgs(); unsubPeer && unsubPeer(); }catch(e){} unsubMsgs = unsubPeer = null; clearInterval(statusT); cur = null; msgsData = []; sel = new Set(); }
+  else try{ history.pushState({ wm:1 }, ""); }catch(e){}
+  botOn = true;
+  $("main").innerHTML = `<div class="mh" id="mhBar"><button class="ibtn back" data-act="back" aria-label="Volver">${IC.back}</button><div class="who" style="cursor:default"><span>${botAv("sm")}</span><div><div class="t1">${BOT_NAME}${badge(VBADGE)}</div><div class="t2">Cuenta oficial · avisos de tu cuenta</div></div></div><button class="ibtn" data-act="botArch" aria-label="Archivar chat">${P('<path d="M4 5.5h16v3.5H4zM5.5 9v9.5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V9M10 13h4"/>')}</button></div>
+    <div class="msgs" id="bmsgs"></div><div class="botfoot">🔒 Solo WarMess puede enviar mensajes en este chat.</div>`;
+  $("shell").classList.add("chat"); renderBot(); botSeen(); renderList();
+}
+function renderBot(){
+  const el = $("bmsgs"); if(!el) return; let h = "", last = 0;
+  if(!avisos.length) h = `<div class="sysm">🔔 Aquí recibirás avisos oficiales de WarMess: verificación, estado de tu cuenta y novedades.</div>`;
+  avisos.forEach((x) => { const t = ms(x.creado) || Date.now(); if(!last || !sameDay(last, t)){ h += `<div class="day">${esc(dayLabel(t))}</div>`; last = t; }
+    h += `<div class="b him" style="white-space:pre-wrap">${esc(x.texto)}<span class="tm">${esc(fmtT(t))}</span></div>`; });
+  el.innerHTML = h; el.scrollTop = el.scrollHeight;
+}
+function botArch(){
+  if(botIsArch()){ store.set(botArchKey(), "0"); toast("Chat desarchivado"); renderList(); return; }
+  store.set(botArchKey(), String(Date.now() + 1000)); toast("Chat archivado"); closeChatUI();
+}
 /* ---- notas guardadas (chat contigo mismo) ---- */
-function stopNotes(keepShell){ try{ unsubNotes && unsubNotes(); }catch(e){} unsubNotes = null; notesOn = false; notesData = []; }
+function stopNotes(keepShell){ try{ unsubNotes && unsubNotes(); }catch(e){} unsubNotes = null; notesOn = false; notesData = []; botOn = false; }
 const notesRowHTML = () => `<button class="row" data-act="openNotes">${av(prof.nombre, prof.foto)}<div class="mid"><div class="nm">${esc(prof.nombre)} <span style="color:var(--mut);font-weight:500">(tú)</span>${badge(prof)}</div><div class="sub">Envía mensajes a ti mismo</div></div></button>`;
 function openNotes(){
   if(notesOn){ $("shell").classList.add("chat"); return; }
+  const wasBot = botOn; botOn = false;
   if(cur){ try{ unsubMsgs && unsubMsgs(); unsubPeer && unsubPeer(); }catch(e){} unsubMsgs = unsubPeer = null; clearInterval(statusT); cur = null; msgsData = []; sel = new Set(); }
-  else try{ history.pushState({ wm:1 }, ""); }catch(e){}
+  else if(!wasBot) try{ history.pushState({ wm:1 }, ""); }catch(e){}
   notesOn = true; notesData = [];
   $("main").innerHTML = `<div class="mh" id="mhBar"><button class="ibtn back" data-act="back" aria-label="Volver">${IC.back}</button><div class="who" style="cursor:default"><span>${av(prof.nombre, prof.foto, "sm")}</span><div><div class="t1">${esc(prof.nombre)} <span style="font-weight:500;opacity:.7">(tú)</span>${badge(prof)}</div><div class="t2">Envía mensajes a ti mismo · solo tú los ves</div></div></div></div>
     <div class="msgs" id="nmsgs"></div>
@@ -1938,7 +2014,7 @@ async function tickConn(){
 }
 
 /* ================= PANEL ADMIN (Configuración) ================= */
-let aSto = [], aNot = [], aUsers = new Map(), aPriv = new Map(), aVis = [], aRep = [], aChats = [], aGroups = [], aFb = [], aLogs = [], aTk = [], aUn = [], aBe = [], aUnsubs = [], aTab = "res", aSel = null, pinFails = 0, pinLockUntil = 0;
+let aSto = [], aNot = [], aUsers = new Map(), aPriv = new Map(), aVis = [], aRep = [], aChats = [], aGroups = [], aAvi = [], aFb = [], aLogs = [], aTk = [], aUn = [], aBe = [], aUnsubs = [], aTab = "res", aSel = null, pinFails = 0, pinLockUntil = 0;
 function openAdmin(){
   if(!isAdm) return;
   $("adm").classList.add("on"); $("admGate").style.display = ""; $("admMain").style.display = "none"; $("admPin").value = ""; setMsg("admMsg", "");
@@ -1952,7 +2028,7 @@ async function admPinGo(){
   if((await hashText(v)) === CODE_HASH){ pinFails = 0; $("admPin").value = ""; setMsg("admMsg", ""); $("admGate").style.display = "none"; $("admMain").style.display = "flex"; admStart(); setATab("res"); }
   else{ pinFails++; $("admPin").value = ""; if(pinFails >= 5){ pinLockUntil = Date.now() + 60000; pinFails = 0; setMsg("admMsg", "Código incorrecto. Bloqueado 60 s."); } else setMsg("admMsg", "Código incorrecto."); }
 }
-function admStop(){ aUnsubs.forEach((f) => { try{ f(); }catch(e){} }); aUnsubs = []; aUsers = new Map(); aPriv = new Map(); aVis = []; aRep = []; aChats = []; aGroups = []; aFb = []; aSto = []; aNot = []; aLogs = []; aTk = []; aUn = []; aBe = []; aSel = null; }
+function admStop(){ aUnsubs.forEach((f) => { try{ f(); }catch(e){} }); aUnsubs = []; aUsers = new Map(); aPriv = new Map(); aVis = []; aRep = []; aChats = []; aGroups = []; aAvi = []; aFb = []; aSto = []; aNot = []; aLogs = []; aTk = []; aUn = []; aBe = []; aSel = null; }
 function admStart(){
   admStop();
   const err = (e) => { console.log("Admin:", e); $("abody").innerHTML = `<div class="empty">Sin permiso para leer los datos.<br>Publica las reglas de Firestore v15 e inicia sesión con el correo de administrador.</div>`; };
@@ -1963,6 +2039,7 @@ function admStart(){
     onSnapshot(query(collection(db, "wm_visitas"), orderBy("creado", "desc"), limit(100)), (s) => { aVis = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
     onSnapshot(query(collection(db, "wm_reportes"), orderBy("creado", "desc"), limit(100)), (s) => { aRep = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
     onSnapshot(query(collection(db, "wm_chats"), orderBy("ultimoMsgAt", "desc"), limit(100)), (s) => { aChats = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
+    onSnapshot(query(collection(db, "wm_avisos"), orderBy("creado", "desc"), limit(200)), (s) => { aAvi = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
     onSnapshot(query(collection(db, "wm_groups"), orderBy("creado", "desc"), limit(100)), (s) => { aGroups = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
     onSnapshot(query(collection(db, "wm_stories"), orderBy("creado", "desc"), limit(60)), (s) => { aSto = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
     onSnapshot(query(collection(db, "wm_notes"), orderBy("ultimoAt", "desc"), limit(100)), (s) => { aNot = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
@@ -1986,7 +2063,7 @@ function aRender(){
   const nr = aRep.filter((r) => r.estado === "nuevo").length; const rn = $("repN"); if(rn){ rn.textContent = nr; rn.hidden = !nr; }
   const nt = aTk.filter((t) => t.estado === "abierto").length; const tn = $("tkN"); if(tn){ tn.textContent = nt; tn.hidden = !nt; }
   if(!$("adm").classList.contains("on") || $("admMain").style.display === "none") return;
-  if(aTab === "res") renderRes(); else if(aTab === "usr") renderUsers(); else if(aTab === "vis") renderVis(); else if(aTab === "rep") renderRep(); else if(aTab === "ins") renderIns(); else if(aTab === "grp") renderGrp(); else if(aTab === "fb") renderFb(); else if(aTab === "sto") renderSto(); else if(aTab === "not") renderNot(); else if(aTab === "sop"){ if(!document.activeElement || document.activeElement.tagName !== "TEXTAREA") renderSop(); } else if(aTab === "log") renderLog(); else renderBlq();
+  if(aTab === "res") renderRes(); else if(aTab === "usr") renderUsers(); else if(aTab === "vis") renderVis(); else if(aTab === "rep") renderRep(); else if(aTab === "ins") renderIns(); else if(aTab === "grp") renderGrp(); else if(aTab === "avi") renderAvi(); else if(aTab === "fb") renderFb(); else if(aTab === "sto") renderSto(); else if(aTab === "not") renderNot(); else if(aTab === "sop"){ if(!document.activeElement || document.activeElement.tagName !== "TEXTAREA") renderSop(); } else if(aTab === "log") renderLog(); else renderBlq();
   if(aSel && $("ovAdm").classList.contains("on") && $("shAdm").dataset.k === "u") userSheet(aSel, true);
 }
 function renderRes(){
@@ -2095,7 +2172,7 @@ async function delUser(uid){
 async function setVerif(uid, on){
   const u = aUsers.get(uid); if(!u) return;
   const rg = on ? ($("rgIn").value.replace(/\s+/g, " ").trim().slice(0, 20) || "Verificado") : "";
-  try{ await updateDoc(doc(db, "wm_users", uid), { verificado: on, rango: rg }); toast(on ? "Cuenta verificada ✅" : "Verificación quitada"); }catch(e){ console.log(e); toast("No se pudo actualizar."); }
+  try{ await updateDoc(doc(db, "wm_users", uid), { verificado: on, rango: rg }); if(on && !u.verificado) await addDoc(collection(db, "wm_avisos"), { para:uid, tipo:"verif", texto:"¡Genial! Tu cuenta ha sido verificada. Puedes verificar en tu perfil y disfrutar de los beneficios exclusivos.", de:me(), creado:serverTimestamp() }).catch((e) => console.log(e)); toast(on ? "Cuenta verificada ✅ · se le notificó" : "Verificación quitada"); }catch(e){ console.log(e); toast("No se pudo actualizar."); }
 }
 /* ---- Inspeccionar: conversaciones, aunque las personas las hayan eliminado ---- */
 function renderIns(){
@@ -2168,6 +2245,29 @@ async function gaSet(gid, st){
   if(st === "eliminado" && !confirm("¿Eliminar este grupo para todos? Tú conservarás el historial.")) return;
   try{ await updateDoc(doc(db, "wm_groups", gid), { estado: st }); if(st === "eliminado") await deleteDoc(doc(db, "wm_gdir", gid)).catch(() => {}); toast(st === "activo" ? "Grupo reactivado" : st === "suspendido" ? "Grupo suspendido" : "Grupo eliminado"); grpSheet(gid); }
   catch(e){ console.log(e); toast("No se pudo actualizar el grupo."); }
+}
+/* ---- Avisos (Asistencia WarMess) ---- */
+function renderAvi(){
+  const c = $("acont"); if(!c) return;
+  if(!$("avTx")){
+    const us = [...aUsers.entries()].filter(([, u]) => u.estado === "activo").sort((x, y) => (x[1].nombre || "").localeCompare(y[1].nombre || ""));
+    c.innerHTML = `<div class="grp" style="margin-top:6px"><div class="gt">Enviar aviso desde ${BOT_NAME}</div>
+      <div class="fld"><label for="avTo">Destinatario</label><select class="in" id="avTo"><option value="*">Todos los usuarios activos (${us.length})</option>${us.map(([uid, u]) => `<option value="${esc(uid)}">${esc(u.nombre)}${u.usuario ? " (@" + esc(u.usuario) + ")" : ""} · ID ${esc(u.id)}</option>`).join("")}</select></div>
+      <div class="fld"><label for="avTx">Mensaje</label><textarea class="in" id="avTx" rows="4" maxlength="500" style="resize:none" placeholder="Escribe el aviso…"></textarea></div>
+      <button class="btn" data-act="avSend">Enviar aviso</button></div>
+      <div class="gt" style="margin:18px 2px 6px">Avisos enviados (los 200 más recientes)</div><div id="avList"></div>`;
+  }
+  const L = $("avList"); if(!L) return;
+  L.innerHTML = aAvi.length ? aAvi.map((x) => `<div class="acard"><div class="nm" style="font-weight:650">${esc(aName(x.para))}${x.tipo === "verif" ? ' <span class="pill activo" style="margin:0">verificación</span>' : ""}</div><div style="margin:5px 0;white-space:pre-wrap">${esc(x.texto)}</div><div style="font-size:12.5px;color:var(--mut);line-height:1.5">Enviado: ${esc(fmtSec(ms(x.creado)))}<br>Entregado: ${x.entregado ? esc(fmtSec(ms(x.entregado))) : "pendiente (aún no abre WarMess)"}<br>Visto: ${x.visto ? `<b style="color:var(--ok)">${esc(fmtSec(ms(x.visto)))}</b>` : "aún no"}</div></div>`).join("") : `<div class="empty"><div class="big">🔔</div>Aún no has enviado avisos.</div>`;
+}
+async function avSend(){
+  const to = $("avTo").value, tx = $("avTx").value.trim(); if(tx.length < 3) return toast("Escribe el mensaje del aviso.");
+  const ids = to === "*" ? [...aUsers.entries()].filter(([, u]) => u.estado === "activo").map(([k]) => k) : [to];
+  if(to === "*" && !confirm("¿Enviar este aviso a " + ids.length + " usuarios?")) return;
+  try{
+    for(let i = 0; i < ids.length; i += 400){ const b = writeBatch(db); ids.slice(i, i + 400).forEach((u) => b.set(doc(collection(db, "wm_avisos")), { para:u, tipo:"aviso", texto:tx, de:me(), creado:serverTimestamp() })); await b.commit(); }
+    $("avTx").value = ""; toast("Aviso enviado a " + ids.length + (ids.length === 1 ? " usuario" : " usuarios") + " ✅");
+  }catch(e){ console.log(e); toast("No se pudo enviar. ¿Reglas v21 publicadas?"); }
 }
 /* ---- Registro de actividad (apodos…) ---- */
 function renderLog(){
@@ -2285,7 +2385,7 @@ const PG = {
     <div class="pgrp">${pgRow(I5.idc, "Tu ID", "copyId", "", esc(prof.id) + " · toca para copiar", "nochev")}</div><div class="pfoot">Tu perfil lo ven las personas con las que chateas, según tus ajustes de privacidad.</div>` }; },
   account: () => { const accs = getAccounts(), pw = user.providerData.some((p) => p.providerId === "password");
     return { t:"Cuenta", h:`<div class="pgrp">${pgRow(I5.key, "Contraseña", "pwSheet", "", pw ? "Cambiar la contraseña actual" : "Tu cuenta usa Google")}${pgRow(I5.mail, "Correo", "mailSheet", "", esc(user.email || ""))}</div>
-    <div class="pgt">Cuentas en este dispositivo</div><div class="pgrp">${accs.map((a) => `<button class="pr" data-act="accSw" data-s="${esc(a.slot)}">${av(a.nombre, fotoOf(a))}<span class="pt"><b>${esc(a.nombre || "Cuenta")}</b><small>${esc(a.email)}</small></span>${a.slot === SLOT ? '<span class="okt">Activa</span>' : CHEV}</button>`).join("")}${accs.length < 3 ? pgRow(I5.plus, "Añadir cuenta", "accAdd", "", "Hasta 3 cuentas · cambia sin volver a escribir tus datos") : ""}</div>
+    <div class="pgt">Cuentas en este dispositivo</div><div class="pgrp">${accs.map((a) => `<button class="pr" data-act="accSw" data-s="${esc(a.slot)}">${av(a.nombre, fotoOf(a))}<span class="pt"><b>${esc(a.nombre || "Cuenta")}</b><small>${esc(a.email)}</small></span>${a.slot === SLOT ? '<span class="okt">Activa</span>' : CHEV}</button>`).join("")}${accs.length < maxAcc() ? pgRow(I5.plus, "Añadir cuenta", "accAdd", "", `Hasta ${maxAcc()} cuentas · cambia sin volver a escribir tus datos`) : `<div class="pfoot" style="margin:10px 16px">Límite de ${maxAcc()} cuentas${(prof && prof.verificado) ? "" : ". Con la verificación tendrás hasta 3"}.</div>`}</div>
     <div class="pgrp">${pgRow(I5.out, "Cerrar sesión", "pgLogout", "", "", "red nochev")}</div><div class="pfoot">Verificación en dos pasos: próximamente.</div>` }; },
   privacy: () => { const q = myPriv(), nb = blockedList().length, row = (ic, k) => pgRow(ic, OPT[k].t, "pgGo", `data-p="opt" data-k="${k}"`, PRIV_LBL[q[k]]);
     return { t:"Privacidad", h:`<div class="pgt">Quién puede ver mi información personal</div><div class="pgrp">${row(I5.cam, "foto")}${row(I5.clock, "ult")}${row(I5.eye, "onl")}${row(I5.info, "bio")}${row(I5.chat, "lect")}</div>
@@ -2404,8 +2504,15 @@ function accSwitch(slot, add){
   toast(add ? "Abriendo para añadir cuenta…" : "Cambiando de cuenta…"); setTimeout(() => location.reload(), 350);
 }
 function accAdd(){
-  const used = new Set(getAccounts().map((a) => a.slot)); used.add(SLOT); const free = ["default", "s2", "s3"].find((s) => !used.has(s));
-  if(!free) return toast("Ya tienes 3 cuentas guardadas."); accSwitch(free, true);
+  const used = new Set(getAccounts().map((a) => a.slot)); used.add(SLOT); const free = ["default", "s2", "s3", "s4", "s5"].find((s) => !used.has(s));
+  if(!free || used.size > maxAcc()) return toast("Ya tienes " + maxAcc() + " cuentas guardadas."); accSwitch(free, true);
+}
+async function enforceLimit(){
+  const lim = maxAcc(), accs = getAccounts(); if(accs.length <= lim) return;
+  const keep = [accs.find((x) => x.slot === SLOT), ...accs.filter((x) => x.slot !== SLOT)].filter(Boolean).slice(0, lim), drop = accs.filter((x) => !keep.includes(x));
+  setAccounts(keep);
+  for(const x of drop){ try{ const ap = initializeApp(firebaseConfig, x.slot), au = getAuth(ap); if(au.authStateReady) await au.authStateReady(); await signOut(au); }catch(e){} }
+  vModal("⚠️", "Sesión cerrada", `Tu cuenta ya no tiene verificación, así que el límite pasó a ${lim} cuentas. Se cerró la sesión de: ${drop.map((x) => esc(x.nombre || x.email)).join(", ")}.`, "");
 }
 function authBack(){ try{ const s = localStorage.getItem("wm_prev_slot") || "default"; localStorage.setItem("wm_slot", s); localStorage.setItem("wm_prev_slot", ""); }catch(e){} location.reload(); }
 try{ if(localStorage.getItem("wm_prev_slot") && $("authBack")) $("authBack").hidden = false; }catch(e){}
@@ -2477,7 +2584,7 @@ const A = {
   back: () => { if(history.state && history.state.wm){ history.back(); } else closeChatUI(); },
   info: () => (isG(chats.get(cur)) ? groupInfo() : infoSheet()), saveAp: saveApodo, block: () => setBlock(true), unblock: () => setBlock(false), repForm: reportForm, repSend: sendReport,
   older: () => { msgLimit += 40; olderFlag = true; subMsgs(); },
-  admin: openAdmin, admClose, admPin: admPinGo, atab: (t) => setATab(t.dataset.t), auser: (t) => userSheet(t.dataset.u),
+  admin: () => { if(typeof pgStack !== "undefined" && pgStack.length) pgClear(); openAdmin(); }, admClose, admPin: admPinGo, atab: (t) => setATab(t.dataset.t), auser: (t) => userSheet(t.dataset.u),
   aset: (t) => setEstado(t.dataset.u, t.dataset.s), adel: (t) => delUser(t.dataset.u), repDone: (t) => repSet(t.dataset.r, true), repDel: (t) => repSet(t.dataset.r, false),
   aChat: (t) => chatSheet(t.dataset.c), aVer: (t) => setVerif(t.dataset.u, true), aUnver: (t) => setVerif(t.dataset.u, false),
   tkRep: (t) => tkReply(t.dataset.r), tkClose: (t) => tkClose(t.dataset.r), unFree: (t) => freeUser(t.dataset.n, t.dataset.u), beFree: (t) => freeEmail(t.dataset.n),
@@ -2497,6 +2604,7 @@ const A = {
   gKick: (t) => gKick(t.dataset.u), gPerms: (t) => gPermsSheet(t.dataset.u), gPermSave: (t) => gPermSave(t.dataset.u, false), gAdmRm: (t) => gPermSave(t.dataset.u, true), gLeave, gDelete,
   nav: (t) => { const n = t.dataset.n; if(n === "chats" || n === "story"){ if(cur) closeChatUI(); setPtab(n); } else if(n === "settings") pgGo("settings"); else if(n === "profile") pgGo("profile"); },
   fabNew: () => { setPtab("chats"); const q = $("q"); q.focus(); toast("Escribe un @usuario o un ID para buscar a alguien"); },
+  openBot, botArch, vmodOk, avSend,
   menu: () => pgGo("settings"), menuProf: () => { closeOv("ovInfo"); openProfile(); }, menuLegal: () => { closeOv("ovInfo"); openOv("ovLegal"); }, friends: friendsSheet,
   fOpen: (t) => { closeOv("ovInfo"); openChat(t.dataset.c); }, creatorSheet, crMsg: (t) => { closeOv("ovInfo"); connectSheet(t.dataset.u); }, crOpen: (t) => { closeOv("ovInfo"); openChat(t.dataset.c); },
   stAdd: () => { imgTarget = "story"; $("imgFile").click(); }, stOpen: (t) => openStories(t.dataset.u), storyPost: postStory, svClose: stClose, svPrev: stPrev, svNext: () => stNext(false), svHeart: stHeart, svViews: stViews, svDel: stDelete,
@@ -2529,7 +2637,7 @@ $("q").addEventListener("input", onSearch);
 $("onbNm").addEventListener("input", () => { if(!photo.onb) paintOnbAv(); });
 watchUname($("onbUs"), $("onbUst"), "");
 watchUname($("usIn"), $("usSt"), "");
-window.addEventListener("popstate", () => { if(pgStack.length){ pgPop(); return; } if(cur || notesOn) closeChatUI(); });
+window.addEventListener("popstate", () => { if(pgStack.length){ pgPop(); return; } if(cur || notesOn || botOn) closeChatUI(); });
 if(window.visualViewport){
   const f = () => { document.documentElement.style.setProperty("--vh", window.visualViewport.height + "px"); if(window.scrollY) window.scrollTo(0, 0); };
   window.visualViewport.addEventListener("resize", f); window.visualViewport.addEventListener("scroll", f); f();
