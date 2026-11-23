@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#08080b">
 <meta name="robots" content="noindex">
-<title>WarMess · By Sxgura Inc</title>
+<title>WarMess · Beta</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a84ff'/%3E%3Cpath d='M14 16h36a3 3 0 0 1 3 3v21a3 3 0 0 1-3 3H27l-12 9V43a3 3 0 0 1-3-3V19a3 3 0 0 1 3-3z' fill='white'/%3E%3C/svg%3E">
 <style>
 :root{--bg:#08080b;--card:#121217;--card2:#18181f;--line:#23232c;--txt:#f2f2f7;--mut:#8e8e93;--acc:#0a84ff;--acc2:#5e5ce6;--ok:#30d158;--bad:#ff453a;--warn:#ff9f0a;--vh:100dvh;--r:16px}
@@ -249,11 +249,6 @@ html[data-theme=ios] .mh .t1,html[data-theme=ios] .nmx,html[data-theme=ios] .top
 html[data-theme=ios] .side{background:#fff}
 html[data-theme=ios] .sysm,html[data-theme=ios] .day{background:#efeff4;color:#6e6e73}
 html[data-theme=ios] .welcome b{color:#000!important}
-html[data-theme=iosdark]{--bg:#000;--card:#1c1c1e;--card2:#2c2c2e;--line:#38383a;--txt:#f5f5f7;--mut:#8e8e93;--acc:#0a84ff;--acc2:#5e5ce6;color-scheme:dark}
-html[data-theme=iosdark] .sheet,html[data-theme=iosdark] .card{background:#1c1c1e;color:#f5f5f7}
-html[data-theme=iosdark] .in,html[data-theme=iosdark] .grp,html[data-theme=iosdark] .tabs2,html[data-theme=iosdark] .srch input,html[data-theme=iosdark] .ptabs button{background:#2c2c2e;color:#f5f5f7}
-html[data-theme=iosdark] .mh,html[data-theme=iosdark] .comp{background:#1c1c1e}
-html[data-theme=iosdark] .msgs{background:#000}
 /* Android (Material oscuro verde) */
 html[data-theme=android]{--bg:#0b141a;--card:#111b21;--card2:#1f2c34;--line:#1f2c34;--txt:#e9edef;--mut:#8696a0;--acc:#00a884;--acc2:#06cf9c}
 html[data-theme=android] body{font-family:Roboto,"Segoe UI",system-ui,Helvetica,Arial,sans-serif}
@@ -279,47 +274,115 @@ html[data-theme=android] .b .tm.rd{color:#53bdeb}
 html[data-theme=ios] .ibtn{background:#e9e9ee;color:#007aff}
 html[data-theme=ios] .back{background:transparent}
 
+/* ---- v19 ---- */
+.rk.cr{background:rgba(255,69,58,.18);color:#ff6b61}
+.stav{padding:2.5px;border-radius:50%;flex:none;border:2.5px solid transparent;display:flex}
+.stav.on{border-color:#25d366}.stav.seen{border-color:#5c5c66}
+.stl{display:flex;align-items:center;gap:12px;flex:1;min-width:0;background:none;border:0;color:inherit;text-align:left;font:inherit;padding:0;cursor:pointer}
+.sv{position:fixed;inset:0;z-index:70;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.sv[hidden]{display:none}
+.svimg{max-width:100%;max-height:100%;object-fit:contain;width:100%;height:100%}
+.svbars{position:absolute;top:max(10px,env(safe-area-inset-top));left:10px;right:10px;display:flex;gap:4px;z-index:3}
+.svbars span{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.3);overflow:hidden}
+.svbars i{display:block;height:100%;width:0;background:#fff}.svbars i.full{width:100%}.svbars i.run{animation:svp 6s linear forwards}
+@keyframes svp{to{width:100%}}
+.svhd{position:absolute;top:max(22px,calc(env(safe-area-inset-top) + 12px));left:10px;right:10px;display:flex;align-items:center;gap:10px;z-index:3;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.7)}
+.svwho{flex:1;min-width:0;display:flex;flex-direction:column}.svwho small{opacity:.8}
+.svhd .ibtn{background:rgba(0,0,0,.35);color:#fff}
+.svnav{position:absolute;top:70px;bottom:90px;width:42%;background:none;border:0;z-index:2;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.svnav.l{left:0}.svnav.r{right:0}
+.svtx{position:absolute;left:0;right:0;bottom:92px;text-align:center;color:#fff;padding:10px 18px;background:linear-gradient(transparent,rgba(0,0,0,.6));font-size:16px;z-index:3;pointer-events:none}
+.svft{position:absolute;left:0;right:0;bottom:max(18px,env(safe-area-inset-bottom));display:flex;justify-content:center;gap:10px;z-index:4}
+.svft .btn{margin:0;width:auto;padding:0 18px}
+.svheart{width:56px;height:56px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:28px;cursor:pointer;backdrop-filter:blur(6px);transition:transform .15s}
+.svheart:active{transform:scale(1.25)}.svheart.on{background:rgba(255,69,58,.25)}
+body.svon{overflow:hidden}
+.ov{z-index:90}
+.stp{width:100%;max-height:46vh;object-fit:contain;border-radius:14px;background:#000;margin-top:12px}
+.vnote{position:fixed;top:max(12px,env(safe-area-inset-top));left:50%;transform:translateX(-50%);width:min(92vw,420px);z-index:200;display:flex;gap:12px;align-items:center;background:#16202b;color:#fff;border:1px solid #2a4a6a;border-radius:18px;padding:14px 16px;box-shadow:0 14px 40px rgba(0,0,0,.5);animation:vin .45s cubic-bezier(.2,1.3,.4,1);cursor:pointer}
+.vnote .vi{width:38px;height:38px;border-radius:50%;background:#0a84ff;display:grid;place-items:center;font-weight:900;font-size:20px;flex:none}
+.vnote b{display:block;font-size:15px}.vnote span{font-size:13px;opacity:.85;line-height:1.35}
+@keyframes vin{from{transform:translate(-50%,-30px);opacity:0}to{transform:translate(-50%,0);opacity:1}}
+.nimg{display:block;max-width:100%;max-height:260px;border-radius:12px;margin-bottom:6px;cursor:zoom-in}
+.nx{background:none;border:0;color:inherit;opacity:.55;font-size:12px;margin-left:8px;cursor:pointer;padding:0}
+.athumb{width:84px;height:110px;object-fit:cover;border-radius:10px;flex:none;cursor:zoom-in;background:#000}
+.lb{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;cursor:zoom-out}
+.lb[hidden]{display:none}.lb img{max-width:96vw;max-height:94vh;object-fit:contain}
+.ptabs button{padding-left:12px;padding-right:12px}
+html[data-theme=ios] .vnote{background:#fff;color:#000;border-color:#d1d1d6}
 
-/* ---- WarMess v19: centro de ajustes ---- */
-#ovSettings{z-index:75;align-items:stretch;background:var(--bg);backdrop-filter:none}
-#ovSettings .settings-shell{width:100%;max-width:760px;margin:0 auto;height:100%;max-height:100%;border:0;border-radius:0;background:var(--bg);padding:0;display:flex;flex-direction:column;overflow:hidden;animation:settingsIn .2s ease}
-@keyframes settingsIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
-.st-head{height:62px;flex:none;display:flex;align-items:center;gap:14px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
-.st-head h2{font-size:21px;font-weight:650;margin:0;flex:1}
-.st-body{flex:1;overflow:auto;padding:14px 16px 34px;overscroll-behavior:contain}
-.st-card{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:10px 0;overflow:hidden}
-.st-item{width:100%;display:flex;align-items:center;gap:14px;text-align:left;padding:15px 14px;border-bottom:1px solid var(--line);min-height:62px}
-.st-item:last-child{border-bottom:0}.st-item:active{background:var(--card2)}
-.st-ico{width:28px;height:28px;display:grid;place-items:center;color:var(--mut);flex:none}.st-ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-.st-copy{flex:1;min-width:0}.st-copy b{display:block;font-size:15.5px;font-weight:550}.st-copy small{display:block;color:var(--mut);font-size:13px;line-height:1.35;margin-top:3px}
-.st-arrow{color:var(--mut);font-size:22px}
-.st-section{font-size:12px;color:var(--mut);font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin:20px 4px 8px}
-.st-profile{display:flex;align-items:center;gap:15px;padding:18px 14px}.st-profile .av{width:64px;height:64px}.st-profile .st-copy b{font-size:18px}
-.st-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 14px;border-bottom:1px solid var(--line)}.st-row:last-child{border-bottom:0}.st-row label{font-size:14px;flex:1}.st-row select,.st-row input[type=range]{max-width:58%;}
-.st-note{font-size:12.5px;color:var(--mut);line-height:1.45;margin:10px 4px}
-.st-theme{display:flex;gap:9px;flex-wrap:wrap;padding:12px}.st-theme button{flex:1;min-width:125px;border:1px solid var(--line);border-radius:13px;padding:12px;text-align:left;background:var(--card2)}.st-theme button.on{border-color:var(--acc);box-shadow:inset 0 0 0 1px var(--acc)}.st-theme i{display:block;height:40px;border-radius:8px;margin-bottom:8px;background:#08080b;border:1px solid #333}.st-theme button[data-theme-choice=ios] i{background:#fff}.st-theme button[data-theme-choice=iosdark] i{background:#17171b}.st-theme button[data-theme-choice=android] i{background:#0b141a}
-.st-danger{color:var(--bad)!important}.st-green{color:var(--ok)!important}
-.online-wrap{position:relative;display:inline-flex}.online-dot{position:absolute;width:12px;height:12px;border-radius:50%;background:#30d158;border:2px solid var(--bg);right:0;bottom:0}
-.msg-reply{display:block;border-left:3px solid var(--acc);background:rgba(10,132,255,.12);padding:6px 9px;border-radius:7px;margin-bottom:5px;font-size:12px;color:#c9e4ff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.replybar{display:flex;align-items:center;gap:10px;background:#172333;border-left:3px solid var(--acc);padding:7px 12px;font-size:12px;color:#c9e4ff}.replybar span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.b .reply-action{display:block;font-size:11px;color:#b9d9ff;margin-top:4px;text-align:right;opacity:.8}
-html[data-theme=ios] #ovSettings{background:#fff}html[data-theme=ios] .st-item{border-color:#e5e5ea}html[data-theme=ios] .st-theme button{background:#f2f2f7}
-html[data-theme=android] .st-item:active{background:#182229}
-html[data-text-size=small] .b{font-size:13.5px}html[data-text-size=medium] .b{font-size:15.5px}html[data-text-size=large] .b{font-size:18px}
-html[data-bubble=round] .b{border-radius:22px}html[data-bubble=square] .b{border-radius:7px}
-.row-wrap{display:flex;align-items:center;border-bottom:1px solid #121217}.row-wrap .row{flex:1;border:0;min-width:0}.chat-actions{display:flex;gap:5px;align-items:center;padding-right:7px}.chat-actions button{width:32px;height:32px;border-radius:9px;color:var(--mut);display:grid;place-items:center}.chat-actions button:active{background:var(--card2)}
+/* ===== Fase 5: avatar por defecto + páginas de ajustes ===== */
+.av.dflt{background:#667781 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 22a15 15 0 1 1 0 30 15 15 0 0 1 0-30zM18 100c0-20 14-34 32-34s32 14 32 34z' fill='%23dfe5e7'/%3E%3C/svg%3E") center/cover no-repeat}
+.av.dflt.grp{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 24a13 13 0 1 1 0 26 13 13 0 0 1 0-26zM24 100c0-17 11-30 26-30s26 13 26 30zM21 40a9 9 0 1 1 0 18 9 9 0 0 1 0-18zM79 40a9 9 0 1 1 0 18 9 9 0 0 1 0-18z' fill='%23dfe5e7'/%3E%3C/svg%3E")}
+.btn[hidden]{display:none}
+#pgs{position:relative;z-index:85}
+.pg{position:fixed;inset:0;z-index:85;background:#000;color:var(--txt);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .32s cubic-bezier(.22,.9,.3,1),filter .32s;will-change:transform}
+.pg.on{transform:none}.pg.bk{transform:translateX(-22%);filter:brightness(.5)}
+.pgh{display:flex;align-items:center;gap:8px;padding:calc(env(safe-area-inset-top,0px) + 10px) 12px 8px;flex:none;width:100%;max-width:680px;margin:0 auto}
+.pgh h2{margin:0;font-size:23px;font-weight:700;flex:1}
+.pgc{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:2px 0 calc(env(safe-area-inset-bottom,0px) + 34px);animation:pgin .38s .1s both}
+.pgc>*{max-width:680px;margin-left:auto;margin-right:auto}
+@keyframes pgin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.pgrp{margin:14px 14px 0;background:#141416;border-radius:16px;overflow:hidden}
+.pgt{margin:24px 30px 0;font-size:12.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px;max-width:680px}
+.pfoot{margin:16px 30px 0;font-size:12.5px;color:var(--mut);line-height:1.45}
+.pempty{padding:34px 20px;text-align:center;color:var(--mut)}
+.pr{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;background:none;border:0;border-bottom:1px solid rgba(255,255,255,.06);color:inherit;text-align:left;font:inherit;cursor:pointer;transition:background .15s}
+.pr:last-child{border-bottom:0}.pr:active{background:rgba(255,255,255,.08)}
+.pr .pi{width:28px;height:28px;display:grid;place-items:center;color:#9aa0a6;flex:none}.pr .pi svg{width:23px;height:23px}
+.pr .pt{flex:1;min-width:0;display:flex;flex-direction:column}.pr .pt b{font-weight:600;font-size:16.5px}.pr .pt small,.pit small{color:var(--mut);font-size:13.5px;margin-top:2px;overflow-wrap:anywhere;display:block}
+.pr .av{width:42px;height:42px;font-size:16px}
+.pr.red,.pr.red .pi{color:#ff453a}.pr .okt{color:var(--ok);font-size:13px;font-weight:600}
+.chev{width:18px;height:18px;flex:none;fill:none;stroke:#6b6b72;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pme{display:flex;gap:14px;align-items:center;width:calc(100% - 28px);margin:6px 14px 0;padding:14px;background:#141416;border:0;border-radius:16px;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.pme .av{width:64px;height:64px;font-size:24px}.pme .pt{flex:1;min-width:0;display:flex;flex-direction:column}.pme .pt b{font-size:19px}.pme .pt small{color:var(--mut);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pavw{display:flex;justify-content:center;padding:14px 0 4px}.pav{position:relative;background:none;border:0;padding:0;cursor:pointer}.pav .av{width:150px;height:150px}
+.pcam{position:absolute;right:0;bottom:4px;width:42px;height:42px;border-radius:50%;background:var(--acc);display:grid;place-items:center;color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.4)}.pcam svg{width:21px;height:21px}
+.pr small i{font-style:normal;opacity:.7}
+.rb{width:22px;height:22px;border-radius:50%;border:2px solid #5c5c63;flex:none;position:relative;transition:border-color .2s}
+.rb.on{border-color:var(--acc)}.rb.on::after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--acc);animation:pop .22s}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.tsw{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.25);flex:none}
+.sws{display:flex;gap:12px;flex-wrap:wrap;padding:6px 16px 14px}.sw{width:40px;height:40px;border-radius:50%;border:3px solid transparent;box-shadow:0 0 0 1px rgba(255,255,255,.2);background:#2c2c2e;color:#fff;cursor:pointer;display:grid;place-items:center;transition:transform .15s}.sw small{font-size:9.5px}.sw.on{border-color:#fff;transform:scale(1.12)}
+.chs{display:flex;gap:8px;padding:12px 14px}.chb{flex:1;padding:11px 6px;border-radius:12px;background:rgba(255,255,255,.07);border:1.5px solid transparent;color:inherit;font:inherit;font-weight:600;font-size:14.5px;cursor:pointer;transition:.18s}.chb.on{border-color:var(--acc);background:rgba(10,132,255,.16)}
+.prev{display:flex;flex-direction:column;gap:6px;padding:16px 16px 8px}.prev .b{max-width:80%;animation:none}.prev .b.me{align-self:flex-end}.prev .b.him{align-self:flex-start}
+.pit{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.06);position:relative}.pit:last-child{border-bottom:0}.pit>b{font-size:15.5px}
+.pit .st{position:absolute;right:14px;top:14px;font-size:12px;font-weight:700;color:var(--warn)}.pit .st.ok{color:var(--ok)}
+.cred{text-align:center;padding:34px 20px 8px}.cred .logo{margin:0 auto}.cred h3{margin:16px 0 2px;font-size:26px}.cred .cv{color:var(--mut)}.cred p{color:var(--mut);font-size:13.5px;line-height:1.5;margin-top:14px}
+.fbta{width:calc(100% - 28px);margin:14px;resize:none;min-height:150px}
+.thms{display:flex;gap:12px;padding:10px 16px;flex-wrap:wrap}
+.thm{position:relative;width:84px;height:84px;border-radius:12px;background:#1c1c1e center/cover no-repeat;border:0;color:inherit}
+.thm.add{font-size:34px;color:var(--mut);border:1.5px dashed #4a4a50;background:none;cursor:pointer}
+.thm button{position:absolute;top:-8px;right:-8px;width:24px;height:24px;border-radius:50%;border:0;background:#ff453a;color:#fff;font-size:16px;line-height:1}
+.intro{text-align:center;padding:10px 6px}.intro .ib{width:64px;height:64px;border-radius:50%;background:rgba(10,132,255,.16);color:var(--acc);display:grid;place-items:center;margin:8px auto 4px}.intro .ib svg{width:30px;height:30px}.intro p{color:var(--mut);font-size:14.5px;line-height:1.5;margin:10px 4px}
+html[data-theme=ios] .pg{background:#f2f2f7}html[data-theme=ios] .pgrp,html[data-theme=ios] .pme{background:#fff}html[data-theme=ios] .pr{border-bottom-color:#efeff4}html[data-theme=ios] .pr:active{background:#e9e9ee}html[data-theme=ios] .chb{background:#e9e9ee}
+html[data-theme=android] .pg{background:#0b141a}html[data-theme=android] .pgrp,html[data-theme=android] .pme{background:#111b21}html[data-theme=android] .rb.on{border-color:#00a884}html[data-theme=android] .rb.on::after{background:#00a884}
+html[data-theme=iosdark] .pgrp,html[data-theme=iosdark] .pme{background:#1c1c1e}
+/* ===== tema iOS oscuro ===== */
+html[data-theme=iosdark]{--bg:#000;--card:#1c1c1e;--card2:#2c2c2e;--line:#38383a;--txt:#fff;--mut:#98989f;--acc:#0a84ff;--acc2:#5e5ce6}
+html[data-theme=iosdark] .sheet,html[data-theme=iosdark] .card{background:#1c1c1e}
+html[data-theme=iosdark] .in,html[data-theme=iosdark] .grp,html[data-theme=iosdark] .tabs2{background:#1c1c1e}
+html[data-theme=iosdark] .mh,html[data-theme=iosdark] .comp{background:rgba(22,22,24,.92);border-color:#2c2c2e;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+html[data-theme=iosdark] .b.me{background:#0a84ff;border-radius:19px 19px 5px 19px}html[data-theme=iosdark] .b.him{background:#262628;border-radius:19px 19px 19px 5px}
+html[data-theme=iosdark] .msgs,html[data-theme=iosdark] .side{background:#000}html[data-theme=iosdark] .row{border-bottom-color:#1c1c1e}html[data-theme=iosdark] .row:active,html[data-theme=iosdark] .row.sel{background:#1c1c1e}
+html[data-theme=iosdark] .comp textarea{background:#1c1c1e;border-color:#38383a}
+/* ===== burbujas y tamaño del texto ===== */
+html[data-bme] .b.me{background:var(--bme)!important;color:#fff!important}
+html[data-bshape=soft] .b{border-radius:12px!important}html[data-bshape=sq] .b{border-radius:4px!important}
+html[data-fs=s] .b{font-size:13.5px!important}html[data-fs=l] .b{font-size:18px!important}html[data-fs=l] .comp textarea{font-size:18px}html[data-fs=l] .row .nm{font-size:18px}html[data-fs=l] .row .sub{font-size:15.5px}
 
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="lgb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dbe8ff"/></linearGradient><linearGradient id="lgz" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a84ff"/><stop offset="1" stop-color="#bf5af2"/></linearGradient></defs><symbol id="lg" viewBox="0 0 24 24"><path d="M5 3h14a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3h-8.2l-4.3 3.7c-.6.5-1.5.1-1.5-.7V17.4A3 3 0 0 1 2 14.5V6a3 3 0 0 1 3-3z" fill="url(#lgb)"/><path d="M13.2 5.6 8 11.6h3.3l-.9 4.8 5.4-6.3h-3.4z" fill="url(#lgz)"/></symbol></svg>
-<div class="scr on" id="boot"><div class="logo"><svg viewBox="0 0 24 24"><use href="#lg"/></svg></div><div class="brand">WarMess<small>BETA</small></div><div class="spin"></div></div>
+<div class="scr on" id="boot"><div class="logo"><svg viewBox="0 0 24 24"><use href="#lg"/></svg></div><div class="brand">WarMess<small>By Sxgura Inc</small></div><div class="spin"></div></div>
 
 <!-- ACCESO -->
 <div class="scr" id="auth"><div class="center"><div class="box">
   <div class="hero"><div class="logo xl"><svg viewBox="0 0 24 24"><use href="#lg"/></svg></div>
   <div class="brand">WarMess</div>
   <div class="tag">Plataforma de mensajería instantánea</div></div>
+  <button class="btn ghost" id="authBack" data-act="authBack" hidden style="margin:0 0 14px">← Volver a mi cuenta</button>
   <p class="lead">Para usar este servicio debes <b>registrarte</b>. Chatea en tiempo real con personas de todo el mundo.</p>
   <div class="card">
     <button class="btn gbtn" data-act="google" id="gBtn"><svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.9 2.4 30.4 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.6 5.9c4.4-4.1 7-10.1 7-17.6z"/><path fill="#FBBC05" d="M10.5 28.7a14.5 14.5 0 0 1 0-9.4l-7.9-6.1a24 24 0 0 0 0 21.6l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.9 2.3-8.3 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg>Continuar con Google</button>
@@ -407,21 +470,19 @@ html[data-bubble=round] .b{border-radius:22px}html[data-bubble=square] .b{border
  <div class="shell" id="shell">
   <aside class="side">
     <div class="top">
-      <button class="ibtn" id="settingsBtn" data-act="settings" aria-label="Menú y ajustes"><svg class="i" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></button>
-      <h1>WarMess<small>BETA</small></h1>
+      <h1>WarMess<small>Beta</small></h1>
+      <button class="ibtn" data-act="menu" aria-label="Menú"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="12" cy="19" r="1.4"/></svg></button>
       <button class="ibtn" data-act="newGroup" aria-label="Nuevo grupo"><svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M19 8v6M16 11h6"/></svg></button>
       <button class="ibtn" id="admBtn" data-act="admin" aria-label="Configuración" hidden><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
     </div>
     <div class="srch"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" inputmode="search" placeholder="Buscar @usuario, ID o chat" autocomplete="off" maxlength="30" aria-label="Buscar"></div>
-    <div class="ptabs" id="ptabs"><button class="on" data-act="ptab" data-t="chats">Chats</button><button data-act="ptab" data-t="arch">Archivados <b id="archN" hidden>0</b></button><button data-act="ptab" data-t="reqs">Solicitudes <b id="reqN" hidden>0</b></button></div>
+    <div class="ptabs" id="ptabs"><button class="on" data-act="ptab" data-t="chats">Chats</button><button data-act="ptab" data-t="story">Historias</button><button data-act="ptab" data-t="arch">Archivados <b id="archN" hidden>0</b></button><button data-act="ptab" data-t="reqs">Solicitudes <b id="reqN" hidden>0</b></button></div>
     <div class="list" id="list"></div>
   </aside>
   <main class="main" id="main"></main>
  </div>
 </div>
 
-<!-- CENTRO DE AJUSTES -->
-<div class="ov" id="ovSettings"><div class="sheet settings-shell" id="shSettings"></div></div>
 <!-- HOJAS -->
 <div class="ov" id="ovProf" data-close><div class="sheet" id="shProf"></div></div>
 <div class="ov" id="ovInfo" data-close><div class="sheet" id="shInfo"></div></div>
@@ -447,18 +508,24 @@ html[data-bubble=round] .b{border-radius:22px}html[data-bubble=square] .b{border
     <button class="btn" data-act="admPin">Entrar</button>
   </div>
   <div id="admMain" style="display:none;flex-direction:column;flex:1;min-height:0">
-    <div class="atabs" id="atabs"><button class="on" data-act="atab" data-t="res">Resumen</button><button data-act="atab" data-t="usr">Usuarios</button><button data-act="atab" data-t="vis">Visitas</button><button data-act="atab" data-t="rep">Reportes <span class="pill nuevo" id="repN" hidden>0</span></button><button data-act="atab" data-t="ins">Inspeccionar</button><button data-act="atab" data-t="grp">Grupos</button><button data-act="atab" data-t="sop">Soporte <span class="pill nuevo" id="tkN" hidden>0</span></button><button data-act="atab" data-t="log">Registro</button><button data-act="atab" data-t="blq">Bloqueados</button></div>
+    <div class="atabs" id="atabs"><button class="on" data-act="atab" data-t="res">Resumen</button><button data-act="atab" data-t="usr">Usuarios</button><button data-act="atab" data-t="vis">Visitas</button><button data-act="atab" data-t="rep">Reportes <span class="pill nuevo" id="repN" hidden>0</span></button><button data-act="atab" data-t="ins">Inspeccionar</button><button data-act="atab" data-t="grp">Grupos</button><button data-act="atab" data-t="fb">Comentarios</button><button data-act="atab" data-t="sto">Historias</button><button data-act="atab" data-t="not">Notas</button><button data-act="atab" data-t="sop">Soporte <span class="pill nuevo" id="tkN" hidden>0</span></button><button data-act="atab" data-t="log">Registro</button><button data-act="atab" data-t="blq">Bloqueados</button></div>
     <div class="abody" id="abody"></div>
   </div>
 </div>
 <div class="ov" id="ovAdm" data-close style="z-index:90"><div class="sheet" id="shAdm"></div></div>
 <input type="file" id="avFile" accept="image/*" hidden>
+<input type="file" id="fbFile" accept="image/*" hidden>
+<input type="file" id="imgFile" accept="image/*" hidden>
+<div class="sv" id="sv" hidden></div>
+<div class="lb" id="lb" hidden></div>
+<div id="pgs"></div>
 <div class="toast" id="toast" role="status"></div>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult,
-  createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, signOut, EmailAuthProvider, reauthenticateWithCredential, updatePassword, verifyBeforeUpdateEmail
+  createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, signOut,
+  EmailAuthProvider, reauthenticateWithCredential, updatePassword, verifyBeforeUpdateEmail
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { getFirestore, collection, doc, getDoc, getDocs, setDoc, updateDoc, deleteDoc, addDoc, query, where, orderBy, limit,
   onSnapshot, serverTimestamp, writeBatch, increment, Timestamp, arrayUnion, initializeFirestore, persistentLocalCache, persistentMultipleTabManager
@@ -477,7 +544,8 @@ const ADMIN_EMAIL = "sxgcodesms@gmail.com";                 // mismo administrad
 const CODE_HASH = "f1ebf7c24d86648383e9ef4f96898bb5c62b9f56f75e0c6a031dcf6da4956ceb";   // mismo código de acceso de tu panel admin
 const MIN_AGE = 13;                                         // edad mínima para registrarse
 const ONLINE_MS = 100000;                                   // "en línea" si se conectó hace menos de esto
-const fbApp = initializeApp(firebaseConfig);
+const SLOT = (() => { try{ return localStorage.getItem("wm_slot") || "default"; }catch(e){ return "default"; } })();   // cada cuenta guardada vive en su propia "ranura" de Firebase
+const fbApp = SLOT === "default" ? initializeApp(firebaseConfig) : initializeApp(firebaseConfig, SLOT);
 const auth = getAuth(fbApp);
 let db;
 try{ db = initializeFirestore(fbApp, { localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() }) }); }   // caché local: abre más rápido y mantiene mensajes sin conexión
@@ -500,12 +568,13 @@ const IC = {
 };
 const hue = (s) => { let h = 0; for(const c of String(s || "?")) h = (h * 31 + c.charCodeAt(0)) % 360; return h; };
 const photoOk = (f) => typeof f === "string" && f.startsWith("data:image/jpeg;base64,");   // solo se muestran fotos propias (JPEG incrustado)
+const avG = (name, foto, cls = "") => photoOk(foto) ? av(name, foto, cls) : `<div class="av ${cls} dflt grp" role="img" aria-label="Grupo"></div>`;
 const av = (name, foto, cls = "") => {
   const n = String(name || "?").trim();
   return photoOk(foto) ? `<div class="av ${cls}" style="background-image:url('${esc(foto)}')"></div>`
-    : `<div class="av ${cls}" style="background:#607d8b;color:#dce5ea"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:78%;height:78%;fill:#dce5ea;stroke:none"><circle cx="12" cy="8" r="4.2"/><path d="M3 22c.4-5.1 4-8 9-8s8.6 2.9 9 8z"/></svg></div>`;
+    : `<div class="av ${cls} dflt" role="img" aria-label="Sin foto de perfil"></div>`;
 };
-const badge = (p) => (p && p.verificado) ? `<svg class="vb" viewBox="0 0 24 24" aria-label="Cuenta verificada"><circle cx="12" cy="12" r="10.5" fill="${p.rango === "Creador" ? "#bf5af2" : "#0a84ff"}"/><path d="M7.6 12.4l3 3 5.8-6.2" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>` : "";
+const badge = (p) => (p && p.verificado) ? `<svg class="vb" viewBox="0 0 24 24" aria-label="Cuenta verificada"><circle cx="12" cy="12" r="10.5" fill="${p.rango === "Creador" ? "#f5a300" : "#0a84ff"}"/><path d="M7.6 12.4l3 3 5.8-6.2" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>` : "";
 const rkTag = (p) => (p && p.rango) ? `<div><span class="rk ${p.rango === "Creador" ? "cr" : ""}">${esc(p.rango)}</span></div>` : "";
 const normU = (v) => String(v || "").trim().replace(/^@/, "").toLowerCase();
 const unameFmt = (u) => UNAME_RE.test(u) && !u.includes("..") && (!RESERVED.includes(u) || (user && (user.email || "").toLowerCase() === ADMIN_EMAIL));
@@ -584,16 +653,18 @@ async function fileToAvatar(file){
 let user = null, prof = null, priv = null, isAdm = false, seq = 0;
 let chats = new Map(), peers = new Map(), cur = null, msgsData = [], msgLimit = 40, ptab = "chats", qtxt = "", qSeq = 0, qRes = null;
 let unsubTk = null, unsubChats = null, unsubMsgs = null, unsubPeer = null, unsubSelf = null, statusT = null, verT = null, compSig = "", firstChats = true, olderFlag = false, firstMsgs = true;
+let claimTried = false, imgTarget = "", stDraft = null, sv = null, stT = null, notesOn = false, unsubNotes = null, notesData = [], gaRes0 = null;
 let sel = new Set(), expT = null, noSeen = false, selChat = null, chatsP = new Map(), groupsP = new Map(), unsubGrp = null;
 let photo = { onb: null, prof: null }, avTarget = "onb", lastSend = 0, markBusy = false;
 const me = () => user && user.uid;
+const rndId = () => { let s; do{ s = String(100000 + Math.floor(Math.random() * 900000)); }while(s === "222222"); return s; };
 const isG = (c) => !!c && c.tipo === "grupo";
 const colOf = (c) => (isG(c) ? "wm_groups" : "wm_chats");
 const keyOf = (c, who) => (isG(c) ? "_" + who : (c.a === who ? "A" : "B"));
 const otherOf = (c) => (isG(c) ? null : (c.a === me() ? c.b : c.a));
 const gPerm = (c, p) => isG(c) && (c.creador === me() || ((c.admins || {})[me()] || []).includes(p));
 const PERMS = [["add", "Añadir miembros"], ["kick", "Quitar miembros"], ["edit", "Editar información del grupo"], ["borrar", "Eliminar mensajes de otros"], ["temp", "Mensajes temporales"]];
-const gSn = (m, c) => { if(!isG(c) || m.de === me()) return ""; const p = peers.get(m.de) || {}; return `<span class="sn" style="display:flex;align-items:center;gap:6px;color:hsl(${hue(m.de)} 70% 68%)">${av(p.nombre, p.foto, "sm")}<span>${esc(p.nombre || "Usuario")}${badge(p)}</span></span>`; };
+const gSn = (m, c) => (isG(c) && m.de !== me()) ? `<span class="sn" style="color:hsl(${hue(m.de)} 70% 68%)">${esc((peers.get(m.de) || {}).nombre || "…")}</span>` : "";
 const unreadOf = (c) => c.estado === "activo" && c.ultimoDe && c.ultimoDe !== me() && ms(c.ultimoMsgAt) > ms(c["leido" + keyOf(c, me())]);
 const nameOf = (c) => { if(isG(c)) return c.nombre || "Grupo"; const p = peers.get(otherOf(c)); return (c["apodo" + keyOf(c, me())] || "").trim() || (p ? p.nombre : "…"); };
 const tempOf = (c) => (c && c.temp) || "off";
@@ -601,13 +672,13 @@ const myClear = (c) => ms(c["limpiado" + keyOf(c, me())]);
 const isArch = (c) => !!c["archivado" + keyOf(c, me())];
 const isDel = (c) => { const d = ms(c["borrado" + keyOf(c, me())]); return d && ms(c.ultimoMsgAt) <= d; };
 const TEMP_LBL = { off:"Desactivados", "24h":"24 horas", ins:"Instantáneos" };
-const privacyCanSee = (p, field) => {
-  if(!p) return false; if(isAdm) return true;
-  const mode = (p.privacidad && p.privacidad[field]) || "todos";
-  if(mode === "nadie") return false; if(mode === "todos") return true;
-  return [...chats.values()].some(c => !isG(c) && c.estado === "activo" && otherOf(c) === p.uid);
-};
-const peerOnline = (p) => p && privacyCanSee(p,"online") && p.estado === "activo" && Date.now() - ms(p.ultimaConexion) < ONLINE_MS;
+const isCreatorP = (p) => !!p && p.rango === "Creador";
+const isFriend = (u) => { const c = chats.get([me(), u].sort().join("_")); return !!c && c.estado === "activo"; };
+/* privacidad: el creador lo ve todo y sus propios ajustes no le aplican */
+const canSee = (p, key) => { if(!p) return true; const u = p.uid || p._u; if(u && u === me()) return true; if(isCreatorP(prof) || isCreatorP(p)) return true; const v = (p.priv || {})[key] || "todos"; return v === "todos" || (v === "amigos" && !!u && isFriend(u)); };
+const fotoOf = (p) => (p && canSee(p, "foto")) ? p.foto : "";
+const readVisible = (p) => !p || isCreatorP(prof) || isCreatorP(p) || canSee(p, "lect");
+const peerOnline = (p) => p && canSee(p, "ult") && p.estado === "activo" && Date.now() - ms(p.ultimaConexion) < ONLINE_MS;
 
 function scr(n){ document.querySelectorAll(".scr").forEach((s) => s.classList.toggle("on", s.id === n)); }
 const openOv = (id) => $(id).classList.add("on");
@@ -655,7 +726,15 @@ async function forgot(){
   try{ await sendPasswordResetEmail(auth, em); }catch(e){ if(e.code === "auth/network-request-failed" || e.code === "auth/too-many-requests") return setMsg("aMsg", authErr(e)); }
   setMsg("aMsg", "Si ese correo tiene cuenta, te enviamos un enlace para restablecer la contraseña.", "ok");
 }
-async function logout(){ try{ await signOut(auth); }catch(e){} }
+async function logout(){
+  try{ await signOut(auth); }catch(e){}
+  const rest = getAccounts().filter((x) => x.slot !== SLOT); setAccounts(rest);
+  try{
+    if(rest.length){ localStorage.setItem("wm_slot", rest[0].slot); localStorage.setItem("wm_prev_slot", ""); location.reload(); }
+    else if(SLOT !== "default"){ localStorage.setItem("wm_slot", "default"); localStorage.setItem("wm_prev_slot", ""); location.reload(); }
+  }catch(e){}
+  if(typeof pgClear === "function") pgClear();
+}
 
 /* ---- verificar correo ---- */
 function showVerify(){
@@ -741,7 +820,7 @@ function showOnb(){
   setMsg("onbMsg", ""); paintOnbAv(); scr("onb");
   if(!photo.onb && user.photoURL){ loadImg(user.photoURL, true).then(squareJpeg).then((d) => { if(!photo.onb){ photo.onb = d; paintOnbAv(); } }).catch(() => {}); }
 }
-function paintOnbAv(){ const n = $("onbNm").value || "?"; $("onbAv").outerHTML = av(n, photo.onb, "lg").replace('class="av lg"', 'class="av lg" id="onbAv"'); }
+function paintOnbAv(){ const n = $("onbNm").value || "?"; $("onbAv").outerHTML = av(n, photo.onb, "lg").replace(/class="av lg[^"]*"/, (m) => m + ' id="onbAv"'); }
 async function createProfile(){
   const nombre = $("onbNm").value.replace(/\s+/g, " ").trim(), bd = $("onbBd").value, bio = $("onbBio").value.trim().slice(0, 100), us = normU($("onbUs").value);
   if(nombre.length < 2) return setMsg("onbMsg", "Escribe tu nombre (mínimo 2 letras).");
@@ -759,13 +838,13 @@ async function createProfile(){
     const ex = await getDocs(query(collection(db, "wm_ids"), where("uid", "==", user.uid)));
     if(!ex.empty) id = ex.docs[0].id;
     for(let i = 0; !id && i < 12; i++){
-      const c = String(100000 + Math.floor(Math.random() * 900000));
+      const c = rndId();
       try{ await setDoc(doc(db, "wm_ids", c), { uid: user.uid, creado: serverTimestamp() }); id = c; }catch(e){ if(e.code !== "permission-denied") throw e; }
     }
     if(!id) throw { code:"wm/id" };
     await setDoc(doc(db, "wm_users", user.uid), { id, usuario: us, nombre, foto: photo.onb || "", bio, estado:"activo", creado: serverTimestamp(), ultimaConexion: serverTimestamp() });
     await setDoc(doc(db, "wm_priv", user.uid), { email: user.email, nacimiento: bd, proveedor: (user.providerData[0] && user.providerData[0].providerId) || "", nVisitas: 0, creado: serverTimestamp() });
-    photo.onb = null; await route(); if(prof && prof.estado === "activo") openProfile(true);
+    photo.onb = null; await route(); if(prof && prof.estado === "activo"){ toast("¡Bienvenido a WarMess! 🎉 Completa tu perfil"); pgGo("settings"); pgGo("profile"); }
   }catch(e){
     console.log("Perfil:", e);
     setMsg("onbMsg", unameErr(e) || (e.code === "wm/id" || e.code === "permission-denied" ? "No se pudo crear tu perfil. Si eres el administrador, revisa que las reglas de Firestore v16 estén publicadas." : "No se pudo crear tu perfil. Inténtalo de nuevo."));
@@ -798,7 +877,15 @@ function teardown(){
 }
 const welcomeHTML = () => `<div class="welcome" style="margin:auto"><div class="logo"><svg viewBox="0 0 24 24"><use href="#lg"/></svg></div><b style="color:#fff;font-size:20px">WarMess</b><p>Elige un chat o busca el <b>@usuario</b> o el ID de otra persona para conectarte.</p></div>`;
 
+const getAccounts = () => { try{ const a = JSON.parse(store.get("wm_accounts", "[]")); return Array.isArray(a) ? a : []; }catch(e){ return []; } };
+const setAccounts = (a) => store.set("wm_accounts", JSON.stringify(a.slice(0, 3)));
+function saveAccount(){
+  if(!user || !prof) return; const a = getAccounts().filter((x) => x.slot !== SLOT && x.uid !== user.uid);
+  a.unshift({ slot: SLOT, uid: user.uid, email: user.email || "", nombre: prof.nombre || "", usuario: prof.usuario || "", foto: photoOk(prof.foto) ? prof.foto : "" });
+  setAccounts(a); store.set("wm_prev_slot", "");
+}
 function enterApp(){
+  saveAccount(); subGinv(); syncEmail();
   isAdm = (user.email || "").toLowerCase() === ADMIN_EMAIL && user.emailVerified;
   $("admBtn").hidden = !isAdm;
   renderMe(); scr("app"); $("main").innerHTML = welcomeHTML(); setPtab("chats");
@@ -806,13 +893,20 @@ function enterApp(){
   unsubGrp = onSnapshot(query(collection(db, "wm_groups"), where("miembros", "array-contains", user.uid)), onGroups, (e) => { console.log("Grupos:", e); });
   unsubSelf = onSnapshot(doc(db, "wm_users", user.uid), (s) => {
     if(!s.exists()) return; prof = s.data(); renderMe();
+    try{
+      const k = "wm_ver_" + user.uid;
+      if(prof.verificado && prof.rango !== "Creador" && store.get(k) !== "1"){ store.set(k, "1"); verNotice(); }
+      else if(prof.rango === "Creador") store.set(k, "1");
+      else if(!prof.verificado) store.set(k, "0");
+    }catch(e){}
+    if(isAdm && prof.id !== "222222" && !claimTried){ claimTried = true; claimCreatorId(); }
     if(prof.estado !== "activo"){ teardownLive(); showBlocked(prof.estado); }
   }, () => {});
   startSession();
   if(isAdm && (prof.rango !== "Creador" || !prof.verificado)) updateDoc(doc(db, "wm_users", user.uid), { verificado:true, rango:"Creador" }).catch(() => {});
 }
 function teardownLive(){ [unsubChats, unsubGrp, unsubMsgs, unsubPeer].forEach((f) => { try{ f && f(); }catch(e){} }); unsubChats = unsubGrp = unsubMsgs = unsubPeer = null; clearInterval(sessT); clearInterval(secT); closeAllOv(); }
-function renderMe(){ /* El acceso al perfil ahora está dentro del menú de ajustes. */ }
+function renderMe(){ if(typeof pgRefresh === "function") pgRefresh(); }
 function onChats(snap){
   chatsP = new Map(); snap.docs.forEach((d) => chatsP.set(d.id, { id: d.id, ...d.data({ serverTimestamps:"estimate" }) })); mergeChats();
 }
@@ -845,16 +939,15 @@ async function ensurePeers(){
   renderList(); if(cur) renderHeader();
 }
 function updateBadges(){
-  const r = [...chats.values()].filter((c) => c.estado === "pendiente" && c.solicita !== me()).length;
+  const r = [...chats.values()].filter((c) => c.estado === "pendiente" && c.solicita !== me()).length + (typeof ginvs !== "undefined" ? ginvs.length : 0);
   const n = $("reqN"); n.textContent = r; n.hidden = !r;
   const un = [...chats.values()].filter((c) => unreadOf(c) && !isDel(c)).length;
   const an = [...chats.values()].filter((c) => isArch(c) && unreadOf(c) && !isDel(c)).length, ab = $("archN"); if(ab){ ab.textContent = an; ab.hidden = !an; }
   document.title = (un + r ? `(${un + r}) ` : "") + "WarMess · By Sxgura Inc";
 }
 const THEMES = [["default", "Predeterminado"], ["iosdark", "iOS oscuro"], ["ios", "iOS claro"], ["android", "Android"]];
-const applyTheme = (t) => { if(!THEMES.some((x) => x[0] === t)) t = "default"; document.documentElement.dataset.theme = t; try{ const m = document.querySelector('meta[name="theme-color"]'); if(m) m.content = t === "ios" ? "#ffffff" : t === "android" ? "#202c33" : t === "iosdark" ? "#000000" : "#08080b"; }catch(e){} };
+const applyTheme = (t) => { if(!THEMES.some((x) => x[0] === t)) t = "default"; document.documentElement.dataset.theme = t; try{ const m = document.querySelector('meta[name="theme-color"]'); if(m) m.content = t === "iosdark" ? "#000000" : t === "ios" ? "#ffffff" : t === "android" ? "#202c33" : "#08080b"; }catch(e){} };
 applyTheme(store.get("wm_theme", "default"));
-document.documentElement.dataset.textSize = store.get("wm_text_size", "medium"); document.documentElement.dataset.bubble = store.get("wm_bubble", "round");
 let actx = null;
 const TONES = [["Clásico", [880]], ["Gota", [660, 990]], ["Burbuja", [520, 780, 1040]]];
 const sndOn = () => store.get("wm_snd_on", "1") !== "0", sndTone = () => Math.min(TONES.length - 1, Math.max(0, parseInt(store.get("wm_snd_tone", "0")) || 0));
@@ -871,24 +964,26 @@ function beep(force){
 /* ---- lista de chats / solicitudes / búsqueda por ID ---- */
 function setPtab(t){
   ptab = t; document.querySelectorAll('[data-act="ptab"]').forEach((b) => b.classList.toggle("on", b.dataset.t === t));
+  clearInterval(stT); if(t === "story"){ refreshStoryPeers(); stT = setInterval(refreshStoryPeers, 45000); }
   renderList();
 }
 function chatRow(c){
-  const g = isG(c), p = g ? null : peers.get(otherOf(c)), nm = nameOf(c), un = unreadOf(c), online = !g && peerOnline(p);
+  const g = isG(c), p = g ? null : peers.get(otherOf(c)), nm = nameOf(c), un = unreadOf(c);
   const cleared = ms(c.ultimoMsgAt) <= myClear(c);
   let sub = c.estado === "pendiente" ? "Solicitud enviada · esperando respuesta" : cleared ? "" : (c.ultimoMsg ? (c.ultimoDe === me() ? "Tú: " : (g && c.ultimoDe ? ((peers.get(c.ultimoDe) || {}).nombre || "").split(" ")[0] + ": " : "")) + c.ultimoMsg : (!c.ultimoDe ? (g ? "Grupo nuevo" : "Conectados · escribe el primer mensaje") : ""));
-  const avatar=`<span class="online-wrap">${av(nm, g ? c.foto : p && privacyCanSee(p,"foto") ? p.foto : "")}${online?'<i class="online-dot"></i>':''}</span>`;
-  return `<div class="row-wrap"><button class="row ${c.id === cur ? "sel" : ""}" data-act="open" data-c="${esc(c.id)}">${avatar}<div class="mid"><div class="nm">${esc(nm)}${badge(p)}</div><div class="sub ${un ? "un" : ""}">${esc(sub)}</div></div><div class="meta"><span>${esc(fmtList(ms(c.ultimoMsgAt)))}</span>${un ? '<span class="unr"></span>' : ""}</div></button><div class="chat-actions"><button data-act="archiveFromList" data-c="${esc(c.id)}" title="${isArch(c)?'Desarchivar':'Archivar'}">${P('<path d="M3 7h18v4H3zM5 11v9h14v-9M10 15h4"/>')}</button><button data-act="deleteFromList" data-c="${esc(c.id)}" title="Eliminar">${P('<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>')}</button></div></div>`;
+  return `<button class="row ${c.id === cur ? "sel" : ""}" data-act="open" data-c="${esc(c.id)}">${g ? avG(nm, c.foto) : av(nm, fotoOf(p))}<div class="mid"><div class="nm">${g ? "👥 " : ""}${esc(nm)}${badge(p)}</div><div class="sub ${un ? "un" : ""}">${esc(sub)}</div></div><div class="meta"><span>${esc(fmtList(ms(c.ultimoMsgAt)))}</span>${un ? '<span class="unr"></span>' : ""}</div></button>`;
 }
 const qMode = () => { const q = qtxt.trim(), raw = q.replace(/^@/, ""); if(/^\d+$/.test(raw)) return "id"; if(raw && (q.startsWith("@") || raw.length >= 3)) return "u"; return ""; };
 function renderList(){
   const L = $("list"); if(!L) return;
+  if(ptab === "story" && !qtxt.trim()) return renderStories(L);
   const q = qtxt.trim(), all = [...chats.values()];
   if(ptab === "reqs"){
     const rs = all.filter((c) => c.estado === "pendiente" && c.solicita !== me()).sort((a, b) => ms(b.creado) - ms(a.creado));
-    L.innerHTML = rs.length ? rs.map((c) => { const p = peers.get(otherOf(c)), nm = (p && p.nombre) || "…";
-      return `<div class="req"><div class="rq">${av(nm, p && p.foto)}<div class="mid" style="flex:1;min-width:0"><div class="nm" style="font-weight:650">${esc(nm)}${badge(p)}</div><div class="sub" style="font-size:13px;color:var(--mut)">${p && p.usuario ? "@" + esc(p.usuario) + " · " : ""}ID ${esc((p && p.id) || "…")} · ${esc(fmtList(ms(c.creado)))}</div></div></div>${c.primerMsg ? `<div class="q">${esc(c.primerMsg)}</div>` : ""}<div class="acts"><button class="btn sm" data-act="accept" data-c="${esc(c.id)}">Aceptar</button><button class="btn sm ghost" data-act="reject" data-c="${esc(c.id)}">Rechazar</button></div></div>`; }).join("")
-      : `<div class="empty"><div class="big">📭</div>No tienes solicitudes pendientes.</div>`;
+    const gi = (typeof ginvs !== "undefined" ? ginvs : []).map((g) => `<div class="req"><div class="rq"><div class="av dflt" style="width:44px;height:44px"></div><div class="mid" style="flex:1;min-width:0"><div class="nm" style="font-weight:650">👥 ${esc(g.gnombre)}</div><div class="sub" style="font-size:13px;color:var(--mut)">${esc(g.dnombre || "Alguien")} te invitó a este grupo</div></div></div><div class="acts"><button class="btn sm" data-act="ginvOk" data-i="${esc(g.id)}">Unirme</button><button class="btn sm ghost" data-act="ginvNo" data-i="${esc(g.id)}">Rechazar</button></div></div>`).join("");
+    L.innerHTML = gi + (rs.length ? rs.map((c) => { const p = peers.get(otherOf(c)), nm = (p && p.nombre) || "…";
+      return `<div class="req"><div class="rq">${av(nm, fotoOf(p))}<div class="mid" style="flex:1;min-width:0"><div class="nm" style="font-weight:650">${esc(nm)}${badge(p)}</div><div class="sub" style="font-size:13px;color:var(--mut)">${p && p.usuario ? "@" + esc(p.usuario) + " · " : ""}ID ${esc((p && p.id) || "…")} · ${esc(fmtList(ms(c.creado)))}</div></div></div>${c.primerMsg ? `<div class="q">${esc(c.primerMsg)}</div>` : ""}<div class="acts"><button class="btn sm" data-act="accept" data-c="${esc(c.id)}">Aceptar</button><button class="btn sm ghost" data-act="reject" data-c="${esc(c.id)}">Rechazar</button></div></div>`; }).join("")
+      : (gi ? "" : `<div class="empty"><div class="big">📭</div>No tienes solicitudes pendientes.</div>`));
     return;
   }
   const mode = qMode(), raw = q.replace(/^@/, "");
@@ -903,12 +998,13 @@ function renderList(){
     else if(!qRes.length) html += `<div class="empty" style="padding:24px"><div class="big">🔎</div>No hay usuarios ni grupos con ${mode === "id" ? "ese ID" : "ese usuario"}.</div>`;
     else html += qRes.map((u) => {
       if(u.g){ const ex = chats.get(u.gid), bt = ex ? `<button class="btn sm ghost" data-act="open" data-c="${esc(u.gid)}">Abrir</button>` : u.abierto ? `<button class="btn sm" data-act="joinG" data-g="${esc(u.gid)}">Unirse</button>` : '<span style="color:var(--mut);font-size:12.5px">Solo por invitación</span>';
-        return `<div class="row" style="cursor:default">${av(u.nombre, u.foto)}<div class="mid"><div class="nm">${esc(u.nombre)}</div><div class="sub">Grupo · @${esc(u.usuario)} · ID ${esc(u.id)}</div></div>${bt}</div>`; }
+        return `<div class="row" style="cursor:default">${avG(u.nombre, u.foto)}<div class="mid"><div class="nm">👥 ${esc(u.nombre)}</div><div class="sub">Grupo · @${esc(u.usuario)} · ID ${esc(u.id)}</div></div>${bt}</div>`; }
       const cid = [me(), u.uid].sort().join("_"), ex = chats.get(cid), self = u.uid === me();
-      const btn = self ? '<span style="color:var(--mut);font-size:13px">Eres tú</span>' : ex ? `<button class="btn sm ghost" data-act="open" data-c="${esc(cid)}">${ex.estado === "pendiente" ? (ex.solicita === me() ? "Pendiente" : "Ver solicitud") : "Abrir"}</button>` : `<button class="btn sm" data-act="connect" data-u="${esc(u.uid)}">Conectar</button>`;
-      return `<div class="row" style="cursor:default">${av(u.nombre, u.foto)}<div class="mid"><div class="nm">${esc(u.nombre)}${badge(u)}</div><div class="sub">${u.usuario ? "@" + esc(u.usuario) + " · " : ""}ID ${esc(u.id)}</div></div>${btn}</div>`; }).join("");
+      const btn = self ? '<span style="color:var(--mut);font-size:13px">Eres tú</span>' : ex ? `<button class="btn sm ghost" data-act="open" data-c="${esc(cid)}">${ex.estado === "pendiente" ? (ex.solicita === me() ? "Pendiente" : "Ver solicitud") : "Abrir"}</button>` : `<button class="btn sm" data-act="connect" data-u="${esc(u.uid)}">Agregar</button>`;
+      return `<div class="row" style="cursor:default">${av(u.nombre, fotoOf(u))}<div class="mid"><div class="nm">${esc(u.nombre)}${badge(u)}</div><div class="sub">${u.usuario ? "@" + esc(u.usuario) + " · " : ""}ID ${esc(u.id)}</div></div>${btn}</div>`; }).join("");
     if(rows.length) html += `<div class="hint" style="margin-top:6px">Tus chats</div>`;
   }
+  if(ptab === "chats" && !mode && !q && prof) html += notesRowHTML();
   if(ptab === "arch" && !rows.length && !mode) html += `<div class="empty"><div class="big">🗃️</div>No tienes chats archivados.</div>`;
   html += rows.length ? rows.map(chatRow).join("") : (!mode && ptab !== "arch" ? (q ? `<div class="empty">Ningún chat coincide con «${esc(q)}».<br>Para buscar a alguien nuevo escribe su <b>@usuario</b> o su <b>ID</b>.</div>` : `<div class="empty"><div class="big">💬</div>Aún no tienes chats.<br>Pide a alguien su <b>@usuario</b> o <b>ID</b> y búscalo arriba para conectarte. Los tuyos están en tu perfil.</div>`) : "");
   L.innerHTML = html;
@@ -917,7 +1013,7 @@ let qT = null;
 function onSearch(){
   qtxt = $("q").value; clearTimeout(qT);
   const q = qtxt.trim(), raw = q.replace(/^@/, ""), mode = qMode();
-  if(q && ptab === "reqs") setPtab("chats");
+  if(q && (ptab === "reqs" || ptab === "story")) setPtab("chats");
   if(mode && raw.length >= 3){ qRes = null; renderList(); qT = setTimeout(() => runSearch(raw, mode), 250); }
   else{ qRes = []; renderList(); }
 }
@@ -935,32 +1031,36 @@ async function runSearch(q, mode){
 /* ---- conectar ---- */
 function connectSheet(uid){
   const u = (qRes || []).find((x) => x.uid === uid); if(!u) return;
-  $("shConn").innerHTML = `<h2>Conectar<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
-    <div style="text-align:center;margin:10px 0 6px"><div style="display:flex;justify-content:center">${av(u.nombre, u.foto, "lg")}</div><div style="font-size:19px;font-weight:700;margin-top:10px">${esc(u.nombre)}${badge(u)}</div><div style="color:var(--mut);font-size:14px">${u.usuario ? "@" + esc(u.usuario) + " · " : ""}ID ${esc(u.id)}</div></div>
+  $("shConn").innerHTML = `<h2>${u.id === "222222" ? "Escribir al creador" : "Agregar amigo"}<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
+    <div style="text-align:center;margin:10px 0 6px"><div style="display:flex;justify-content:center">${av(u.nombre, fotoOf(u), "lg")}</div><div style="font-size:19px;font-weight:700;margin-top:10px">${esc(u.nombre)}${badge(u)}</div><div style="color:var(--mut);font-size:14px">${u.usuario ? "@" + esc(u.usuario) + " · " : ""}ID ${esc(u.id)}</div></div>
     <label class="f" for="cnMsg">Mensaje de presentación <span style="font-weight:400">(opcional)</span></label>
     <textarea class="in" id="cnMsg" rows="3" maxlength="200" placeholder="Hola, soy…" style="resize:none"></textarea>
     <div class="msg" id="cnErr"></div>
-    <button class="btn" data-act="sendReq" data-u="${esc(uid)}" id="cnGo">Enviar solicitud</button>`;
+    <button class="btn" data-act="sendReq" data-u="${esc(uid)}" id="cnGo">${u.id === "222222" ? "Enviar mensaje" : "Enviar solicitud de amistad"}</button>`;
   openOv("ovConn");
 }
 async function sendReq(uid){
   const cid = [me(), uid].sort().join("_"), ex = chats.get(cid);
   if(ex){ closeOv("ovConn"); return openChat(cid); }
-  const a = [me(), uid].sort(), txt = ($("cnMsg").value || "").trim().slice(0, 200);
+  const a = [me(), uid].sort(), txt = ($("cnMsg").value || "").trim().slice(0, 200), u0 = (qRes || []).find((x) => x.uid === uid) || {}, isCr = u0.id === "222222";
   busy("cnGo", true, "Enviando…");
   try{
-    await setDoc(doc(db, "wm_chats", cid), { a:a[0], b:a[1], miembros:a, estado:"pendiente", solicita:me(), primerMsg:txt, creado:serverTimestamp(), ultimoMsg:"", ultimoMsgAt:serverTimestamp(), ultimoDe:"", leidoA:serverTimestamp(), leidoB:serverTimestamp(), apodoA:"", apodoB:"", bloqueadoPor:"" });
-    closeOv("ovConn"); toast("Solicitud enviada ✅"); $("q").value = ""; qtxt = ""; qRes = null; setPtab("chats");
+    await setDoc(doc(db, "wm_chats", cid), { a:a[0], b:a[1], miembros:a, estado: isCr ? "activo" : "pendiente", solicita:me(), primerMsg:txt, creado:serverTimestamp(), ultimoMsg: isCr ? (txt || "Hola 👋").slice(0, 80) : "", ultimoMsgAt:serverTimestamp(), ultimoDe: isCr ? me() : "", leidoA:serverTimestamp(), leidoB:serverTimestamp(), apodoA:"", apodoB:"", bloqueadoPor:"" });
+    closeOv("ovConn"); toast(isCr ? "Mensaje enviado ✅" : "Solicitud de amistad enviada ✅"); $("q").value = ""; qtxt = ""; qRes = null; setPtab("chats");
+    logEv("solicitud", isCr ? "escribió al creador" : "envió una solicitud de amistad a " + (u0.nombre || "alguien"), (u0.nombre || "") + (u0.usuario ? " (@" + u0.usuario + ")" : ""), cid);
+    if(isCr){ const t = setInterval(() => { if(chats.has(cid)){ clearInterval(t); openChat(cid); } }, 150); setTimeout(() => clearInterval(t), 5000); }
   }catch(e){ console.log("Solicitud:", e); setMsg("cnErr", e.code === "permission-denied" ? "No es posible enviar la solicitud a este usuario." : "No se pudo enviar. Inténtalo de nuevo."); busy("cnGo", false); }
 }
 async function answerReq(cid, ok){
-  try{ await updateDoc(doc(db, "wm_chats", cid), { estado: ok ? "activo" : "rechazado" }); if(ok){ setPtab("chats"); openChat(cid); } else toast("Solicitud rechazada"); }
+  const c0 = chats.get(cid), p0 = c0 ? (peers.get(otherOf(c0)) || {}) : {};
+  try{ logEv("solicitud", (ok ? "aceptó" : "rechazó") + " la solicitud de amistad de " + (p0.nombre || "alguien"), (p0.nombre || "") + (p0.usuario ? " (@" + p0.usuario + ")" : ""), cid); await updateDoc(doc(db, "wm_chats", cid), { estado: ok ? "activo" : "rechazado" }); if(ok){ setPtab("chats"); openChat(cid); } else toast("Solicitud rechazada"); }
   catch(e){ console.log(e); toast("No se pudo actualizar la solicitud."); }
 }
 
 /* ---- chat ---- */
 function openChat(cid){
-  const c = chats.get(cid); if(!c) return;
+  if(typeof pgStack !== "undefined" && pgStack.length) pgClear();
+  const c = chats.get(cid); if(!c) return; if(notesOn) stopNotes(true);
   if(cur !== cid){
     if(!cur) try{ history.pushState({ wm:1 }, ""); }catch(e){}
     try{ unsubMsgs && unsubMsgs(); unsubPeer && unsubPeer(); }catch(e){}
@@ -974,6 +1074,7 @@ function openChat(cid){
   }else{ $("shell").classList.add("chat"); }
 }
 function closeChatUI(){
+  stopNotes();
   try{ unsubMsgs && unsubMsgs(); unsubPeer && unsubPeer(); }catch(e){} unsubMsgs = unsubPeer = null; clearInterval(statusT);
   cur = null; msgsData = []; sel = new Set(); clearTimeout(expT); $("shell").classList.remove("chat"); $("main").innerHTML = welcomeHTML(); closeOv("ovInfo"); renderList();
 }
@@ -991,30 +1092,30 @@ function subMsgs(){
 function renderHeader(){
   const c = chats.get(cur); if(!c || !$("mhN")) return;
   if(isG(c)){
-    $("mhAv").innerHTML = av(c.nombre, c.foto, "sm"); $("mhN").innerHTML = esc(c.nombre);
+    $("mhAv").innerHTML = avG(c.nombre, c.foto, "sm"); $("mhN").innerHTML = "👥 " + esc(c.nombre);
     let t = (c.miembros || []).length + " miembros"; if(c.estado === "suspendido") t = "Grupo suspendido"; else if(tempOf(c) !== "off") t += " · ⏱ " + TEMP_LBL[tempOf(c)];
     $("mhS").textContent = t; $("mhS").className = "t2"; return;
   }
   const p = peers.get(otherOf(c)), nm = nameOf(c);
-  $("mhAv").innerHTML = av(nm, p && p.foto, "sm"); $("mhN").innerHTML = esc(nm) + badge(p);
+  $("mhAv").innerHTML = av(nm, fotoOf(p), "sm"); $("mhN").innerHTML = esc(nm) + badge(p);
   const s = $("mhS"); let t = "", on = false;
   if(c.estado === "pendiente") t = c.solicita === me() ? "Solicitud pendiente" : "Solicitud de conexión";
   else if(!p) t = "";
   else if(p.estado && p.estado !== "activo") t = "No disponible";
   else if(c.bloqueadoPor) t = "";
   else if(peerOnline(p)){ t = "en línea"; on = true; }
-  else if(!privacyCanSee(p,"ultima")) t = "";
+  else if(!canSee(p, "ult")) t = "";
   else{ const l = ms(p.ultimaConexion); t = l ? (sameDay(l, Date.now()) ? "últ. vez hoy a las " + fmtT(l) : sameDay(l, Date.now() - 864e5) ? "últ. vez ayer a las " + fmtT(l) : "últ. vez " + new Date(l).toLocaleDateString("es-CO")) : ""; }
   if(tempOf(c) !== "off" && c.estado === "activo") t = (t ? t + " · " : "") + "⏱ " + TEMP_LBL[tempOf(c)];
   s.textContent = t; s.className = "t2" + (on ? " on" : "");
 }
 function renderComp(){
   const c = chats.get(cur), w = $("compWrap"); if(!c || !w) return;
-  const sig = c.estado + "|" + (c.bloqueadoPor || "") + "|" + c.solicita + "|" + tempOf(c) + "|" + (replyDraft ? replyDraft.id : "");
+  const sig = c.estado + "|" + (c.bloqueadoPor || "") + "|" + c.solicita + "|" + tempOf(c);
   if(sig === compSig) return; compSig = sig;
   if(c.estado === "activo" && !c.bloqueadoPor){
     const draft = ($("cTxt") || {}).value || "";
-    w.innerHTML = `<form class="comp" id="cForm" autocomplete="off">${replyDraft?`<div class="replybar"><span>Respondiendo a ${esc(replyDraft.nombre)}: ${esc(replyDraft.texto)}</span><button type="button" data-act="cancelReply">✕</button></div>`:""}<textarea id="cTxt" rows="1" maxlength="1000" placeholder="${tempOf(c) !== "off" ? "⏱ Mensaje temporal" : "Escribe un mensaje"}" enterkeyhint="send"></textarea><button class="send" type="submit" aria-label="Enviar">${IC.send}</button></form>`;
+    w.innerHTML = `<form class="comp" id="cForm" autocomplete="off"><textarea id="cTxt" rows="1" maxlength="1000" placeholder="${tempOf(c) !== "off" ? "⏱ Mensaje temporal" : "Escribe un mensaje"}" enterkeyhint="send"></textarea><button class="send" type="submit" aria-label="Enviar">${IC.send}</button></form>`;
     const ta = $("cTxt"); ta.value = draft;
     const fit = () => { ta.style.height = "auto"; ta.style.height = Math.min(ta.scrollHeight, 130) + "px"; };
     ta.addEventListener("input", fit);
@@ -1049,11 +1150,10 @@ function renderMsgs(){
     const t = ms(m.creado) || Date.now();
     if(!lastDay || !sameDay(lastDay, t)){ h += `<div class="day">${esc(dayLabel(t))}</div>`; lastDay = t; }
     if(m.tipo === "sys"){ h += `<div class="sysm" style="margin:6px 0">${esc(m.texto)}</div>`; return; }
-    const mine = m.de === me(), seen = !!m.vistoEn;
+    const mine = m.de === me(), seen = !!m.vistoEn && (isG(c) || readVisible(peers.get(otherOf(c))));
     const st = !mine ? "" : m.pend ? IC.clock : (seen && !isG(c)) ? IC.checks : IC.check;
     if(m.expira){ const e = ms(m.expira); if(!nextExp || e < nextExp) nextExp = e; }
-    const rq=m.replyTo?`<span class="msg-reply">${esc(m.replyTo.nombre||"Mensaje")}: ${esc(m.replyTo.texto||"Mensaje")}</span>`:"";
-    h += `<div class="b ${mine ? "me" : "him"} ${sel.has(m.id) ? "sel" : ""}" data-m="${esc(m.id)}">${gSn(m, c)}${rq}${esc(m.texto)}<button class="reply-action" data-act="replyMsg" data-m="${esc(m.id)}">Responder</button><span class="tm ${mine && seen && !isG(c) ? "rd" : ""}">${(m.expira || m.ins) ? "⏱ " : ""}${fmtT(t)}${st}</span></div>`;
+    h += `<div class="b ${mine ? "me" : "him"} ${sel.has(m.id) ? "sel" : ""}" data-m="${esc(m.id)}">${gSn(m, c)}${esc(m.texto)}<span class="tm ${mine && seen && !isG(c) ? "rd" : ""}">${(m.expira || m.ins) ? "⏱ " : ""}${fmtT(t)}${st}</span></div>`;
   });
   el.innerHTML = h;
   clearTimeout(expT); if(nextExp) expT = setTimeout(renderMsgs, Math.max(200, nextExp - Date.now() + 80));
@@ -1094,7 +1194,7 @@ function selInfo(){
   $("shInfo").innerHTML = `<h2>Información del mensaje<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
     <div class="b ${mine ? "me" : "him"}" style="max-width:100%;margin:12px 0;animation:none;align-self:auto;display:block">${esc(m.texto)}</div>
     ${row(mine ? "Enviado" : "Recibido", esc(fmtFull(ms(m.creado))))}
-    ${row(mine ? (isG(c) ? "Visto" : "Visto por " + esc(nameOf(c))) : "Visto por ti", m.vistoEn ? esc(fmtFull(ms(m.vistoEn))) : "Aún no")}
+    ${row(mine ? (isG(c) ? "Visto" : "Visto por " + esc(nameOf(c))) : "Visto por ti", m.vistoEn && (isG(c) || !mine || readVisible(peers.get(otherOf(c)))) ? esc(fmtFull(ms(m.vistoEn))) : (mine && m.vistoEn ? "Oculto por privacidad" : "Aún no"))}
     ${m.expira ? row("Se elimina", esc(fmtFull(ms(m.expira)))) : m.ins ? row("Mensaje instantáneo", "se elimina segundos después de verse") : ""}`;
   openOv("ovInfo");
 }
@@ -1117,13 +1217,11 @@ async function doDelete(all){
   try{ await b.commit(); toast("Eliminado"); }catch(e){ console.log("Eliminar:", e); toast("No se pudo eliminar. ¿Reglas v17 publicadas?"); }
 }
 let markAgain = false;
-let replyDraft = null;
 async function markRead(){
   if(markBusy){ markAgain = true; return; }
   const c = chats.get(cur); if(!c || document.hidden) return;
-  const allowReceipts = isG(c) || isAdm || !prof.privacidad || prof.privacidad.lectura !== false;
-  const unseen = (!allowReceipts || noSeen) ? [] : msgsData.filter((m) => m.de !== me() && m.tipo !== "sys" && !m.vistoEn && !m.pend && ms(m.creado) > Date.now() - 3 * 864e5 && !m.borrado);
-  const needL = allowReceipts && unreadOf(c); if(!needL && !unseen.length) return;
+  const unseen = noSeen ? [] : msgsData.filter((m) => m.de !== me() && m.tipo !== "sys" && !m.vistoEn && !m.pend && ms(m.creado) > Date.now() - 3 * 864e5 && !m.borrado);
+  const needL = unreadOf(c); if(!needL && !unseen.length) return;
   markBusy = true;
   if(needL){ try{ await updateDoc(doc(db, colOf(c), c.id), { ["leido" + keyOf(c, me())]: serverTimestamp() }); }catch(e){} }
   if(unseen.length){
@@ -1137,15 +1235,12 @@ async function markRead(){
   if(markAgain){ markAgain = false; setTimeout(markRead, 120); }
 }
 document.addEventListener("visibilitychange", () => { if(!document.hidden){ markRead(); tickConn(); } });
-function replyMsg(id){const m=msgsData.find(x=>x.id===id);if(!m)return;const p=peers.get(m.de)||{};replyDraft={id,nombre:m.de===me()?"Tú":(p.nombre||"Usuario"),texto:String(m.texto||"").slice(0,160)};compSig="";renderComp();const t=$("cTxt");if(t)t.focus();}
-function cancelReply(){replyDraft=null;compSig="";renderComp();}
 function sendMsg(){
   const ta = $("cTxt"), c = chats.get(cur); if(!ta || !c) return;
   const text = ta.value.trim(); if(!text) return;
   if(Date.now() - lastSend < 350) return; lastSend = Date.now();
   ta.value = ""; ta.style.height = "auto"; ta.focus();
   const tmp = tempOf(c), data = { de: me(), texto: text.slice(0, 1000), creado: serverTimestamp() };
-  if(replyDraft) data.replyTo={id:replyDraft.id,nombre:replyDraft.nombre,texto:replyDraft.texto}; replyDraft=null; compSig=""; renderComp();
   if(tmp === "24h") data.expira = Timestamp.fromMillis(Date.now() + 864e5); else if(tmp === "ins") data.ins = true;
   const b = writeBatch(db), mref = doc(collection(db, colOf(c), c.id, "msgs"));
   b.set(mref, data);
@@ -1165,8 +1260,6 @@ async function archiveChat(){
   const c = chats.get(cur); if(!c) return; const on = !isArch(c);
   try{ await updateDoc(doc(db, colOf(c), c.id), { ["archivado" + keyOf(c, me())]: on }); toast(on ? "Chat archivado" : "Chat desarchivado"); closeOv("ovInfo"); if(on) closeChatUI(); }catch(e){ console.log(e); toast("No se pudo archivar. ¿Reglas v17 publicadas?"); }
 }
-async function archiveFromList(id){const c=chats.get(id);if(!c)return;const on=!isArch(c);try{await updateDoc(doc(db,colOf(c),id),{["archivado"+keyOf(c,me())]:on});toast(on?"Chat archivado":"Chat desarchivado");}catch(e){console.log(e);toast("No se pudo actualizar el chat.");}}
-async function deleteFromList(id){const c=chats.get(id);if(!c)return;if(!confirm(isG(c)?"¿Eliminar esta conversación de grupo solo de tu lista? Seguirás siendo miembro.":"¿Eliminar este chat de tu lista?") )return;try{const k=keyOf(c,me());await updateDoc(doc(db,colOf(c),id),{["limpiado"+k]:serverTimestamp(),["borrado"+k]:serverTimestamp()});if(cur===id)closeChatUI();toast(isG(c)?"Conversación eliminada; sigues en el grupo.":"Chat eliminado.");}catch(e){console.log(e);toast("No se pudo eliminar el chat.");}}
 function clearSheet(){
   $("shInfo").innerHTML = `<h2>Vaciar chat<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
     <p class="lead" style="margin:6px 0 0">Se eliminan todos los mensajes de esta conversación. ¿Para quién?</p>
@@ -1187,10 +1280,207 @@ async function deleteChat(){
   catch(e){ console.log(e); toast("No se pudo eliminar. ¿Reglas v17 publicadas?"); }
 }
 
+/* ================= v19: historias, notas guardadas, menú y creador ================= */
+const lblU = (n, u, id) => `${n || "Usuario"}${u ? " (@" + u + ")" : ""} · ID ${id || "—"}`;
+const logEv = (tipo, detalle, objetivo, chatId) => addDoc(collection(db, "wm_logs"), { tipo, uid: me(), autor: lblU(prof && prof.nombre, prof && prof.usuario, prof && prof.id), chatId: chatId || "", objetivo: String(objetivo || "").slice(0, 120), detalle: String(detalle).slice(0, 200), creado: serverTimestamp() }).catch(() => {});
+function verNotice(){
+  const d = document.createElement("div"); d.className = "vnote"; d.setAttribute("role", "status");
+  d.innerHTML = `<div class="vi">✓</div><div><b>¡Cuenta verificada!</b><span>Tu cuenta ha sido verificada. Ya puedes ver tu verificación en tu perfil.</span></div>`;
+  d.addEventListener("click", () => d.remove()); document.body.appendChild(d); try{ beep(); }catch(e){} setTimeout(() => d.remove(), 9000);
+}
+async function claimCreatorId(){
+  try{
+    const r = doc(db, "wm_ids", "222222"), s = await getDoc(r);
+    if(!s.exists()) await setDoc(r, { uid: me(), creado: serverTimestamp() }); else if(s.data().uid !== me()){ console.log("El ID 222222 ya está ocupado."); return; }
+    await updateDoc(doc(db, "wm_users", me()), { id: "222222" }); toast("Tu ID de creador es 222222 ✅");
+  }catch(e){ console.log("ID creador:", e); }
+}
+/* imágenes */
+async function fileToImg(file, maxSide, maxLen){
+  const url = URL.createObjectURL(file);
+  try{
+    const img = await loadImg(url); let w = img.naturalWidth || img.width, h = img.naturalHeight || img.height; const k = Math.min(1, maxSide / Math.max(w, h)); w = Math.round(w * k); h = Math.round(h * k);
+    for(let t = 0; t < 8; t++){
+      const c = document.createElement("canvas"); c.width = w; c.height = h; const x = c.getContext("2d"); x.fillStyle = "#000"; x.fillRect(0, 0, w, h); x.drawImage(img, 0, 0, w, h);
+      for(let q = .82; q >= .4; q -= .1){ const d = c.toDataURL("image/jpeg", q); if(d.length <= maxLen) return d; }
+      w = Math.round(w * .8); h = Math.round(h * .8);
+    }
+    throw new Error("big");
+  }finally{ URL.revokeObjectURL(url); }
+}
+async function onImgFile(){
+  const f = $("imgFile").files[0]; $("imgFile").value = ""; if(!f) return;
+  if(!/^image\//.test(f.type)) return toast("Elige una imagen.");
+  try{ const d = await fileToImg(f, 1080, 330000); if(imgTarget === "story") storyPreview(d); else if(imgTarget === "note") sendNote("", d); }
+  catch(e){ console.log(e); toast("No pude leer esa imagen. Prueba con otra (JPG o PNG)."); }
+}
+const openLb = (src) => { if(!src) return; $("lb").innerHTML = `<img src="${esc(src)}" alt="">`; $("lb").hidden = false; };
+/* ---- menú, amigos, creador ---- */
+const friendsList = () => [...chats.values()].filter((c) => !isG(c) && c.estado === "activo" && !c.bloqueadoPor);
+function menuSheet(){
+  $("shInfo").innerHTML = `<h2>Menú<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div class="grp" style="margin-top:12px">
+    <button class="li" data-act="menuProf">${P('<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>')}<span>Mi perfil</span></button>
+    <button class="li" data-act="friends">${P('<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M17 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/>')}<span style="flex:1">Amigos</span><span style="color:var(--mut)">${friendsList().length}</span></button>
+    <button class="li" data-act="creatorSheet">${P('<path d="m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/>')}<span>Creador de WarMess</span></button>
+    <button class="li" data-act="menuLegal">${P('<path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/>')}<span>Normas y privacidad</span></button></div>
+    <div class="foot" style="margin-top:14px">WarMess · Beta</div>`;
+  openOv("ovInfo");
+}
+function friendsSheet(){
+  const fr = friendsList().sort((a, b) => nameOf(a).localeCompare(nameOf(b)));
+  $("shInfo").innerHTML = `<h2><button class="ibtn" data-act="closeov" aria-label="Atrás">${IC.back}</button>Amigos (${fr.length})</h2>
+    <div style="margin-top:10px">${fr.length ? fr.map((c) => { const p = peers.get(otherOf(c)) || {}; return `<button class="row" data-act="fOpen" data-c="${esc(c.id)}">${av(nameOf(c), fotoOf(p))}<div class="mid"><div class="nm">${esc(nameOf(c))}${badge(p)}</div><div class="sub">${p.usuario ? "@" + esc(p.usuario) : ""}</div></div></button>`; }).join("") : '<div class="empty"><div class="big">👥</div>Aún no tienes amigos. Busca a alguien por su @usuario o ID y envíale una solicitud.</div>'}</div>`;
+}
+async function creatorSheet(){
+  $("shInfo").innerHTML = `<h2><button class="ibtn" data-act="closeov" aria-label="Atrás">${IC.back}</button>Creador de WarMess</h2><div class="empty" style="padding:30px">Cargando…</div>`; openOv("ovInfo");
+  try{
+    const s = await getDocs(query(collection(db, "wm_users"), where("id", "==", "222222"), limit(1))); if(s.empty) throw 0;
+    const u = { uid: s.docs[0].id, ...s.docs[0].data() }; qRes = [u]; const cid = [me(), u.uid].sort().join("_"), ex = chats.get(cid), self = u.uid === me();
+    $("shInfo").innerHTML = `<h2><button class="ibtn" data-act="closeov" aria-label="Atrás">${IC.back}</button>Creador de WarMess</h2>
+      <div style="text-align:center;margin:14px 0 6px"><div style="display:flex;justify-content:center">${av(u.nombre, fotoOf(u), "lg")}</div>
+        <div style="font-size:20px;font-weight:800;margin-top:10px">${esc(u.nombre)}${badge(u)}</div><div style="color:var(--mut)">@${esc(u.usuario || "")} · ID ${esc(u.id)}</div>${rkTag(u)}
+        ${u.bio && canSee(u, "bio") ? `<div style="margin-top:10px;font-size:14.5px">${esc(u.bio)}</div>` : ""}</div>
+      ${socials(u) || ""}
+      ${self ? '<div class="lead" style="text-align:center">Este eres tú. Los usuarios verán este perfil en «Creador de WarMess».</div>' : ex ? `<button class="btn" data-act="crOpen" data-c="${esc(cid)}">Abrir chat</button>` : `<button class="btn" data-act="crMsg" data-u="${esc(u.uid)}">Enviarle un mensaje</button>`}
+      <p class="lead" style="text-align:center;margin-top:10px;font-size:12.5px">¿Dudas, sugerencias o problemas con tu cuenta? Escríbele directamente.</p>`;
+  }catch(e){ console.log(e); $("shInfo").innerHTML = `<h2><button class="ibtn" data-act="closeov" aria-label="Atrás">${IC.back}</button>Creador de WarMess</h2><div class="empty">No se pudo cargar el perfil del creador.</div>`; }
+}
+/* ---- historias ---- */
+const activeHist = (p) => ((p && p.hist) || []).filter((h) => h && Date.now() - h.t < 864e5);
+const seenSet = () => { try{ return new Set(JSON.parse(store.get("wm_sv", "[]"))); }catch(e){ return new Set(); } };
+const markSeen = (id) => { const s = seenSet(); s.add(id); store.set("wm_sv", JSON.stringify([...s].slice(-400))); };
+const stCache = new Map();
+async function refreshStoryPeers(){
+  const us = friendsList().map((c) => otherOf(c)).slice(0, 80);
+  await Promise.all(us.map(async (u) => { try{ const s = await getDoc(doc(db, "wm_users", u)); if(s.exists()) peers.set(u, { ...s.data(), uid: u, _t: Date.now() }); }catch(e){} }));
+  if(ptab === "story") renderList();
+}
+function renderStories(L){
+  if(!prof) return; const mine = activeHist(prof), seen = seenSet();
+  let h = `<div class="row" style="cursor:default"><button class="stl" data-act="${mine.length ? "stOpen" : "stAdd"}" data-u="${esc(me())}"><div class="stav ${mine.length ? "on" : ""}">${av(prof.nombre, prof.foto)}</div><div class="mid"><div class="nm">Mi historia</div><div class="sub">${mine.length ? mine.length + (mine.length === 1 ? " activa" : " activas") + " · toca para ver" : "Toca para añadir una historia"}</div></div></button><button class="btn sm" data-act="stAdd" style="margin:0;flex:none">+ Añadir</button></div>`;
+  const fr = friendsList().map((c) => { const u = otherOf(c), p = peers.get(u); return { u, p, hs: activeHist(p) }; }).filter((x) => x.hs.length).sort((a, b) => Math.max(...b.hs.map((h) => h.t)) - Math.max(...a.hs.map((h) => h.t)));
+  h += `<div class="hint" style="padding:12px 4px 4px;font-weight:700">Recientes</div>`;
+  h += fr.length ? fr.map((x) => { const unseen = x.hs.some((s) => !seen.has(s.id)), last = Math.max(...x.hs.map((s) => s.t));
+    return `<button class="row" data-act="stOpen" data-u="${esc(x.u)}"><div class="stav ${unseen ? "on" : "seen"}">${av(x.p.nombre, fotoOf(x.p))}</div><div class="mid"><div class="nm">${esc(x.p.nombre || "")}${badge(x.p)}</div><div class="sub">${esc(fmtT(last))} · ${x.hs.length} ${x.hs.length === 1 ? "historia" : "historias"}</div></div></button>`; }).join("")
+    : '<div class="empty"><div class="big">🖼️</div>Cuando tus amigos publiquen historias, aparecerán aquí.<br>Duran 24 horas.</div>';
+  L.innerHTML = h;
+}
+function storyPreview(d){
+  stDraft = d;
+  $("shInfo").innerHTML = `<h2>Nueva historia<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><img class="stp" src="${esc(d)}" alt="Vista previa">
+    <div class="fld"><label for="stTx">Texto (opcional)</label><input class="in" id="stTx" maxlength="140" autocomplete="off"></div>
+    <div class="msg" id="stMsg"></div><button class="btn" id="stGo" data-act="storyPost">Publicar · dura 24 horas</button>`;
+  openOv("ovInfo");
+}
+async function postStory(){
+  if(!stDraft) return; const tx = ($("stTx").value || "").trim().slice(0, 140); busy("stGo", true, "Publicando…");
+  const sid = "s" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7), now = Date.now(), hist = activeHist(prof).concat([{ id: sid, t: now }]).slice(-8);
+  try{
+    const b = writeBatch(db);
+    b.set(doc(db, "wm_stories", sid), { uid: me(), img: stDraft, texto: tx, creado: serverTimestamp(), expira: Timestamp.fromMillis(now + 864e5) });
+    b.update(doc(db, "wm_users", me()), { hist });
+    await b.commit(); stDraft = null; closeOv("ovInfo"); toast("Historia publicada ✅"); logEv("historia", "publicó una historia" + (tx ? ": «" + tx + "»" : ""), "", ""); if(ptab === "story") renderList();
+  }catch(e){ console.log(e); setMsg("stMsg", "No se pudo publicar. ¿Reglas v19 publicadas?"); busy("stGo", false); }
+}
+async function getStory(id){
+  if(stCache.has(id)) return stCache.get(id);
+  const s = await getDoc(doc(db, "wm_stories", id)); const d = s.exists() ? { id, ...s.data({ serverTimestamps:"estimate" }) } : null; stCache.set(id, d); return d;
+}
+function openStories(u){
+  const p = u === me() ? prof : peers.get(u), hs = activeHist(p).sort((a, b) => a.t - b.t); if(!hs.length) return;
+  const seen = seenSet(); let i = hs.findIndex((h) => !seen.has(h.id)); if(u === me() || i < 0) i = 0;
+  sv = { u, p, ids: hs.map((h) => h.id), i, t: null, heart: false };
+  $("sv").hidden = false; document.body.classList.add("svon"); showStory();
+}
+async function showStory(){
+  if(!sv) return; clearTimeout(sv.t); const my = sv.i, id = sv.ids[my], s = await getStory(id).catch(() => null);
+  if(!sv || sv.i !== my) return;
+  if(!s || s.borrado || (s.expira && ms(s.expira) <= Date.now())) return stNext(true);
+  const own = sv.u === me(), p = sv.p || {}; sv.heart = false;
+  $("sv").innerHTML = `<div class="svbars">${sv.ids.map((_, k) => `<span><i class="${k < my ? "full" : k === my ? "run" : ""}"></i></span>`).join("")}</div>
+    <div class="svhd">${av(p.nombre, fotoOf(p), "sm")}<div class="svwho"><b>${esc(own ? "Tu historia" : p.nombre || "")}</b><small>${esc(fmtT(ms(s.creado)))}</small></div><button class="ibtn" data-act="svClose" aria-label="Cerrar">${IC.x}</button></div>
+    <img class="svimg" src="${esc(s.img)}" alt="Historia">${s.texto ? `<div class="svtx">${esc(s.texto)}</div>` : ""}
+    <button class="svnav l" data-act="svPrev" aria-label="Anterior"></button><button class="svnav r" data-act="svNext" aria-label="Siguiente"></button>
+    <div class="svft">${own ? `<button class="btn sm ghost" data-act="svViews">👁 Vistas</button><button class="btn sm ghost" data-act="svDel" style="color:#ff6b61">Eliminar</button>` : `<button class="svheart" id="svHeart" data-act="svHeart" aria-label="Reaccionar con un corazón">♡</button>`}</div>`;
+  sv.t = setTimeout(() => stNext(false), 6000);
+  if(!own){ markSeen(id); sv.viewP = recordView(id); }
+}
+async function recordView(id){
+  try{
+    const r = doc(db, "wm_stories", id, "views", me()), s = await getDoc(r);
+    if(s.exists()) { if(sv && sv.ids[sv.i] === id) sv.heart = !!s.data().corazon; }
+    else await setDoc(r, { viewer: me(), sid: id, vistoEn: serverTimestamp(), corazon: false });
+    paintHeart();
+  }catch(e){ console.log("Vista:", e); }
+}
+function paintHeart(){ const b = $("svHeart"); if(b && sv){ b.textContent = sv.heart ? "❤️" : "♡"; b.classList.toggle("on", !!sv.heart); } }
+async function stHeart(){
+  if(!sv) return; const id = sv.ids[sv.i]; await sv.viewP; const on = !sv.heart; sv.heart = on; paintHeart();
+  try{ await updateDoc(doc(db, "wm_stories", id, "views", me()), { corazon: on, corazonEn: serverTimestamp() }); }catch(e){ console.log(e); sv.heart = !on; paintHeart(); toast("No se pudo reaccionar."); }
+}
+function stNext(skip){ if(!sv) return; clearTimeout(sv.t); if(sv.i < sv.ids.length - 1){ sv.i++; showStory(); } else stClose(); }
+function stPrev(){ if(!sv) return; clearTimeout(sv.t); if(sv.i > 0) sv.i--; showStory(); }
+function stClose(){ if(sv) clearTimeout(sv.t); sv = null; $("sv").hidden = true; $("sv").innerHTML = ""; document.body.classList.remove("svon"); if(ptab === "story") renderList(); }
+async function stViews(){
+  if(!sv) return; clearTimeout(sv.t); const id = sv.ids[sv.i];
+  $("shInfo").innerHTML = `<h2>Vistas y reacciones<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div class="empty" style="padding:24px">Cargando…</div>`; openOv("ovInfo");
+  try{
+    const s = await getDocs(collection(db, "wm_stories", id, "views")), v = s.docs.map((d) => d.data({ serverTimestamps:"estimate" })).sort((a, b) => ms(b.vistoEn) - ms(a.vistoEn));
+    await Promise.all(v.map(async (x) => { if(!peers.get(x.viewer)){ try{ const d = await getDoc(doc(db, "wm_users", x.viewer)); if(d.exists()) peers.set(x.viewer, { ...d.data(), uid: x.viewer, _t: Date.now() }); }catch(e){} } }));
+    const likes = v.filter((x) => x.corazon).length;
+    $("shInfo").innerHTML = `<h2>Vistas y reacciones<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
+      <p class="lead" style="margin:6px 0 10px">👁 ${v.length} ${v.length === 1 ? "vista" : "vistas"} · ❤️ ${likes}</p>
+      ${v.length ? v.map((x) => { const p = peers.get(x.viewer) || {}; return `<div class="row" style="cursor:default;padding:8px 4px">${av(p.nombre || "?", fotoOf(p), "sm")}<div class="mid"><div class="nm">${esc(p.nombre || "Usuario")}${badge(p)}</div><div class="sub">Vio a las ${esc(fmtT(ms(x.vistoEn)))} · ${esc(fmtFull(ms(x.vistoEn)))}</div></div>${x.corazon ? `<span title="Reaccionó a las ${esc(fmtT(ms(x.corazonEn)))}" style="font-size:18px">❤️</span>` : ""}</div>`; }).join("") : '<div class="empty">Aún nadie ha visto esta historia.</div>'}`;
+  }catch(e){ console.log(e); $("shInfo").innerHTML = `<h2>Vistas<button class="ibtn" data-act="closeov">${IC.x}</button></h2><div class="empty">No se pudieron cargar las vistas.</div>`; }
+}
+async function stDelete(){
+  if(!sv || !confirm("¿Eliminar esta historia?")) return; const id = sv.ids[sv.i];
+  try{
+    const b = writeBatch(db); b.update(doc(db, "wm_stories", id), { borrado: true, borradoEn: serverTimestamp() }); b.update(doc(db, "wm_users", me()), { hist: activeHist(prof).filter((h) => h.id !== id) });
+    await b.commit(); stCache.delete(id); logEv("historia", "eliminó una historia", "", ""); toast("Historia eliminada"); sv.ids.splice(sv.i, 1); if(!sv.ids.length) stClose(); else{ if(sv.i >= sv.ids.length) sv.i = sv.ids.length - 1; showStory(); }
+  }catch(e){ console.log(e); toast("No se pudo eliminar."); }
+}
+/* ---- notas guardadas (chat contigo mismo) ---- */
+function stopNotes(keepShell){ try{ unsubNotes && unsubNotes(); }catch(e){} unsubNotes = null; notesOn = false; notesData = []; }
+const notesRowHTML = () => `<button class="row" data-act="openNotes">${av(prof.nombre, prof.foto)}<div class="mid"><div class="nm">${esc(prof.nombre)} <span style="color:var(--mut);font-weight:500">(tú)</span>${badge(prof)}</div><div class="sub">Envía mensajes a ti mismo</div></div></button>`;
+function openNotes(){
+  if(notesOn){ $("shell").classList.add("chat"); return; }
+  if(cur){ try{ unsubMsgs && unsubMsgs(); unsubPeer && unsubPeer(); }catch(e){} unsubMsgs = unsubPeer = null; clearInterval(statusT); cur = null; msgsData = []; sel = new Set(); }
+  else try{ history.pushState({ wm:1 }, ""); }catch(e){}
+  notesOn = true; notesData = [];
+  $("main").innerHTML = `<div class="mh" id="mhBar"><button class="ibtn back" data-act="back" aria-label="Volver">${IC.back}</button><div class="who" style="cursor:default"><span>${av(prof.nombre, prof.foto, "sm")}</span><div><div class="t1">${esc(prof.nombre)} <span style="font-weight:500;opacity:.7">(tú)</span>${badge(prof)}</div><div class="t2">Envía mensajes a ti mismo · solo tú los ves</div></div></div></div>
+    <div class="msgs" id="nmsgs"></div>
+    <form class="comp" id="nForm" autocomplete="off"><button class="ibtn" type="button" data-act="noteImg" aria-label="Adjuntar imagen">${P('<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/>')}</button><textarea id="nTxt" rows="1" maxlength="1000" placeholder="Escribe una nota…" enterkeyhint="send"></textarea><button class="send" type="submit" aria-label="Guardar">${IC.send}</button></form>`;
+  $("shell").classList.add("chat");
+  const ta = $("nTxt"), fit = () => { ta.style.height = "auto"; ta.style.height = Math.min(ta.scrollHeight, 120) + "px"; };
+  ta.addEventListener("input", fit);
+  ta.addEventListener("keydown", (e) => { if(e.key === "Enter" && !e.shiftKey && !/Android|iPhone|iPad/i.test(navigator.userAgent)){ e.preventDefault(); $("nForm").requestSubmit(); } });
+  $("nForm").addEventListener("submit", (e) => { e.preventDefault(); const t = ta.value.trim(); if(!t) return; ta.value = ""; fit(); sendNote(t, ""); });
+  unsubNotes = onSnapshot(query(collection(db, "wm_notes", me(), "items"), orderBy("creado", "desc"), limit(100)), (snap) => { notesData = snap.docs.map((d) => ({ id: d.id, ...d.data({ serverTimestamps:"estimate" }) })).reverse().filter((n) => !n.borrado); renderNotes(); }, (e) => { console.log(e); toast("No se pudieron cargar tus notas. ¿Reglas v19 publicadas?"); });
+}
+function renderNotes(){
+  const el = $("nmsgs"); if(!el) return; let h = "", last = 0;
+  if(!notesData.length) h = `<div class="sysm">📝 Este es tu espacio personal. Guarda textos e imágenes: solo tú los ves.</div>`;
+  notesData.forEach((n, i) => {
+    const t = ms(n.creado) || Date.now(); if(!last || !sameDay(last, t)){ h += `<div class="day">${esc(dayLabel(t))}</div>`; last = t; }
+    h += `<div class="b me">${n.img ? `<img class="nimg" src="${esc(n.img)}" alt="Imagen guardada" data-act="lbN" data-i="${i}">` : ""}${n.texto ? esc(n.texto) : ""}<span class="tm">${esc(fmtT(t))}<button class="nx" data-act="noteDel" data-n="${esc(n.id)}" aria-label="Eliminar nota">🗑</button></span></div>`;
+  });
+  el.innerHTML = h; el.scrollTop = el.scrollHeight;
+}
+async function sendNote(texto, img){
+  texto = (texto || "").trim().slice(0, 1000); if(!texto && !img) return;
+  try{ const b = writeBatch(db); b.set(doc(collection(db, "wm_notes", me(), "items")), { texto, img: img || "", creado: serverTimestamp() }); b.set(doc(db, "wm_notes", me()), { uid: me(), ultimoAt: serverTimestamp() }); await b.commit(); }
+  catch(e){ console.log(e); toast("No se pudo guardar la nota. ¿Reglas v19 publicadas?"); const t = $("nTxt"); if(t && texto && !t.value) t.value = texto; }
+}
+async function noteDel(id){
+  if(!confirm("¿Eliminar esta nota?")) return;
+  try{ await updateDoc(doc(db, "wm_notes", me(), "items", id), { borrado: true, borradoEn: serverTimestamp() }); logEv("nota", "eliminó una nota guardada", "", ""); }catch(e){ console.log(e); toast("No se pudo eliminar."); }
+}
+
 /* ================= GRUPOS ================= */
 const gSys = (c, text) => setDoc(doc(collection(db, "wm_groups", c.id, "msgs")), { de: me(), tipo:"sys", creado: serverTimestamp(), texto: text }).catch(() => {});
 const camSvg = '<svg class="i" viewBox="0 0 24 24"><path d="M4 8h3l2-2h6l2 2h3v11H4zM12 17a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>';
-const gAvField = (foto, nm) => `<div class="avpick" data-act="pickAv" data-t="grp" style="margin:12px auto 0"><div id="gpAv">${av(nm || "G", foto || "", "lg")}</div><div class="cam">${camSvg}</div></div>`;
+const gAvField = (foto, nm) => `<div class="avpick" data-act="pickAv" data-t="grp" style="margin:12px auto 0"><div id="gpAv">${avG(nm || "G", foto || "", "lg")}</div><div class="cam">${camSvg}</div></div>`;
 function newGroupSheet(){
   photo.grp = null;
   $("shInfo").innerHTML = `<h2>Nuevo grupo<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>${gAvField("", "G")}
@@ -1209,7 +1499,7 @@ async function createGroup(){
   try{
     await claimUsername(us);
     let id = null;
-    for(let i = 0; !id && i < 12; i++){ const c = String(100000 + Math.floor(Math.random() * 900000)); try{ await setDoc(doc(db, "wm_ids", c), { uid: me(), creado: serverTimestamp() }); id = c; }catch(e){ if(e.code !== "permission-denied") throw e; } }
+    for(let i = 0; !id && i < 12; i++){ const c = rndId(); try{ await setDoc(doc(db, "wm_ids", c), { uid: me(), creado: serverTimestamp() }); id = c; }catch(e){ if(e.code !== "permission-denied") throw e; } }
     if(!id) throw { code:"wm/id" };
     const gid = "g" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8), foto = photo.grp || "";
     const b = writeBatch(db);
@@ -1235,10 +1525,10 @@ function groupInfo(){
   const rows = sorted.map((u) => { const p = peers.get(u) || {}, r = role(u), self = u === me(), acts = [];
     if(isCr && !self) acts.push(`<button class="btn sm ghost" data-act="gPerms" data-u="${esc(u)}" style="margin:0 0 0 6px">${r ? "Permisos" : "Hacer admin"}</button>`);
     if(gPerm(c, "kick") && !self && u !== c.creador && (isCr || !r)) acts.push(`<button class="btn sm ghost" data-act="gKick" data-u="${esc(u)}" style="margin:0 0 0 6px;color:#ff6b61">Quitar</button>`);
-    return `<div class="row" style="cursor:default;padding:8px 4px">${av(p.nombre || "?", p.foto, "sm")}<div class="mid"><div class="nm">${esc(p.nombre || "…")}${self ? " (tú)" : ""}${badge(p)}</div><div class="sub">${p.usuario ? "@" + esc(p.usuario) : ""}</div></div>${r ? `<span class="rk ${r === "Creador" ? "cr" : ""}">${r}</span>` : ""}${acts.join("")}</div>`; }).join("");
+    return `<div class="row" style="cursor:default;padding:8px 4px">${av(p.nombre || "?", fotoOf(p), "sm")}<div class="mid"><div class="nm">${esc(p.nombre || "…")}${self ? " (tú)" : ""}${badge(p)}</div><div class="sub">${p.usuario ? "@" + esc(p.usuario) : ""}</div></div>${r ? `<span class="rk ${r === "Creador" ? "cr" : ""}">${r}</span>` : ""}${acts.join("")}</div>`; }).join("");
   const canTemp = gPerm(c, "temp");
   $("shInfo").innerHTML = `<div class="phd"><button class="ibtn x" data-act="closeov" aria-label="Cerrar">${IC.x}</button>
-      <div style="display:flex;justify-content:center">${av(c.nombre, c.foto, "lg")}</div>
+      <div style="display:flex;justify-content:center">${avG(c.nombre, c.foto, "lg")}</div>
       <div class="nmx">👥 ${esc(c.nombre)}</div><div class="unm">@${esc(c.usuario || "")}</div>
       ${c.desc ? `<div class="bio">${esc(c.desc)}</div>` : ""}<div class="chip">ID <b>${esc(c.num || "—")}</b></div>
       <div style="color:var(--mut);font-size:13px;margin-top:8px">${mem.length} miembros · ${c.abierto ? "abierto" : "solo por invitación"}${c.estado === "suspendido" ? " · <b style='color:#ff6b61'>suspendido</b>" : ""}</div></div>
@@ -1254,17 +1544,17 @@ function gEditSheet(){
   $("shInfo").innerHTML = `<h2><button class="ibtn" data-act="gBack" aria-label="Atrás">${IC.back}</button>Editar grupo</h2>${gAvField(c.foto, c.nombre)}
     <div class="fld"><label for="geNm">Nombre</label><input class="in" id="geNm" maxlength="40" value="${esc(c.nombre)}"></div>
     <div class="fld"><label for="geDs">Descripción</label><textarea class="in" id="geDs" rows="3" maxlength="200" style="resize:none">${esc(c.desc || "")}</textarea></div>
-    <label class="chk" style="margin-top:12px"><input type="checkbox" id="geOp" ${c.abierto ? "checked" : ""}><span>Cualquiera con el @usuario o el ID puede unirse</span></label><label class="chk"><input type="checkbox" id="geMedia" ${c.mediaEnabled!==false?"checked":""}><span>Permitir contenido multimedia en el grupo</span></label><p class="st-note">Al desactivarlo, los miembros y administradores no podrán enviar fotos ni videos cuando la función multimedia esté habilitada en el chat.</p>
+    <label class="chk" style="margin-top:12px"><input type="checkbox" id="geOp" ${c.abierto ? "checked" : ""}><span>Cualquiera con el @usuario o el ID puede unirse</span></label>
     <div class="msg" id="geMsg"></div><button class="btn" id="geGo" data-act="gEditSave">Guardar</button>`;
 }
 async function gEditSave(){
-  const c = chats.get(cur); if(!c) return; const nombre = $("geNm").value.trim(), desc = $("geDs").value.trim().slice(0, 200), abierto = $("geOp").checked, mediaEnabled=$("geMedia").checked, foto = photo.grp || c.foto || "";
+  const c = chats.get(cur); if(!c) return; const nombre = $("geNm").value.trim(), desc = $("geDs").value.trim().slice(0, 200), abierto = $("geOp").checked, foto = photo.grp || c.foto || "";
   if(nombre.length < 2) return setMsg("geMsg", "El nombre debe tener al menos 2 caracteres.");
   busy("geGo", true, "Guardando…");
   try{
     const b = writeBatch(db);
-    b.update(doc(db, "wm_groups", c.id), { nombre, desc, abierto, foto, mediaEnabled });
-    b.update(doc(db, "wm_gdir", c.id), { nombre, desc, abierto, foto, mediaEnabled });
+    b.update(doc(db, "wm_groups", c.id), { nombre, desc, abierto, foto });
+    b.update(doc(db, "wm_gdir", c.id), { nombre, desc, abierto, foto });
     await b.commit(); photo.grp = null; toast("Grupo actualizado ✅"); groupInfo();
     if(nombre !== c.nombre) gSys(c, `${prof.nombre} cambió el nombre del grupo a «${nombre}».`);
   }catch(e){ console.log(e); setMsg("geMsg", "No se pudo guardar. ¿Reglas v18 publicadas?"); busy("geGo", false); }
@@ -1283,13 +1573,20 @@ async function gSearch(){
   try{
     const s = await getDocs(query(collection(db, "wm_users"), where(f, ">=", v), where(f, "<=", v + ""), limit(8)));
     gaRes = s.docs.map((d) => ({ uid:d.id, ...d.data() })).filter((u) => u.estado === "activo");
-    $("gaRes").innerHTML = gaRes.length ? gaRes.map((u) => `<div class="row" style="cursor:default;padding:8px 4px">${av(u.nombre, u.foto, "sm")}<div class="mid"><div class="nm">${esc(u.nombre)}${badge(u)}</div><div class="sub">@${esc(u.usuario || "")} · ID ${esc(u.id)}</div></div>${(c.miembros || []).includes(u.uid) ? '<span style="color:var(--mut);font-size:12.5px">Ya está</span>' : `<button class="btn sm" data-act="gAddU" data-u="${esc(u.uid)}" style="margin:0">Añadir</button>`}</div>`).join("") : '<div class="empty" style="padding:16px">No se encontró a nadie.</div>';
+    $("gaRes").innerHTML = gaRes.length ? gaRes.map((u) => `<div class="row" style="cursor:default;padding:8px 4px">${av(u.nombre, fotoOf(u), "sm")}<div class="mid"><div class="nm">${esc(u.nombre)}${badge(u)}</div><div class="sub">@${esc(u.usuario || "")} · ID ${esc(u.id)}</div></div>${(c.miembros || []).includes(u.uid) ? '<span style="color:var(--mut);font-size:12.5px">Ya está</span>' : `<button class="btn sm" data-act="gAddU" data-u="${esc(u.uid)}" style="margin:0">Añadir</button>`}</div>`).join("") : '<div class="empty" style="padding:16px">No se encontró a nadie.</div>';
   }catch(e){ console.log(e); $("gaRes").innerHTML = '<div class="empty" style="padding:16px">No se pudo buscar.</div>'; }
 }
 async function gAddU(uid){
   const c = chats.get(cur), u = gaRes.find((x) => x.uid === uid); if(!c || !u) return;
   if((c.miembros || []).length >= 256) return toast("El grupo está lleno (256).");
-  try{ await updateDoc(doc(db, "wm_groups", c.id), { miembros: arrayUnion(uid) }); peers.set(uid, { ...u, _t: Date.now() }); toast(u.nombre + " añadido ✅"); gSys(c, `${prof.nombre} añadió a ${u.nombre}.`); gaRes = gaRes.filter((x) => x.uid !== uid); const e = document.querySelector('[data-act="gAddU"][data-u="' + uid + '"]'); if(e) e.replaceWith(Object.assign(document.createElement("span"), { textContent:"Añadido ✓", style:"color:var(--ok);font-size:12.5px" })); }
+  try{
+    const direct = u.rango === "Creador" || (((u.priv || {}).grp || "amigos") !== "inv" && isFriend(uid));
+    if(!direct){
+      await setDoc(doc(db, "wm_ginv", c.id + "_" + uid), { gid: c.id, gnombre: c.nombre, de: me(), dnombre: prof.nombre, para: uid, creado: serverTimestamp() });
+      logEv("grupo", "invitó a " + u.nombre + " al grupo «" + c.nombre + "»", u.nombre, ""); toast("Invitación enviada a " + u.nombre + " 📩"); gaRes = gaRes.filter((x) => x.uid !== uid);
+      const e0 = document.querySelector('[data-act="gAddU"][data-u="' + uid + '"]'); if(e0) e0.remove(); return;
+    }
+    await updateDoc(doc(db, "wm_groups", c.id), { miembros: arrayUnion(uid) }); peers.set(uid, { ...u, _t: Date.now() }); toast(u.nombre + " añadido ✅"); gSys(c, `${prof.nombre} añadió a ${u.nombre}.`); gaRes = gaRes.filter((x) => x.uid !== uid); const e = document.querySelector('[data-act="gAddU"][data-u="' + uid + '"]'); if(e) e.replaceWith(Object.assign(document.createElement("span"), { textContent:"Añadido ✓", style:"color:var(--ok);font-size:12.5px" })); }
   catch(e){ console.log(e); toast("No se pudo añadir."); }
 }
 async function gKick(uid){
@@ -1301,7 +1598,7 @@ async function gKick(uid){
 function gPermsSheet(uid){
   const c = chats.get(cur); if(!c || c.creador !== me()) return; const p = peers.get(uid) || {}, cur_ = (c.admins || {})[uid];
   $("shInfo").innerHTML = `<h2><button class="ibtn" data-act="gBack" aria-label="Atrás">${IC.back}</button>Permisos</h2>
-    <div class="row" style="cursor:default;padding:10px 0">${av(p.nombre || "?", p.foto, "sm")}<div class="mid"><div class="nm">${esc(p.nombre || "…")}</div><div class="sub">${cur_ ? "Administrador" : "Miembro"}</div></div></div>
+    <div class="row" style="cursor:default;padding:10px 0">${av(p.nombre || "?", fotoOf(p), "sm")}<div class="mid"><div class="nm">${esc(p.nombre || "…")}</div><div class="sub">${cur_ ? "Administrador" : "Miembro"}</div></div></div>
     <div class="grp"><div class="gt">Puede…</div>${PERMS.map(([k, l]) => `<label class="li" style="cursor:pointer"><input type="checkbox" class="gpm" value="${k}" ${cur_ && cur_.includes(k) ? "checked" : (!cur_ ? "checked" : "")} style="width:20px;height:20px;accent-color:var(--acc)"><span>${l}</span></label>`).join("")}</div>
     <button class="btn" data-act="gPermSave" data-u="${esc(uid)}">${cur_ ? "Guardar permisos" : "Nombrar administrador"}</button>
     ${cur_ ? `<button class="btn ghost" data-act="gAdmRm" data-u="${esc(uid)}" style="color:#ff6b61">Quitar como administrador</button>` : ""}`;
@@ -1330,10 +1627,10 @@ function infoSheet(){
   const p = peers.get(otherOf(c)) || {}, ap = c["apodo" + keyOf(c, me())] || "", blk = c.bloqueadoPor === me();
   const I = { ban: P('<circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/>'), flag: P('<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>') };
   $("shInfo").innerHTML = `<div class="phd"><button class="ibtn x" data-act="closeov" aria-label="Cerrar">${IC.x}</button>
-      <div style="display:flex;justify-content:center">${av(p.nombre, privacyCanSee(p,"foto") ? p.foto : "", "lg")}</div>
+      <div style="display:flex;justify-content:center">${av(p.nombre, fotoOf(p), "lg")}</div>
       <div class="nmx">${esc(p.nombre || "Usuario")}${badge(p)}</div>
       ${p.usuario ? `<div class="unm">@${esc(p.usuario)}</div>` : ""}${rkTag(p)}
-      ${p.bio && privacyCanSee(p,"bio") ? `<div class="bio">${esc(p.bio)}</div>` : ""}${p.telefono ? `<div class="bio">${esc(p.telefono)}</div>` : ""}${socials(p)}
+      ${p.bio && canSee(p, "bio") ? `<div class="bio">${esc(p.bio)}</div>` : ""}${socials(p)}
       <div class="chip">ID <b>${esc(p.id || "—")}</b></div></div>
     <div class="grp"><div class="gt">Personalizar</div><div class="fld"><label for="apIn">Apodo <span style="font-weight:400">(solo lo ves tú)</span></label>
       <div style="display:flex;gap:8px"><input class="in" id="apIn" maxlength="40" placeholder="${esc(p.nombre || "Apodo")}" value="${esc(ap)}"><button class="btn sm" data-act="saveAp" style="flex:none">Guardar</button></div></div></div>
@@ -1379,86 +1676,6 @@ async function sendReport(){
   }catch(e){ console.log(e); toast("No se pudo enviar el reporte."); busy("rpGo", false); }
 }
 
-/* ---- Centro de ajustes WarMess ---- */
-const STIC = {
- profile:'<circle cx="12" cy="8" r="4"/><path d="M4 21c.5-4.5 3.3-7 8-7s7.5 2.5 8 7"/>',
- account:'<path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/>',
- privacy:'<rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',
- appearance:'<circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/>',
- info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7h.01"/>',
- report:'<path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/>',
-}
-const stIcon = (k) => `<span class="st-ico"><svg viewBox="0 0 24 24">${STIC[k] || STIC.info}</svg></span>`;
-function settingsHeader(title){ return `<div class="st-head"><button class="ibtn" data-act="settingsBack" aria-label="Atrás">${IC.back}</button><h2>${title}</h2><button class="ibtn" data-act="settingsClose" aria-label="Cerrar">${IC.x}</button></div>`; }
-function openSettings(){ settingsHome(); openOv("ovSettings"); }
-function settingsHome(){
- const avHtml=av(prof.nombre,prof.foto,"lg");
- $("shSettings").innerHTML=`${settingsHeader("Ajustes")}<div class="st-body">
- <button class="st-card st-item st-profile" data-act="settingsPage" data-page="profile">${avHtml}<span class="st-copy"><b>${esc(prof.nombre||"Usuario")}${badge(prof)}</b><small>@${esc(prof.usuario||"")} · Ver perfil y editar información</small></span><span class="st-arrow">›</span></button>
- <div class="st-section">Preferencias y cuenta</div><div class="st-card">
- <button class="st-item" data-act="settingsPage" data-page="account">${stIcon("account")}<span class="st-copy"><b>Cuenta</b><small>Contraseña, correo, cuentas guardadas y sesión</small></span><span class="st-arrow">›</span></button>
- <button class="st-item" data-act="settingsPage" data-page="privacy">${stIcon("privacy")}<span class="st-copy"><b>Privacidad</b><small>Foto, última vez, en línea, lectura y grupos</small></span><span class="st-arrow">›</span></button>
- <button class="st-item" data-act="settingsPage" data-page="appearance">${stIcon("appearance")}<span class="st-copy"><b>Apariencia</b><small>Temas, burbujas, sonidos y tamaño del texto</small></span><span class="st-arrow">›</span></button>
- <button class="st-item" data-act="settingsPage" data-page="info">${stIcon("info")}<span class="st-copy"><b>Información</b><small>Comentarios, políticas, reportes y créditos</small></span><span class="st-arrow">›</span></button></div>
- <div class="st-section">Sesión</div><div class="st-card"><button class="st-item st-danger" data-act="logout">${stIcon("account")}<span class="st-copy"><b>Cerrar sesión</b></span></button></div>
- <p class="st-note" style="text-align:center">WarMess · By Sxgura Inc</p></div>`;
-}
-function settingsBack(){settingsHome();}
-function settingsPage(page){
- const body=$("shSettings");
- if(page==="profile"){ closeOv("ovSettings"); openProfile(); return; }
- if(page==="account"){
-  const saved=JSON.parse(store.get("wm_accounts","[]")||"[]");
-  body.innerHTML=`${settingsHeader("Cuenta")}<div class="st-body"><div class="st-section">Inicio de sesión y seguridad</div><div class="st-card">
-   <div class="fld"><label>Contraseña actual</label><input class="in" id="stOldPw" type="password" autocomplete="current-password" placeholder="Contraseña actual"></div>
-   <div class="fld"><label>Nueva contraseña</label><input class="in" id="stNewPw" type="password" autocomplete="new-password" placeholder="Mínimo 6 caracteres"></div>
-   <div class="fld"><label>Repite la nueva contraseña</label><input class="in" id="stNewPw2" type="password" autocomplete="new-password" placeholder="Confirmar contraseña"></div>
-   <div style="padding:0 14px 14px"><button class="btn" data-act="changePassword" id="stPwGo">Cambiar contraseña</button></div></div>
-   <div class="st-section">Correo electrónico</div><div class="st-card"><div class="fld"><label>Correo actual</label><input class="in" value="${esc(user.email||"")}" disabled></div><div class="fld"><label>Nuevo correo</label><input class="in" id="stNewEmail" type="email" autocomplete="email" placeholder="nuevo@correo.com"></div><div style="padding:0 14px 14px"><button class="btn" data-act="changeEmail" id="stEmailGo">Enviar verificación</button><p class="st-note">Firebase enviará un enlace de verificación al nuevo correo. El cambio no se completa hasta verificarlo.</p></div></div>
-   <div class="st-section">Cuentas guardadas (${saved.length}/3)</div><div class="st-card" id="stAccounts">${saved.map((x,i)=>`<div class="st-row"><label>${esc(x.email)}${x.email===(user.email||"")?" · Actual":""}</label><button class="btn sm ghost" data-act="removeAccount" data-i="${i}">Quitar</button></div>`).join("")||'<p class="st-note">No hay cuentas guardadas.</p>'}</div>
-   <div class="st-card"><div class="fld"><label>Añadir esta cuenta a la lista de acceso rápido</label><p class="st-note">Se guarda el correo, nunca la contraseña. Para cambiar a otra cuenta tendrás que autenticarte de nuevo por seguridad.</p><button class="btn ghost" data-act="saveAccount">Añadir cuenta actual</button></div></div>
-   <div class="st-card"><button class="st-item st-danger" data-act="logout">${stIcon("account")}<span class="st-copy"><b>Cerrar sesión</b></span></button></div></div>`;return;
- }
- if(page==="privacy"){
-  const v={foto:"todos",ultima:"todos",online:"todos",bio:"todos",lectura:true,grupos:"todos",...((prof.privacidad)||{})};
-  const opt=(id,label,val)=>`<div class="st-row"><label>${label}</label><select class="in" id="pr_${id}"><option value="todos" ${val==="todos"?"selected":""}>Todos</option><option value="contactos" ${val==="contactos"?"selected":""}>Mis contactos</option><option value="nadie" ${val==="nadie"?"selected":""}>Nadie</option></select></div>`;
-  body.innerHTML=`${settingsHeader("Privacidad")}<div class="st-body"><div class="st-section">Quién puede ver mi información personal</div><div class="st-card">${opt("foto","Foto del perfil",v.foto)}${opt("ultima","Última vez",v.ultima)}${opt("online","En línea",v.online)}${opt("bio","Descripción",v.bio)}</div>
-   <div class="st-section">Mensajes</div><div class="st-card"><div class="st-row"><label>Confirmaciones de lectura</label><input id="pr_lectura" type="checkbox" ${v.lectura?"checked":""}></div></div>
-   <div class="st-section">Grupos</div><div class="st-card"><div class="st-row"><label>Quién puede añadirme a grupos</label><select class="in" id="pr_grupos"><option value="todos" ${v.grupos==="todos"?"selected":""}>Todos mis contactos</option><option value="invitacion" ${v.grupos==="invitacion"?"selected":""}>Solo mediante invitación</option></select></div></div>
-   <div class="st-card"><button class="st-item" data-act="blockedList">${stIcon("privacy")}<span class="st-copy"><b>Contactos bloqueados</b><small>Administrar personas bloqueadas</small></span><span class="st-arrow">›</span></button></div>
-   <p class="st-note">La cuenta del creador conserva visibilidad completa. Para aplicar estas restricciones a todos los usuarios, las reglas de Firestore también deben validarlas.</p><button class="btn" data-act="savePrivacy">Guardar privacidad</button></div>`;return;
- }
- if(page==="appearance"){
-  const theme=store.get("wm_theme","default"), size=store.get("wm_text_size","medium"), bubble=store.get("wm_bubble","round");
-  body.innerHTML=`${settingsHeader("Apariencia")}<div class="st-body"><div class="st-section">Temas</div><div class="st-card st-theme">${THEMES.map(t=>`<button class="${theme===t[0]?"on":""}" data-act="chooseTheme" data-theme-choice="${t[0]}"><i></i><b>${t[1]}</b></button>`).join("")}</div>
-   <div class="st-section">Personalización del chat</div><div class="st-card"><div class="st-row"><label>Forma de las burbujas</label><select class="in" id="stBubble"><option value="round" ${bubble==="round"?"selected":""}>Redondeada</option><option value="square" ${bubble==="square"?"selected":""}>Cuadrada</option></select></div><div class="st-row"><label>Tamaño del texto</label><select class="in" id="stText"><option value="small" ${size==="small"?"selected":""}>Pequeño</option><option value="medium" ${size==="medium"?"selected":""}>Mediano</option><option value="large" ${size==="large"?"selected":""}>Grande</option></select></div></div>
-   <div class="st-section">Sonidos</div><div class="st-card"><div class="st-row"><label>Sonido de mensajes</label><select class="in" id="stSound"><option value="off" ${!sndOn()?"selected":""}>Desactivado</option>${TONES.map((t,i)=>`<option value="${i}" ${sndOn()&&sndTone()===i?"selected":""}>${t[0]}</option>`).join("")}</select></div><div style="padding:0 14px 14px"><button class="btn ghost" data-act="sndTest">Probar sonido</button></div></div><button class="btn" data-act="saveAppearance">Guardar apariencia</button></div>`;return;
- }
- if(page==="info"){
-  body.innerHTML=`${settingsHeader("Información")}<div class="st-body"><div style="text-align:center;padding:24px 10px"><div class="logo" style="margin:auto"><svg viewBox="0 0 24 24"><use href="#lg"/></svg></div><h2 style="justify-content:center;margin-top:16px">WarMess</h2><p class="st-note">Versión 1.9 · Plataforma de mensajería instantánea</p><p class="st-note">© 2026 WarMess · Todos los derechos reservados</p></div>
-   <div class="st-card"><button class="st-item" data-act="feedback">${stIcon("report")}<span class="st-copy"><b>Enviar comentarios</b><small>Reportar fallos técnicos e incluir imágenes</small></span><span class="st-arrow">›</span></button><button class="st-item" data-act="legal">${stIcon("info")}<span class="st-copy"><b>Condiciones y políticas del servicio</b></span><span class="st-arrow">›</span></button><button class="st-item" data-act="myReports">${stIcon("report")}<span class="st-copy"><b>Mis reportes</b><small>Consultar los reportes enviados</small></span><span class="st-arrow">›</span></button></div>
-   <div class="st-section">Creador</div><div class="st-card" style="padding:16px;text-align:center"><b>Sxgura Inc</b><p class="st-note">Desarrollo y mantenimiento de WarMess</p><div class="socs"><a class="soc ln" href="https://t.me/EllSxgura" target="_blank" rel="noopener">Telegram · @EllSxgura</a></div><p class="st-note">Contacto oficial del creador</p></div></div>`;return;
- }
-}
-async function changePassword(){
- const old=$("stOldPw").value,nw=$("stNewPw").value,n2=$("stNewPw2").value;
- if(!old||nw.length<6||nw!==n2)return toast("Verifica la contraseña actual y la nueva (mínimo 6 caracteres). ");
- busy("stPwGo",true,"Actualizando…");try{const cred=EmailAuthProvider.credential(user.email,old);await reauthenticateWithCredential(user,cred);await updatePassword(user,nw);toast("Contraseña actualizada.");["stOldPw","stNewPw","stNewPw2"].forEach(id=>$(id).value="");}catch(e){toast(e.code==="auth/wrong-password"?"La contraseña actual no es correcta.":authErr(e));}busy("stPwGo",false);
-}
-async function changeEmail(){const em=$("stNewEmail").value.trim();if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em))return toast("Escribe un correo válido.");busy("stEmailGo",true,"Enviando…");try{await verifyBeforeUpdateEmail(user,em);toast("Enviamos la verificación al nuevo correo. Confírmalo para completar el cambio.");}catch(e){toast(authErr(e));}busy("stEmailGo",false);}
-function saveAccount(){let a=[];try{a=JSON.parse(store.get("wm_accounts","[]"));}catch(e){}if(!a.some(x=>x.email===user.email)){if(a.length>=3)return toast("Solo puedes guardar hasta 3 cuentas.");a.push({email:user.email});store.set("wm_accounts",JSON.stringify(a));}settingsPage("account");toast("Cuenta añadida.");}
-function removeAccount(i){let a=[];try{a=JSON.parse(store.get("wm_accounts","[]"));}catch(e){}a.splice(i,1);store.set("wm_accounts",JSON.stringify(a));settingsPage("account");}
-function chooseTheme(t){store.set("wm_theme",t);applyTheme(t);settingsPage("appearance");}
-function saveAppearance(){const b=$("stBubble").value,sz=$("stText").value,s=$("stSound").value;store.set("wm_bubble",b);store.set("wm_text_size",sz);document.documentElement.dataset.bubble=b;document.documentElement.dataset.textSize=sz;if(s==="off")store.set("wm_snd_on","0");else{store.set("wm_snd_on","1");store.set("wm_snd_tone",s);}toast("Apariencia guardada.");}
-async function savePrivacy(){const creator=isAdm;const v={foto:$("pr_foto").value,ultima:$("pr_ultima").value,online:$("pr_online").value,bio:$("pr_bio").value,lectura:$("pr_lectura").checked,grupos:$("pr_grupos").value};try{await updateDoc(doc(db,"wm_users",me()),{privacidad:v});prof={...prof,privacidad:v};if(creator)toast("Preferencias guardadas. La cuenta creadora mantiene acceso completo.");else toast("Privacidad guardada.");}catch(e){console.log(e);toast("No se pudo guardar. Revisa las reglas de Firestore.");}}
-function feedback(){
- $("shSettings").innerHTML=`${settingsHeader("Enviar comentarios")}<div class="st-body"><p class="st-note">Describe el problema técnico. Puedes adjuntar capturas de pantalla.</p><div class="st-card"><div class="fld"><label>Tipo de reporte</label><select class="in" id="fbType"><option>Problema técnico</option><option>Error visual</option><option>Problema de cuenta</option><option>Seguridad o privacidad</option><option>Sugerencia</option></select></div><div class="fld"><label>Descripción</label><textarea class="in" id="fbText" rows="5" maxlength="1500" placeholder="Describe lo que ocurrió…"></textarea></div><div class="fld"><label>Capturas (opcional)</label><input class="in" id="fbFiles" type="file" accept="image/*" multiple></div></div><button class="btn" data-act="sendFeedback" id="fbGo">Enviar reporte</button></div>`;
-}
-async function fileDataURL(file,max=700){return new Promise((resolve,reject)=>{const im=new Image(),url=URL.createObjectURL(file);im.onload=()=>{const c=document.createElement("canvas"),scale=Math.min(1,max/Math.max(im.width,im.height));c.width=Math.round(im.width*scale);c.height=Math.round(im.height*scale);c.getContext("2d").drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(url);resolve(c.toDataURL("image/jpeg",.65));};im.onerror=reject;im.src=url;});}
-async function sendFeedback(){const txt=$("fbText").value.trim(),files=[...($("fbFiles").files||[])].slice(0,2);if(txt.length<8)return toast("Describe el problema con al menos 8 caracteres.");busy("fbGo",true,"Enviando…");try{const imgs=[];for(const f of files)imgs.push(await fileDataURL(f));await addDoc(collection(db,"wm_reportes"),{tipo:"tecnico",reportante:me(),email:user.email||"",nombre:prof.nombre||"",categoria:$("fbType").value,detalle:txt.slice(0,1500),imagenes:imgs,creado:serverTimestamp(),estado:"nuevo"});toast("Reporte enviado correctamente.");settingsPage("info");}catch(e){console.log(e);toast("No se pudo enviar. Las imágenes pueden superar el límite permitido.");}busy("fbGo",false);}
-async function myReports(){const c=$("shSettings");c.innerHTML=`${settingsHeader("Mis reportes")}<div class="st-body" id="myReportsBody"><p class="st-note">Cargando reportes…</p></div>`;try{const qy=query(collection(db,"wm_reportes"),where("reportante","==",me()),orderBy("creado","desc"),limit(30)),s=await getDocs(qy);$("myReportsBody").innerHTML=s.empty?'<div class="empty">Todavía no has enviado reportes.</div>':s.docs.map(d=>{const x=d.data();return `<div class="st-card" style="padding:14px"><b>${esc(x.categoria||x.motivo||x.tipo||"Reporte")}</b><span class="pill ${x.estado==="nuevo"?"nuevo":"revisado"}">${esc(x.estado||"enviado")}</span><p class="st-note">${esc(x.detalle||"")}</p><small style="color:var(--mut)">${esc(fmtFull(ms(x.creado)))}</small>${(x.imagenes||[]).map(im=>`<img src="${im}" style="display:block;max-width:100%;max-height:180px;border-radius:10px;margin-top:8px">`).join("")}</div>`;}).join("");}catch(e){$("myReportsBody").innerHTML='<div class="empty">No se pudieron cargar. Comprueba las reglas y el índice de Firestore.</div>';}}
-function blockedList(){settingsPage("privacy");toast("La lista de bloqueados se administra desde cada conversación en esta versión.");}
-
 /* ---- mi perfil ---- */
 function openProfile(first){
   if(!prof) return;
@@ -1471,7 +1688,7 @@ function openProfile(first){
     <div class="grp"><div class="gt">Información</div>
       <div class="fld"><label for="pfNm">Nombre</label><input class="in" id="pfNm" maxlength="40" value="${esc(prof.nombre)}"></div>
       <div class="fld"><label for="pfUs">Nombre de usuario</label><div class="uwrap"><span style="top:12px">@</span><input class="in" id="pfUs" maxlength="20" autocapitalize="none" autocorrect="off" spellcheck="false" value="${esc(prof.usuario || "")}"></div><div class="ustat" id="pfUst"></div></div>
-      <div class="fld"><label for="pfBio">Descripción</label><input class="in" id="pfBio" maxlength="100" value="${esc(prof.bio || "")}" placeholder="Cuéntanos algo sobre ti"></div><div class="fld"><label for="pfPhone">Número de teléfono</label><input class="in" id="pfPhone" type="tel" maxlength="20" value="${esc(prof.telefono || "")}" placeholder="+57 300 000 0000"></div>
+      <div class="fld"><label for="pfBio">Descripción</label><input class="in" id="pfBio" maxlength="100" value="${esc(prof.bio || "")}" placeholder="Cuéntanos algo sobre ti"></div>
       <div class="fld"><label for="pfBd">Fecha de nacimiento</label><input class="in" id="pfBd" type="date" value="${esc((priv && priv.nacimiento) || "")}" max="${new Date().toISOString().slice(0, 10)}"></div></div>
     <div class="grp"><div class="gt">Enlaces (opcionales)</div>
       <div class="fld"><label for="pfWa">WhatsApp (con código de país, solo números)</label><input class="in" id="pfWa" inputmode="numeric" maxlength="18" value="${esc(prof.wa || "")}" placeholder="573001234567"></div>
@@ -1498,7 +1715,7 @@ async function savePriv(fields){
   catch(e){ if(e.code === "not-found") await setDoc(r, { email: user.email, nacimiento:"", proveedor: (user.providerData[0] && user.providerData[0].providerId) || "", nVisitas:0, creado: serverTimestamp(), ...fields }); else throw e; }
 }
 async function saveProfile(){
-  const nombre = $("pfNm").value.replace(/\s+/g, " ").trim(), bd = $("pfBd").value, bio = $("pfBio").value.trim().slice(0, 100), telefono=$("pfPhone")?$("pfPhone").value.trim().slice(0,20):"", us = normU($("pfUs").value);
+  const nombre = $("pfNm").value.replace(/\s+/g, " ").trim(), bd = $("pfBd").value, bio = $("pfBio").value.trim().slice(0, 100), us = normU($("pfUs").value);
   if(nombre.length < 2) return setMsg("pfMsg", "Escribe un nombre válido (mínimo 2 letras).");
   if(!unameFmt(us)) return setMsg("pfMsg", unameErr({ code:"wm/ufmt" }));
   const a = ageOf(bd); if(a < MIN_AGE || a > 110) return setMsg("pfMsg", a < 0 ? "Indica tu fecha de nacimiento." : `Debes tener al menos ${MIN_AGE} años.`);
@@ -1509,7 +1726,7 @@ async function saveProfile(){
   setMsg("pfMsg", ""); busy("pfGo", true, "Guardando…");
   try{
     const old = prof.usuario; if(us !== old) await claimUsername(us);
-    const up = { nombre, bio, telefono, usuario: us, wa, ig, link: ln }; if(photo.prof) up.foto = photo.prof;
+    const up = { nombre, bio, usuario: us, wa, ig, link: ln }; if(photo.prof) up.foto = photo.prof;
     await updateDoc(doc(db, "wm_users", user.uid), up);
     if(us !== old && old){ deleteDoc(doc(db, "wm_usernames", old)).catch(() => {}); }
     if(!priv || priv.nacimiento !== bd){ await savePriv({ nacimiento: bd }); priv = { ...(priv || {}), nacimiento: bd }; }
@@ -1522,7 +1739,7 @@ async function onAvatarFile(){
   if(!/^image\//.test(f.type)) return toast("Elige una imagen.");
   try{
     const d = await fileToAvatar(f); photo[avTarget] = d;
-    if(avTarget === "grp"){ const e = $("gpAv"); if(e) e.innerHTML = av("G", d, "lg"); } else if(avTarget === "onb") paintOnbAv(); else $("pfAv").innerHTML = av($("pfNm").value || prof.nombre, d, "lg");
+    if(avTarget === "grp"){ const e = $("gpAv"); if(e) e.innerHTML = avG("G", d, "lg"); } else if(avTarget === "onb") paintOnbAv(); else await saveFoto(d);
   }catch(e){ toast("No pude leer esa imagen. Prueba con otra (JPG o PNG)."); }
 }
 
@@ -1585,7 +1802,7 @@ async function tickConn(){
 }
 
 /* ================= PANEL ADMIN (Configuración) ================= */
-let aUsers = new Map(), aPriv = new Map(), aVis = [], aRep = [], aChats = [], aGroups = [], aLogs = [], aTk = [], aUn = [], aBe = [], aUnsubs = [], aTab = "res", aSel = null, pinFails = 0, pinLockUntil = 0;
+let aSto = [], aNot = [], aUsers = new Map(), aPriv = new Map(), aVis = [], aRep = [], aChats = [], aGroups = [], aFb = [], aLogs = [], aTk = [], aUn = [], aBe = [], aUnsubs = [], aTab = "res", aSel = null, pinFails = 0, pinLockUntil = 0;
 function openAdmin(){
   if(!isAdm) return;
   $("adm").classList.add("on"); $("admGate").style.display = ""; $("admMain").style.display = "none"; $("admPin").value = ""; setMsg("admMsg", "");
@@ -1599,7 +1816,7 @@ async function admPinGo(){
   if((await hashText(v)) === CODE_HASH){ pinFails = 0; $("admPin").value = ""; setMsg("admMsg", ""); $("admGate").style.display = "none"; $("admMain").style.display = "flex"; admStart(); setATab("res"); }
   else{ pinFails++; $("admPin").value = ""; if(pinFails >= 5){ pinLockUntil = Date.now() + 60000; pinFails = 0; setMsg("admMsg", "Código incorrecto. Bloqueado 60 s."); } else setMsg("admMsg", "Código incorrecto."); }
 }
-function admStop(){ aUnsubs.forEach((f) => { try{ f(); }catch(e){} }); aUnsubs = []; aUsers = new Map(); aPriv = new Map(); aVis = []; aRep = []; aChats = []; aGroups = []; aLogs = []; aTk = []; aUn = []; aBe = []; aSel = null; }
+function admStop(){ aUnsubs.forEach((f) => { try{ f(); }catch(e){} }); aUnsubs = []; aUsers = new Map(); aPriv = new Map(); aVis = []; aRep = []; aChats = []; aGroups = []; aFb = []; aSto = []; aNot = []; aLogs = []; aTk = []; aUn = []; aBe = []; aSel = null; }
 function admStart(){
   admStop();
   const err = (e) => { console.log("Admin:", e); $("abody").innerHTML = `<div class="empty">Sin permiso para leer los datos.<br>Publica las reglas de Firestore v15 e inicia sesión con el correo de administrador.</div>`; };
@@ -1611,6 +1828,9 @@ function admStart(){
     onSnapshot(query(collection(db, "wm_reportes"), orderBy("creado", "desc"), limit(100)), (s) => { aRep = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
     onSnapshot(query(collection(db, "wm_chats"), orderBy("ultimoMsgAt", "desc"), limit(100)), (s) => { aChats = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
     onSnapshot(query(collection(db, "wm_groups"), orderBy("creado", "desc"), limit(100)), (s) => { aGroups = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
+    onSnapshot(query(collection(db, "wm_stories"), orderBy("creado", "desc"), limit(60)), (s) => { aSto = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
+    onSnapshot(query(collection(db, "wm_notes"), orderBy("ultimoAt", "desc"), limit(100)), (s) => { aNot = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
+    onSnapshot(query(collection(db, "wm_feedback"), orderBy("creado", "desc"), limit(100)), (s) => { aFb = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
     onSnapshot(query(collection(db, "wm_logs"), orderBy("creado", "desc"), limit(100)), (s) => { aLogs = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
     onSnapshot(query(collection(db, "wm_tickets"), orderBy("creado", "desc"), limit(100)), (s) => { aTk = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
     onSnapshot(query(collection(db, "wm_usernames"), where("anulado", "==", true), limit(200)), (s) => { aUn = s.docs.map((d) => ({ id:d.id, ...d.data(opt) })); aRender(); }, () => {}),
@@ -1630,7 +1850,7 @@ function aRender(){
   const nr = aRep.filter((r) => r.estado === "nuevo").length; const rn = $("repN"); if(rn){ rn.textContent = nr; rn.hidden = !nr; }
   const nt = aTk.filter((t) => t.estado === "abierto").length; const tn = $("tkN"); if(tn){ tn.textContent = nt; tn.hidden = !nt; }
   if(!$("adm").classList.contains("on") || $("admMain").style.display === "none") return;
-  if(aTab === "res") renderRes(); else if(aTab === "usr") renderUsers(); else if(aTab === "vis") renderVis(); else if(aTab === "rep") renderRep(); else if(aTab === "ins") renderIns(); else if(aTab === "grp") renderGrp(); else if(aTab === "sop"){ if(!document.activeElement || document.activeElement.tagName !== "TEXTAREA") renderSop(); } else if(aTab === "log") renderLog(); else renderBlq();
+  if(aTab === "res") renderRes(); else if(aTab === "usr") renderUsers(); else if(aTab === "vis") renderVis(); else if(aTab === "rep") renderRep(); else if(aTab === "ins") renderIns(); else if(aTab === "grp") renderGrp(); else if(aTab === "fb") renderFb(); else if(aTab === "sto") renderSto(); else if(aTab === "not") renderNot(); else if(aTab === "sop"){ if(!document.activeElement || document.activeElement.tagName !== "TEXTAREA") renderSop(); } else if(aTab === "log") renderLog(); else renderBlq();
   if(aSel && $("ovAdm").classList.contains("on") && $("shAdm").dataset.k === "u") userSheet(aSel, true);
 }
 function renderRes(){
@@ -1650,7 +1870,7 @@ function renderUsers(){
   if(q) us = us.filter((u) => { const p = aPriv.get(u.uid) || {}; return [u.nombre, u.usuario, u.id, p.email, p.ip].some((x) => String(x || "").toLowerCase().includes(q)); });
   L.innerHTML = us.length ? us.map((u) => { const p = aPriv.get(u.uid) || {}, on = u.estado === "activo" && Date.now() - ms(u.ultimaConexion) < ONLINE_MS;
     const cc = (p.datosVisita && p.datosVisita.codigoPais) || "";
-    return `<button class="row" data-act="auser" data-u="${esc(u.uid)}">${av(u.nombre, u.foto)}<div class="mid"><div class="nm">${esc(u.nombre)}${badge(u)}<span class="pill ${esc(u.estado)}">${esc(u.estado)}</span></div><div class="sub">${u.usuario ? "@" + esc(u.usuario) + " · " : ""}ID ${esc(u.id)} · ${esc(p.email || "")}</div><div class="sub">${flagOf(cc)} ${esc([p.ciudad, p.pais].filter(Boolean).join(", ") || "—")}${p.ip ? " · " + esc(p.ip) : ""}</div></div><div class="meta"><span style="color:${on ? "var(--ok)" : "var(--mut)"}">${on ? "en línea" : esc(fmtList(ms(u.ultimaConexion)))}</span></div></button>`; }).join("")
+    return `<button class="row" data-act="auser" data-u="${esc(u.uid)}">${av(u.nombre, fotoOf(u))}<div class="mid"><div class="nm">${esc(u.nombre)}${badge(u)}<span class="pill ${esc(u.estado)}">${esc(u.estado)}</span></div><div class="sub">${u.usuario ? "@" + esc(u.usuario) + " · " : ""}ID ${esc(u.id)} · ${esc(p.email || "")}</div><div class="sub">${flagOf(cc)} ${esc([p.ciudad, p.pais].filter(Boolean).join(", ") || "—")}${p.ip ? " · " + esc(p.ip) : ""}</div></div><div class="meta"><span style="color:${on ? "var(--ok)" : "var(--mut)"}">${on ? "en línea" : esc(fmtList(ms(u.ultimaConexion)))}</span></div></button>`; }).join("")
     : `<div class="empty">${q ? "Sin resultados." : "Aún no hay usuarios registrados."}</div>`;
 }
 function renderVis(){
@@ -1681,11 +1901,12 @@ async function userSheet(uid, refresh){
   const rows = (o) => Object.entries(o).filter(([k, x]) => x !== "" && x != null && typeof x !== "object" && !["lat", "lon", "offsetMin", "codigoPais"].includes(k)).map(([k, x]) => `<div class="kv"><span>${esc(VL[k] || k)}</span><span>${esc(x)}</span></div>`).join("");
   $("shAdm").dataset.k = "u";
   $("shAdm").innerHTML = `<h2>Usuario<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
-    <div style="display:flex;gap:14px;align-items:center;margin:10px 0">${av(u.nombre, u.foto, "lg")}<div style="min-width:0"><div style="font-size:20px;font-weight:700">${esc(u.nombre)}${badge(u)}<span class="pill ${esc(u.estado)}">${esc(u.estado)}</span></div><div class="unm">${u.usuario ? "@" + esc(u.usuario) : "sin usuario"}</div>${rkTag(u)}<div style="color:var(--mut);margin-top:4px">${esc(u.bio || "")}</div></div></div>
+    <div style="display:flex;gap:14px;align-items:center;margin:10px 0">${av(u.nombre, fotoOf(u), "lg")}<div style="min-width:0"><div style="font-size:20px;font-weight:700">${esc(u.nombre)}${badge(u)}<span class="pill ${esc(u.estado)}">${esc(u.estado)}</span></div><div class="unm">${u.usuario ? "@" + esc(u.usuario) : "sin usuario"}</div>${rkTag(u)}<div style="color:var(--mut);margin-top:4px">${esc(u.bio || "")}</div></div></div>
     <div class="kv"><span>ID de usuario</span><span><b>${esc(u.id)}</b></span></div>
     <div class="kv"><span>UID</span><span style="font-size:12px">${esc(uid)}</span></div>
     <div class="kv"><span>Correo</span><span>${esc(p.email || "—")}</span></div>
     <div class="kv"><span>Registro con</span><span>${esc(p.proveedor === "google.com" ? "Google" : p.proveedor === "password" ? "Correo y contraseña" : p.proveedor || "—")}</span></div>
+    <div class="kv"><span>Privacidad</span><span style="text-align:right;max-width:62%">${esc(privSummary(u))}</span></div>
     <div class="kv"><span>Nacimiento</span><span>${esc(p.nacimiento || "—")}${a >= 0 ? " (" + a + " años)" : ""}</span></div>
     <div class="kv"><span>Creado</span><span>${esc(fmtFull(ms(u.creado)))}</span></div>
     <div class="kv"><span>Última conexión</span><span>${esc(fmtFull(ms(u.ultimaConexion)))}</span></div>
@@ -1759,6 +1980,35 @@ async function chatSheet(cid){
       return `<div class="mline ${ch && m.de === ch.a ? "" : "b2"}" ${m.borrado ? 'style="opacity:.75;border:1px dashed #5a2a2a"' : ""}><small>${esc(aName(m.de))} · ${esc(fmtFull(ms(m.creado)))}</small>${esc(m.texto)}${fl ? `<small style="margin-top:3px">${fl}</small>` : ""}</div>`; }).join("") || '<div class="empty">Sin mensajes.</div>';
   }catch(e){ console.log(e); $("cInfo").textContent = "No se pudo cargar el historial."; }
 }
+/* ---- Historias y notas (administración) ---- */
+function renderSto(){
+  const c = $("acont"); if(!c) return;
+  c.innerHTML = `<p class="hint" style="padding:6px 2px">Historias (las 60 más recientes), incluidas las eliminadas por su autor y las que ya expiraron.</p>` + (aSto.length ? aSto.map((s) => {
+    const exp = ms(s.expira) <= Date.now(), st = s.borrado ? "eliminada" : exp ? "expirada" : "activa";
+    return `<div class="acard"><div style="display:flex;gap:12px"><img class="athumb" src="${esc(s.img)}" alt="" data-act="lbS" data-s="${esc(s.id)}"><div style="min-width:0;flex:1"><span class="pill ${st === "activa" ? "activo" : "suspendido"}" style="margin:0">${st}</span><br><b>${esc(aName(s.uid))}</b><br><span style="color:var(--mut);font-size:12.5px">Publicada ${esc(fmtFull(ms(s.creado)))}<br>${s.borrado ? "Eliminada " + esc(fmtFull(ms(s.borradoEn))) : (exp ? "Expiró " : "Expira ") + esc(fmtFull(ms(s.expira)))}</span>${s.texto ? `<div class="ml" style="margin-top:6px">${esc(s.texto)}</div>` : ""}<button class="btn sm ghost" data-act="aViews" data-s="${esc(s.id)}" style="margin:8px 0 0">Ver vistas y reacciones</button></div></div><div id="vw_${esc(s.id)}"></div></div>`; }).join("") : `<div class="empty"><div class="big">🖼️</div>Aún no hay historias.</div>`);
+}
+async function aViews(sid){
+  const box = $("vw_" + sid); if(!box) return; box.innerHTML = '<div class="ml">Cargando…</div>';
+  try{
+    const s = await getDocs(collection(db, "wm_stories", sid, "views")), v = s.docs.map((d) => d.data({ serverTimestamps:"estimate" })).sort((a, b) => ms(a.vistoEn) - ms(b.vistoEn));
+    box.innerHTML = v.length ? `<div class="ml">${v.map((x) => `👁 <b>${esc(aName(x.viewer))}</b> · vio ${esc(fmtFull(ms(x.vistoEn)))}${x.corazon ? ` · ❤️ reaccionó ${esc(fmtFull(ms(x.corazonEn)))}` : ""}`).join("<br>")}</div>` : '<div class="ml">Sin vistas.</div>';
+  }catch(e){ console.log(e); box.innerHTML = '<div class="ml">No se pudieron cargar las vistas.</div>'; }
+}
+function renderNot(){
+  const c = $("acont"); if(!c) return;
+  c.innerHTML = `<p class="hint" style="padding:6px 2px">Notas guardadas (chat de cada persona consigo misma). Ves también las que borraron.</p>` + (aNot.length ? aNot.map((n) => `<button class="row" data-act="aNote" data-u="${esc(n.id)}" style="border:1px solid var(--line);border-radius:14px;margin-top:8px;background:var(--card)"><div class="mid"><div class="nm" style="white-space:normal">📝 ${esc(aName(n.id))}</div><div class="sub">Última nota: ${esc(fmtFull(ms(n.ultimoAt)))}</div></div></button>`).join("") : `<div class="empty"><div class="big">📝</div>Nadie ha guardado notas todavía.</div>`);
+}
+let aNoteItems = [];
+async function noteSheet(uid){
+  $("shAdm").dataset.k = "n"; aSel = null;
+  $("shAdm").innerHTML = `<h2>Notas de ${esc(aName(uid))}<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div id="cMsgs"><div class="empty" style="padding:24px">Cargando…</div></div>`; openOv("ovAdm");
+  try{
+    const s = await getDocs(query(collection(db, "wm_notes", uid, "items"), orderBy("creado", "asc"), limit(300)));
+    aNoteItems = s.docs.map((d) => ({ id: d.id, ...d.data({ serverTimestamps:"estimate" }) }));
+    $("cMsgs").innerHTML = aNoteItems.map((m, i) => `<div class="mline" ${m.borrado ? 'style="opacity:.75;border:1px dashed #5a2a2a"' : ""}><small>${esc(fmtFull(ms(m.creado)))}${m.borrado ? " · 🗑 eliminada " + esc(fmtFull(ms(m.borradoEn))) : ""}</small>${m.img ? `<img class="athumb" style="width:120px;height:120px" src="${esc(m.img)}" alt="" data-act="lbA" data-i="${i}"><br>` : ""}${esc(m.texto || "")}</div>`).join("") || '<div class="empty">Sin notas.</div>';
+  }catch(e){ console.log(e); $("cMsgs").innerHTML = '<div class="empty">No se pudieron cargar las notas.</div>'; }
+}
+const logOther = (l) => { const ic = { solicitud:"🤝", historia:"🖼️", nota:"📝", cuenta:"🔐", privacidad:"🛡️", perfil:"👤", comentario:"💬", grupo:"👥" }[l.tipo] || "•"; return `<div class="acard"><span class="pill nuevo" style="margin:0">${ic} ${esc(l.tipo)}</span> <span style="color:var(--mut)">${esc(fmtFull(ms(l.creado)))}</span><br><b>${esc(l.autor)}</b> ${esc(l.detalle || "")}${l.objetivo ? ` · <b>${esc(l.objetivo)}</b>` : ""}${l.chatId ? ` <button class="btn sm ghost" data-act="aChat" data-c="${esc(l.chatId)}" style="margin:6px 0 0">Ver conversación</button>` : ""}</div>`; };
 /* ---- Grupos (administración) ---- */
 function renderGrp(){
   const c = $("acont"); if(!c) return;
@@ -1786,7 +2036,7 @@ async function gaSet(gid, st){
 /* ---- Registro de actividad (apodos…) ---- */
 function renderLog(){
   const c = $("acont"); if(!c) return;
-  c.innerHTML = aLogs.length ? aLogs.map((l) => `<div class="acard"><span class="pill nuevo" style="margin:0">apodo</span> <span style="color:var(--mut)">${esc(fmtFull(ms(l.creado)))}</span><br><b>${esc(l.autor)}</b> cambió el apodo de <b>${esc(l.objetivo)}</b>${l.anterior ? ` de «${esc(l.anterior)}»` : ""} a ${l.nuevo ? `«<b>${esc(l.nuevo)}</b>»` : "(sin apodo)"}.<div class="acts" style="margin-top:8px"><button class="btn sm ghost" data-act="aChat" data-c="${esc(l.chatId)}">Ver chat</button></div></div>`).join("") : `<div class="empty">Aún no hay actividad registrada.</div>`;
+  c.innerHTML = aLogs.length ? aLogs.map((l) => l.tipo && l.tipo !== "apodo" ? logOther(l) : `<div class="acard"><span class="pill nuevo" style="margin:0">apodo</span> <span style="color:var(--mut)">${esc(fmtFull(ms(l.creado)))}</span><br><b>${esc(l.autor)}</b> cambió el apodo de <b>${esc(l.objetivo)}</b>${l.anterior ? ` de «${esc(l.anterior)}»` : ""} a ${l.nuevo ? `«<b>${esc(l.nuevo)}</b>»` : "(sin apodo)"}.<div class="acts" style="margin-top:8px"><button class="btn sm ghost" data-act="aChat" data-c="${esc(l.chatId)}">Ver chat</button></div></div>`).join("") : `<div class="empty">Aún no hay actividad registrada.</div>`;
 }
 /* ---- Soporte (solicitudes de revisión) ---- */
 function renderSop(){
@@ -1816,12 +2066,271 @@ async function repSet(id, done){
   try{ if(done) await updateDoc(doc(db, "wm_reportes", id), { estado:"revisado" }); else if(confirm("¿Borrar este reporte?")) await deleteDoc(doc(db, "wm_reportes", id)); }catch(e){ toast("No se pudo actualizar el reporte."); }
 }
 
+
+/* ================= FASE 5: AJUSTES (páginas a pantalla completa) ================= */
+const CHEV = '<svg class="chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>';
+const I5 = {
+  user: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>', key: '<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3"/>',
+  lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>', pal: '<path d="M12 3a9 9 0 1 0 0 18c1.6 0 2-1 1.4-2-.7-1.2 0-2.5 1.4-2.5H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7.5" r="1"/><circle cx="15" cy="7.5" r="1"/>',
+  info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/>', grp: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M17 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>', plus: '<circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/>', block: '<circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/>',
+  eye: '<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>', clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>', chat: '<path d="M4 5h16v11H9l-5 4z"/>',
+  doc: '<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>', flag: '<path d="M5 21V4M5 4h12l-2 4 2 4H5"/>', bell: '<path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/>',
+  txt: '<path d="M4 19 9 6l5 13M5.8 15h6.4M15 19l3-8 3 8M16 17h4"/>', out: '<path d="M10 4H5v16h5M15 8l4 4-4 4M9 12h10"/>', cam: '<path d="M4 8h3l2-2h6l2 2h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',
+  tel: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>', link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+  ig: '<rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.7"/><path d="M16.8 7.2v.01"/>', at: '<circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/>',
+  idc: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 11h.01M13 10h5M13 14h4M6.5 16c.5-2 3.5-2 4 0"/>', star: '<path d="m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/>', up: '<path d="M12 16V4M7 9l5-5 5 5M5 20h14"/>'
+};
+const pgStack = []; let pgGuard = false, pgIgnore = 0;
+const PRIV_LBL = { todos:"Todos", amigos:"Mis amigos", nadie:"Nadie", inv:"Invitación" };
+const OPT = {
+  foto: { t:"Foto de perfil", d:"Quién puede ver mi foto de perfil.", o:[["todos","Todos"],["amigos","Mis amigos"],["nadie","Nadie"]] },
+  ult:  { t:"Última vez", d:"Quién puede ver cuándo estuve conectado por última vez.", o:[["todos","Todos"],["amigos","Mis amigos"],["nadie","Nadie"]] },
+  onl:  { t:"En línea", d:"Quién puede ver cuando estoy en línea.", o:[["todos","Todos"],["amigos","Mis amigos"],["nadie","Nadie"]] },
+  bio:  { t:"Descripción", d:"Quién puede ver mi descripción.", o:[["todos","Todos"],["amigos","Mis amigos"],["nadie","Nadie"]] },
+  lect: { t:"Confirmaciones de lectura", d:"Quién puede ver cuándo leí sus mensajes (los dos checks azules).", o:[["todos","Todos"],["amigos","Mis amigos"],["nadie","Nadie"]] },
+  grp:  { t:"Grupos", d:"Quién puede añadirme a grupos.", o:[["amigos","Mis amigos","Mis amigos pueden añadirme directamente. Los demás me envían una invitación."],["inv","Invitación","Todos me envían una invitación y yo decido si entro."]] }
+};
+const myPriv = () => ({ foto:"todos", ult:"todos", onl:"todos", bio:"todos", lect:"todos", grp:"amigos", ...((prof && prof.priv) || {}) });
+const privSummary = (u) => { const q = { foto:"todos", ult:"todos", onl:"todos", bio:"todos", lect:"todos", grp:"amigos", ...((u && u.priv) || {}) }; return `Foto: ${PRIV_LBL[q.foto]} · Última vez: ${PRIV_LBL[q.ult]} · En línea: ${PRIV_LBL[q.onl]} · Descripción: ${PRIV_LBL[q.bio]} · Lectura: ${PRIV_LBL[q.lect]} · Grupos: ${q.grp === "inv" ? "solo invitación" : "amigos directo"}`; };
+const pgRow = (ic, t, act, data = "", sub = "", cls = "") => `<button class="pr ${cls}" data-act="${act}" ${data}><span class="pi">${P(ic)}</span><span class="pt"><b>${t}</b>${sub ? `<small>${sub}</small>` : ""}</span>${cls.includes("nochev") ? "" : CHEV}</button>`;
+const lgEv = (a, b) => { try{ logEv(a, b, "", ""); }catch(e){} };
+
+/* --- apariencia (guardada en este dispositivo) --- */
+const BCOLS = [["", "Tema"], ["#0a84ff", "Azul"], ["#00a884", "Verde"], ["#7c4dff", "Violeta"], ["#e5484d", "Rojo"], ["#f08c00", "Naranja"], ["#d6409f", "Rosa"], ["#3a3a3c", "Gris"]];
+function applyLook(){
+  const h = document.documentElement, c = store.get("wm_bme", "");
+  if(/^#[0-9a-f]{6}$/i.test(c)){ h.style.setProperty("--bme", c); h.dataset.bme = "1"; } else{ h.style.removeProperty("--bme"); delete h.dataset.bme; }
+  h.dataset.bshape = store.get("wm_bshape", "rd"); h.dataset.fs = store.get("wm_fs", "m");
+}
+applyLook();
+
+/* --- pila de páginas con animación --- */
+function pgPaint(e){
+  if(!prof || !user) return; const d = PG[e.name](e.arg);
+  const html = `<header class="pgh"><button class="ibtn" data-act="pgBack" aria-label="Atrás">${IC.back}</button><h2>${d.t}</h2></header><div class="pgc">${d.h}</div>`;
+  if(e.last === html) return; e.last = html;
+  const old = e.el.querySelector(".pgc"), st = old ? old.scrollTop : 0;
+  e.el.innerHTML = html; const n = e.el.querySelector(".pgc"); if(n && st) n.scrollTop = st;
+  if(d.after) d.after(e.el, e.arg);
+}
+function pgGo(name, arg){
+  if(!PG[name] || !prof) return; const top = pgStack[pgStack.length - 1];
+  if(top && top.name === name && JSON.stringify(top.arg) === JSON.stringify(arg)) return;
+  if(!pgGuard){ try{ history.pushState({ wm:1, pg:1 }, ""); pgGuard = true; }catch(e){} }
+  const el = document.createElement("div"); el.className = "pg"; el.dataset.p = name; $("pgs").appendChild(el);
+  const e = { name, arg, el, last: "" }; if(top) top.el.classList.add("bk"); pgStack.push(e); pgPaint(e);
+  requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add("on")));
+}
+function pgRefresh(){ const e = pgStack[pgStack.length - 1]; if(e && PG[e.name]) pgPaint(e); }
+function pgPop(fromHist){
+  const e = pgStack.pop(); if(!e) return; e.el.classList.remove("on"); setTimeout(() => e.el.remove(), 320);
+  const t = pgStack[pgStack.length - 1];
+  if(t){ t.el.classList.remove("bk"); pgPaint(t); if(fromHist){ try{ history.pushState({ wm:1, pg:1 }, ""); }catch(_){} } }
+  else if(fromHist) pgGuard = false;
+  else{ pgGuard = false; pgIgnore++; try{ history.back(); }catch(_){ pgIgnore--; } }
+}
+function pgClear(){ pgStack.splice(0).forEach((e) => e.el.remove()); }
+
+/* --- definición de páginas --- */
+const PG = {
+  settings: () => ({ t:"Ajustes", h:`<button class="pme" data-act="pgGo" data-p="profile">${av(prof.nombre, prof.foto)}<span class="pt"><b>${esc(prof.nombre)}${badge(prof)}</b><small>${esc(prof.bio || "Sin descripción")}</small></span>${CHEV}</button>
+    <div class="pgrp">${pgRow(I5.key, "Cuenta", "pgGo", 'data-p="account"', "Contraseña, correo y cuentas guardadas")}${pgRow(I5.lock, "Privacidad", "pgGo", 'data-p="privacy"', "Foto, última vez, en línea, lectura, grupos")}${pgRow(I5.pal, "Apariencia", "pgGo", 'data-p="look"', "Temas, burbujas, tamaño del texto y sonidos")}</div>
+    <div class="pgrp">${pgRow(I5.grp, "Amigos", "friends", "", friendsList().length + " contacto(s)")}${ginvs.length ? pgRow(I5.up, "Invitaciones a grupos", "pgGo", 'data-p="ginv"', ginvs.length + " pendiente(s)") : ""}${pgRow(I5.star, "Creador de WarMess", "creatorSheet")}</div>
+    <div class="pgrp">${pgRow(I5.info, "Información", "pgGo", 'data-p="about"', "Comentarios, políticas, reportes y créditos")}</div>
+    <div class="pfoot">WarMess · Beta</div>` }),
+  profile: () => { const f = (ic, l, v, k, ph) => pgRow(ic, l, "pfEdit", `data-k="${k}"`, v ? esc(v) : `<i>${ph}</i>`);
+    return { t:"Perfil", h:`<div class="pavw"><button class="pav" data-act="pgPhoto" aria-label="Cambiar foto">${av(prof.nombre, prof.foto)}<span class="pcam"><svg class="i" viewBox="0 0 24 24">${I5.cam}</svg></span></button></div>
+    <div class="pgrp">${f(I5.user, "Nombre", prof.nombre, "nombre", "Sin nombre")}${f(I5.info, "Info", prof.bio, "bio", "Añadir una descripción")}${f(I5.at, "Nombre de usuario", prof.usuario ? "@" + prof.usuario : "", "usuario", "Elegir")}${f(I5.tel, "Teléfono", prof.wa ? "+" + prof.wa : "", "wa", "Añadir número")}</div>
+    <div class="pgt">Enlaces</div><div class="pgrp">${f(I5.ig, "Instagram", prof.ig ? "@" + prof.ig : "", "ig", "Añadir Instagram")}${f(I5.link, "Enlace", prof.link, "link", "Añadir enlace")}</div>
+    <div class="pgrp">${pgRow(I5.idc, "Tu ID", "copyId", "", esc(prof.id) + " · toca para copiar", "nochev")}</div><div class="pfoot">Tu perfil lo ven las personas con las que chateas, según tus ajustes de privacidad.</div>` }; },
+  account: () => { const accs = getAccounts(), pw = user.providerData.some((p) => p.providerId === "password");
+    return { t:"Cuenta", h:`<div class="pgrp">${pgRow(I5.key, "Contraseña", "pwSheet", "", pw ? "Cambiar la contraseña actual" : "Tu cuenta usa Google")}${pgRow(I5.mail, "Correo", "mailSheet", "", esc(user.email || ""))}</div>
+    <div class="pgt">Cuentas en este dispositivo</div><div class="pgrp">${accs.map((a) => `<button class="pr" data-act="accSw" data-s="${esc(a.slot)}">${av(a.nombre, fotoOf(a))}<span class="pt"><b>${esc(a.nombre || "Cuenta")}</b><small>${esc(a.email)}</small></span>${a.slot === SLOT ? '<span class="okt">Activa</span>' : CHEV}</button>`).join("")}${accs.length < 3 ? pgRow(I5.plus, "Añadir cuenta", "accAdd", "", "Hasta 3 cuentas · cambia sin volver a escribir tus datos") : ""}</div>
+    <div class="pgrp">${pgRow(I5.out, "Cerrar sesión", "pgLogout", "", "", "red nochev")}</div><div class="pfoot">Verificación en dos pasos: próximamente.</div>` }; },
+  privacy: () => { const q = myPriv(), nb = blockedList().length, row = (ic, k) => pgRow(ic, OPT[k].t, "pgGo", `data-p="opt" data-k="${k}"`, PRIV_LBL[q[k]]);
+    return { t:"Privacidad", h:`<div class="pgt">Quién puede ver mi información personal</div><div class="pgrp">${row(I5.cam, "foto")}${row(I5.clock, "ult")}${row(I5.eye, "onl")}${row(I5.info, "bio")}${row(I5.chat, "lect")}</div>
+    <div class="pgt">Grupos</div><div class="pgrp">${row(I5.grp, "grp")}</div>
+    <div class="pgt">Contactos</div><div class="pgrp">${pgRow(I5.block, "Contactos bloqueados", "pgGo", 'data-p="blocked"', nb ? nb + " bloqueado(s)" : "Ninguno")}</div>
+    <div class="pfoot">Por soporte y seguridad, el creador de WarMess puede ver esta información aunque la limites.</div>` }; },
+  opt: (a) => { const c = OPT[a.k], q = myPriv()[a.k];
+    return { t:c.t, h:`<div class="pgt">${c.d}</div><div class="pgrp">${c.o.map((o) => `<button class="pr" data-act="privSet" data-k="${a.k}" data-v="${o[0]}"><span class="pt"><b>${o[1]}</b>${o[2] ? `<small>${o[2]}</small>` : ""}</span><span class="rb ${q === o[0] ? "on" : ""}"></span></button>`).join("")}</div>` }; },
+  blocked: () => { const l = blockedList();
+    return { t:"Contactos bloqueados", h: l.length ? `<div class="pgrp">${l.map((c) => { const p = peers.get(otherOf(c)) || {}; return `<div class="pr">${av(nameOf(c), fotoOf(p))}<span class="pt"><b>${esc(nameOf(c))}</b><small>${p.usuario ? "@" + esc(p.usuario) : ""}</small></span><button class="btn sm ghost" data-act="unblk" data-c="${esc(c.id)}" style="flex:none;margin:0">Desbloquear</button></div>`; }).join("")}</div>` : `<div class="pempty">No tienes contactos bloqueados.</div>` }; },
+  look: () => { const th = store.get("wm_theme", "default"), bc = store.get("wm_bme", ""), bs = store.get("wm_bshape", "rd"), fs = store.get("wm_fs", "m"), tn = sndOn() ? String(sndTone()) : "off";
+    const TS = { default:"linear-gradient(135deg,#0a84ff,#08080b)", iosdark:"linear-gradient(135deg,#0a84ff,#000)", ios:"linear-gradient(135deg,#007aff,#fff)", android:"linear-gradient(135deg,#00a884,#0b141a)" };
+    const chips = (act, cur, arr) => `<div class="chs">${arr.map((x) => `<button class="chb ${cur === x[0] ? "on" : ""}" data-act="${act}" data-v="${x[0]}">${x[1]}</button>`).join("")}</div>`;
+    return { t:"Apariencia", h:`<div class="pgt">Tema</div><div class="pgrp">${THEMES.map((t) => `<button class="pr" data-act="thSet" data-v="${t[0]}"><span class="tsw" style="background:${TS[t[0]]}"></span><span class="pt"><b>${t[1]}</b></span><span class="rb ${th === t[0] ? "on" : ""}"></span></button>`).join("")}</div>
+    <div class="pgt">Burbujas de chat</div><div class="pgrp"><div class="prev"><div class="b him">¡Hola! 👋</div><div class="b me">Así se verán tus mensajes</div></div>
+      <div class="sws">${BCOLS.map((c) => `<button class="sw ${bc === c[0] ? "on" : ""}" data-act="bubC" data-v="${c[0]}" aria-label="${c[1]}" style="${c[0] ? "background:" + c[0] : ""}">${c[0] ? "" : "<small>Tema</small>"}</button>`).join("")}</div>
+      ${chips("bubS", bs, [["rd", "Redonda"], ["soft", "Suave"], ["sq", "Cuadrada"]])}</div>
+    <div class="pgt">Tamaño del texto</div><div class="pgrp">${chips("fsSet", fs, [["s", "Pequeño"], ["m", "Mediano"], ["l", "Grande"]])}</div>
+    <div class="pgt">Sonido de mensajes nuevos</div><div class="pgrp">${[["off", "Silencio"], ...TONES.map((t, i) => [String(i), t[0]])].map((o) => `<button class="pr" data-act="sndSet" data-v="${o[0]}"><span class="pt"><b>${o[1]}</b></span><span class="rb ${tn === o[0] ? "on" : ""}"></span></button>`).join("")}</div>
+    <div class="pfoot">Estos ajustes se guardan en este dispositivo.</div>` }; },
+  about: () => ({ t:"Información", h:`<div class="pgrp">${pgRow(I5.chat, "Enviar comentarios", "fbIntro", "", "Cuéntanos cómo mejorar WarMess")}${pgRow(I5.doc, "Condiciones y políticas del servicio", "legal")}${pgRow(I5.flag, "Reportes", "pgGo", 'data-p="reports"', "Los que has enviado")}${pgRow(I5.info, "Créditos", "pgGo", 'data-p="credits"', "WarMess y su creador")}</div>` }),
+  credits: () => ({ t:"Créditos", h:`<div class="cred"><div class="logo xl"><svg viewBox="0 0 24 24"><use href="#lg"/></svg></div><h3>WarMess</h3><div class="cv">Versión 5.0 · Beta</div><p>© 2026 Sxgura Inc.<br>Todos los derechos reservados.</p></div>
+    <div class="pgt">Creador</div><div class="pgrp">${pgRow(I5.star, "Contactar al creador", "creatorSheet", "", "Perfil, redes y mensaje directo")}</div><div class="pfoot">Creado y mantenido por Sxgura Inc.</div>` }),
+  reports: () => ({ t:"Reportes", h:`<div class="pgrp" id="rpList"><div class="pempty">Cargando…</div></div>`, after: async (el) => {
+    const box = () => el.querySelector("#rpList"); if(!box()) return;
+    try{
+      const [a, b] = await Promise.all([getDocs(query(collection(db, "wm_reportes"), where("reportante", "==", me()))), getDocs(query(collection(db, "wm_feedback"), where("de", "==", me())))]);
+      const items = [...a.docs.map((d) => ({ k:"r", ...d.data({ serverTimestamps:"estimate" }) })), ...b.docs.map((d) => ({ k:"f", ...d.data({ serverTimestamps:"estimate" }) }))].sort((x, y) => ms(y.creado) - ms(x.creado));
+      const nm = async (u) => { const p = peers.get(u); if(p) return p.nombre; try{ const s = await getDoc(doc(db, "wm_users", u)); return s.exists() ? s.data().nombre : "Usuario"; }catch(e){ return "Usuario"; } };
+      for(const x of items) if(x.k === "r") x.n = await nm(x.reportado);
+      if(!box()) return;
+      box().outerHTML = items.length ? `<div class="pgrp" id="rpList">${items.map((x) => `<div class="pit"><b>${x.k === "r" ? "Reporte a " + esc(x.n) : "Comentario enviado"}</b><small>${x.k === "r" ? esc(x.motivo) + " · " : ""}${esc(fmtFull(ms(x.creado)))}</small>${x.k === "f" ? `<small>${esc(String(x.texto || "").slice(0, 90))}</small>` : ""}<span class="st ${x.estado === "nuevo" ? "" : "ok"}">${x.estado === "nuevo" ? "Enviado" : "Revisado"}</span></div>`).join("")}</div>` : `<div class="pempty" id="rpList">Aún no has enviado reportes ni comentarios.</div>`;
+    }catch(e){ console.log(e); if(box()) box().innerHTML = '<div class="pempty">No se pudieron cargar. ¿Reglas v20 publicadas?</div>'; }
+  } }),
+  feedback: () => ({ t:"Enviar comentarios", h:`<textarea class="in fbta" id="fbT" maxlength="1000" placeholder="Cuéntanos qué pasó o qué te gustaría mejorar…" rows="6"></textarea>
+    <div class="pgt">Capturas (opcional, máx. 2)</div><div class="thms" id="fbImgs"></div><div class="msg" id="fbMsg" style="margin:8px 16px"></div>
+    <div style="padding:0 14px"><button class="btn" data-act="fbSend" id="fbGo">Enviar</button></div><div class="pfoot">Tu mensaje llega directo al equipo de WarMess.</div>`, after: () => paintFb() }),
+  ginv: () => ({ t:"Invitaciones a grupos", h: ginvs.length ? `<div class="pgrp">${ginvs.map((g) => `<div class="pit"><b>${esc(g.gnombre)}</b><small>${esc(g.dnombre || "Alguien")} te invitó</small><div class="acts" style="margin-top:8px"><button class="btn sm" data-act="ginvOk" data-i="${esc(g.id)}">Aceptar</button><button class="btn sm ghost" data-act="ginvNo" data-i="${esc(g.id)}">Rechazar</button></div></div>`).join("")}</div>` : `<div class="pempty">No tienes invitaciones pendientes.</div>` })
+};
+const blockedList = () => [...chats.values()].filter((c) => !isG(c) && c.bloqueadoPor === me());
+
+/* --- perfil: editar campos y foto --- */
+const PF = { nombre:{ l:"Nombre", max:40 }, bio:{ l:"Info", max:100, ph:"Cuéntanos algo sobre ti" }, usuario:{ l:"Nombre de usuario", max:20 }, wa:{ l:"Teléfono (con código de país, solo números)", max:18, ph:"573001234567", im:"numeric" }, ig:{ l:"Instagram (solo el usuario)", max:31, ph:"tu.usuario" }, link:{ l:"Enlace (https://…)", max:200, ph:"https://…", ty:"url" } };
+function pfEdit(k){
+  const f = PF[k]; if(!f) return; const v = k === "usuario" ? prof.usuario || "" : String(prof[k] || "");
+  $("shInfo").innerHTML = `<h2>${f.l.split(" (")[0]}<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div class="fld" style="margin-top:12px"><label for="pfEd">${f.l}</label>
+    ${k === "usuario" ? `<div class="uwrap"><span style="top:12px">@</span><input class="in" id="pfEd" maxlength="20" autocapitalize="none" autocorrect="off" spellcheck="false" value="${esc(v)}"></div><div class="ustat" id="pfUst"></div>` : `<input class="in" id="pfEd" maxlength="${f.max}" ${f.im ? `inputmode="${f.im}"` : ""} ${f.ty ? `type="${f.ty}"` : ""} placeholder="${esc(f.ph || "")}" value="${esc(v)}">`}</div>
+    <div class="msg" id="pfMsg"></div><button class="btn" data-act="pfSave" data-k="${k}" id="pfGo">Guardar</button>${k !== "nombre" && k !== "usuario" && v ? `<button class="btn ghost" data-act="pfSave" data-k="${k}" data-clear="1">Quitar</button>` : ""}`;
+  openOv("ovInfo"); if(k === "usuario") watchUname($("pfEd"), $("pfUst"), () => prof.usuario); setTimeout(() => { const e = $("pfEd"); if(e) e.focus(); }, 250);
+}
+async function pfSave(t){
+  const k = t.dataset.k, f = PF[k]; let v = t.dataset.clear ? "" : $("pfEd").value.trim();
+  if(k === "nombre"){ v = v.replace(/\s+/g, " "); if(v.length < 2) return setMsg("pfMsg", "Escribe un nombre válido (mínimo 2 letras)."); }
+  if(k === "usuario"){ v = normU(v); if(!unameFmt(v)) return setMsg("pfMsg", unameErr({ code:"wm/ufmt" })); }
+  if(k === "wa"){ v = v.replace(/[\s+\-()]/g, ""); if(v && !/^\d{7,15}$/.test(v)) return setMsg("pfMsg", "Escribe solo números con código de país (7 a 15 dígitos)."); }
+  if(k === "ig"){ v = v.replace(/^@/, "").replace(/^https?:\/\/(www\.)?instagram\.com\//i, "").replace(/\/.*$/, ""); if(v && !/^[A-Za-z0-9._]{1,30}$/.test(v)) return setMsg("pfMsg", "Usuario de Instagram no válido."); }
+  if(k === "link" && v){ let ok = false; try{ ok = new URL(v).protocol === "https:"; }catch(e){} if(!ok) return setMsg("pfMsg", "El enlace debe empezar por https://"); }
+  if(k === "bio") v = v.slice(0, 100);
+  setMsg("pfMsg", ""); busy("pfGo", true, "Guardando…");
+  try{
+    const old = prof.usuario; if(k === "usuario" && v !== old) await claimUsername(v);
+    if(String(prof[k] || "") !== v) await updateDoc(doc(db, "wm_users", user.uid), { [k]: v });
+    if(k === "usuario" && old && v !== old) deleteDoc(doc(db, "wm_usernames", old)).catch(() => {});
+    prof = { ...prof, [k]: v }; if(!t.dataset.clear || true) lgEv("perfil", "actualizó su " + f.l.split(" (")[0].toLowerCase());
+    closeOv("ovInfo"); pgRefresh(); toast("Guardado ✅");
+  }catch(e){ console.log(e); setMsg("pfMsg", unameErr(e) || "No se pudo guardar. Inténtalo de nuevo."); }
+  busy("pfGo", false);
+}
+function pgPhoto(){
+  $("shInfo").innerHTML = `<h2>Foto de perfil<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div class="grp" style="margin-top:12px"><button class="li" data-act="pickAv" data-t="prof">${P(I5.cam)}<span>Elegir una foto</span></button>${photoOk(prof.foto) ? `<button class="li red" data-act="pfPhotoRm">${P('<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/>')}<span>Quitar foto</span></button>` : ""}</div>`;
+  openOv("ovInfo");
+}
+async function saveFoto(d){
+  try{ await updateDoc(doc(db, "wm_users", user.uid), { foto: d }); prof = { ...prof, foto: d }; lgEv("perfil", d ? "cambió su foto de perfil" : "quitó su foto de perfil"); closeOv("ovInfo"); pgRefresh(); toast(d ? "Foto actualizada ✅" : "Foto eliminada"); }
+  catch(e){ console.log(e); toast("No se pudo guardar la foto."); }
+}
+
+/* --- cuenta: contraseña, correo, varias cuentas --- */
+const authErr2 = (e) => ({ "auth/wrong-password":"La contraseña actual no es correcta.", "auth/invalid-credential":"La contraseña actual no es correcta.", "auth/weak-password":"La contraseña nueva es muy débil (mínimo 6 caracteres).", "auth/too-many-requests":"Demasiados intentos. Espera un momento.", "auth/email-already-in-use":"Ese correo ya está en uso.", "auth/invalid-email":"Correo no válido.", "auth/requires-recent-login":"Vuelve a iniciar sesión e inténtalo de nuevo." })[e && e.code] || "No se pudo completar. Inténtalo de nuevo.";
+const isPwUser = () => user.providerData.some((p) => p.providerId === "password");
+function pwSheet(){
+  if(!isPwUser()) return toast("Tu cuenta usa Google: la contraseña se administra desde tu cuenta de Google.");
+  $("shInfo").innerHTML = `<h2>Cambiar contraseña<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
+    <div class="fld" style="margin-top:12px"><label for="pwA">Contraseña actual</label><input class="in" id="pwA" type="password" autocomplete="current-password"></div>
+    <div class="fld"><label for="pwB">Contraseña nueva</label><input class="in" id="pwB" type="password" autocomplete="new-password" placeholder="Mínimo 6 caracteres"></div>
+    <div class="fld"><label for="pwC">Repite la nueva</label><input class="in" id="pwC" type="password" autocomplete="new-password"></div><div class="msg" id="pwMsg"></div><button class="btn" data-act="pwSave" id="pwGo">Cambiar contraseña</button>`;
+  openOv("ovInfo");
+}
+async function pwSave(){
+  const a = $("pwA").value, b = $("pwB").value, c = $("pwC").value;
+  if(!a) return setMsg("pwMsg", "Escribe tu contraseña actual."); if(b.length < 6) return setMsg("pwMsg", "La nueva debe tener al menos 6 caracteres.");
+  if(b !== c) return setMsg("pwMsg", "Las contraseñas nuevas no coinciden."); if(b === a) return setMsg("pwMsg", "La nueva debe ser distinta de la actual.");
+  setMsg("pwMsg", ""); busy("pwGo", true, "Guardando…");
+  try{ await reauthenticateWithCredential(user, EmailAuthProvider.credential(user.email, a)); await updatePassword(user, b); lgEv("cuenta", "cambió su contraseña"); closeOv("ovInfo"); toast("Contraseña actualizada ✅"); }
+  catch(e){ console.log(e); setMsg("pwMsg", authErr2(e)); }
+  busy("pwGo", false);
+}
+function mailSheet(){
+  if(!isPwUser()) return toast("Tu cuenta usa Google: el correo se administra desde tu cuenta de Google.");
+  $("shInfo").innerHTML = `<h2>Cambiar correo<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><p class="lead" style="text-align:left">Correo actual: <b>${esc(user.email || "")}</b>. Te enviaremos un mensaje de confirmación al correo nuevo; el cambio se aplica cuando lo confirmes.</p>
+    <div class="fld"><label for="emN">Correo nuevo</label><input class="in" id="emN" type="email" autocomplete="email" autocapitalize="none" placeholder="nuevo@correo.com"></div>
+    <div class="fld"><label for="emP">Tu contraseña actual</label><input class="in" id="emP" type="password" autocomplete="current-password"></div><div class="msg" id="emMsg"></div><button class="btn" data-act="mailSave" id="emGo">Enviar confirmación</button>`;
+  openOv("ovInfo");
+}
+async function mailSave(){
+  const n = $("emN").value.trim().toLowerCase(), p = $("emP").value;
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(n)) return setMsg("emMsg", "Escribe un correo válido."); if(n === String(user.email || "").toLowerCase()) return setMsg("emMsg", "Ese ya es tu correo actual.");
+  if(!p) return setMsg("emMsg", "Escribe tu contraseña actual para confirmar."); setMsg("emMsg", ""); busy("emGo", true, "Enviando…");
+  try{ await reauthenticateWithCredential(user, EmailAuthProvider.credential(user.email, p)); await verifyBeforeUpdateEmail(user, n); lgEv("cuenta", "solicitó cambiar su correo a " + n);
+    $("shInfo").innerHTML = `<h2>Revisa tu correo<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div class="empty" style="padding:26px 6px"><div class="big">📧</div>Enviamos un mensaje de confirmación a <b>${esc(n)}</b>.<br><br>Ábrelo y confirma el cambio. Después inicia sesión con el correo nuevo.</div><button class="btn" data-act="closeov">Entendido</button>`; }
+  catch(e){ console.log(e); setMsg("emMsg", authErr2(e)); busy("emGo", false); }
+}
+function syncEmail(){ try{ if(priv && user.email && priv.email && priv.email !== user.email) savePriv({ email: user.email }).then(() => { priv = { ...priv, email: user.email }; }).catch(() => {}); }catch(e){} }
+function accSwitch(slot, add){
+  try{ localStorage.setItem("wm_prev_slot", SLOT); localStorage.setItem("wm_slot", slot); }catch(e){ return toast("Tu navegador no permite guardar cuentas."); }
+  toast(add ? "Abriendo para añadir cuenta…" : "Cambiando de cuenta…"); setTimeout(() => location.reload(), 350);
+}
+function accAdd(){
+  const used = new Set(getAccounts().map((a) => a.slot)); used.add(SLOT); const free = ["default", "s2", "s3"].find((s) => !used.has(s));
+  if(!free) return toast("Ya tienes 3 cuentas guardadas."); accSwitch(free, true);
+}
+function authBack(){ try{ const s = localStorage.getItem("wm_prev_slot") || "default"; localStorage.setItem("wm_slot", s); localStorage.setItem("wm_prev_slot", ""); }catch(e){} location.reload(); }
+try{ if(localStorage.getItem("wm_prev_slot") && $("authBack")) $("authBack").hidden = false; }catch(e){}
+
+/* --- privacidad --- */
+async function privSet(k, v){
+  const q = { ...myPriv(), [k]: v };
+  try{ await updateDoc(doc(db, "wm_users", user.uid), { priv: q }); prof = { ...prof, priv: q }; lgEv("privacidad", "cambió «" + OPT[k].t + "» a " + (PRIV_LBL[v] || v)); pgRefresh(); }
+  catch(e){ console.log(e); toast("No se pudo guardar. ¿Reglas v20 publicadas?"); }
+}
+async function unblk(cid){ const c = chats.get(cid); if(!c) return; try{ await updateDoc(doc(db, colOf(c), c.id), { bloqueadoPor: "" }); toast("Contacto desbloqueado"); lgEv("privacidad", "desbloqueó un contacto"); setTimeout(pgRefresh, 250); }catch(e){ toast("No se pudo desbloquear."); } }
+
+/* --- comentarios --- */
+let fbDraft = { imgs: [] }, lastFb = 0;
+function fbIntro(){
+  fbDraft = { imgs: [] };
+  $("shInfo").innerHTML = `<div class="intro"><div class="ib">${P(I5.chat)}</div><h2 style="justify-content:center">Enviar comentarios</h2><p>Cuéntanos tu idea, un problema o lo que te gustaría mejorar. Puedes adjuntar capturas de pantalla.</p><p>Tu mensaje llega directo al equipo de WarMess. No incluyas contraseñas ni datos bancarios.</p><button class="btn" data-act="fbGo2">Continuar</button><button class="btn ghost" data-act="closeov">Cancelar</button></div>`;
+  openOv("ovInfo");
+}
+function paintFb(){
+  const b = $("fbImgs"); if(!b) return;
+  b.innerHTML = fbDraft.imgs.map((s, i) => `<div class="thm" style="background-image:url('${s}')"><button data-act="fbRm" data-n="${i}" aria-label="Quitar">×</button></div>`).join("") + (fbDraft.imgs.length < 2 ? `<button class="thm add" data-act="fbAdd" aria-label="Añadir imagen">+</button>` : "");
+}
+async function fbSend(){
+  const t = ($("fbT").value || "").trim(); if(t.length < 5) return setMsg("fbMsg", "Escribe un mensaje (mínimo 5 letras).");
+  if(Date.now() - lastFb < 20000) return setMsg("fbMsg", "Espera unos segundos antes de enviar otro."); setMsg("fbMsg", ""); busy("fbGo", true, "Enviando…");
+  try{ await addDoc(collection(db, "wm_feedback"), { de: me(), texto: t.slice(0, 1000), imgs: fbDraft.imgs, ua: String(navigator.userAgent || "").slice(0, 120), creado: serverTimestamp(), estado: "nuevo" });
+    lastFb = Date.now(); lgEv("comentario", "envió comentarios" + (fbDraft.imgs.length ? " con " + fbDraft.imgs.length + " imagen(es)" : "")); fbDraft = { imgs: [] }; toast("¡Gracias! Comentarios enviados 🙏"); pgPop(false); }
+  catch(e){ console.log(e); setMsg("fbMsg", "No se pudo enviar. ¿Reglas v20 publicadas?"); busy("fbGo", false); }
+}
+{ const ff = $("fbFile"); if(ff) ff.addEventListener("change", async () => { const f = ff.files[0]; ff.value = ""; if(!f) return; if(!/^image\//.test(f.type)) return toast("Elige una imagen.");
+  try{ const d = await fileToImg(f, 1000, 280000); if(fbDraft.imgs.length < 2) fbDraft.imgs.push(d); paintFb(); }catch(e){ toast("No pude leer esa imagen."); } }); }
+
+/* --- invitaciones a grupos --- */
+let ginvs = [], unGinv = null, ginvSeen = null;
+function subGinv(){
+  if(unGinv){ try{ unGinv(); }catch(e){} } ginvSeen = null;
+  unGinv = onSnapshot(query(collection(db, "wm_ginv"), where("para", "==", me())), (s) => {
+    const arr = s.docs.map((d) => ({ id: d.id, ...d.data({ serverTimestamps:"estimate" }) }));
+    if(ginvSeen) arr.filter((x) => !ginvSeen.has(x.id)).forEach((x) => toast("📩 " + (x.dnombre || "Alguien") + " te invitó al grupo «" + x.gnombre + "»"));
+    ginvSeen = new Set(arr.map((x) => x.id)); ginvs = arr; pgRefresh(); try{ updateBadges(); renderList(); }catch(e){}
+  }, () => {});
+}
+async function ginvOk(id){
+  const g = ginvs.find((x) => x.id === id); if(!g) return;
+  try{ await updateDoc(doc(db, "wm_groups", g.gid), { miembros: arrayUnion(me()) }); await deleteDoc(doc(db, "wm_ginv", id)).catch(() => {}); gSys({ id: g.gid }, `${prof.nombre} aceptó la invitación y se unió al grupo.`); lgEv("grupo", "aceptó la invitación al grupo «" + g.gnombre + "»"); toast("Te uniste al grupo ✅"); pgClear(); setPtab("chats"); const t = setInterval(() => { if(chats.has(g.gid)){ clearInterval(t); openChat(g.gid); } }, 150); setTimeout(() => clearInterval(t), 5000); }
+  catch(e){ console.log(e); toast("No se pudo unir. El grupo pudo cerrarse o suspenderse."); }
+}
+async function ginvNo(id){ try{ await deleteDoc(doc(db, "wm_ginv", id)); toast("Invitación rechazada"); }catch(e){ toast("No se pudo rechazar."); } }
+
+/* --- administración: comentarios --- */
+function renderFb(){
+  const c = $("acont"); if(!c) return;
+  c.innerHTML = `<p class="hint" style="padding:6px 2px">Comentarios enviados por los usuarios (los 100 más recientes).</p>` + (aFb.length ? aFb.map((f) => `<div class="acard"><span class="pill ${f.estado === "nuevo" ? "nuevo" : "activo"}" style="margin:0">${esc(f.estado)}</span> <span style="color:var(--mut)">${esc(fmtFull(ms(f.creado)))}</span><br><b>${esc(aName(f.de))}</b>
+    <div style="white-space:pre-wrap;margin-top:6px">${esc(f.texto)}</div>${(f.imgs || []).filter((s) => typeof s === "string" && s.startsWith("data:image/")).map((s, i) => `<button class="thm" data-act="fbImg" data-f="${esc(f.id)}" data-n="${i}" style="background-image:url('${esc(s)}');display:inline-block;margin:8px 8px 0 0"></button>`).join("")}
+    <div style="font-size:11.5px;color:var(--mut);margin-top:6px">${esc(f.ua || "")}</div><div class="acts" style="margin-top:8px">${f.estado === "nuevo" ? `<button class="btn sm" data-act="fbDone" data-f="${esc(f.id)}">Marcar revisado</button>` : ""}<button class="btn sm ghost" style="color:#ff6b61" data-act="fbDel" data-f="${esc(f.id)}">Borrar</button></div></div>`).join("") : `<div class="empty"><div class="big">💬</div>Aún no hay comentarios.</div>`);
+}
+/* ================= FIN FASE 5 ================= */
+
 /* ================= EVENTOS ================= */
 const A = {
   retry: () => { scr("boot"); route(); }, google: googleLogin, amode: (t) => setAmode(t.dataset.m), forgot, vcheck: verCheck, vresend: verResend, logout,
   pickAv: (t) => { avTarget = t.dataset.t; $("avFile").click(); }, onbGo: createProfile, legal: () => openOv("ovLegal"),
-  settings: openSettings, settingsBack, settingsClose: () => closeOv("ovSettings"), settingsPage: (t) => settingsPage(t.dataset.page), changePassword, changeEmail, saveAccount, removeAccount: (t) => removeAccount(+t.dataset.i), chooseTheme: (t) => chooseTheme(t.dataset.themeChoice), saveAppearance, savePrivacy, feedback, sendFeedback, myReports, blockedList, archiveFromList: (t)=>archiveFromList(t.dataset.c), deleteFromList:(t)=>deleteFromList(t.dataset.c), replyMsg:(t)=>replyMsg(t.dataset.m), cancelReply,
-  closeov: (t) => t.closest(".ov").classList.remove("on"), profile: () => openProfile(),
+  closeov: (t) => t.closest(".ov").classList.remove("on"), profile: () => pgGo("profile"),
   copyId: () => { const id = prof && prof.id; if(!id) return; (navigator.clipboard ? navigator.clipboard.writeText(id) : Promise.reject()).then(() => toast("ID copiado"), () => { try{ prompt("Copia tu ID:", id); }catch(e){} }); },
   saveProf: saveProfile, ptab: (t) => setPtab(t.dataset.t), open: (t) => openChat(t.dataset.c),
   accept: (t) => answerReq(t.dataset.c, true), reject: (t) => answerReq(t.dataset.c, false),
@@ -1833,12 +2342,29 @@ const A = {
   aset: (t) => setEstado(t.dataset.u, t.dataset.s), adel: (t) => delUser(t.dataset.u), repDone: (t) => repSet(t.dataset.r, true), repDel: (t) => repSet(t.dataset.r, false),
   aChat: (t) => chatSheet(t.dataset.c), aVer: (t) => setVerif(t.dataset.u, true), aUnver: (t) => setVerif(t.dataset.u, false),
   tkRep: (t) => tkReply(t.dataset.r), tkClose: (t) => tkClose(t.dataset.r), unFree: (t) => freeUser(t.dataset.n, t.dataset.u), beFree: (t) => freeEmail(t.dataset.n),
+  pgGo: (t) => pgGo(t.dataset.p, t.dataset.k ? { k: t.dataset.k } : undefined), pgBack: () => pgPop(false), pgPhoto, pfPhotoRm: () => saveFoto(""), pfEdit: (t) => pfEdit(t.dataset.k), pfSave: (t) => pfSave(t),
+  pwSheet, pwSave, mailSheet, mailSave, accSw: (t) => { if(t.dataset.s !== SLOT) accSwitch(t.dataset.s, false); }, accAdd, authBack, pgLogout: () => { if(confirm("¿Cerrar sesión en esta cuenta?")) logout(); },
+  privSet: (t) => privSet(t.dataset.k, t.dataset.v), unblk: (t) => unblk(t.dataset.c),
+  thSet: (t) => { store.set("wm_theme", t.dataset.v); applyTheme(t.dataset.v); pgRefresh(); },
+  bubC: (t) => { store.set("wm_bme", t.dataset.v); applyLook(); pgRefresh(); }, bubS: (t) => { store.set("wm_bshape", t.dataset.v); applyLook(); pgRefresh(); }, fsSet: (t) => { store.set("wm_fs", t.dataset.v); applyLook(); pgRefresh(); },
+  sndSet: (t) => { const v = t.dataset.v; if(v === "off") store.set("wm_snd_on", "0"); else{ store.set("wm_snd_on", "1"); store.set("wm_snd_tone", v); beep(true); } pgRefresh(); },
+  fbIntro, fbGo2: () => { closeOv("ovInfo"); pgGo("feedback"); }, fbAdd: () => $("fbFile").click(), fbRm: (t) => { fbDraft.imgs.splice(+t.dataset.n, 1); paintFb(); }, fbSend,
+  ginvOk: (t) => ginvOk(t.dataset.i), ginvNo: (t) => ginvNo(t.dataset.i),
   ticket: ticketSheet, tkSend: ticketSend, uscrGo,
   selX: () => { sel = new Set(); renderMsgs(); }, selCopy, selInfo, selDel: selDelSheet, delAll: () => doDelete(true), delMe: () => doDelete(false),
   setTemp: (t) => setTemp(t.dataset.m), archive: archiveChat, clrSheet: clearSheet, clrBoth: () => clearChat(true), clrMe: () => clearChat(false), delChat: deleteChat,
   sndTest: () => beep(true),
   newGroup: newGroupSheet, gpGo: createGroup, joinG: (t) => joinGroup(t.dataset.g), gBack: groupInfo, gEdit: gEditSheet, gEditSave, gAdd: gAddSheet, gSearch, gAddU: (t) => gAddU(t.dataset.u),
   gKick: (t) => gKick(t.dataset.u), gPerms: (t) => gPermsSheet(t.dataset.u), gPermSave: (t) => gPermSave(t.dataset.u, false), gAdmRm: (t) => gPermSave(t.dataset.u, true), gLeave, gDelete,
+  menu: () => pgGo("settings"), menuProf: () => { closeOv("ovInfo"); openProfile(); }, menuLegal: () => { closeOv("ovInfo"); openOv("ovLegal"); }, friends: friendsSheet,
+  fOpen: (t) => { closeOv("ovInfo"); openChat(t.dataset.c); }, creatorSheet, crMsg: (t) => { closeOv("ovInfo"); connectSheet(t.dataset.u); }, crOpen: (t) => { closeOv("ovInfo"); openChat(t.dataset.c); },
+  stAdd: () => { imgTarget = "story"; $("imgFile").click(); }, stOpen: (t) => openStories(t.dataset.u), storyPost: postStory, svClose: stClose, svPrev: stPrev, svNext: () => stNext(false), svHeart: stHeart, svViews: stViews, svDel: stDelete,
+  openNotes, noteImg: () => { imgTarget = "note"; $("imgFile").click(); }, noteDel: (t) => noteDel(t.dataset.n),
+  lbS: (t) => openLb((aSto.find((x) => x.id === t.dataset.s) || {}).img), lbN: (t) => openLb((notesData[+t.dataset.i] || {}).img), lbA: (t) => openLb((aNoteItems[+t.dataset.i] || {}).img), lbClose: () => { $("lb").hidden = true; },
+  aViews: (t) => aViews(t.dataset.s), aNote: (t) => noteSheet(t.dataset.u),
+  fbDone: (t) => updateDoc(doc(db, "wm_feedback", t.dataset.f), { estado:"revisado" }).catch(() => toast("No se pudo actualizar.")),
+  fbDel: (t) => { if(confirm("¿Borrar este comentario?")) deleteDoc(doc(db, "wm_feedback", t.dataset.f)).catch(() => toast("No se pudo borrar.")); },
+  fbImg: (t) => { const f = aFb.find((x) => x.id === t.dataset.f); if(f && f.imgs) openLb(f.imgs[+t.dataset.n]); },
   aGrp: (t) => grpSheet(t.dataset.c), gaSet: (t) => gaSet(t.dataset.c, t.dataset.s)
 };
 document.addEventListener("click", (e) => {
@@ -1846,7 +2372,12 @@ document.addEventListener("click", (e) => {
   if(t && A[t.dataset.act]){ A[t.dataset.act](t); return; }
   if(e.target.classList && e.target.classList.contains("ov") && e.target.hasAttribute("data-close")) e.target.classList.remove("on");
 });
+$("imgFile").addEventListener("change", onImgFile);
+$("lb").addEventListener("click", () => { $("lb").hidden = true; });
 document.addEventListener("keydown", (e) => {
+  if(e.key === "Escape" && !$("lb").hidden){ $("lb").hidden = true; return; }
+  if(e.key === "Escape" && sv && !document.querySelector(".ov.on")){ stClose(); return; }
+  if(sv && e.key === "ArrowRight") stNext(false); if(sv && e.key === "ArrowLeft") stPrev();
   if(e.key === "Escape"){ const o = [...document.querySelectorAll(".ov.on")].pop(); if(o) o.classList.remove("on"); }
   if(e.key === "Enter" && e.target && e.target.id === "admPin"){ e.preventDefault(); admPinGo(); }
 });
@@ -1857,7 +2388,7 @@ $("q").addEventListener("input", onSearch);
 $("onbNm").addEventListener("input", () => { if(!photo.onb) paintOnbAv(); });
 watchUname($("onbUs"), $("onbUst"), "");
 watchUname($("usIn"), $("usSt"), "");
-window.addEventListener("popstate", () => { if(cur) closeChatUI(); });
+window.addEventListener("popstate", () => { if(pgStack.length){ pgPop(); return; } if(cur || notesOn) closeChatUI(); });
 if(window.visualViewport){
   const f = () => { document.documentElement.style.setProperty("--vh", window.visualViewport.height + "px"); if(window.scrollY) window.scrollTo(0, 0); };
   window.visualViewport.addEventListener("resize", f); window.visualViewport.addEventListener("scroll", f); f();
