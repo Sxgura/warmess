@@ -498,6 +498,34 @@ html[data-theme=android] .pgrp,html[data-theme=android] .pme{background:#111b21}
 html[data-theme=ios] .vcard{background:#fff}html[data-theme=ios] .vcard p{color:#3a3a3c}
 html[data-theme=ios] .botfoot{background:#f2f2f7}
 
+/* ---- fase 8: buscador pantalla completa, perfil del bot ---- */
+.fabs{display:none!important}
+.list{padding-bottom:96px}
+.srch .sx{display:none;position:absolute;right:22px;top:12px;width:30px;height:30px;border-radius:50%;place-items:center;color:#c7c7cc}
+.srch .sx svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+#q::-webkit-search-cancel-button{display:none}
+.sfil{display:none;gap:4px;margin:2px 12px 6px;padding:4px;background:#161618;border-radius:999px;overflow-x:auto;scrollbar-width:none}
+.sfil button{flex:1;white-space:nowrap;padding:9px 14px;border-radius:999px;color:#8e8e93;font-weight:700;font-size:14.5px;transition:background .2s,color .2s}
+.sfil button.on{background:#23303f;color:#fff}
+#app.sm .top,#app.sm .bnav{display:none}
+#app.sm .srch{padding-top:max(14px,env(safe-area-inset-top));animation:srin .22s ease both}
+#app.sm .srch .sx{display:grid}
+#app.sm .srch input{background:#1e1e21;box-shadow:inset 0 0 0 1px rgba(77,155,255,.45);padding-right:44px}
+#app.sm .sfil{display:flex;animation:srin .22s .04s ease both}
+#app.sm .list{padding-bottom:20px}
+@keyframes srin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.sres{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:90px 30px 0;color:#8e8e93;font-size:14.5px;line-height:1.45}
+.sres b{color:#fff;font-size:21px;font-weight:700}
+.sill{width:120px;height:120px;margin-bottom:6px;animation:sfloat 3.2s ease-in-out infinite}
+@keyframes sfloat{50%{transform:translateY(-6px)}}
+.binfo{display:flex;flex-direction:column;align-items:center;gap:6px;padding-top:8px}
+.binfo .bn{font-size:21px;font-weight:800;display:flex;align-items:center}
+.binfo .bs{color:var(--mut);font-size:14px}
+.mh .who{background:none;color:inherit;font:inherit}
+html[data-theme=ios] .sfil{background:#eeeef0}html[data-theme=ios] .sfil button.on{background:#fff;color:#000}
+html[data-theme=ios] .sres b{color:#000}
+#app.sm .srch svg{top:24px}#app.sm .srch .sx{top:22px}
+
 </style>
 </head>
 <body>
@@ -600,10 +628,10 @@ html[data-theme=ios] .botfoot{background:#f2f2f7}
       <h1>WarMess<small>Beta</small></h1>
       <button class="dots" data-act="menu" aria-label="Más opciones"><svg viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19.5" r="2"/></svg></button>
     </div>
-    <div class="srch"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" inputmode="search" placeholder="Buscar chats" autocomplete="off" maxlength="30" aria-label="Buscar"></div>
+    <div class="srch"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" inputmode="search" placeholder="Buscar chats" autocomplete="off" maxlength="30" aria-label="Buscar"><button class="sx" data-act="srchX" aria-label="Cerrar búsqueda"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="sfil" id="sfil"><button class="on" data-act="sf" data-f="all">Todo</button><button data-act="sf" data-f="chats">Chats</button><button data-act="sf" data-f="people">Personas</button><button data-act="sf" data-f="groups">Grupos</button></div>
     <div class="ptabs" id="ptabs" hidden><button class="on" data-act="ptab" data-t="chats">Chats</button><button data-act="ptab" data-t="story">Historias</button><button data-act="ptab" data-t="arch">Archivados <b id="archN" hidden>0</b></button><button data-act="ptab" data-t="reqs">Solicitudes <b id="reqN" hidden>0</b></button></div>
     <div class="list" id="list"></div>
-    <div class="fabs" id="fabs"><button class="fab sm" data-act="stAdd" aria-label="Añadir historia"><svg viewBox="0 0 24 24"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h1.2a1 1 0 0 0 .8-.4L9.6 4h4.8l1.1 1.6a1 1 0 0 0 .8.4h1.2A2.5 2.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5z"/><circle cx="12" cy="12.5" r="3.4"/></svg></button><button class="fab" id="fabNew" data-act="fabNew" aria-label="Nuevo chat"><svg viewBox="0 0 24 24"><path d="M12 3C6.8 3 3 6.5 3 11c0 2 .8 3.8 2.1 5.2L4 21l4.4-1.9c1.1.3 2.4.5 3.6.5 5.2 0 9-3.5 9-8.1S17.2 3 12 3z"/><path class="pl" d="M12 7.8v6.4M8.8 11h6.4"/></svg></button></div>
     <nav class="bnav" id="bnav" aria-label="Navegación"><button class="on" data-act="nav" data-n="chats"><span class="ni"><svg viewBox="0 0 24 24"><path d="M8.5 4C5 4 2.5 6.4 2.5 9.4c0 1.3.5 2.5 1.3 3.4L3 16l3.2-1.3c.7.2 1.5.3 2.3.3 3.5 0 6-2.4 6-5.3S12 4 8.5 4z"/><path d="M16.8 9.4c2.8.4 4.7 2.4 4.7 4.9 0 1.2-.5 2.3-1.3 3.1l.8 2.6-3.1-1.3c-.6.2-1.2.3-1.9.3-2.3 0-4.3-1-5.2-2.6"/></svg></span><span class="nl">Chats</span></button><button data-act="nav" data-n="story"><span class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><circle cx="12" cy="9.6" r="3"/><path d="M6.2 18.2c1.2-2.3 3.2-3.5 5.8-3.5s4.6 1.2 5.8 3.5"/></svg></span><span class="nl">Novedades</span></button><button data-act="nav" data-n="settings"><span class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></span><span class="nl">Ajustes</span></button><button data-act="nav" data-n="profile"><span class="ni" id="navAv"></span><span class="nl">Perfil</span></button></nav>
   </aside>
   <main class="main" id="main"></main>
@@ -713,8 +741,10 @@ const av = (name, foto, cls = "") => {
   return photoOk(foto) ? `<div class="av ${cls}" style="background-image:url('${esc(foto)}')"></div>`
     : `<div class="av ${cls} dflt" role="img" aria-label="Sin foto de perfil"></div>`;
 };
-const SEAL = (() => { let d = ""; for(let k = 0; k <= 120; k++){ const t = k / 120 * 2 * Math.PI, r = 10.1 + 1.35 * Math.cos(8 * t); d += (k ? "L" : "M") + (12 + r * Math.cos(t)).toFixed(2) + " " + (12 + r * Math.sin(t)).toFixed(2); } return d + "Z"; })();
-const sealSvg = (col, cls = "vb") => `<svg class="${cls}" viewBox="0 0 24 24" aria-label="Cuenta verificada"><path d="${SEAL}" fill="${col}"/><path d="M7.7 12.3l3 3 5.6-6.1" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const SEAL = (() => { let d = ""; for(let k = 0; k <= 160; k++){ const t = k / 160 * 2 * Math.PI, r = 10.55 + 0.62 * Math.cos(8 * t); d += (k ? "L" : "M") + (12 + r * Math.cos(t)).toFixed(2) + " " + (12 + r * Math.sin(t)).toFixed(2); } return d + "Z"; })();
+const SEALC = { "#1d8cff": ["#4db2ff", "#1275ec", "sB"], "#f0423c": ["#ff7469", "#d92a2f", "sR"] };
+let sealN = 0;
+const sealSvg = (col, cls = "vb") => { const g = (SEALC[col] || [col, col]).slice(0, 2).concat("sg" + (++sealN)); return `<svg class="${cls}" viewBox="0 0 24 24" aria-label="Cuenta verificada"><defs><linearGradient id="${g[2]}" x1="3" y1="2" x2="21" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="${g[0]}"/><stop offset="1" stop-color="${g[1]}"/></linearGradient></defs><path d="${SEAL}" fill="url(#${g[2]})"/><path d="M12 2.6a9.4 9.4 0 0 1 8.4 5.2" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.1" stroke-linecap="round"/><path d="M7.6 12.4l3.1 3.1 5.7-6.3" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`; };
 const badge = (p) => (p && p.verificado) ? sealSvg(p.rango === "Creador" ? "#f0423c" : "#1d8cff") : "";
 const rkTag = (p) => (p && p.rango) ? `<div><span class="rk ${p.rango === "Creador" ? "cr" : ""}">${esc(p.rango)}</span></div>` : "";
 const normU = (v) => String(v || "").trim().replace(/^@/, "").toLowerCase();
@@ -794,7 +824,7 @@ async function fileToAvatar(file){
 let user = null, prof = null, priv = null, isAdm = false, seq = 0;
 let chats = new Map(), peers = new Map(), cur = null, msgsData = [], msgLimit = 40, ptab = "chats", qtxt = "", qSeq = 0, qRes = null;
 let unsubTk = null, unsubChats = null, unsubMsgs = null, unsubPeer = null, unsubSelf = null, statusT = null, verT = null, compSig = "", firstChats = true, olderFlag = false, firstMsgs = true;
-let avisos = [], unsubAv = null, botOn = false, avDeliv = new Set(), avSeen = new Set(), claimTried = false, imgTarget = "", stDraft = null, sv = null, stT = null, notesOn = false, unsubNotes = null, notesData = [], gaRes0 = null;
+let srch = false, sf = "all", avisos = [], unsubAv = null, botOn = false, avDeliv = new Set(), avSeen = new Set(), claimTried = false, imgTarget = "", stDraft = null, sv = null, stT = null, notesOn = false, unsubNotes = null, notesData = [], gaRes0 = null;
 let sel = new Set(), expT = null, noSeen = false, selChat = null, chatsP = new Map(), groupsP = new Map(), unsubGrp = null;
 let photo = { onb: null, prof: null }, avTarget = "onb", lastSend = 0, markBusy = false;
 const me = () => user && user.uid;
@@ -1104,6 +1134,7 @@ function beep(force){
 }
 /* ---- lista de chats / solicitudes / búsqueda por ID ---- */
 function setPtab(t){
+  if(srch) srchOff();
   ptab = t; document.querySelectorAll('[data-act="ptab"]').forEach((b) => b.classList.toggle("on", b.dataset.t === t));
   clearInterval(stT); if(t === "story"){ refreshStoryPeers(); stT = setInterval(refreshStoryPeers, 45000); }
   renderList();
@@ -1124,8 +1155,38 @@ function navSync(){
   const na = $("navAv"); if(na && prof){ const k = (prof.foto || "") + "|" + (prof.nombre || ""); if(na.dataset.k !== k){ na.dataset.k = k; na.innerHTML = av(prof.nombre, prof.foto, "sm"); } }
 }
 const backRow = (t) => `<button class="row arow" data-act="ptab" data-t="chats"><div class="ab" style="background:transparent">${'<svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>'}</div><div class="mid"><div class="nm">${t}</div></div></button>`;
+const SRCHSVG = '<svg class="sill" viewBox="0 0 120 120" fill="none"><defs><linearGradient id="sg1" x1="20" y1="10" x2="100" y2="110" gradientUnits="userSpaceOnUse"><stop stop-color="#4db2ff"/><stop offset="1" stop-color="#5e5ce6"/></linearGradient></defs><circle cx="52" cy="52" r="30" stroke="url(#sg1)" stroke-width="9"/><path d="m75 75 26 26" stroke="url(#sg1)" stroke-width="11" stroke-linecap="round"/><path d="M40 46a15 15 0 0 1 14-10" stroke="#fff" stroke-opacity=".5" stroke-width="5" stroke-linecap="round"/><circle cx="98" cy="22" r="4" fill="#4db2ff"/><circle cx="18" cy="84" r="3" fill="#5e5ce6"/><path d="M96 44v10M91 49h10" stroke="#8cc0ff" stroke-width="3" stroke-linecap="round"/></svg>';
+function srchOn(){ if(srch) return; if(ptab !== "chats") setPtab("chats"); srch = true; $("app").classList.add("sm"); renderList(); }
+function srchOff(){ if(!srch) return; srch = false; sf = "all"; $("app").classList.remove("sm"); $("q").value = ""; qtxt = ""; qRes = null; qSeq++; try{ $("q").blur(); }catch(e){} document.querySelectorAll("#sfil [data-f]").forEach((x) => x.classList.toggle("on", x.dataset.f === "all")); renderList(); }
+function renderSearch(L){
+  const q = qtxt.trim(), raw = q.replace(/^@/, ""), mode = qMode();
+  if(!q){ L.innerHTML = `<div class="sres">${SRCHSVG}<b>Busca por @usuario o ID</b><span>Escribe el nombre de usuario o el ID de una persona o grupo.</span></div>`; return; }
+  let rows = [...chats.values()].filter((c) => (c.estado === "activo" || (c.estado === "pendiente" && c.solicita === me()) || c.estado === "bloqueado") && !isDel(c));
+  const n = raw.toLowerCase();
+  rows = rows.filter((c) => { if(isG(c)) return nameOf(c).toLowerCase().includes(n) || String(c.usuario || "").includes(n) || String(c.num || c.id || "").includes(n); const p = peers.get(otherOf(c)); return nameOf(c).toLowerCase().includes(n) || (p && (String(p.usuario || "").includes(n) || String(p.id || "") === raw)); });
+  if(sf === "people") rows = rows.filter((c) => !isG(c)); else if(sf === "groups") rows = rows.filter((c) => isG(c));
+  rows.sort((x, y) => ms(y.ultimoMsgAt) - ms(x.ultimoMsgAt));
+  let html = "", loading = false;
+  const res = (qRes || []).filter((u) => sf === "all" || (sf === "people" && !u.g) || (sf === "groups" && u.g)), exist = new Set(rows.map((c) => c.id));
+  if(rows.length) html += `<div class="hint">Tus chats</div>` + rows.map(chatRow).join("");
+  if(sf !== "chats" && mode && raw.length >= 3){
+    if(qRes === null) loading = true;
+    else{
+      const rr = res.filter((u) => u.g ? !exist.has(u.gid) : !exist.has([me(), u.uid].sort().join("_")) );
+      if(rr.length) html += `<div class="hint">${mode === "id" ? "Por ID" : "Por nombre de usuario"}</div>` + rr.map((u) => {
+        if(u.g){ const ex = chats.get(u.gid), bt = ex ? `<button class="btn sm ghost" data-act="open" data-c="${esc(u.gid)}">Abrir</button>` : u.abierto ? `<button class="btn sm" data-act="joinG" data-g="${esc(u.gid)}">Unirse</button>` : '<span style="color:var(--mut);font-size:12.5px">Por invitación</span>';
+          return `<div class="row" style="cursor:default">${avG(u.nombre, u.foto)}<div class="mid"><div class="nm">${esc(u.nombre)}</div><div class="sub">Grupo · @${esc(u.usuario)} · ID ${esc(u.id)}</div></div>${bt}</div>`; }
+        const self = u.uid === me(), cid = [me(), u.uid].sort().join("_"), ex = chats.get(cid);
+        const btn = self ? '<span style="color:var(--mut);font-size:13px">Eres tú</span>' : ex ? `<button class="btn sm ghost" data-act="open" data-c="${esc(cid)}">${ex.estado === "pendiente" ? (ex.solicita === me() ? "Pendiente" : "Ver solicitud") : "Abrir"}</button>` : `<button class="btn sm" data-act="connect" data-u="${esc(u.uid)}">Agregar</button>`;
+        return `<div class="row" style="cursor:default">${av(u.nombre, fotoOf(u))}<div class="mid"><div class="nm">${esc(u.nombre)}${badge(u)}</div><div class="sub">${u.usuario ? "@" + esc(u.usuario) + " · " : ""}ID ${esc(u.id)}</div></div>${btn}</div>`; }).join("");
+    }
+  }
+  if(!html) html = loading ? `<div class="sres"><span>Buscando…</span></div>` : `<div class="sres">${SRCHSVG}<b>Sin resultados</b><span>Prueba con otro @usuario o ID.</span></div>`;
+  L.innerHTML = html;
+}
 function renderList(){
   const L = $("list"); if(!L) return; navSync();
+  if(srch) return renderSearch(L);
   if(ptab === "story" && !qtxt.trim()) return renderStories(L);
   const q = qtxt.trim(), all = [...chats.values()];
   if(ptab === "reqs"){
@@ -1218,7 +1279,7 @@ async function answerReq(cid, ok){
 /* ---- chat ---- */
 function openChat(cid){
   if(typeof pgStack !== "undefined" && pgStack.length) pgClear();
-  const c = chats.get(cid); if(!c) return; if(notesOn) stopNotes(true); botOn = false;
+  const c = chats.get(cid); if(!c) return; if(srch) srchOff(); if(notesOn) stopNotes(true); botOn = false;
   if(cur !== cid){
     if(!cur) try{ history.pushState({ wm:1 }, ""); }catch(e){}
     try{ unsubMsgs && unsubMsgs(); unsubPeer && unsubPeer(); }catch(e){}
@@ -1636,16 +1697,23 @@ function openBot(){
   if(cur){ try{ unsubMsgs && unsubMsgs(); unsubPeer && unsubPeer(); }catch(e){} unsubMsgs = unsubPeer = null; clearInterval(statusT); cur = null; msgsData = []; sel = new Set(); }
   else try{ history.pushState({ wm:1 }, ""); }catch(e){}
   botOn = true;
-  $("main").innerHTML = `<div class="mh" id="mhBar"><button class="ibtn back" data-act="back" aria-label="Volver">${IC.back}</button><div class="who" style="cursor:default"><span>${botAv("sm")}</span><div><div class="t1">${BOT_NAME}${badge(VBADGE)}</div><div class="t2">Cuenta oficial · avisos de tu cuenta</div></div></div><button class="ibtn" data-act="botArch" aria-label="Archivar chat">${P('<path d="M4 5.5h16v3.5H4zM5.5 9v9.5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V9M10 13h4"/>')}</button></div>
-    <div class="msgs" id="bmsgs"></div><div class="botfoot">🔒 Solo WarMess puede enviar mensajes en este chat.</div>`;
+  $("main").innerHTML = `<div class="mh" id="mhBar"><button class="ibtn back" data-act="back" aria-label="Volver">${IC.back}</button><button class="who" data-act="botInfo"><span>${botAv("sm")}</span><div><div class="t1">${BOT_NAME}${badge(VBADGE)}</div><div class="t2">Cuenta oficial · avisos de tu cuenta</div></div></button><button class="ibtn" data-act="botArch" aria-label="Archivar chat">${P('<path d="M4 5.5h16v3.5H4zM5.5 9v9.5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V9M10 13h4"/>')}</button></div>
+    <div class="msgs" id="bmsgs"></div><div class="botfoot">Solo WarMess puede enviar mensajes en este chat.</div>`;
   $("shell").classList.add("chat"); renderBot(); botSeen(); renderList();
 }
 function renderBot(){
   const el = $("bmsgs"); if(!el) return; let h = "", last = 0;
-  if(!avisos.length) h = `<div class="sysm">🔔 Aquí recibirás avisos oficiales de WarMess: verificación, estado de tu cuenta y novedades.</div>`;
+  if(!avisos.length) h = `<div class="sysm">Aquí recibirás avisos oficiales de WarMess: verificación, estado de tu cuenta y novedades.</div>`;
   avisos.forEach((x) => { const t = ms(x.creado) || Date.now(); if(!last || !sameDay(last, t)){ h += `<div class="day">${esc(dayLabel(t))}</div>`; last = t; }
     h += `<div class="b him" style="white-space:pre-wrap">${esc(x.texto)}<span class="tm">${esc(fmtT(t))}</span></div>`; });
   el.innerHTML = h; el.scrollTop = el.scrollHeight;
+}
+function botInfo(){
+  $("shInfo").innerHTML = `<h2>Perfil<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
+    <div class="binfo">${botAv("lg")}<div class="bn">${BOT_NAME}${badge(VBADGE)}</div><div class="bs">Cuenta oficial · avisos</div></div>
+    <div class="pgrp" style="margin:16px 0 0"><div class="pr c-blue" style="cursor:default"><span class="pi">${P(I5.info)}</span><span class="pt"><b>Cuenta oficial</b><small>Avisos sobre tu cuenta, verificación y novedades de WarMess. Solo WarMess puede enviar mensajes.</small></span></div>
+    <button class="pr c-orange" data-act="botArch2"><span class="pi">${P('<path d="M4 5.5h16v3.5H4zM5.5 9v9.5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V9M10 13h4"/>')}</span><span class="pt"><b>${botIsArch() ? "Desarchivar chat" : "Archivar chat"}</b><small>Este chat no se puede bloquear ni reportar</small></span></button></div>`;
+  openOv("ovInfo");
 }
 function botArch(){
   if(botIsArch()){ store.set(botArchKey(), "0"); toast("Chat desarchivado"); renderList(); return; }
@@ -2258,7 +2326,7 @@ function renderAvi(){
       <div class="gt" style="margin:18px 2px 6px">Avisos enviados (los 200 más recientes)</div><div id="avList"></div>`;
   }
   const L = $("avList"); if(!L) return;
-  L.innerHTML = aAvi.length ? aAvi.map((x) => `<div class="acard"><div class="nm" style="font-weight:650">${esc(aName(x.para))}${x.tipo === "verif" ? ' <span class="pill activo" style="margin:0">verificación</span>' : ""}</div><div style="margin:5px 0;white-space:pre-wrap">${esc(x.texto)}</div><div style="font-size:12.5px;color:var(--mut);line-height:1.5">Enviado: ${esc(fmtSec(ms(x.creado)))}<br>Entregado: ${x.entregado ? esc(fmtSec(ms(x.entregado))) : "pendiente (aún no abre WarMess)"}<br>Visto: ${x.visto ? `<b style="color:var(--ok)">${esc(fmtSec(ms(x.visto)))}</b>` : "aún no"}</div></div>`).join("") : `<div class="empty"><div class="big">🔔</div>Aún no has enviado avisos.</div>`;
+  L.innerHTML = aAvi.length ? aAvi.map((x) => `<div class="acard"><div class="nm" style="font-weight:650">${esc(aName(x.para))}${x.tipo === "verif" ? ' <span class="pill activo" style="margin:0">verificación</span>' : ""}</div><div style="margin:5px 0;white-space:pre-wrap">${esc(x.texto)}</div><div style="font-size:12.5px;color:var(--mut);line-height:1.5">Enviado: ${esc(fmtSec(ms(x.creado)))}<br>Entregado: ${x.entregado ? esc(fmtSec(ms(x.entregado))) : "pendiente (aún no abre WarMess)"}<br>Visto: ${x.visto ? `<b style="color:var(--ok)">${esc(fmtSec(ms(x.visto)))}</b>` : "aún no"}</div></div>`).join("") : `<div class="empty">Aún no has enviado avisos.</div>`;
 }
 async function avSend(){
   const to = $("avTo").value, tx = $("avTx").value.trim(); if(tx.length < 3) return toast("Escribe el mensaje del aviso.");
@@ -2602,9 +2670,10 @@ const A = {
   sndTest: () => beep(true),
   newGroup: newGroupSheet, gpGo: createGroup, joinG: (t) => joinGroup(t.dataset.g), gBack: groupInfo, gEdit: gEditSheet, gEditSave, gAdd: gAddSheet, gSearch, gAddU: (t) => gAddU(t.dataset.u),
   gKick: (t) => gKick(t.dataset.u), gPerms: (t) => gPermsSheet(t.dataset.u), gPermSave: (t) => gPermSave(t.dataset.u, false), gAdmRm: (t) => gPermSave(t.dataset.u, true), gLeave, gDelete,
-  nav: (t) => { const n = t.dataset.n; if(n === "chats" || n === "story"){ if(cur) closeChatUI(); setPtab(n); } else if(n === "settings") pgGo("settings"); else if(n === "profile") pgGo("profile"); },
+  nav: (t) => { if(srch) srchOff(); const n = t.dataset.n; if(n === "chats" || n === "story"){ if(cur) closeChatUI(); setPtab(n); } else if(n === "settings") pgGo("settings"); else if(n === "profile") pgGo("profile"); },
   fabNew: () => { setPtab("chats"); const q = $("q"); q.focus(); toast("Escribe un @usuario o un ID para buscar a alguien"); },
-  openBot, botArch, vmodOk, avSend,
+  sf: (t) => { sf = t.dataset.f; document.querySelectorAll("#sfil [data-f]").forEach((x) => x.classList.toggle("on", x.dataset.f === sf)); renderList(); }, srchX: () => { if(qtxt){ $("q").value = ""; onSearch(); $("q").focus(); } else srchOff(); },
+  openBot, botArch, botInfo, botArch2: () => { closeOv("ovInfo"); botArch(); }, vmodOk, avSend,
   menu: () => pgGo("settings"), menuProf: () => { closeOv("ovInfo"); openProfile(); }, menuLegal: () => { closeOv("ovInfo"); openOv("ovLegal"); }, friends: friendsSheet,
   fOpen: (t) => { closeOv("ovInfo"); openChat(t.dataset.c); }, creatorSheet, crMsg: (t) => { closeOv("ovInfo"); connectSheet(t.dataset.u); }, crOpen: (t) => { closeOv("ovInfo"); openChat(t.dataset.c); },
   stAdd: () => { imgTarget = "story"; $("imgFile").click(); }, stOpen: (t) => openStories(t.dataset.u), storyPost: postStory, svClose: stClose, svPrev: stPrev, svNext: () => stNext(false), svHeart: stHeart, svViews: stViews, svDel: stDelete,
@@ -2634,10 +2703,11 @@ document.addEventListener("input", (e) => { if(e.target.id === "aq") renderUsers
 $("aForm").addEventListener("submit", emailSubmit);
 $("avFile").addEventListener("change", onAvatarFile);
 $("q").addEventListener("input", onSearch);
+$("q").addEventListener("focus", srchOn);
 $("onbNm").addEventListener("input", () => { if(!photo.onb) paintOnbAv(); });
 watchUname($("onbUs"), $("onbUst"), "");
 watchUname($("usIn"), $("usSt"), "");
-window.addEventListener("popstate", () => { if(pgStack.length){ pgPop(); return; } if(cur || notesOn || botOn) closeChatUI(); });
+window.addEventListener("popstate", () => { if(srch){ srchOff(); return; } if(pgStack.length){ pgPop(); return; } if(cur || notesOn || botOn) closeChatUI(); });
 if(window.visualViewport){
   const f = () => { document.documentElement.style.setProperty("--vh", window.visualViewport.height + "px"); if(window.scrollY) window.scrollTo(0, 0); };
   window.visualViewport.addEventListener("resize", f); window.visualViewport.addEventListener("scroll", f); f();
