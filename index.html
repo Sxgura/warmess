@@ -433,6 +433,54 @@ html[data-theme=ios] .fab:not(.sm) svg{fill:#000}html[data-theme=ios] .fab:not(.
 html[data-theme=ios] .fab.sm{background:#f0f0f3}
 .side,.top,.srch,.shell{background:#000}
 
+/* ---- fase 6b: compacto + ajustes con iconos de color ---- */
+.top{padding:max(12px,env(safe-area-inset-top)) 16px 4px 18px}
+.top h1{font-size:28px}
+.top h1 small{font-size:9.5px;margin-left:6px;padding:2px 6px;border-radius:6px;background:#15233a;color:#6ea8ff;vertical-align:middle}
+.dots{width:36px;height:38px}.dots svg{width:21px;height:21px}
+.srch{padding:4px 12px 8px}
+.srch input{height:40px;font-size:15px;padding-left:44px;background:#16161a;box-shadow:inset 0 0 0 1px #202026}
+.srch svg{left:25px;top:15px;width:18px;height:18px}
+.list{padding-bottom:104px}
+.list .row{padding:7px 14px 7px 12px;min-height:62px;gap:12px}
+.list .row .av{width:44px;height:44px;font-size:17px}
+.list .row .nm{font-size:16px}
+.list .row .sub{font-size:14px;margin-top:1px}
+.list .row .meta{font-size:12px}
+.arow .ab{width:44px;height:44px;background:linear-gradient(145deg,#3a3a3f,#26262a);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.arow .ab svg{width:22px;height:22px}
+.arow .nm.mut{font-size:16px}
+.arow .cnt{min-width:21px;height:21px;font-size:12px;background:linear-gradient(135deg,#4d9bff,#5e5ce6)}
+.fabs{right:14px;bottom:88px;gap:12px}
+.fab.sm{width:38px;height:38px;background:#1a1a1f;box-shadow:inset 0 0 0 1px #2a2a32,0 6px 16px rgba(0,0,0,.5)}
+.fab.sm svg{width:20px;height:20px}
+.fab:not(.sm){width:52px;height:52px;background:linear-gradient(135deg,#4d9bff,#5e5ce6);box-shadow:0 8px 22px rgba(77,155,255,.38)}
+.fab:not(.sm) svg{width:26px;height:26px}
+.fab:not(.sm) svg .pl{stroke:#4d84f0}
+.bnav{bottom:max(10px,env(safe-area-inset-bottom));width:min(calc(100% - 56px),340px);padding:4px;background:rgba(32,32,36,.96);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),0 8px 26px rgba(0,0,0,.65)}
+.bnav button{padding:5px 2px 4px;gap:1px;color:#c9c9d1}
+.bnav .ni{height:24px}.bnav .ni svg{width:23px;height:23px}.bnav .ni .av{width:24px;height:24px;font-size:10px}
+.bnav .nl{font-size:11.5px;font-weight:700}
+.bnav button.on{background:linear-gradient(160deg,#24508f,#173257);color:#8cc0ff;box-shadow:inset 0 0 0 1px rgba(120,180,255,.25),0 0 14px rgba(77,155,255,.25)}
+.bnav button.on .ni{animation:nipop .35s cubic-bezier(.2,.9,.3,1.4)}
+@keyframes nipop{from{transform:scale(.7)}to{transform:none}}
+/* ajustes */
+.pgrp{margin:12px 14px 0;border-radius:18px;background:#0f0f12}
+.pr{padding:10px 14px;gap:13px;border-bottom:0;position:relative}
+.pr:not(:last-child)::after{content:"";position:absolute;left:61px;right:0;bottom:0;height:1px;background:rgba(255,255,255,.06)}
+.pr .pi{width:34px;height:34px;border-radius:10px;color:#fff;background:linear-gradient(145deg,var(--c1,#3b9bff),var(--c2,#1f6fe0));box-shadow:0 2px 6px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.25)}
+.pr .pi svg{width:20px;height:20px}
+.pr .pt b{font-size:16px;font-weight:600}
+.pr .pt small{font-size:12.5px;margin-top:1px;color:#8b8b93}
+.pr.c-blue{--c1:#3fa4ff;--c2:#1a73e8}.pr.c-green{--c1:#4cd964;--c2:#1fa63a}.pr.c-purple{--c1:#a46bff;--c2:#6c3fd9}.pr.c-orange{--c1:#ffae3a;--c2:#f0780a}.pr.c-red{--c1:#ff6b61;--c2:#e0352b}.pr.c-teal{--c1:#3fd0d0;--c2:#1596a8}.pr.c-cyan{--c1:#4fc3f7;--c2:#1e88d6}.pr.c-pink{--c1:#ff6fa8;--c2:#d63384}.pr.c-yellow{--c1:#ffd24a;--c2:#f0a000}.pr.c-indigo{--c1:#7c7cff;--c2:#4a47d6}
+.pr.red{color:#ff453a}.pr.red .pi{color:#fff}
+.pme{margin:8px 14px 0;padding:12px 14px;border-radius:18px;background:#0f0f12}
+.pme .av{width:56px;height:56px;font-size:21px}
+.pme .pt b{font-size:18px}
+html[data-theme=ios] .pgrp,html[data-theme=ios] .pme{background:#fff}
+html[data-theme=iosdark] .pgrp,html[data-theme=iosdark] .pme{background:#1c1c1e}
+html[data-theme=android] .pgrp,html[data-theme=android] .pme{background:#111b21}
+
 </style>
 </head>
 <body>
@@ -583,6 +631,17 @@ html[data-theme=ios] .fab.sm{background:#f0f0f3}
 <div id="pgs"></div>
 <div class="toast" id="toast" role="status"></div>
 
+<script>
+(function(){var E=[];function add(m){E.push(String(m).slice(0,200));}
+window.addEventListener("error",function(e){add((e.message||"error")+(e.filename?" @"+String(e.filename).split("/").pop()+":"+e.lineno:""));});
+window.addEventListener("unhandledrejection",function(e){add("promesa: "+(e.reason&&(e.reason.message||e.reason.code)||e.reason));});
+setTimeout(function(){var bt=document.getElementById("boot");if(!bt||!bt.classList.contains("on"))return;
+var why=window.__wm?"La app arrancó pero no pudo cargar tu cuenta (¿conexión o reglas de Firestore?).":"No se pudo cargar el código de Firebase (revisa tu conexión, bloqueadores de contenido o la caché).";
+var d=document.createElement("div");d.style.cssText="max-width:320px;margin:22px auto 0;text-align:center;font:14px/1.45 sans-serif;color:#c7c7cc;padding:0 18px";
+d.innerHTML="<p style='margin:0 0 10px'>"+why+"</p>"+(E.length?"<p style='font-size:12px;color:#ff6b61;word-break:break-word;margin:0 0 12px'>"+E.slice(-3).join("<br>").replace(/</g,"&lt;")+"</p>":"")+"<button id='wdR' style='background:#0a84ff;color:#fff;border-radius:12px;padding:11px 20px;font-weight:700;border:0'>Reintentar</button>";
+bt.appendChild(d);document.getElementById("wdR").onclick=function(){location.reload();};},9000);})();
+</script>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult,
@@ -593,6 +652,7 @@ import { getFirestore, collection, doc, getDoc, getDocs, setDoc, updateDoc, dele
   onSnapshot, serverTimestamp, writeBatch, increment, Timestamp, arrayUnion, initializeFirestore, persistentLocalCache, persistentMultipleTabManager
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+window.__wm = 1;
 /* ================= CONFIGURACIÓN ================= */
 const firebaseConfig = {
   apiKey: "AIzaSyApiO7_x468L0k0u7vheUW_luEWJ41VRUQ",
@@ -821,7 +881,7 @@ async function verResend(){
 
 /* ---- enrutar según el estado de la cuenta ---- */
 onAuthStateChanged(auth, (u) => {
-  teardown(); user = u; const my = ++seq;
+  try{ teardown(); }catch(e){ console.log("teardown", e); } user = u; const my = ++seq;
   if(!u){ scr("auth"); return; }
   scr("boot"); route(my);
 });
@@ -830,7 +890,7 @@ async function route(my){
   if(!user) return;
   try{
     if(!user.emailVerified) return showVerify();
-    const s = await getDoc(doc(db, "wm_users", user.uid));
+    const s = await Promise.race([getDoc(doc(db, "wm_users", user.uid)), new Promise((_, rj) => setTimeout(() => rj({ code:"timeout" }), 20000))]);
     if(my && my !== seq) return;
     if(!s.exists()) return showOnb();
     prof = s.data();
@@ -2169,7 +2229,10 @@ const OPT = {
 };
 const myPriv = () => ({ foto:"todos", ult:"todos", onl:"todos", bio:"todos", lect:"todos", grp:"amigos", ...((prof && prof.priv) || {}) });
 const privSummary = (u) => { const q = { foto:"todos", ult:"todos", onl:"todos", bio:"todos", lect:"todos", grp:"amigos", ...((u && u.priv) || {}) }; return `Foto: ${PRIV_LBL[q.foto]} · Última vez: ${PRIV_LBL[q.ult]} · En línea: ${PRIV_LBL[q.onl]} · Descripción: ${PRIV_LBL[q.bio]} · Lectura: ${PRIV_LBL[q.lect]} · Grupos: ${q.grp === "inv" ? "solo invitación" : "amigos directo"}`; };
-const pgRow = (ic, t, act, data = "", sub = "", cls = "") => `<button class="pr ${cls}" data-act="${act}" ${data}><span class="pi">${P(ic)}</span><span class="pt"><b>${t}</b>${sub ? `<small>${sub}</small>` : ""}</span>${cls.includes("nochev") ? "" : CHEV}</button>`;
+const PGC = { user:"blue", key:"blue", lock:"green", pal:"purple", info:"cyan", grp:"teal", mail:"orange", plus:"green", block:"red", eye:"teal", clock:"orange", chat:"green", doc:"blue", flag:"red", bell:"red", star:"yellow", cam:"pink", tel:"green", at:"purple", ig:"pink", link:"blue", idc:"indigo", out:"red", up:"purple" };
+const PGI = Object.keys(PGC).filter((k) => I5[k]).map((k) => [I5[k], PGC[k]]);
+const pgCol = (ic) => { const m = PGI.find((x) => x[0] === ic); return m ? m[1] : "blue"; };
+const pgRow = (ic, t, act, data = "", sub = "", cls = "") => `<button class="pr c-${/\bc-(\w+)/.test(cls) ? RegExp.$1 : pgCol(ic)} ${cls}" data-act="${act}" ${data}><span class="pi">${P(ic)}</span><span class="pt"><b>${t}</b>${sub ? `<small>${sub}</small>` : ""}</span>${cls.includes("nochev") ? "" : CHEV}</button>`;
 const lgEv = (a, b) => { try{ logEv(a, b, "", ""); }catch(e){} };
 
 /* --- apariencia (guardada en este dispositivo) --- */
@@ -2211,7 +2274,7 @@ function pgClear(){ pgStack.splice(0).forEach((e) => e.el.remove()); }
 /* --- definición de páginas --- */
 const PG = {
   settings: () => ({ t:"Ajustes", h:`<button class="pme" data-act="pgGo" data-p="profile">${av(prof.nombre, prof.foto)}<span class="pt"><b>${esc(prof.nombre)}${badge(prof)}</b><small>${esc(prof.bio || "Sin descripción")}</small></span>${CHEV}</button>
-    <div class="pgrp">${pgRow(I5.key, "Cuenta", "pgGo", 'data-p="account"', "Contraseña, correo y cuentas guardadas")}${pgRow(I5.lock, "Privacidad", "pgGo", 'data-p="privacy"', "Foto, última vez, en línea, lectura, grupos")}${pgRow(I5.pal, "Apariencia", "pgGo", 'data-p="look"', "Temas, burbujas, tamaño del texto y sonidos")}</div>
+    <div class="pgrp">${pgRow(I5.key, "Cuenta", "pgGo", 'data-p="account"', "Contraseña, correo y cuentas")}${pgRow(I5.lock, "Privacidad", "pgGo", 'data-p="privacy"', "Última vez, foto, lectura, grupos")}${pgRow(I5.pal, "Apariencia", "pgGo", 'data-p="look"', "Temas, burbujas, texto y sonidos")}</div>
     <div class="pgrp">${pgRow(I5.plus, "Nuevo grupo", "newGroup", "", "Crea un grupo con @usuario")}${pgRow(I5.grp, "Amigos", "friends", "", friendsList().length + " contacto(s)")}${ginvs.length ? pgRow(I5.up, "Invitaciones a grupos", "pgGo", 'data-p="ginv"', ginvs.length + " pendiente(s)") : ""}${pgRow(I5.star, "Creador de WarMess", "creatorSheet")}</div>
     <div class="pgrp">${pgRow(I5.info, "Información", "pgGo", 'data-p="about"', "Comentarios, políticas, reportes y créditos")}${isAdm ? pgRow(I5.key, "Panel de administración", "admin", "", "Solo creador") : ""}</div>
     <div class="pfoot">WarMess · Beta</div>` }),
@@ -2476,5 +2539,3 @@ setAmode("in");
 </script>
 </body>
 </html>
-
-
