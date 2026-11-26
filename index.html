@@ -615,6 +615,74 @@ html[data-theme=ios] .qcard{background:#fff}html[data-theme=ios] .qbar button{ba
 .pg a.pr,.pg a.pr:hover{text-decoration:none;color:inherit}
 .pg a.pr b,.pg a.pr small{text-decoration:none}
 
+/* ---- fase 10 (parte 2): mensajes, imágenes, grupos, estados ---- */
+.msgs{touch-action:pan-y}
+.b{position:relative}
+.b .mt{white-space:pre-wrap;overflow-wrap:anywhere}
+.b.swp::before{content:"";position:absolute;left:-46px;top:50%;width:32px;height:32px;margin-top:-16px;border-radius:50%;background:#2a2a31 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.5 5 4 10.5 9.5 16M4 10.5h9a6 6 0 0 1 6 6V18'/%3E%3C/svg%3E") center/18px no-repeat;opacity:var(--sw,0);transform:scale(calc(.6 + var(--sw,0) * .4))}
+.b.flash{animation:bflash 1.2s ease}
+@keyframes bflash{0%,60%{box-shadow:0 0 0 3px rgba(77,155,255,.7)}100%{box-shadow:0 0 0 3px transparent}}
+.b.img{padding:3px;border:1.5px solid rgba(255,255,255,.2)}
+.b.me.img{border-color:rgba(255,255,255,.42)}
+.b.img .mt{display:block;padding:5px 8px 2px;font-size:15px}
+.b.img .tm{margin-right:6px}
+.mimg{position:relative;display:block;line-height:0}
+.mimg img{display:block;width:auto;height:auto;max-width:232px;max-height:300px;min-width:110px;border-radius:12px;cursor:zoom-in;background:#111}
+.mdots{position:absolute;top:6px;right:6px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;display:grid;place-items:center;backdrop-filter:blur(4px);opacity:.92}
+.mdots .dts{width:16px;height:16px;fill:currentColor}
+.b.oi .tm{position:absolute;right:9px;bottom:8px;float:none;top:auto;margin:0;background:rgba(0,0,0,.52);color:#fff;padding:2px 8px;border-radius:10px;opacity:1}
+.b.oi{padding:3px}
+.rq2{display:flex;gap:8px;align-items:center;margin:1px 0 5px;padding:6px 8px;border-radius:10px;background:rgba(0,0,0,.22);border-left:3px solid rgba(255,255,255,.55);cursor:pointer;line-height:1.3}
+.b.him .rq2{border-left-color:var(--acc)}
+.rq2.st{border-left-color:#bf5af2}
+.rq2 .rqt{flex:1;min-width:0;display:flex;flex-direction:column;font-size:13px}
+.rq2 .rqt b{font-size:12.5px;color:#cfe3ff}.rq2 .rqt span{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rq2 img{width:38px;height:38px;border-radius:8px;object-fit:cover;flex:none}
+.rplb{display:flex;gap:10px;align-items:center;padding:8px 10px 8px 12px;background:#14141a;border-top:1px solid var(--line)}
+.rplb .rpbar{align-self:stretch;width:3px;border-radius:2px;background:var(--acc)}
+.rplb .rpt{flex:1;min-width:0;display:flex;flex-direction:column;font-size:13.5px}.rplb .rpt b{color:#8fc0ff;font-size:13px}.rplb .rpt span{color:#b0b0b8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rplb img{width:40px;height:40px;border-radius:8px;object-fit:cover}
+.rplb .ibtn{width:32px;height:32px}
+.cimg{width:40px;height:42px;display:grid;place-items:center;border-radius:50%;color:#9aa0ae;flex:none;transition:color .15s,transform .15s}.cimg:active{transform:scale(.9);color:var(--acc)}
+.cimg svg{width:25px;height:25px}
+.send svg{width:22px;height:22px;margin-left:-1px}
+.mrow{display:flex;align-items:flex-end;gap:6px;align-self:flex-start;max-width:94%}
+.mrow .b{max-width:calc(100% - 38px)}
+.mav{width:32px;height:32px;flex:none;border-radius:50%;padding:0;display:block}.mav.sp{visibility:hidden}.mav .av{width:32px;height:32px;font-size:13px}
+.gh{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:2px}
+.gh .sn{font-size:13px;font-weight:700;display:flex;align-items:center}.gh .sn .vb{width:14px;height:14px;margin-left:3px}
+.rl{font-size:10.5px;font-weight:800;letter-spacing:.3px;padding:1px 7px;border-radius:6px;text-transform:uppercase}
+.rl.cr{background:rgba(255,69,58,.18);color:#ff7b72}.rl.ad{background:rgba(77,155,255,.18);color:#7db8ff}
+.lbtop{position:absolute;top:max(12px,env(safe-area-inset-top));right:12px;display:flex;gap:10px}.lbtop .ibtn{background:rgba(255,255,255,.14);color:#fff}
+.lb img{max-width:96vw;max-height:88vh}
+/* estados */
+.sv .svnav{bottom:100px}.sv.rep .svnav{bottom:150px}
+.sv.paused .svbars i.run{animation-play-state:paused}
+.svrb{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:10px 12px max(14px,env(safe-area-inset-bottom));background:linear-gradient(0deg,rgba(0,0,0,.78),rgba(0,0,0,0))}
+.svq{display:flex;justify-content:center;gap:8px;margin-bottom:10px}
+.svq button{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);font-size:23px;line-height:1;transition:transform .15s}.svq button:active{transform:scale(1.25)}
+.svr{display:flex;align-items:center;gap:8px;background:rgba(30,30,34,.82);backdrop-filter:blur(10px);border-radius:999px;padding:5px 6px 5px 16px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.svr input{flex:1;min-width:0;background:none;border:0;outline:0;color:#fff;font-size:16px;padding:8px 0}
+.svr input::placeholder{color:#b8b8c0}
+.svsend{width:38px;height:38px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;flex:none}.svsend svg{width:19px;height:19px}
+.svheart{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;flex:none;transition:transform .15s}.svheart:active{transform:scale(1.2)}
+.hrt{width:26px;height:26px;fill:none;stroke:#fff;stroke-width:2;stroke-linejoin:round;transition:fill .2s,stroke .2s}
+.hrt.on{fill:#2f8cff;stroke:#2f8cff;animation:hpop .35s cubic-bezier(.2,.9,.3,1.5)}
+@keyframes hpop{from{transform:scale(.5)}60%{transform:scale(1.25)}to{transform:scale(1)}}
+.svft{position:absolute;left:0;right:0;bottom:max(18px,env(safe-area-inset-bottom));display:flex;justify-content:space-between;align-items:center;padding:0 16px;z-index:4}
+.svpill{display:flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:rgba(30,30,34,.82);backdrop-filter:blur(10px);color:#fff;font-weight:700;font-size:15px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.svpill svg{width:20px;height:20px}.svl{display:inline-flex;align-items:center;gap:3px;margin-left:6px}.svl .hrt{width:15px;height:15px}
+.svtr{width:44px;height:44px;border-radius:50%;background:rgba(30,30,34,.82);display:grid;place-items:center;color:#ff6b61}.svtr svg{width:22px;height:22px}
+.svburst{position:absolute;left:50%;bottom:170px;font-size:64px;z-index:6;pointer-events:none;animation:sburst 1.2s ease-out forwards}
+@keyframes sburst{0%{transform:translate(-50%,0) scale(.5);opacity:0}20%{opacity:1;transform:translate(-50%,-30px) scale(1.2)}100%{transform:translate(-50%,-220px) scale(1);opacity:0}}
+.svstats{display:flex;gap:10px;margin:12px 0}
+.svs{flex:1;display:flex;align-items:center;gap:8px;padding:12px 14px;border-radius:16px;background:#1b1b20;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.svs b{font-size:22px}.svs small{color:var(--mut)}.svsi{display:grid;place-items:center}.svsi svg{width:22px;height:22px}
+.svs.bl{background:rgba(47,140,255,.12)}.svs.bl .hrt{width:22px;height:22px}
+.svhr .hrt{width:22px;height:22px}
+html[data-theme=ios] .rplb{background:#f2f2f7}html[data-theme=ios] .rplb .rpt span{color:#6b6b72}
+.sv.rep .svtx{bottom:176px}
+
 </style>
 </head>
 <body>
@@ -830,10 +898,18 @@ const sleep = (n) => new Promise((r) => setTimeout(r, n));
 const store = { get(k, d = null){ try{ const v = localStorage.getItem(k); return v === null ? d : v; }catch(e){ return d; } }, set(k, v){ try{ localStorage.setItem(k, v); }catch(e){} } };
 const P = (d) => `<svg class="i" viewBox="0 0 24 24">${d}</svg>`;
 const IC = {
-  send: P('<path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/>'), back: P('<path d="M15 18l-6-6 6-6"/>'), x: P('<path d="M6 6l12 12M18 6 6 18"/>'),
+  send: P('<path d="M14.5 21.7a.5.5 0 0 0 .94-.02l6.5-19a.5.5 0 0 0-.64-.64l-19 6.5a.5.5 0 0 0-.02.94l7.93 3.18a2 2 0 0 1 1.11 1.11z"/><path d="m21.85 2.15-10.94 10.94"/>'), back: P('<path d="M15 18l-6-6 6-6"/>'), x: P('<path d="M6 6l12 12M18 6 6 18"/>'),
   check: P('<path d="M5 12.5l4.5 4.5L19 7.5"/>'), checks: P('<path d="M1.5 12.5l4.5 4.5L15 7.5M9.5 15.5l1.5 1.5L21 7.5"/>'), clock: P('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'),
   copy: P('<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>')
 };
+const IMGI = P('<rect x="3.5" y="4.5" width="17" height="15" rx="3.5"/><circle cx="9" cy="10" r="1.8"/><path d="m4 17 4.6-4.4 3.4 3.3 2.4-2.3L20 17.5"/>');
+const DLI = P('<path d="M12 4v11M7.5 10.8 12 15.3l4.5-4.5M5 19.5h14"/>');
+const TRASH = P('<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>');
+const REPLYI = P('<path d="M9.5 5 4 10.5 9.5 16M4 10.5h9a6 6 0 0 1 6 6V18"/>');
+const DOTS = '<svg viewBox="0 0 24 24" class="dts"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>';
+const HEART = (on) => `<svg class="hrt ${on ? "on" : ""}" viewBox="0 0 24 24"><path d="M12 20.8S3.5 15.4 3.5 9.2A4.7 4.7 0 0 1 8.2 4.5c1.6 0 3 .8 3.8 2.1.8-1.3 2.2-2.1 3.8-2.1a4.7 4.7 0 0 1 4.7 4.7c0 6.2-8.5 11.6-8.5 11.6z"/></svg>`;
+const EYE = P('<path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>');
+const QR = ["💙", "😂", "😮", "😢", "🙏", "👏"];
 const hue = (s) => { let h = 0; for(const c of String(s || "?")) h = (h * 31 + c.charCodeAt(0)) % 360; return h; };
 const photoOk = (f) => typeof f === "string" && f.startsWith("data:image/jpeg;base64,");   // solo se muestran fotos propias (JPEG incrustado)
 const avG = (name, foto, cls = "") => photoOk(foto) ? av(name, foto, cls) : `<div class="av ${cls} dflt grp" role="img" aria-label="Grupo" style="--h:${hue(name)}"></div>`;
@@ -940,6 +1016,27 @@ const PERMS = [["add", "Añadir miembros"], ["kick", "Quitar miembros"], ["edit"
 const gSn = (m, c) => (isG(c) && m.de !== me()) ? `<span class="sn" style="color:hsl(${hue(m.de)} 70% 68%)">${esc((peers.get(m.de) || {}).nombre || "…")}</span>` : "";
 const unreadOf = (c) => c.estado === "activo" && c.ultimoDe && c.ultimoDe !== me() && ms(c.ultimoMsgAt) > ms(c["leido" + keyOf(c, me())]);
 const nameOf = (c) => { if(isG(c)) return c.nombre || "Grupo"; const p = peers.get(otherOf(c)); return (c["apodo" + keyOf(c, me())] || "").trim() || (p ? p.nombre : "…"); };
+const roleTag = (c, uid) => { if(!isG(c)) return ""; if(uid === c.creador) return '<span class="rl cr">Creador</span>'; if(c.admins && c.admins[uid]) return '<span class="rl ad">Admin</span>'; return ""; };
+const replyWho = (de, c) => de === me() ? "Tú" : isG(c) ? ((peers.get(de) || {}).nombre || "…") : nameOf(c);
+function quoteHTML(m, c){
+  const r = m.resp || {}, st = r.k === "st", th = photoOk(r.th) ? r.th : "";
+  return `<div class="rq2 ${st ? "st" : ""}" ${r.id ? `data-act="goMsg" data-m="${esc(r.id)}"` : ""}><span class="rqt"><b>${esc(st ? "Historia" : replyWho(r.de, c))}</b><span>${esc(st ? (m.de === me() ? "Respondiste a su historia" : "Respondió a tu historia") : (r.t || (th ? "Foto" : "")))}</span></span>${th ? `<img src="${esc(th)}" alt="">` : ""}</div>`;
+}
+const replyData = () => reply ? { k:"msg", id: reply.id, de: reply.de, t: reply.t, ...(reply.th ? { th: reply.th } : {}) } : null;
+function paintReply(){
+  const w = $("rplWrap"); if(!w) return; const c = chats.get(cur);
+  if(!reply || !c){ w.innerHTML = ""; return; }
+  w.innerHTML = `<div class="rplb"><span class="rpbar"></span><div class="rpt"><b>Respondiendo a ${esc(replyWho(reply.de, c))}</b><span>${esc(reply.t || "Foto")}</span></div>${reply.th ? `<img src="${esc(reply.th)}" alt="">` : ""}<button class="ibtn" data-act="rplX" aria-label="Cancelar respuesta">${IC.x}</button></div>`;
+}
+async function replyTo(id){
+  const m = msgsData.find((x) => x.id === id); if(!m || m.tipo === "sys") return; if(!$("cForm")) return toast("No puedes responder en este chat.");
+  reply = { id, de: m.de, t: (m.texto || "").slice(0, 120), th: "" }; paintReply(); const ta = $("cTxt"); if(ta) ta.focus();
+  if(photoOk(m.img)){ try{ const th = await thumbOf(m.img, 72); if(reply && reply.id === id){ reply.th = th; paintReply(); } }catch(e){} }
+}
+function goMsg(id){
+  const el = $("msgs") && $("msgs").querySelector('[data-m="' + id + '"]'); if(!el) return toast("El mensaje original ya no está disponible.");
+  el.scrollIntoView({ block:"center", behavior:"smooth" }); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1300);
+}
 const tempOf = (c) => (c && c.temp) || "off";
 const myClear = (c) => ms(c["limpiado" + keyOf(c, me())]);
 const isArch = (c) => !!c["archivado" + keyOf(c, me())];
@@ -1224,7 +1321,7 @@ async function ensurePeers(){
   try{
     await Promise.all([...new Set(need)].map(async (u) => { try{ const s = await getDoc(doc(db, "wm_users", u)); peers.set(u, { ...(s.exists() ? s.data() : { nombre:"Usuario", estado:"eliminado" }), uid:u, _t: Date.now() }); }catch(e){ if(!peers.has(u)) peers.set(u, { nombre:"Usuario", uid:u, _t: Date.now() - 240000 }); } }));
   } finally{ peerBusy = false; }
-  renderList(); if(cur) renderHeader(); try{ pgRefresh(); }catch(e){}
+  renderList(); if(cur) renderHeader(); try{ pgRefresh(); }catch(e){} if(cur && isG(chats.get(cur))) renderMsgs();
   if(peerAgain){ peerAgain = false; ensurePeers(); }
 }
 function updateBadges(){
@@ -1407,8 +1504,8 @@ function openChat(cid){
   if(cur !== cid){
     if(!cur) try{ history.pushState({ wm:1 }, ""); }catch(e){}
     try{ unsubMsgs && unsubMsgs(); unsubPeer && unsubPeer(); }catch(e){}
-    cur = cid; msgsData = []; msgLimit = 40; compSig = ""; firstMsgs = true; olderFlag = false; noSeen = false;
-    $("main").innerHTML = `<div class="mh" id="mhBar"><button class="ibtn back" data-act="back" aria-label="Volver">${IC.back}</button><button class="who" data-act="info"><span id="mhAv"></span><div><div class="t1" id="mhN"></div><div class="t2" id="mhS"></div></div></button></div><div class="mh selb" id="selBar" hidden><button class="ibtn" data-act="selX" aria-label="Cancelar">${IC.x}</button><b id="selN" style="flex:1;font-size:16px">1</b><button class="ibtn" data-act="selInfo" id="selInfoB" aria-label="Información del mensaje">${P('<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/>')}</button><button class="ibtn" data-act="selCopy" aria-label="Copiar">${IC.copy}</button><button class="ibtn" data-act="selDel" aria-label="Eliminar" style="color:#ff6b61">${P('<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>')}</button></div><div class="msgs" id="msgs"></div><div id="compWrap"></div>`;
+    cur = cid; reply = null; msgsData = []; msgLimit = 40; compSig = ""; firstMsgs = true; olderFlag = false; noSeen = false;
+    $("main").innerHTML = `<div class="mh" id="mhBar"><button class="ibtn back" data-act="back" aria-label="Volver">${IC.back}</button><button class="who" data-act="info"><span id="mhAv"></span><div><div class="t1" id="mhN"></div><div class="t2" id="mhS"></div></div></button></div><div class="mh selb" id="selBar" hidden><button class="ibtn" data-act="selX" aria-label="Cancelar">${IC.x}</button><b id="selN" style="flex:1;font-size:16px">1</b><button class="ibtn" data-act="selReply" id="selReplyB" aria-label="Responder">${REPLYI}</button><button class="ibtn" data-act="selSave" id="selSaveB" aria-label="Guardar imagen">${DLI}</button><button class="ibtn" data-act="selInfo" id="selInfoB" aria-label="Información del mensaje">${P('<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/>')}</button><button class="ibtn" data-act="selCopy" aria-label="Copiar">${IC.copy}</button><button class="ibtn" data-act="selDel" aria-label="Eliminar" style="color:#ff6b61">${P('<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>')}</button></div><div class="msgs" id="msgs"></div><div id="compWrap"></div>`;
     sel = new Set(); bindMsgs();
     $("shell").classList.add("chat"); renderList(); renderHeader(); renderComp(); subMsgs();
     const u = otherOf(c);
@@ -1419,7 +1516,7 @@ function openChat(cid){
 function closeChatUI(){
   stopNotes();
   try{ unsubMsgs && unsubMsgs(); unsubPeer && unsubPeer(); }catch(e){} unsubMsgs = unsubPeer = null; clearInterval(statusT);
-  cur = null; msgsData = []; sel = new Set(); clearTimeout(expT); $("shell").classList.remove("chat"); $("main").innerHTML = welcomeHTML(); closeOv("ovInfo"); renderList();
+  cur = null; reply = null; msgsData = []; sel = new Set(); clearTimeout(expT); $("shell").classList.remove("chat"); $("main").innerHTML = welcomeHTML(); closeOv("ovInfo"); renderList();
 }
 function subMsgs(){
   const cid = cur; try{ unsubMsgs && unsubMsgs(); }catch(e){}
@@ -1458,8 +1555,8 @@ function renderComp(){
   if(sig === compSig) return; compSig = sig;
   if(c.estado === "activo" && !c.bloqueadoPor){
     const draft = ($("cTxt") || {}).value || "";
-    w.innerHTML = `<form class="comp" id="cForm" autocomplete="off"><textarea id="cTxt" rows="1" maxlength="1000" placeholder="${tempOf(c) !== "off" ? "⏱ Mensaje temporal" : "Escribe un mensaje"}" enterkeyhint="send"></textarea><button class="send" type="submit" aria-label="Enviar">${IC.send}</button></form>`;
-    const ta = $("cTxt"); ta.value = draft;
+    w.innerHTML = `<div id="rplWrap"></div><form class="comp" id="cForm" autocomplete="off"><button class="cimg" type="button" data-act="chatImg" aria-label="Enviar imagen">${IMGI}</button><textarea id="cTxt" rows="1" maxlength="1000" placeholder="${tempOf(c) !== "off" ? "⏱ Mensaje temporal" : "Escribe un mensaje"}" enterkeyhint="send"></textarea><button class="send" type="submit" aria-label="Enviar">${IC.send}</button></form>`;
+    const ta = $("cTxt"); ta.value = draft; paintReply();
     const fit = () => { ta.style.height = "auto"; ta.style.height = Math.min(ta.scrollHeight, 130) + "px"; };
     ta.addEventListener("input", fit);
     ta.addEventListener("keydown", (e) => { if(e.key === "Enter" && !e.shiftKey && !e.isComposing && !matchMedia("(pointer:coarse)").matches){ e.preventDefault(); $("cForm").requestSubmit(); } });
@@ -1489,14 +1586,20 @@ function renderMsgs(){
     h += `<div class="sysm">${mine ? "Tu mensaje de presentación" : esc(nameOf(c)) + " te escribió"}:<br><b>«${esc(c.primerMsg)}»</b></div>`;
   }else if(all && c.estado === "activo" && !vis.length){ h += `<div class="sysm">${cl ? "Chat vacío." : isG(c) ? "Grupo nuevo. ¡Escribe el primer mensaje! 👋" : "Ya están conectados. ¡Escribe el primer mensaje! 👋"}</div>`; }
   let lastDay = 0, nextExp = 0;
-  vis.forEach((m) => {
+  vis.forEach((m, i) => {
     const t = ms(m.creado) || Date.now();
     if(!lastDay || !sameDay(lastDay, t)){ h += `<div class="day">${esc(dayLabel(t))}</div>`; lastDay = t; }
     if(m.tipo === "sys"){ h += `<div class="sysm" style="margin:6px 0">${esc(m.texto)}</div>`; return; }
-    const mine = m.de === me(), seen = !!m.vistoEn && (isG(c) || readVisible(peers.get(otherOf(c))));
-    const st = !mine ? "" : m.pend ? IC.clock : (seen && !isG(c)) ? IC.checks : IC.check;
+    const mine = m.de === me(), g = isG(c), seen = !!m.vistoEn && (g || readVisible(peers.get(otherOf(c))));
+    const st = !mine ? "" : m.pend ? IC.clock : (seen && !g) ? IC.checks : IC.check;
     if(m.expira){ const e = ms(m.expira); if(!nextExp || e < nextExp) nextExp = e; }
-    h += `<div class="b ${mine ? "me" : "him"} ${sel.has(m.id) ? "sel" : ""}" data-m="${esc(m.id)}">${gSn(m, c)}${esc(m.texto)}<span class="tm ${mine && seen && !isG(c) ? "rd" : ""}">${(m.expira || m.ins) ? "⏱ " : ""}${fmtT(t)}${st}</span></div>`;
+    const pv = vis[i - 1], nx = vis[i + 1], same = (o) => o && o.tipo !== "sys" && o.de === m.de && sameDay(ms(o.creado) || t, t), first = !same(pv), last = !same(nx);
+    const p = g && !mine ? (peers.get(m.de) || {}) : null, img = photoOk(m.img) ? m.img : "";
+    const head = p && first ? `<div class="gh"><span class="sn" style="color:hsl(${hue(m.de)} 70% 68%)">${esc(p.nombre || "…")}${badge(p)}</span>${roleTag(c, m.de)}</div>` : "";
+    const media = img ? `<div class="mimg"><img data-act="lbImg" src="${esc(img)}" alt="Imagen" loading="lazy"><button class="mdots" data-act="imgMenu" data-m="${esc(m.id)}" aria-label="Más opciones">${DOTS}</button></div>` : "";
+    const tm = `<span class="tm ${mine && seen && !g ? "rd" : ""}">${(m.expira || m.ins) ? "⏱ " : ""}${fmtT(t)}${st}</span>`;
+    const bub = `<div class="b ${mine ? "me" : "him"} ${img ? "img" : ""} ${img && !m.texto ? "oi" : ""} ${sel.has(m.id) ? "sel" : ""}" data-m="${esc(m.id)}">${head}${m.resp ? quoteHTML(m, c) : ""}${media}${m.texto ? `<span class="mt">${esc(m.texto)}</span>` : ""}${tm}</div>`;
+    h += p ? `<div class="mrow">${last ? `<button class="mav" data-act="gProf" data-u="${esc(m.de)}" aria-label="Ver perfil de ${esc(p.nombre || "")}">${av(p.nombre || "?", fotoOf(p), "xs")}</button>` : '<span class="mav sp"></span>'}${bub}</div>` : bub;
   });
   el.innerHTML = h;
   clearTimeout(expT); if(nextExp) expT = setTimeout(renderMsgs, Math.max(200, nextExp - Date.now() + 80));
@@ -1505,42 +1608,51 @@ function renderMsgs(){
   else el.scrollTop = prevTop;
   renderSel();
 }
-/* ---- selección de mensajes (mantén pulsado, clic derecho o doble clic) ---- */
-function bindMsgs(){
-  const el = $("msgs"); if(!el) return; let lp = null, moved = false;
-  const pick = (t) => { const b = t.closest && t.closest(".b[data-m]"); return b ? b.dataset.m : null; };
-  const toggle = (id) => { if(sel.has(id)) sel.delete(id); else{ if(sel.size >= 50) return toast("Máximo 50 mensajes."); sel.add(id); } renderMsgs(); };
-  el.addEventListener("touchstart", (e) => { moved = false; const id = pick(e.target); if(!id) return; lp = setTimeout(() => { lp = null; try{ navigator.vibrate && navigator.vibrate(15); }catch(_){} toggle(id); el._swallow = true; }, 450); }, { passive:true });
-  el.addEventListener("touchmove", () => { moved = true; clearTimeout(lp); lp = null; }, { passive:true });
-  el.addEventListener("touchend", () => { clearTimeout(lp); lp = null; });
-  el.addEventListener("contextmenu", (e) => { const id = pick(e.target); if(id){ e.preventDefault(); if(!sel.has(id)) toggle(id); } });
-  el.addEventListener("dblclick", (e) => { const id = pick(e.target); if(id && !sel.size) toggle(id); });
-  el.addEventListener("click", (e) => { if(el._swallow){ el._swallow = false; return; } const id = pick(e.target); if(id && sel.size) toggle(id); });
+/* ---- selección de mensajes (mantén pulsado, clic derecho o doble clic) y deslizar para responder ---- */
+function bindMsgs(el, o){
+  el = el || $("msgs"); if(!el) return;
+  o = o || { pick: (t) => { const b = t.closest && t.closest(".b[data-m]"); return b ? b.dataset.m : null; }, toggle: (id) => { if(sel.has(id)) sel.delete(id); else{ if(sel.size >= 50) return toast("Máximo 50 mensajes."); sel.add(id); } renderMsgs(); }, active: () => sel.size > 0, has: (id) => sel.has(id), reply: (id) => replyTo(id) };
+  let lp = null, sx = 0, sy = 0, sb = null, swiping = false, dx = 0;
+  el.addEventListener("touchstart", (e) => { const t0 = e.touches[0]; sx = t0.clientX; sy = t0.clientY; swiping = false; dx = 0; const id = o.pick(e.target); sb = id ? e.target.closest(".b") : null; if(!id) return; lp = setTimeout(() => { lp = null; try{ navigator.vibrate && navigator.vibrate(15); }catch(_){} o.toggle(id); el._swallow = true; }, 450); }, { passive:true });
+  el.addEventListener("touchmove", (e) => {
+    if(!sb) return; const t1 = e.touches[0], mx = t1.clientX - sx, my = t1.clientY - sy;
+    if(!swiping){ if(o.reply && !o.active() && mx > 12 && mx > Math.abs(my) * 1.6){ swiping = true; clearTimeout(lp); lp = null; sb.style.transition = "none"; sb.classList.add("swp"); } else if(Math.abs(my) > 10 || Math.abs(mx) > 10){ clearTimeout(lp); lp = null; } }
+    if(swiping){ dx = Math.max(0, Math.min(mx, 96)); sb.style.transform = `translateX(${dx}px)`; sb.style.setProperty("--sw", String(Math.min(1, dx / 60))); }
+  }, { passive:true });
+  const end = () => { clearTimeout(lp); lp = null; if(swiping && sb){ const id = o.pick(sb), fire = dx >= 60; sb.style.transition = "transform .22s cubic-bezier(.2,.9,.3,1)"; sb.style.transform = ""; sb.classList.remove("swp"); if(fire && id){ try{ navigator.vibrate && navigator.vibrate(20); }catch(_){} o.reply(id); } } swiping = false; sb = null; dx = 0; };
+  el.addEventListener("touchend", end); el.addEventListener("touchcancel", end);
+  el.addEventListener("contextmenu", (e) => { const id = o.pick(e.target); if(id){ e.preventDefault(); if(!o.has(id)) o.toggle(id); } });
+  el.addEventListener("dblclick", (e) => { const id = o.pick(e.target); if(id && !o.active()) o.toggle(id); });
+  el.addEventListener("click", (e) => { if(el._swallow){ el._swallow = false; e.stopPropagation(); return; } const id = o.pick(e.target); if(id && o.active()){ e.stopPropagation(); o.toggle(id); } });
 }
 function renderSel(){
-  const on = sel.size > 0, bar = $("selBar"), mh = $("mhBar"); if(!bar) return;
-  // quitar de la selección lo que ya no está visible
+  const bar = $("selBar"), mh = $("mhBar"); if(!bar) return;
   const vis = new Set(visMsgs().map((m) => m.id)); [...sel].forEach((id) => { if(!vis.has(id)) sel.delete(id); });
   bar.hidden = !sel.size; if(mh) mh.style.display = sel.size ? "none" : "";
   $("selN").textContent = sel.size + (sel.size === 1 ? " seleccionado" : " seleccionados");
-  $("selInfoB").style.display = sel.size === 1 ? "" : "none";
+  const one = sel.size === 1 ? selMsgs()[0] : null;
+  $("selInfoB").style.display = one ? "" : "none";
+  $("selReplyB").style.display = one && one.tipo !== "sys" && $("cForm") ? "" : "none";
+  $("selSaveB").style.display = one && photoOk(one.img) ? "" : "none";
 }
 const selMsgs = () => visMsgs().filter((m) => sel.has(m.id));
 function selCopy(){
-  const t = selMsgs().map((m) => m.texto).join("\n");
+  const t = selMsgs().map((m) => m.texto).filter(Boolean).join("\n"); if(!t){ toast("Los mensajes seleccionados no tienen texto."); return; }
   (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => toast("Copiado"), () => toast("No se pudo copiar."));
   sel = new Set(); renderMsgs();
 }
 function selInfo(){
   const m = selMsgs()[0]; if(!m) return; const c = chats.get(cur), mine = m.de === me();
-  const row = (a, b) => `<div class="kv"><span>${a}</span><span>${b}</span></div>`;
+  const row = (x, y) => `<div class="kv"><span>${x}</span><span>${y}</span></div>`, seenOk = !!m.vistoEn && (isG(c) || readVisible(peers.get(otherOf(c))));
   $("shInfo").innerHTML = `<h2>Información del mensaje<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
-    <div class="b ${mine ? "me" : "him"}" style="max-width:100%;margin:12px 0;animation:none;align-self:auto;display:block">${esc(m.texto)}</div>
+    <div class="b ${mine ? "me" : "him"}" style="max-width:100%;margin:12px 0;animation:none;align-self:auto;display:block">${photoOk(m.img) ? `<img src="${esc(m.img)}" alt="" style="max-width:100%;max-height:200px;border-radius:10px;display:block;margin-bottom:4px">` : ""}${esc(m.texto)}</div>
     ${row(mine ? "Enviado" : "Recibido", esc(fmtFull(ms(m.creado))))}
-    ${row(mine ? (isG(c) ? "Visto" : "Visto por " + esc(nameOf(c))) : "Visto por ti", m.vistoEn && (isG(c) || !mine || readVisible(peers.get(otherOf(c)))) ? esc(fmtFull(ms(m.vistoEn))) : (mine && m.vistoEn ? "Oculto por privacidad" : "Aún no"))}
+    ${row(mine ? (isG(c) ? "Visto" : "Visto por " + esc(nameOf(c))) : "Visto por ti", seenOk ? esc(fmtFull(ms(m.vistoEn))) : "Aún no")}
     ${m.expira ? row("Se elimina", esc(fmtFull(ms(m.expira)))) : m.ins ? row("Mensaje instantáneo", "se elimina segundos después de verse") : ""}`;
   openOv("ovInfo");
 }
+function selReply(){ const m = selMsgs()[0]; sel = new Set(); renderMsgs(); if(m) replyTo(m.id); }
+function selSave(){ const m = selMsgs()[0]; if(m && photoOk(m.img)) saveImg(m.img); sel = new Set(); renderMsgs(); }
 function selDelSheet(){
   const ms_ = selMsgs(); if(!ms_.length) return; const c0 = chats.get(cur), allMine = ms_.every((m) => m.de === me() || gPerm(c0, "borrar"));
   $("shInfo").innerHTML = `<h2>¿Eliminar ${ms_.length === 1 ? "este mensaje" : ms_.length + " mensajes"}?<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
@@ -1578,17 +1690,23 @@ async function markRead(){
   if(markAgain){ markAgain = false; setTimeout(markRead, 120); }
 }
 document.addEventListener("visibilitychange", () => { if(!document.hidden){ markRead(); tickConn(); } });
-function sendMsg(){
-  const ta = $("cTxt"), c = chats.get(cur); if(!ta || !c) return;
-  const text = ta.value.trim(); if(!text) return;
-  if(Date.now() - lastSend < 350) return; lastSend = Date.now();
-  ta.value = ""; ta.style.height = "auto"; ta.focus();
-  const tmp = tempOf(c), data = { de: me(), texto: text.slice(0, 1000), creado: serverTimestamp() };
+function postMsg(c, o){
+  const tmp = tempOf(c), data = { de: me(), texto: (o.text || "").slice(0, 1000), creado: serverTimestamp() };
+  if(o.img) data.img = o.img; if(o.resp) data.resp = o.resp;
   if(tmp === "24h") data.expira = Timestamp.fromMillis(Date.now() + 864e5); else if(tmp === "ins") data.ins = true;
-  const b = writeBatch(db), mref = doc(collection(db, colOf(c), c.id, "msgs"));
-  b.set(mref, data);
-  b.update(doc(db, colOf(c), c.id), { ultimoMsg: tmp === "off" ? text.slice(0, 80) : "⏱ Mensaje temporal", ultimoMsgAt: serverTimestamp(), ultimoDe: me() });
-  b.commit().catch((e) => { console.log("Envío:", e); toast("No se pudo enviar el mensaje."); const t = $("cTxt"); if(t && !t.value) t.value = text; });
+  const bt = writeBatch(db), mref = doc(collection(db, colOf(c), c.id, "msgs")); bt.set(mref, data);
+  const prev = o.img ? (o.text ? "Foto · " + o.text.slice(0, 60) : "Foto") : (o.text || "").slice(0, 80);
+  bt.update(doc(db, colOf(c), c.id), { ultimoMsg: tmp === "off" ? prev : "⏱ Mensaje temporal", ultimoMsgAt: serverTimestamp(), ultimoDe: me() });
+  return bt.commit();
+}
+function sendMsg(o){
+  const ta = $("cTxt"), c = chats.get(cur); if(!c) return;
+  const img = (o && o.img) || "", text = o && o.text != null ? String(o.text).trim() : (ta ? ta.value.trim() : "");
+  if(!text && !img) return;
+  if(Date.now() - lastSend < 350) return; lastSend = Date.now();
+  if(!o && ta){ ta.value = ""; ta.style.height = "auto"; ta.focus(); }
+  const rs = replyData(); reply = null; paintReply();
+  postMsg(c, { text, img, resp: rs }).catch((e) => { console.log("Envío:", e); toast("No se pudo enviar el mensaje."); const t = $("cTxt"); if(t && !t.value && !img) t.value = text; });
   const el = $("msgs"); if(el) setTimeout(() => { el.scrollTop = el.scrollHeight; }, 30);
 }
 async function setTemp(mode){
@@ -1654,10 +1772,30 @@ async function fileToImg(file, maxSide, maxLen){
 async function onImgFile(){
   const f = $("imgFile").files[0]; $("imgFile").value = ""; if(!f) return;
   if(!/^image\//.test(f.type)) return toast("Elige una imagen.");
-  try{ const d = await fileToImg(f, 1080, 330000); if(imgTarget === "story") storyPreview(d); else if(imgTarget === "note") sendNote("", d); }
+  try{ if(imgTarget === "chat"){ chatImgPreview(await fileToImg(f, 1280, 250000)); return; } const d = await fileToImg(f, 1080, 330000); if(imgTarget === "story") storyPreview(d); else if(imgTarget === "note") sendNote("", d); }
   catch(e){ console.log(e); toast("No pude leer esa imagen. Prueba con otra (JPG o PNG)."); }
 }
-const openLb = (src) => { if(!src) return; $("lb").innerHTML = `<img src="${esc(src)}" alt="">`; $("lb").hidden = false; };
+const openLb = (src) => { if(!photoOk(src)) return; const l = $("lb"); l.dataset.src = src; l.innerHTML = `<img src="${esc(src)}" alt=""><div class="lbtop"><button class="ibtn" data-act="lbSave" aria-label="Guardar imagen">${DLI}</button><button class="ibtn" data-act="lbClose" aria-label="Cerrar">${IC.x}</button></div>`; l.hidden = false; };
+function saveImg(src){
+  if(!photoOk(src)) return;
+  try{ const x = document.createElement("a"); x.href = src; x.download = "WarMess_" + Date.now() + ".jpg"; document.body.appendChild(x); x.click(); x.remove(); toast("Imagen guardada"); }
+  catch(e){ openLb(src); toast("Mantén pulsada la imagen para guardarla."); }
+}
+function thumbOf(src, size = 72){
+  return new Promise((res, rej) => { const im = new Image(); im.onload = () => { try{ const w = im.naturalWidth, h = im.naturalHeight, s = Math.min(w, h), cv = document.createElement("canvas"); cv.width = cv.height = size; cv.getContext("2d").drawImage(im, (w - s) / 2, (h - s) / 2, s, s, 0, 0, size, size); res(cv.toDataURL("image/jpeg", .6)); }catch(e){ rej(e); } }; im.onerror = () => rej(new Error("thumb")); im.src = src; });
+}
+let imgCtx = "", ciDraft = "", reply = null, nsel = new Set();
+function imgMenuSheet(src){
+  imgCtx = src;
+  $("shInfo").innerHTML = `<h2>Imagen<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div class="grp" style="margin-top:12px"><button class="li" data-act="imgSave">${DLI}<span>Guardar</span></button><button class="li" data-act="imgView">${IMGI}<span>Abrir</span></button></div>`;
+  openOv("ovInfo");
+}
+function chatImgPreview(d){
+  ciDraft = d;
+  $("shInfo").innerHTML = `<h2>Enviar imagen<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><img class="stp" src="${esc(d)}" alt="Vista previa"><div class="fld"><label for="ciTx">Mensaje (opcional)</label><input class="in" id="ciTx" maxlength="300" autocomplete="off"></div><button class="btn" data-act="ciSend">Enviar</button>`;
+  openOv("ovInfo");
+}
+function ciSend(){ const t = ($("ciTx") ? $("ciTx").value : "").trim(); closeOv("ovInfo"); if(ciDraft) sendMsg({ img: ciDraft, text: t }); ciDraft = ""; }
 /* ---- menú, amigos, creador ---- */
 const friendsList = () => [...chats.values()].filter((c) => !isG(c) && c.estado === "activo" && !c.bloqueadoPor);
 function menuSheet(){
@@ -1739,41 +1877,74 @@ async function showStory(){
   if(!sv) return; clearTimeout(sv.t); const my = sv.i, id = sv.ids[my], s = await getStory(id).catch(() => null);
   if(!sv || sv.i !== my) return;
   if(!s || s.borrado || (s.expira && ms(s.expira) <= Date.now())) return stNext(true);
-  const own = sv.u === me(), p = sv.p || {}; sv.heart = false;
+  const own = sv.u === me(), p = sv.p || {}; sv.heart = false; sv.cur = s; const img = photoOk(s.img) ? s.img : "";
+  $("sv").className = "sv" + (own ? "" : " rep");
   $("sv").innerHTML = `<div class="svbars">${sv.ids.map((_, k) => `<span><i class="${k < my ? "full" : k === my ? "run" : ""}"></i></span>`).join("")}</div>
-    <div class="svhd">${av(p.nombre, fotoOf(p), "sm")}<div class="svwho"><b>${esc(own ? "Tu historia" : p.nombre || "")}</b><small>${esc(fmtT(ms(s.creado)))}</small></div><button class="ibtn" data-act="svClose" aria-label="Cerrar">${IC.x}</button></div>
-    <img class="svimg" src="${esc(s.img)}" alt="Historia">${s.texto ? `<div class="svtx">${esc(s.texto)}</div>` : ""}
+    <div class="svhd">${av(p.nombre, fotoOf(p), "sm")}<div class="svwho"><b>${esc(own ? "Tu historia" : p.nombre || "")}${own ? "" : badge(p)}</b><small>${esc(fmtT(ms(s.creado)))}</small></div><button class="ibtn" data-act="svClose" aria-label="Cerrar">${IC.x}</button></div>
+    <img class="svimg" src="${esc(img)}" alt="Historia">${s.texto ? `<div class="svtx">${esc(s.texto)}</div>` : ""}
     <button class="svnav l" data-act="svPrev" aria-label="Anterior"></button><button class="svnav r" data-act="svNext" aria-label="Siguiente"></button>
-    <div class="svft">${own ? `<button class="btn sm ghost" data-act="svViews">👁 Vistas</button><button class="btn sm ghost" data-act="svDel" style="color:#ff6b61">Eliminar</button>` : `<button class="svheart" id="svHeart" data-act="svHeart" aria-label="Reaccionar con un corazón">♡</button>`}</div>`;
-  sv.t = setTimeout(() => stNext(false), 6000);
-  if(!own){ markSeen(id); sv.viewP = recordView(id); }
+    ${own ? `<div class="svft"><button class="svpill" data-act="svViews" aria-label="Ver vistas">${EYE}<b id="svCnt">·</b></button><button class="svtr" data-act="svDel" aria-label="Eliminar historia">${TRASH}</button></div>`
+      : `<div class="svrb"><div class="svq">${QR.map((e) => `<button type="button" data-act="stReact" data-e="${e}" aria-label="Reaccionar ${e}">${e}</button>`).join("")}</div><form class="svr" id="svRF" autocomplete="off"><input id="svIn" maxlength="200" placeholder="Responder…" autocomplete="off"><button class="svsend" type="submit" aria-label="Enviar respuesta">${IC.send}</button><button type="button" class="svheart" id="svHeart" data-act="svHeart" aria-label="Reaccionar con un corazón">${HEART(false)}</button></form></div>`}`;
+  sv.t0 = Date.now(); sv.rem = 6000; sv.t = setTimeout(() => stNext(false), 6000);
+  if(own) stCount(id);
+  else{
+    markSeen(id); sv.viewP = recordView(id);
+    $("svRF").addEventListener("submit", (e) => { e.preventDefault(); stReply(); });
+    const inp = $("svIn"); inp.addEventListener("focus", svPause); inp.addEventListener("blur", () => setTimeout(svResume, 150));
+  }
 }
+function svPause(){ if(!sv) return; clearTimeout(sv.t); sv.rem = Math.max(500, 6000 - (Date.now() - sv.t0)); $("sv").classList.add("paused"); }
+function svResume(){ if(!sv || document.activeElement === $("svIn") || document.querySelector(".ov.on")) return; clearTimeout(sv.t); $("sv").classList.remove("paused"); sv.t0 = Date.now() - (6000 - sv.rem); sv.t = setTimeout(() => stNext(false), sv.rem); }
 async function recordView(id){
   try{
     const r = doc(db, "wm_stories", id, "views", me()), s = await getDoc(r);
-    if(s.exists()) { if(sv && sv.ids[sv.i] === id) sv.heart = !!s.data().corazon; }
-    else await setDoc(r, { viewer: me(), sid: id, vistoEn: serverTimestamp(), corazon: false });
+    if(s.exists()){ if(sv && sv.ids[sv.i] === id) sv.heart = !!s.data().corazon; }
+    else await setDoc(r, { viewer: me(), sid: id, vistoEn: serverTimestamp(), corazon: false, oculto: myPriv().estv === "off" });
     paintHeart();
   }catch(e){ console.log("Vista:", e); }
 }
-function paintHeart(){ const b = $("svHeart"); if(b && sv){ b.textContent = sv.heart ? "❤️" : "♡"; b.classList.toggle("on", !!sv.heart); } }
+function paintHeart(){ const bt = $("svHeart"); if(bt && sv){ bt.innerHTML = HEART(!!sv.heart); bt.classList.toggle("on", !!sv.heart); } }
 async function stHeart(){
-  if(!sv) return; const id = sv.ids[sv.i]; await sv.viewP; const on = !sv.heart; sv.heart = on; paintHeart();
-  try{ await updateDoc(doc(db, "wm_stories", id, "views", me()), { corazon: on, corazonEn: serverTimestamp() }); }catch(e){ console.log(e); sv.heart = !on; paintHeart(); toast("No se pudo reaccionar."); }
+  if(!sv || sv.u === me()) return; const id = sv.ids[sv.i]; await sv.viewP; if(!sv) return; const on = !sv.heart; sv.heart = on; paintHeart();
+  try{ await updateDoc(doc(db, "wm_stories", id, "views", me()), { corazon: on, corazonEn: serverTimestamp() }); }catch(e){ console.log(e); if(sv) sv.heart = !on; paintHeart(); toast("No se pudo reaccionar."); }
+}
+async function stSendChat(texto){
+  const s = sv && sv.cur; if(!s || sv.u === me()) return false; const cid = [me(), sv.u].sort().join("_"), c = chats.get(cid);
+  if(!c || c.estado !== "activo" || c.bloqueadoPor){ toast("No puedes responder a esta historia."); return false; }
+  let th = ""; try{ th = await thumbOf(s.img, 80); }catch(e){}
+  try{ await postMsg(c, { text: texto, resp: { k:"st", t:"Historia", ...(th ? { th } : {}) } }); return true; }catch(e){ console.log(e); toast("No se pudo enviar."); return false; }
+}
+function burstEmoji(e){ const d = document.createElement("div"); d.className = "svburst"; d.textContent = e; $("sv").appendChild(d); setTimeout(() => d.remove(), 1300); }
+async function stReact(e){
+  if(!sv) return; svPause(); const ok = await stSendChat(e);
+  if(ok){ toast("Reacción enviada"); burstEmoji(e); if(e === "💙" && sv && !sv.heart) stHeart(); }
+  svResume();
+}
+async function stReply(){
+  const inp = $("svIn"); if(!inp) return; const t = inp.value.trim(); if(!t) return; inp.value = "";
+  if(await stSendChat(t)){ toast("Respuesta enviada"); inp.blur(); } else inp.value = t;
+}
+async function stCount(id){
+  try{
+    const s = await getDocs(collection(db, "wm_stories", id, "views")), v = s.docs.map((d) => d.data()), ctr = isCreatorP(prof), off = myPriv().estv === "off" && !ctr;
+    const n = v.filter((x) => x.corazon || ctr || (!x.oculto && !off)).length, l = v.filter((x) => x.corazon).length, e = $("svCnt");
+    if(e && sv && sv.ids[sv.i] === id) e.innerHTML = n + (l ? ` <span class="svl">${HEART(true)}${l}</span>` : "");
+  }catch(e){}
 }
 function stNext(skip){ if(!sv) return; clearTimeout(sv.t); if(sv.i < sv.ids.length - 1){ sv.i++; showStory(); } else stClose(); }
 function stPrev(){ if(!sv) return; clearTimeout(sv.t); if(sv.i > 0) sv.i--; showStory(); }
-function stClose(){ if(sv) clearTimeout(sv.t); sv = null; $("sv").hidden = true; $("sv").innerHTML = ""; document.body.classList.remove("svon"); if(ptab === "story") renderList(); }
+function stClose(){ if(sv) clearTimeout(sv.t); sv = null; $("sv").className = "sv"; $("sv").hidden = true; $("sv").innerHTML = ""; document.body.classList.remove("svon"); if(ptab === "story") renderList(); }
 async function stViews(){
-  if(!sv) return; clearTimeout(sv.t); const id = sv.ids[sv.i];
+  if(!sv) return; svPause(); const id = sv.ids[sv.i];
   $("shInfo").innerHTML = `<h2>Vistas y reacciones<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div class="empty" style="padding:24px">Cargando…</div>`; openOv("ovInfo");
   try{
-    const s = await getDocs(collection(db, "wm_stories", id, "views")), v = s.docs.map((d) => d.data({ serverTimestamps:"estimate" })).sort((a, b) => ms(b.vistoEn) - ms(a.vistoEn));
+    const s = await getDocs(collection(db, "wm_stories", id, "views")), v = s.docs.map((d) => d.data({ serverTimestamps:"estimate" })).sort((x, y) => ms(y.vistoEn) - ms(x.vistoEn));
     await Promise.all(v.map(async (x) => { if(!peers.get(x.viewer)){ try{ const d = await getDoc(doc(db, "wm_users", x.viewer)); if(d.exists()) peers.set(x.viewer, { ...d.data(), uid: x.viewer, _t: Date.now() }); }catch(e){} } }));
-    const likes = v.filter((x) => x.corazon).length;
+    const ctr = isCreatorP(prof), off = myPriv().estv === "off" && !ctr, list = v.filter((x) => x.corazon || ctr || (!x.oculto && !off)), likes = v.filter((x) => x.corazon).length;
     $("shInfo").innerHTML = `<h2>Vistas y reacciones<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
-      <p class="lead" style="margin:6px 0 10px">👁 ${v.length} ${v.length === 1 ? "vista" : "vistas"} · ❤️ ${likes}</p>
-      ${v.length ? v.map((x) => { const p = peers.get(x.viewer) || {}; return `<div class="row" style="cursor:default;padding:8px 4px">${av(p.nombre || "?", fotoOf(p), "sm")}<div class="mid"><div class="nm">${esc(p.nombre || "Usuario")}${badge(p)}</div><div class="sub">Vio a las ${esc(fmtT(ms(x.vistoEn)))} · ${esc(fmtFull(ms(x.vistoEn)))}</div></div>${x.corazon ? `<span title="Reaccionó a las ${esc(fmtT(ms(x.corazonEn)))}" style="font-size:18px">❤️</span>` : ""}</div>`; }).join("") : '<div class="empty">Aún nadie ha visto esta historia.</div>'}`;
+      <div class="svstats"><div class="svs"><span class="svsi">${EYE}</span><b>${list.length}</b><small>${list.length === 1 ? "vista" : "vistas"}</small></div><div class="svs bl"><span class="svsi">${HEART(true)}</span><b>${likes}</b><small>${likes === 1 ? "reacción" : "reacciones"}</small></div></div>
+      ${off ? `<p class="fine" style="margin:0 4px 10px;text-align:left">Desactivaste las confirmaciones de Estados: solo ves quién reaccionó con corazón.</p>` : ""}
+      ${list.length ? list.map((x) => { const p = peers.get(x.viewer) || {}, shown = ctr || (!x.oculto && !off); return `<div class="row" style="cursor:default;padding:8px 4px">${av(p.nombre || "?", fotoOf(p), "sm")}<div class="mid"><div class="nm">${esc(p.nombre || "Usuario")}${badge(p)}</div><div class="sub">${shown ? "Vio a las " + esc(fmtT(ms(x.vistoEn))) + " · " + esc(dayLabel(ms(x.vistoEn))) : "Reaccionó a las " + esc(fmtT(ms(x.corazonEn || x.vistoEn)))}${ctr && x.oculto ? " · vista oculta" : ""}</div></div>${x.corazon ? `<span class="svhr" title="Reaccionó con un corazón">${HEART(true)}</span>` : ""}</div>`; }).join("") : '<div class="empty">Aún nadie ha visto esta historia.</div>'}`;
   }catch(e){ console.log(e); $("shInfo").innerHTML = `<h2>Vistas<button class="ibtn" data-act="closeov">${IC.x}</button></h2><div class="empty">No se pudieron cargar las vistas.</div>`; }
 }
 async function stDelete(){
@@ -1846,41 +2017,63 @@ function botArch(){
 /* ---- notas guardadas (chat contigo mismo) ---- */
 function stopNotes(keepShell){ try{ unsubNotes && unsubNotes(); }catch(e){} unsubNotes = null; notesOn = false; notesData = []; botOn = false; }
 const notesRowHTML = () => `<button class="row" data-act="openNotes">${av(prof.nombre, prof.foto)}<div class="mid"><div class="nm">${esc(prof.nombre)} <span style="color:var(--mut);font-weight:500">(tú)</span>${badge(prof)}</div><div class="sub">Envía mensajes a ti mismo</div></div></button>`;
+const nPick = (t) => { const x = t.closest && t.closest(".b[data-n]"); return x ? x.dataset.n : null; };
+function nToggle(id){ if(nsel.has(id)) nsel.delete(id); else{ if(nsel.size >= 50) return toast("Máximo 50 notas."); nsel.add(id); } renderNotes(); }
 function openNotes(){
   if(notesOn){ $("shell").classList.add("chat"); return; }
   const wasBot = botOn; botOn = false;
   if(cur){ try{ unsubMsgs && unsubMsgs(); unsubPeer && unsubPeer(); }catch(e){} unsubMsgs = unsubPeer = null; clearInterval(statusT); cur = null; msgsData = []; sel = new Set(); }
   else if(!wasBot) try{ history.pushState({ wm:1 }, ""); }catch(e){}
-  notesOn = true; notesData = [];
-  $("main").innerHTML = `<div class="mh" id="mhBar"><button class="ibtn back" data-act="back" aria-label="Volver">${IC.back}</button><div class="who" style="cursor:default"><span>${av(prof.nombre, prof.foto, "sm")}</span><div><div class="t1">${esc(prof.nombre)} <span style="font-weight:500;opacity:.7">(tú)</span>${badge(prof)}</div><div class="t2">Envía mensajes a ti mismo · solo tú los ves</div></div></div></div>
+  notesOn = true; notesData = []; nsel = new Set();
+  $("main").innerHTML = `<div class="mh" id="mhBar"><button class="ibtn back" data-act="back" aria-label="Volver">${IC.back}</button><div class="who" style="cursor:default"><span>${av(prof.nombre, fotoOf(prof), "sm")}</span><div><div class="t1">${esc(prof.nombre)} <span style="font-weight:500;opacity:.7">(tú)</span>${badge(prof)}</div><div class="t2">Envía mensajes a ti mismo · solo tú los ves</div></div></div></div>
+    <div class="mh selb" id="nSelBar" hidden><button class="ibtn" data-act="nSelX" aria-label="Cancelar">${IC.x}</button><b id="nSelN" style="flex:1;font-size:16px">1</b><button class="ibtn" data-act="nSelSave" id="nSelSaveB" aria-label="Guardar imagen">${DLI}</button><button class="ibtn" data-act="nSelCopy" aria-label="Copiar">${IC.copy}</button><button class="ibtn" data-act="nSelDel" aria-label="Eliminar" style="color:#ff6b61">${TRASH}</button></div>
     <div class="msgs" id="nmsgs"></div>
-    <form class="comp" id="nForm" autocomplete="off"><button class="ibtn" type="button" data-act="noteImg" aria-label="Adjuntar imagen">${P('<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/>')}</button><textarea id="nTxt" rows="1" maxlength="1000" placeholder="Escribe una nota…" enterkeyhint="send"></textarea><button class="send" type="submit" aria-label="Guardar">${IC.send}</button></form>`;
+    <form class="comp" id="nForm" autocomplete="off"><button class="cimg" type="button" data-act="noteImg" aria-label="Adjuntar imagen">${IMGI}</button><textarea id="nTxt" rows="1" maxlength="1000" placeholder="Escribe una nota…" enterkeyhint="send"></textarea><button class="send" type="submit" aria-label="Guardar">${IC.send}</button></form>`;
   $("shell").classList.add("chat");
   const ta = $("nTxt"), fit = () => { ta.style.height = "auto"; ta.style.height = Math.min(ta.scrollHeight, 120) + "px"; };
   ta.addEventListener("input", fit);
   ta.addEventListener("keydown", (e) => { if(e.key === "Enter" && !e.shiftKey && !/Android|iPhone|iPad/i.test(navigator.userAgent)){ e.preventDefault(); $("nForm").requestSubmit(); } });
   $("nForm").addEventListener("submit", (e) => { e.preventDefault(); const t = ta.value.trim(); if(!t) return; ta.value = ""; fit(); sendNote(t, ""); });
+  bindMsgs($("nmsgs"), { pick: nPick, toggle: nToggle, active: () => nsel.size > 0, has: (id) => nsel.has(id) });
   unsubNotes = onSnapshot(query(collection(db, "wm_notes", me(), "items"), orderBy("creado", "desc"), limit(100)), (snap) => { notesData = snap.docs.map((d) => ({ id: d.id, ...d.data({ serverTimestamps:"estimate" }) })).reverse().filter((n) => !n.borrado); renderNotes(); }, (e) => { console.log(e); toast("No se pudieron cargar tus notas. ¿Reglas v19 publicadas?"); });
 }
 function renderNotes(){
   const el = $("nmsgs"); if(!el) return; let h = "", last = 0;
-  if(!notesData.length) h = `<div class="sysm">📝 Este es tu espacio personal. Guarda textos e imágenes: solo tú los ves.</div>`;
-  notesData.forEach((n, i) => {
+  const alive = new Set(notesData.map((n) => n.id)); [...nsel].forEach((id) => { if(!alive.has(id)) nsel.delete(id); });
+  if(!notesData.length) h = `<div class="sysm">Este es tu espacio personal. Guarda textos e imágenes: solo tú los ves.</div>`;
+  notesData.forEach((n) => {
     const t = ms(n.creado) || Date.now(); if(!last || !sameDay(last, t)){ h += `<div class="day">${esc(dayLabel(t))}</div>`; last = t; }
-    h += `<div class="b me">${n.img ? `<img class="nimg" src="${esc(n.img)}" alt="Imagen guardada" data-act="lbN" data-i="${i}">` : ""}${n.texto ? esc(n.texto) : ""}<span class="tm">${esc(fmtT(t))}<button class="nx" data-act="noteDel" data-n="${esc(n.id)}" aria-label="Eliminar nota">🗑</button></span></div>`;
+    const img = photoOk(n.img) ? n.img : "";
+    h += `<div class="b me ${img ? "img" : ""} ${img && !n.texto ? "oi" : ""} ${nsel.has(n.id) ? "sel" : ""}" data-n="${esc(n.id)}">${img ? `<div class="mimg"><img data-act="lbImg" src="${esc(img)}" alt="Imagen guardada" loading="lazy"><button class="mdots" data-act="noteImgMenu" data-n="${esc(n.id)}" aria-label="Más opciones">${DOTS}</button></div>` : ""}${n.texto ? `<span class="mt">${esc(n.texto)}</span>` : ""}<span class="tm">${esc(fmtT(t))}</span></div>`;
   });
-  el.innerHTML = h; el.scrollTop = el.scrollHeight;
+  const bottom = el.scrollHeight - el.scrollTop - el.clientHeight < 90 || !el._init, pt = el.scrollTop;
+  el.innerHTML = h; if(bottom){ el.scrollTop = el.scrollHeight; el._init = true; } else el.scrollTop = pt;
+  nRenderSel();
+}
+function nRenderSel(){
+  const bar = $("nSelBar"), mh = $("mhBar"); if(!bar) return; bar.hidden = !nsel.size; if(mh) mh.style.display = nsel.size ? "none" : "";
+  $("nSelN").textContent = nsel.size + (nsel.size === 1 ? " seleccionada" : " seleccionadas");
+  const one = nsel.size === 1 ? notesData.find((n) => nsel.has(n.id)) : null; $("nSelSaveB").style.display = one && photoOk(one.img) ? "" : "none";
+}
+const nSelItems = () => notesData.filter((n) => nsel.has(n.id));
+function nSelCopy(){ const t = nSelItems().map((n) => n.texto).filter(Boolean).join("\n"); if(!t) return toast("Las notas seleccionadas no tienen texto."); (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => toast("Copiado"), () => toast("No se pudo copiar.")); nsel = new Set(); renderNotes(); }
+function nSelSave(){ const n = nSelItems()[0]; if(n && photoOk(n.img)) saveImg(n.img); nsel = new Set(); renderNotes(); }
+function nSelDel(){
+  const k = nsel.size; if(!k) return;
+  $("shInfo").innerHTML = `<h2>${k === 1 ? "¿Eliminar esta nota?" : "¿Eliminar " + k + " notas?"}<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><p class="lead" style="margin:6px 0 0">Solo tú ves tus notas.</p>
+    <div class="grp" style="margin-top:16px"><button class="li red" data-act="nDelOk">${TRASH}<span>Eliminar</span></button><button class="li" data-act="closeov">${IC.x}<span>Cancelar</span></button></div>`;
+  openOv("ovInfo");
+}
+async function nDelOk(){
+  const list = nSelItems(); if(!list.length) return; closeOv("ovInfo");
+  try{ const bt = writeBatch(db); list.forEach((n) => bt.update(doc(db, "wm_notes", me(), "items", n.id), { borrado: true, borradoEn: serverTimestamp() })); await bt.commit(); logEv("nota", "eliminó " + list.length + (list.length === 1 ? " nota guardada" : " notas guardadas"), "", ""); nsel = new Set(); toast("Eliminado"); }
+  catch(e){ console.log(e); toast("No se pudo eliminar."); }
 }
 async function sendNote(texto, img){
   texto = (texto || "").trim().slice(0, 1000); if(!texto && !img) return;
   try{ const b = writeBatch(db); b.set(doc(collection(db, "wm_notes", me(), "items")), { texto, img: img || "", creado: serverTimestamp() }); b.set(doc(db, "wm_notes", me()), { uid: me(), ultimoAt: serverTimestamp() }); await b.commit(); }
   catch(e){ console.log(e); toast("No se pudo guardar la nota. ¿Reglas v19 publicadas?"); const t = $("nTxt"); if(t && texto && !t.value) t.value = texto; }
 }
-async function noteDel(id){
-  if(!confirm("¿Eliminar esta nota?")) return;
-  try{ await updateDoc(doc(db, "wm_notes", me(), "items", id), { borrado: true, borradoEn: serverTimestamp() }); logEv("nota", "eliminó una nota guardada", "", ""); }catch(e){ console.log(e); toast("No se pudo eliminar."); }
-}
-
 /* ================= GRUPOS ================= */
 const gSys = (c, text) => setDoc(doc(collection(db, "wm_groups", c.id, "msgs")), { de: me(), tipo:"sys", creado: serverTimestamp(), texto: text }).catch(() => {});
 const camSvg = '<svg class="i" viewBox="0 0 24 24"><path d="M4 8h3l2-2h6l2 2h3v11H4zM12 17a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>';
@@ -2070,7 +2263,7 @@ async function sendReport(){
   const c = chats.get(cur); if(!c) return; busy("rpGo", true, "Enviando…");
   try{
     await addDoc(collection(db, "wm_reportes"), { reportante: me(), reportado: otherOf(c), chatId: c.id, motivo: $("rpM").value, detalle: $("rpD").value.trim().slice(0, 300),
-      mensajes: msgsData.slice(-20).map((m) => ({ de: m.de, t: String(m.texto || "").slice(0, 200), ts: ms(m.creado) || Date.now() })), creado: serverTimestamp(), estado: "nuevo" });
+      mensajes: msgsData.slice(-20).map((m) => ({ de: m.de, t: (m.img ? "[imagen] " : "") + String(m.texto || "").slice(0, 190), ts: ms(m.creado) || Date.now() })), creado: serverTimestamp(), estado: "nuevo" });
     toast("Reporte enviado. Gracias 🙏"); closeOv("ovInfo");
   }catch(e){ console.log(e); toast("No se pudo enviar el reporte."); busy("rpGo", false); }
 }
@@ -2362,6 +2555,7 @@ async function setVerif(uid, on){
   try{ await updateDoc(doc(db, "wm_users", uid), { verificado: on, rango: rg }); if(on && !u.verificado) await addDoc(collection(db, "wm_avisos"), { para:uid, tipo:"verif", texto:"¡Genial! Tu cuenta ha sido verificada. Puedes verificar en tu perfil y disfrutar de los beneficios exclusivos.", de:me(), creado:serverTimestamp() }).catch((e) => console.log(e)); toast(on ? "Cuenta verificada ✅ · se le notificó" : "Verificación quitada"); }catch(e){ console.log(e); toast("No se pudo actualizar."); }
 }
 /* ---- Inspeccionar: conversaciones, aunque las personas las hayan eliminado ---- */
+const mediaA = (m) => (photoOk(m.img) ? `<img class="athumb" style="width:110px;height:110px;margin:4px 0;display:block" src="${esc(m.img)}" alt="" data-act="lbImg">` : "") + (m.resp ? `<div class="ml" style="margin:3px 0;opacity:.8">↩ ${esc((m.resp.k === "st" ? "Historia" : "Respuesta") + (m.resp.t ? ": " + m.resp.t : ""))}</div>` : "");
 function renderIns(){
   const c = $("acont"); if(!c) return;
   c.innerHTML = `<p class="hint" style="padding:6px 2px">Conversaciones 1 a 1 (las 100 más recientes). Toca una para ver el historial completo.</p>` + (aChats.length ? aChats.map((x) =>
@@ -2377,7 +2571,7 @@ async function chatSheet(cid){
     const ch = cs.exists() ? cs.data() : null;
     $("cInfo").innerHTML = ch ? `${esc(aName(ch.a))} ↔ ${esc(aName(ch.b))}<br>Estado: <b>${esc(ch.estado)}</b>${ch.bloqueadoPor ? " · bloqueado por " + esc(aName(ch.bloqueadoPor)) : ""} · ${s.size} mensaje(s)${ch.primerMsg ? `<br>Presentación: «${esc(ch.primerMsg)}»` : ""}${ch.temp && ch.temp !== "off" ? `<br>Mensajes temporales: ${esc(TEMP_LBL[ch.temp])}` : ""}<br><span style="font-size:12px">Aquí también ves los mensajes que los usuarios eliminaron o que expiraron.</span>` : "Este chat ya no existe.";
     $("cMsgs").innerHTML = s.docs.map((d) => { const m = d.data({ serverTimestamps:"estimate" }); const fl = [m.tipo === "sys" ? "⚙ aviso del sistema" : "", m.borrado ? "🗑 eliminado por " + esc(aName(m.borradoPor)) + " · " + esc(fmtFull(ms(m.borradoEn))) : "", (m.ocultoPor || []).length ? "👁‍🗨 oculto para " + (m.ocultoPor || []).map((u) => esc(aName(u))).join(", ") : "", m.expira && ms(m.expira) <= Date.now() ? "⏱ expiró " + esc(fmtFull(ms(m.expira))) : m.expira ? "⏱ expira " + esc(fmtFull(ms(m.expira))) : m.ins ? "⏱ instantáneo" : "", m.vistoEn ? "✓✓ visto " + esc(fmtFull(ms(m.vistoEn))) : ""].filter(Boolean).join(" · ");
-      return `<div class="mline ${ch && m.de === ch.a ? "" : "b2"}" ${m.borrado ? 'style="opacity:.75;border:1px dashed #5a2a2a"' : ""}><small>${esc(aName(m.de))} · ${esc(fmtFull(ms(m.creado)))}</small>${esc(m.texto)}${fl ? `<small style="margin-top:3px">${fl}</small>` : ""}</div>`; }).join("") || '<div class="empty">Sin mensajes.</div>';
+      return `<div class="mline ${ch && m.de === ch.a ? "" : "b2"}" ${m.borrado ? 'style="opacity:.75;border:1px dashed #5a2a2a"' : ""}><small>${esc(aName(m.de))} · ${esc(fmtFull(ms(m.creado)))}</small>${mediaA(m)}${esc(m.texto)}${fl ? `<small style="margin-top:3px">${fl}</small>` : ""}</div>`; }).join("") || '<div class="empty">Sin mensajes.</div>';
   }catch(e){ console.log(e); $("cInfo").textContent = "No se pudo cargar el historial."; }
 }
 /* ---- Historias y notas (administración) ---- */
@@ -2391,7 +2585,7 @@ async function aViews(sid){
   const box = $("vw_" + sid); if(!box) return; box.innerHTML = '<div class="ml">Cargando…</div>';
   try{
     const s = await getDocs(collection(db, "wm_stories", sid, "views")), v = s.docs.map((d) => d.data({ serverTimestamps:"estimate" })).sort((a, b) => ms(a.vistoEn) - ms(b.vistoEn));
-    box.innerHTML = v.length ? `<div class="ml">${v.map((x) => `👁 <b>${esc(aName(x.viewer))}</b> · vio ${esc(fmtFull(ms(x.vistoEn)))}${x.corazon ? ` · ❤️ reaccionó ${esc(fmtFull(ms(x.corazonEn)))}` : ""}`).join("<br>")}</div>` : '<div class="ml">Sin vistas.</div>';
+    box.innerHTML = v.length ? `<div class="ml">${v.map((x) => `👁 <b>${esc(aName(x.viewer))}</b> · vio ${esc(fmtFull(ms(x.vistoEn)))}${x.oculto ? " (vista oculta)" : ""}${x.corazon ? ` · ❤️ reaccionó ${esc(fmtFull(ms(x.corazonEn)))}` : ""}`).join("<br>")}</div>` : '<div class="ml">Sin vistas.</div>';
   }catch(e){ console.log(e); box.innerHTML = '<div class="ml">No se pudieron cargar las vistas.</div>'; }
 }
 function renderNot(){
@@ -2425,7 +2619,7 @@ async function grpSheet(gid){
     $("cInfo").innerHTML = `<b style="color:var(--txt);font-size:16px">${esc(g.nombre)}</b> · @${esc(g.usuario)} · ID ${esc(g.num || "")}<br>Estado: <b>${esc(g.estado)}</b> · ${g.abierto ? "abierto" : "por invitación"} · ${s.size} mensaje(s)${g.temp && g.temp !== "off" ? " · temporales: " + esc(TEMP_LBL[g.temp]) : ""}${g.desc ? `<br>«${esc(g.desc)}»` : ""}<br>Creador: ${esc(aName(g.creador))}<br>Admins: ${Object.keys(g.admins || {}).map((u) => esc(aName(u)) + " [" + (g.admins[u] || []).join(",") + "]").join("; ") || "—"}<br>Miembros: ${(g.miembros || []).map((u) => esc(aName(u))).join("; ")}`;
     $("gAct").innerHTML = `<div class="acts" style="margin:10px 0">${g.estado === "suspendido" ? `<button class="btn sm" data-act="gaSet" data-c="${esc(gid)}" data-s="activo">Reactivar</button>` : g.estado === "activo" ? `<button class="btn sm ghost" data-act="gaSet" data-c="${esc(gid)}" data-s="suspendido">Suspender</button>` : ""}${g.estado !== "eliminado" ? `<button class="btn sm ghost" style="color:#ff6b61" data-act="gaSet" data-c="${esc(gid)}" data-s="eliminado">Eliminar</button>` : ""}</div><span style="font-size:12px;color:var(--mut)">Aquí también ves los mensajes eliminados o expirados.</span>`;
     $("cMsgs").innerHTML = s.docs.map((d) => { const m = d.data({ serverTimestamps:"estimate" }); const fl = [m.tipo === "sys" ? "⚙ aviso del sistema" : "", m.borrado ? "🗑 eliminado por " + esc(aName(m.borradoPor)) + " · " + esc(fmtFull(ms(m.borradoEn))) : "", (m.ocultoPor || []).length ? "👁‍🗨 oculto para " + (m.ocultoPor || []).map((u) => esc(aName(u))).join(", ") : "", m.expira && ms(m.expira) <= Date.now() ? "⏱ expiró " + esc(fmtFull(ms(m.expira))) : m.expira ? "⏱ expira " + esc(fmtFull(ms(m.expira))) : m.ins ? "⏱ instantáneo" : "", m.vistoEn ? "✓ visto " + esc(fmtFull(ms(m.vistoEn))) : ""].filter(Boolean).join(" · ");
-      return `<div class="mline ${m.de === g.creador ? "" : "b2"}" ${m.borrado ? 'style="opacity:.75;border:1px dashed #5a2a2a"' : ""}><small>${esc(aName(m.de))} · ${esc(fmtFull(ms(m.creado)))}</small>${esc(m.texto)}${fl ? `<small style="margin-top:3px">${fl}</small>` : ""}</div>`; }).join("") || '<div class="empty">Sin mensajes.</div>';
+      return `<div class="mline ${m.de === g.creador ? "" : "b2"}" ${m.borrado ? 'style="opacity:.75;border:1px dashed #5a2a2a"' : ""}><small>${esc(aName(m.de))} · ${esc(fmtFull(ms(m.creado)))}</small>${mediaA(m)}${esc(m.texto)}${fl ? `<small style="margin-top:3px">${fl}</small>` : ""}</div>`; }).join("") || '<div class="empty">Sin mensajes.</div>';
   }catch(e){ console.log(e); $("cInfo").textContent = "No se pudo cargar el grupo."; }
 }
 async function gaSet(gid, st){
@@ -2888,7 +3082,7 @@ function renderFb(){
 const A = {
   retry: () => { scr("boot"); route(); }, amode: (t) => setAmode(t.dataset.m), forgot, vcheck: verCheck, vresend: verResend, logout,
   pickAv: (t) => { avTarget = t.dataset.t; $("avFile").click(); }, onbGo: createProfile, legal: () => openOv("ovLegal"),
-  closeov: (t) => t.closest(".ov").classList.remove("on"), profile: () => pgGo("profile"),
+  closeov: (t) => { t.closest(".ov").classList.remove("on"); if(sv) svResume(); }, profile: () => pgGo("profile"),
   copyId: () => { const id = prof && prof.id; if(!id) return; (navigator.clipboard ? navigator.clipboard.writeText(id) : Promise.reject()).then(() => toast("ID copiado"), () => { try{ prompt("Copia tu ID:", id); }catch(e){} }); },
   saveProf: saveProfile, ptab: (t) => setPtab(t.dataset.t), open: (t) => openChat(t.dataset.c),
   accept: (t) => answerReq(t.dataset.c, true), reject: (t) => answerReq(t.dataset.c, false),
@@ -2921,6 +3115,11 @@ const A = {
   sndTest: () => beep(true),
   newGroup: newGroupSheet, gpGo: createGroup, joinG: (t) => joinGroup(t.dataset.g), gBack: groupInfo, gEdit: gEditSheet, gEditSave, gAdd: gAddSheet, gSearch, gAddU: (t) => gAddU(t.dataset.u),
   gKick: (t) => gKick(t.dataset.u), gPerms: (t) => gPermsSheet(t.dataset.u), gPermSave: (t) => gPermSave(t.dataset.u, false), gAdmRm: (t) => gPermSave(t.dataset.u, true), gLeave, gDelete,
+  chatImg: () => { if(!$("cForm")) return; imgTarget = "chat"; $("imgFile").click(); }, ciSend, lbImg: (t) => openLb(t.getAttribute("src")), lbSave: () => saveImg($("lb").dataset.src),
+  imgMenu: (t) => { const m = msgsData.find((x) => x.id === t.dataset.m); if(m && photoOk(m.img)) imgMenuSheet(m.img); }, noteImgMenu: (t) => { const n = notesData.find((x) => x.id === t.dataset.n); if(n && photoOk(n.img)) imgMenuSheet(n.img); },
+  imgSave: () => { closeOv("ovInfo"); saveImg(imgCtx); }, imgView: () => { closeOv("ovInfo"); openLb(imgCtx); },
+  selReply, selSave, rplX: () => { reply = null; paintReply(); }, goMsg: (t) => goMsg(t.dataset.m), gProf: (t) => { if(t.dataset.u && t.dataset.u !== me()) pgGo("peer", t.dataset.u); },
+  nSelX: () => { nsel = new Set(); renderNotes(); }, nSelCopy, nSelSave, nSelDel, nDelOk, stReact: (t) => stReact(t.dataset.e),
   nav: (t) => { if(srch) srchOff(); const n = t.dataset.n; if(n === "chats" || n === "story"){ if(cur) closeChatUI(); setPtab(n); } else if(n === "settings") pgGo("settings"); else if(n === "profile") pgGo("profile"); },
   fabNew: () => { setPtab("chats"); const q = $("q"); q.focus(); toast("Escribe un @usuario o un ID para buscar a alguien"); },
   sf: (t) => { sf = t.dataset.f; document.querySelectorAll("#sfil [data-f]").forEach((x) => x.classList.toggle("on", x.dataset.f === sf)); renderList(); }, srchX: () => { if(qtxt){ $("q").value = ""; onSearch(); $("q").focus(); } else srchOff(); },
@@ -2928,7 +3127,7 @@ const A = {
   menu: () => pgGo("settings"), menuProf: () => { closeOv("ovInfo"); openProfile(); }, menuLegal: () => { closeOv("ovInfo"); openOv("ovLegal"); }, friends: friendsSheet,
   fOpen: (t) => { closeOv("ovInfo"); openChat(t.dataset.c); }, creatorSheet, crMsg: (t) => { closeOv("ovInfo"); connectSheet(t.dataset.u); }, crOpen: (t) => { closeOv("ovInfo"); openChat(t.dataset.c); },
   stAdd: () => { imgTarget = "story"; $("imgFile").click(); }, stOpen: (t) => openStories(t.dataset.u), storyPost: postStory, svClose: stClose, svPrev: stPrev, svNext: () => stNext(false), svHeart: stHeart, svViews: stViews, svDel: stDelete,
-  openNotes, noteImg: () => { imgTarget = "note"; $("imgFile").click(); }, noteDel: (t) => noteDel(t.dataset.n),
+  openNotes, noteImg: () => { imgTarget = "note"; $("imgFile").click(); },
   lbS: (t) => openLb((aSto.find((x) => x.id === t.dataset.s) || {}).img), lbN: (t) => openLb((notesData[+t.dataset.i] || {}).img), lbA: (t) => openLb((aNoteItems[+t.dataset.i] || {}).img), lbClose: () => { $("lb").hidden = true; },
   aViews: (t) => aViews(t.dataset.s), aNote: (t) => noteSheet(t.dataset.u),
   fbDone: (t) => updateDoc(doc(db, "wm_feedback", t.dataset.f), { estado:"revisado" }).catch(() => toast("No se pudo actualizar.")),
@@ -2939,10 +3138,10 @@ const A = {
 document.addEventListener("click", (e) => {
   const t = e.target.closest("[data-act]");
   if(t && A[t.dataset.act]){ A[t.dataset.act](t); return; }
-  if(e.target.classList && e.target.classList.contains("ov") && e.target.hasAttribute("data-close")) e.target.classList.remove("on");
+  if(e.target.classList && e.target.classList.contains("ov") && e.target.hasAttribute("data-close")){ e.target.classList.remove("on"); if(sv) svResume(); }
 });
 $("imgFile").addEventListener("change", onImgFile);
-$("lb").addEventListener("click", () => { $("lb").hidden = true; });
+$("lb").addEventListener("click", (e) => { if(e.target.closest("[data-act]")) return; $("lb").hidden = true; });
 document.addEventListener("keydown", (e) => {
   if(e.key === "Escape" && !$("lb").hidden){ $("lb").hidden = true; return; }
   if(e.key === "Escape" && sv && !document.querySelector(".ov.on")){ stClose(); return; }
