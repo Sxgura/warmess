@@ -775,6 +775,22 @@ html[data-theme=ios] .dmenu{background:#fff}html[data-theme=ios] .dmenu button{c
 .main .mh .back{background:none}
 .mrow .b{max-width:100%}
 
+/* ===== v31: negro total, presencia, avatar ===== */
+:root{--bg:#000}
+html,body,.main,.side,.msgs,.comp,.main .mh,.mwrap{background:#000}
+[data-ct]{--cbg:#000;--cbgi:none;--hbg:#000;--cmpbg:#000}
+[data-ct=amor]{--cbg:#000;--cbgi:none;--hbg:#000;--cmpbg:#000}
+.msgs{background:#000!important}
+.thpv,.thv{background:#000!important}
+.thv{box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.avt,.mav{position:relative}
+.odot{position:absolute;right:0;bottom:0;width:14px;height:14px;border-radius:50%;background:#31d158;box-shadow:0 0 0 2.5px #000;pointer-events:none}
+.odot.s{width:11px;height:11px;box-shadow:0 0 0 2px #000}
+.mav{flex:none;width:34px;height:34px;border-radius:50%;margin-bottom:17px;padding:0;transition:transform .15s}.mav:active{transform:scale(.92)}
+.mav .av{width:34px;height:34px;box-shadow:0 0 0 1.5px rgba(255,255,255,.14)}
+.mav.sp{margin-bottom:0;height:1px}
+.mrow{gap:8px}
+
 </style>
 </head>
 <body>
@@ -943,10 +959,11 @@ html[data-theme=ios] .dmenu{background:#fff}html[data-theme=ios] .dmenu button{c
 window.addEventListener("error",function(e){add((e.message||"error")+(e.filename?" @"+String(e.filename).split("/").pop()+":"+e.lineno:""));});
 window.addEventListener("unhandledrejection",function(e){add("promesa: "+(e.reason&&(e.reason.message||e.reason.code)||e.reason));});
 setTimeout(function(){var bt=document.getElementById("boot");if(!bt||!bt.classList.contains("on"))return;
-var why=window.__wm?"La app arrancó pero no pudo cargar tu cuenta (¿conexión o reglas de Firestore?).":"No se pudo cargar el código de Firebase (revisa tu conexión, bloqueadores de contenido o la caché).";
+var why="Conexión débil";
 var d=document.createElement("div");d.style.cssText="max-width:320px;margin:22px auto 0;text-align:center;font:14px/1.45 sans-serif;color:#c7c7cc;padding:0 18px";
-d.innerHTML="<p style='margin:0 0 10px'>"+why+"</p>"+(E.length?"<p style='font-size:12px;color:#ff6b61;word-break:break-word;margin:0 0 12px'>"+E.slice(-3).join("<br>").replace(/</g,"&lt;")+"</p>":"")+"<button id='wdR' style='background:#0a84ff;color:#fff;border-radius:12px;padding:11px 20px;font-weight:700;border:0'>Reintentar</button>";
-bt.appendChild(d);document.getElementById("wdR").onclick=function(){location.reload();};},9000);})();
+d.innerHTML="<p style='margin:0;font-size:15px;font-weight:600;color:#c7c7cc'>"+why+"</p>";
+bt.appendChild(d);var n=+(sessionStorage.getItem("wm_wd")||0);window.addEventListener("online",function(){location.reload();});
+if(n<4){setTimeout(function(){var b=document.getElementById("boot");if(b&&b.classList.contains("on")){sessionStorage.setItem("wm_wd",n+1);location.reload();}},12000);}},9000);})();
 </script>
 
 <script type="module">
@@ -1358,7 +1375,7 @@ async function uscrGo(){
 
 /* ================= APP ================= */
 function teardown(){
-  try{ stW.forEach((s) => s.unsub()); stW.clear(); }catch(e){} try{ unsubAv && unsubAv(); }catch(e){} unsubAv = null; avisos = []; botOn = false; avDeliv = new Set(); avSeen = new Set(); try{ const m = document.getElementById("vmod"); m && m.remove(); }catch(e){}
+  try{ stW.forEach((s) => s.unsub()); stW.clear(); presU.forEach((u) => u()); presU.clear(); }catch(e){} try{ unsubAv && unsubAv(); }catch(e){} unsubAv = null; avisos = []; botOn = false; avDeliv = new Set(); avSeen = new Set(); try{ const m = document.getElementById("vmod"); m && m.remove(); }catch(e){}
   [unsubChats, unsubMsgs, unsubPeer, unsubSelf, unsubTk].forEach((f) => { try{ f && f(); }catch(e){} });
   unsubChats = unsubMsgs = unsubPeer = unsubSelf = unsubTk = null;
   clearInterval(statusT); clearInterval(verT); clearInterval(sessT); clearInterval(secT); sessT = secT = null;
@@ -1399,6 +1416,14 @@ function enterApp(){
 }
 function teardownLive(){ [unsubChats, unsubGrp, unsubMsgs, unsubPeer].forEach((f) => { try{ f && f(); }catch(e){} }); unsubChats = unsubGrp = unsubMsgs = unsubPeer = null; clearInterval(sessT); clearInterval(secT); closeAllOv(); }
 function renderMe(){ if(typeof pgRefresh === "function") pgRefresh(); }
+let presU = new Map();
+function watchPresence(){
+  const ids = new Set([...chats.values()].filter((c) => !isG(c) && c.estado === "activo" && !isDel(c)).sort((x, y) => ms(y.ultimoMsgAt) - ms(x.ultimoMsgAt)).slice(0, 25).map(otherOf));
+  presU.forEach((u, id) => { if(!ids.has(id)){ try{ u(); }catch(e){} presU.delete(id); } });
+  ids.forEach((id) => { if(presU.has(id) || id === cur) return; presU.set(id, onSnapshot(doc(db, "wm_users", id), (s) => { if(!s.exists()) return; peers.set(id, { ...s.data(), uid:id, _t: Date.now() }); renderList(); }, () => {})); });
+}
+setInterval(() => { if(prof && !document.hidden){ try{ renderList(); updatePresDots(); }catch(e){} } }, 20000);
+function updatePresDots(){ const h = $("mhS"); if(h && cur) renderHeader(); }
 function onChats(snap){
   chatsP = new Map(); snap.docs.forEach((d) => chatsP.set(d.id, { id: d.id, ...d.data({ serverTimestamps:"estimate" }) })); mergeChats();
 }
@@ -1414,6 +1439,7 @@ function mergeChats(){
       if(c.estado === "pendiente" && c.solicita !== me() && !p) beep();
     });
   }
+  try{ watchPresence(); }catch(e){}
   firstChats = false; let ch = false; Object.keys(unc).forEach((k) => { const c = chats.get(k); if(!c || !unreadOf(c)){ delete unc[k]; ch = true; } }); if(ch) uncSave();
   if(cur && !chats.has(cur)) closeChatUI();
   ensurePeers(); renderList(); updateBadges();
@@ -1498,7 +1524,7 @@ function chatRow(c){
   const g = isG(c), p = g ? null : peers.get(otherOf(c)), nm = nameOf(c), un = unreadOf(c);
   const cleared = ms(c.ultimoMsgAt) <= myClear(c);
   let sub = c.estado === "pendiente" ? "Solicitud enviada · esperando respuesta" : cleared ? "" : (c.ultimoMsg ? (c.ultimoDe === me() ? "Tú: " : (g && c.ultimoDe ? ((peers.get(c.ultimoDe) || {}).nombre || "").split(" ")[0] + ": " : "")) + c.ultimoMsg : (!c.ultimoDe ? (g ? "Grupo nuevo" : "Conectados · escribe el primer mensaje") : ""));
-  return `<button class="row ${c.id === cur ? "sel" : ""}" data-act="open" data-c="${esc(c.id)}"><span class="avt" data-act="avQuick" data-c="${esc(c.id)}" role="button" aria-label="Ver foto e información">${g ? avG(nm, c.foto) : av(nm, fotoOf(p))}</span><div class="mid"><div class="nm">${g ? "" : ""}${esc(nm)}${badge(p)}</div><div class="sub ${un ? "un" : ""}">${esc(sub)}</div></div><div class="meta"><span>${esc(fmtList(ms(c.ultimoMsgAt)))}</span>${un ? `<span class="unr n">${uncOf(c)}</span>` : ""}</div></button>`;
+  return `<button class="row ${c.id === cur ? "sel" : ""}" data-act="open" data-c="${esc(c.id)}"><span class="avt" data-act="avQuick" data-c="${esc(c.id)}" role="button" aria-label="Ver foto e información">${g ? avG(nm, c.foto) : av(nm, fotoOf(p))}${!g && c.estado === "activo" && peerOnline(p) ? '<i class="odot"></i>' : ""}</span><div class="mid"><div class="nm">${g ? "" : ""}${esc(nm)}${badge(p)}</div><div class="sub ${un ? "un" : ""}">${esc(sub)}</div></div><div class="meta"><span>${esc(fmtList(ms(c.ultimoMsgAt)))}</span>${un ? `<span class="unr n">${uncOf(c)}</span>` : ""}</div></button>`;
 }
 const qMode = () => { const q = qtxt.trim(), raw = q.replace(/^@/, ""); if(/^\d+$/.test(raw)) return "id"; if(raw && (q.startsWith("@") || raw.length >= 3)) return "u"; return ""; };
 const ICA = '<svg viewBox="0 0 24 24"><path d="M4 5.5h16v3.5H4zM5.5 9v9.5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V9"/><path d="M12 11.5v5M9.8 14.6 12 16.8l2.2-2.2"/></svg>';
@@ -1750,7 +1776,7 @@ function renderMsgs(){
     const bub = `<div class="b ${mine ? "me" : "him"} ${img ? "img" : ""} ${img && !m.texto ? "oi" : ""} ${big ? "big" : ""} ${first ? "fst" : ""} ${sel.has(m.id) ? "sel" : ""}" data-m="${esc(m.id)}">${head}${media}${m.texto ? `<span class="mt">${esc(m.texto)}</span>` : ""}</div>`;
     const tmx = last ? `<div class="tmx ${mine && seen && !g ? "rd" : ""}">${(m.expira || m.ins) ? `<span class="tmc">${IC.clock}</span>` : ""}${fmtT(t)}${st}</div>` : "";
     const w = `<div class="mw ${mine ? "me" : "him"} ${first ? "fst" : ""}">${m.resp ? quoteNew(m, c, mine) : ""}${bub}${tmx}</div>`;
-    h += mine ? w : `<div class="mrow ${first ? "fst" : ""}">${last ? `<button class="mav" data-act="gProf" data-u="${esc(m.de)}" aria-label="Ver perfil de ${esc(p.nombre || "")}">${av(p.nombre || "?", fotoOf(p), "xs")}</button>` : '<span class="mav sp"></span>'}${w}</div>`;
+    h += mine ? w : `<div class="mrow ${first ? "fst" : ""}">${last ? `<button class="mav" data-act="gProf" data-u="${esc(m.de)}" aria-label="Ver perfil de ${esc(p.nombre || "")}">${av(p.nombre || "?", fotoOf(p), "xs")}${peerOnline(p) ? '<i class="odot s"></i>' : ""}</button>` : '<span class="mav sp"></span>'}${w}</div>`;
   });
   const changed = patchList(el, h);
   clearTimeout(expT); if(nextExp) expT = setTimeout(renderMsgs, Math.max(200, nextExp - Date.now() + 80));
