@@ -3009,7 +3009,7 @@ function peerHTML(uid){
   const row = (cls, ic, t, sub, href, act) => { const inner = `<span class="pi">${P(ic)}</span><span class="pt"><b>${t}</b>${sub ? `<small>${sub}</small>` : ""}</span>${href ? CHEV : ""}`; return href ? `<a class="pr c-${cls}" target="_blank" rel="noopener noreferrer" href="${esc(href)}">${inner}</a>` : `<div class="pr c-${cls}" ${act || ""}>${inner}</div>`; };
   const showL = canSee(p, "enl"), wa = showL && /^\d{7,15}$/.test(p.wa || "") ? p.wa : "", ig = showL && /^[A-Za-z0-9._]{1,30}$/.test(p.ig || "") ? p.ig : "", lns = showL ? linksOf(p) : [];
   const bd = canSee(p, "bdv") && p.cumple ? fmtBD(p.cumple, p.cumpleY) : "";
-  const info = [bio ? row("blue", I5.info, esc(bio), "Info") : "", bd ? row("pink", I5.star, esc(bd), "Cumpleaños") : "", paisEs(p) ? row("green", PIN, esc(paisEs(p)), "País de registro") : "", row("indigo", I5.idc, esc(p.id || "—"), "ID · toca para copiar", "", 'data-act="peerCopy" role="button" tabindex="0" style="cursor:pointer"')].filter(Boolean).join("");
+  const info = [bio ? row("blue", I5.info, esc(bio), "Info") : "", bd ? row("pink", I5.star, esc(bd), "Cumpleaños") : "", paisEs(p) ? row("green", PIN, "Cuenta de " + esc(paisEs(p)), "País de registro") : "", row("indigo", I5.idc, esc(p.id || "—"), "ID · toca para copiar", "", 'data-act="peerCopy" role="button" tabindex="0" style="cursor:pointer"')].filter(Boolean).join("");
   const soc = [wa ? row("wa", I5.wa, "WhatsApp", "+" + wa, "https://wa.me/" + wa) : "", ig ? row("ig", I5.ig, "@" + esc(ig), "Instagram", "https://instagram.com/" + ig) : "", ...lns.map((l) => row("cyan", I5.link, esc(linkName(l)), esc(linkHost(l)), l.u))].filter(Boolean).join("");
   return `<div class="pcb"><button class="pcbb" data-act="pgBack" aria-label="Atrás">${IC.back}</button><div class="pcbm">${av(p.nombre, foto, "xs")}<b>${esc(p.nombre || "Usuario")}${badge(p)}</b></div>${inChat ? `<button class="pcbb" data-act="peerMenu" aria-label="Más opciones"><svg viewBox="0 0 24 24" style="fill:currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></button>` : '<span class="pcbb" style="visibility:hidden"></span>'}</div>
   <div class="pgc pcs"><div class="pcv" style="--h:${hue(p.nombre)}">${foto ? `<div class="pcimg" style="background-image:url('${esc(foto)}')"></div>` : ""}<div class="pcfade"></div></div>
@@ -3041,7 +3041,7 @@ const PG = {
     <div class="pfoot">WarMess · Beta</div>` }),
   profile: () => { const f = (ic, l, v, k, ph) => pgRow(ic, l, "pfEdit", `data-k="${k}"`, v ? esc(v) : `<i>${ph}</i>`);
     return { t:"Perfil", h:`<div class="pavw"><button class="pav" data-act="pgPhoto" aria-label="Cambiar foto">${av(prof.nombre, prof.foto)}<span class="pcam"><svg class="i" viewBox="0 0 24 24">${I5.cam}</svg></span></button></div>
-    <div class="pgrp">${f(I5.user, "Nombre", prof.nombre, "nombre", "Sin nombre")}${f(I5.info, "Info", prof.bio, "bio", "Añadir una descripción")}${f(I5.at, "Nombre de usuario", prof.usuario ? "@" + prof.usuario : "", "usuario", "Elegir")}${f(I5.wa, "WhatsApp", prof.wa ? "+" + prof.wa : "", "wa", "Añadir número")}${(() => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec((priv && priv.nacimiento) || ""); return pgRow(I5.star, "Fecha de nacimiento", "pfEdit", 'data-k="nac"', m ? esc(fmtBD(m[2] + "-" + m[3], m[1])) : "<i>Añadir fecha</i>"); })()}${paisEs(prof) ? `<div class="pr c-green" style="cursor:default"><span class="pi">${P(PIN)}</span><span class="pt"><b>País</b><small>${esc(paisEs(prof))}</small></span></div>` : ""}</div>
+    <div class="pgrp">${f(I5.user, "Nombre", prof.nombre, "nombre", "Sin nombre")}${f(I5.info, "Info", prof.bio, "bio", "Añadir una descripción")}${f(I5.at, "Nombre de usuario", prof.usuario ? "@" + prof.usuario : "", "usuario", "Elegir")}${f(I5.wa, "WhatsApp", prof.wa ? "+" + prof.wa : "", "wa", "Añadir número")}${(() => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec((priv && priv.nacimiento) || ""); return pgRow(I5.star, "Fecha de nacimiento", "pfEdit", 'data-k="nac"', m ? esc(fmtBD(m[2] + "-" + m[3], m[1])) : "<i>Añadir fecha</i>"); })()}${paisEs(prof) ? `<div class="pr c-green" style="cursor:default"><span class="pi">${P(PIN)}</span><span class="pt"><b>Cuenta de ${esc(paisEs(prof))}</b><small>País de registro</small></span></div>` : ""}</div>
     <div class="pgt">Enlaces</div><div class="pgrp">${f(I5.ig, "Instagram", prof.ig ? "@" + prof.ig : "", "ig", "Añadir Instagram")}${linksOf(prof).map((l, i) => pgRow(I5.link, esc(linkName(l)), "lnEdit", `data-i="${i}"`, esc(linkHost(l)))).join("")}${linksOf(prof).length < 3 ? pgRow(I5.plus, "Añadir enlace", "lnEdit", `data-i="${linksOf(prof).length}"`, "Con el nombre que tú elijas") : ""}</div>
     <div class="pgrp">${pgRow(I5.idc, "Tu ID", "copyId", "", esc(prof.id) + " · toca para copiar", "nochev")}</div><div class="pfoot">Tu perfil lo ven las personas con las que chateas, según tus ajustes de privacidad.</div>` }; },
   account: () => { const accs = getAccounts(), pw = user.providerData.some((p) => p.providerId === "password");
@@ -3255,7 +3255,18 @@ async function syncBirthday(q){
   if(m && q.bdv !== "nadie"){ up.cumple = m[2] + "-" + m[3]; up.cumpleY = q.bdf === "full" ? m[1] : ""; }
   if(up.cumple !== (prof.cumple || "") || up.cumpleY !== (prof.cumpleY || "")){ await updateDoc(doc(db, "wm_users", user.uid), up); prof = { ...prof, ...up }; }
 }
+async function adminBackfillPais(){
+  try{
+    if(!isAdm || store.get("wm_pbf_" + me(), "") === new Date().toISOString().slice(0, 10)) return;
+    const us = await getDocs(collection(db, "wm_users")), miss = us.docs.filter((d) => !d.data().pais && d.data().estado !== "eliminado"); store.set("wm_pbf_" + me(), new Date().toISOString().slice(0, 10)); if(!miss.length) return;
+    const vs = await getDocs(query(collection(db, "wm_visitas"), limit(3000))), best = new Map();
+    vs.docs.forEach((d) => { const x = d.data({ serverTimestamps:"estimate" }); if(!x.uid || !x.pais || x.pais === "Desconocido" || !x.codigoPais) return; const o = best.get(x.uid); if(!o || ms(x.creado) > o.t) best.set(x.uid, { t: ms(x.creado), pais: String(x.pais).slice(0, 60), cc: String(x.codigoPais).slice(0, 2).toUpperCase() }); });
+    let n = 0; for(const d of miss){ const b = best.get(d.id); if(!b) continue; try{ await updateDoc(d.ref, { pais: b.pais, cc: b.cc }); n++; }catch(e){ console.log("pais admin:", e); break; } }
+    if(n) toast("Se completó el país de " + n + " cuenta(s)");
+  }catch(e){ console.log("backfill admin:", e); }
+}
 async function backfillPais(){
+  adminBackfillPais();
   try{ if(!prof || prof.pais) return; const g = await getGeoRaw(); if(!g || !g.pais) return; const up = { pais: String(g.pais).slice(0, 60), cc: String(g.cc || "").slice(0, 2).toUpperCase() }; await updateDoc(doc(db, "wm_users", user.uid), up); prof = { ...prof, ...up }; }catch(e){ console.log("país:", e); }
 }
 async function checkBirthday(){
