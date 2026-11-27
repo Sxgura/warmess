@@ -683,6 +683,39 @@ html[data-theme=ios] .qcard{background:#fff}html[data-theme=ios] .qbar button{ba
 html[data-theme=ios] .rplb{background:#f2f2f7}html[data-theme=ios] .rplb .rpt span{color:#6b6b72}
 .sv.rep .svtx{bottom:176px}
 
+.askm{z-index:90}.askm .vcard{text-align:left}.askm .vcard h3{margin:0 0 8px;font-size:18px}.askm .vcard p{margin:0 0 16px;color:var(--mut);font-size:14.5px;line-height:1.4}
+.askb{display:flex;gap:10px}.askb .btn{flex:1;margin:0}
+.big svg.bigi{width:46px;height:46px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round;opacity:.45}
+.tmc{display:inline-grid;vertical-align:-2px;margin-right:3px}.tmc svg{width:12px;height:12px}
+
+/* ===== v29 ===== */
+.dmenu{position:fixed;z-index:80;min-width:210px;background:#1f1f23;border-radius:16px;padding:6px;box-shadow:0 12px 36px rgba(0,0,0,.6),inset 0 0 0 .5px rgba(255,255,255,.08)}
+.dmenu[hidden]{display:none}
+.dmenu button{display:flex;align-items:center;gap:12px;width:100%;padding:11px 12px;border-radius:11px;color:#f2f2f7;font-size:15px;text-align:left}
+.dmenu button:active{background:rgba(255,255,255,.08)}
+.dmenu button>svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dmenu .av{width:24px;height:24px}.dmenu button span{display:flex;align-items:center;gap:4px}
+html[data-theme=ios] .dmenu{background:#fff}html[data-theme=ios] .dmenu button{color:#1c1c1e}
+.av.bot.bf{background:linear-gradient(135deg,#27c25a,#0d7a3b)}.av.bot.bf svg{fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;width:58%;height:58%}
+.bfchips{display:flex;gap:6px;overflow-x:auto;padding:6px 10px 0}.bfchips button{flex:none;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--acc,#4d9bff);font-size:13px;font-weight:600}
+.b code,.acard code{font-family:ui-monospace,Menlo,monospace;background:rgba(255,255,255,.12);padding:1px 5px;border-radius:5px;font-size:.92em}
+.b a{color:inherit;text-decoration:underline}
+.fcard{display:flex;flex-direction:column;align-items:center;gap:3px;margin:10px auto 14px;padding:18px 26px;max-width:280px;border-radius:20px;background:rgba(255,255,255,.06);text-align:center}
+.fcard .av{margin-bottom:6px}.fcard .fn{font-weight:800;font-size:17px;display:flex;align-items:center;gap:2px}.fcard .fs{color:var(--mut);font-size:13px;display:flex;align-items:center;gap:4px}
+.fpin{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.fmtleg{font-size:12px;color:var(--mut);margin-top:6px;line-height:1.5}.fmtleg span{color:var(--tx,#fff);white-space:pre-wrap}
+.avpk{display:flex;gap:8px;align-items:center;padding:7px 4px;font-size:14px}
+.row .unr.n,.nbd{background:#1d8cff;color:#fff;border-radius:999px;min-width:20px;height:20px;display:grid;place-items:center;font-size:12px;font-weight:700;padding:0 6px;font-style:normal;width:auto}
+/* barra inferior */
+.bnav{width:min(calc(100% - 64px),288px);padding:3px;gap:0;background:#1c1c1e;bottom:max(12px,env(safe-area-inset-bottom));box-shadow:0 6px 22px rgba(0,0,0,.55),inset 0 0 0 .5px rgba(255,255,255,.07)}
+.bnav button{height:40px;padding:3px 0 2px;gap:1px;justify-content:center;color:#fff}
+.bnav .ni{position:relative;height:21px}.bnav .ni svg{width:21px;height:21px;stroke-width:1.7}.bnav .ni .av{width:21px;height:21px;font-size:9px}
+.bnav .nl{font-size:10.5px;font-weight:600;letter-spacing:0}
+.bnav button.on{background:rgba(10,132,255,.22);color:#2f94ff;box-shadow:none}.bnav button.on .nl{font-weight:700}
+.bnav .nbd{position:absolute;top:-5px;left:calc(50% + 5px);min-width:15px;height:15px;font-size:9.5px;padding:0 4px;border:1.5px solid #1c1c1e;box-sizing:content-box}
+.bnav .nbd.dot{min-width:0;width:7px;height:7px;padding:0;left:calc(50% + 7px);top:-3px}
+.bnav .nbd[hidden]{display:none}
+
 </style>
 </head>
 <body>
@@ -732,7 +765,7 @@ html[data-theme=ios] .rplb{background:#f2f2f7}html[data-theme=ios] .rplb .rpt sp
   <div class="brand" style="font-size:24px">Verifica tu correo</div>
   <p class="lead">Te enviamos un enlace a <b id="vEm"></b>. Ábrelo y vuelve aquí: se actualiza solo. Revisa también la carpeta de spam.</p>
   <div class="card">
-    <button class="btn" data-act="vcheck" id="vCheck">✓ Ya verifiqué mi correo</button>
+    <button class="btn" data-act="vcheck" id="vCheck">Ya verifiqué mi correo</button>
     <button class="btn ghost" data-act="vresend" id="vResend">Reenviar el correo de verificación</button>
     <div class="msg" id="vMsg"></div>
     <div style="text-align:center"><button class="lnk" data-act="logout">Usar otra cuenta</button></div>
@@ -783,7 +816,7 @@ html[data-theme=ios] .rplb{background:#f2f2f7}html[data-theme=ios] .rplb .rpt sp
   <div class="logo" style="margin:0 auto;background:linear-gradient(135deg,#ff453a,#c4271d)"><svg viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5 3.8 9.3 9 10 5.2-.7 9-5 9-10V6zm1 13h-2v-2h2zm0-4h-2V7h2z"/></svg></div>
   <div class="brand" style="font-size:24px" id="blkT">Cuenta restringida</div>
   <p class="lead" id="blkP"></p>
-  <div class="card"><button class="btn" data-act="ticket" style="margin-top:0">📩 Solicitar revisión</button><button class="btn ghost" data-act="retry">Reintentar</button><button class="btn ghost" data-act="logout">Cerrar sesión</button></div>
+  <div class="card"><button class="btn" data-act="ticket" style="margin-top:0">Solicitar revisión</button><button class="btn ghost" data-act="retry">Reintentar</button><button class="btn ghost" data-act="logout">Cerrar sesión</button></div>
   <div id="tkList"></div>
   <div class="foot">WarMess · Plataforma de mensajería instantánea<br>Atentamente, <b>Sxgura Inc</b></div>
 </div></div></div>
@@ -791,6 +824,7 @@ html[data-theme=ios] .rplb{background:#f2f2f7}html[data-theme=ios] .rplb .rpt sp
 <!-- APP -->
 <div class="scr" id="app">
  <div class="shell" id="shell">
+  <div class="dmenu" id="dmenu" hidden></div>
   <aside class="side">
     <div class="top">
       <h1>WarMess<small>Beta</small></h1>
@@ -800,7 +834,7 @@ html[data-theme=ios] .rplb{background:#f2f2f7}html[data-theme=ios] .rplb .rpt sp
     <div class="sfil" id="sfil"><button class="on" data-act="sf" data-f="all">Todo</button><button data-act="sf" data-f="chats">Chats</button><button data-act="sf" data-f="people">Personas</button><button data-act="sf" data-f="groups">Grupos</button></div>
     <div class="ptabs" id="ptabs" hidden><button class="on" data-act="ptab" data-t="chats">Chats</button><button data-act="ptab" data-t="story">Historias</button><button data-act="ptab" data-t="arch">Archivados <b id="archN" hidden>0</b></button><button data-act="ptab" data-t="reqs">Solicitudes <b id="reqN" hidden>0</b></button></div>
     <div class="list" id="list"></div>
-    <nav class="bnav" id="bnav" aria-label="Navegación"><button class="on" data-act="nav" data-n="chats"><span class="ni"><svg viewBox="0 0 24 24"><path d="M8.5 4C5 4 2.5 6.4 2.5 9.4c0 1.3.5 2.5 1.3 3.4L3 16l3.2-1.3c.7.2 1.5.3 2.3.3 3.5 0 6-2.4 6-5.3S12 4 8.5 4z"/><path d="M16.8 9.4c2.8.4 4.7 2.4 4.7 4.9 0 1.2-.5 2.3-1.3 3.1l.8 2.6-3.1-1.3c-.6.2-1.2.3-1.9.3-2.3 0-4.3-1-5.2-2.6"/></svg></span><span class="nl">Chats</span></button><button data-act="nav" data-n="story"><span class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><circle cx="12" cy="9.6" r="3"/><path d="M6.2 18.2c1.2-2.3 3.2-3.5 5.8-3.5s4.6 1.2 5.8 3.5"/></svg></span><span class="nl">Novedades</span></button><button data-act="nav" data-n="settings"><span class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></span><span class="nl">Ajustes</span></button><button data-act="nav" data-n="profile"><span class="ni" id="navAv"></span><span class="nl">Perfil</span></button></nav>
+    <nav class="bnav" id="bnav" aria-label="Navegación"><button class="on" data-act="nav" data-n="chats"><span class="ni"><svg viewBox="0 0 24 24"><path d="M8.5 4C5 4 2.5 6.4 2.5 9.4c0 1.3.5 2.5 1.3 3.4L3 16l3.2-1.3c.7.2 1.5.3 2.3.3 3.5 0 6-2.4 6-5.3S12 4 8.5 4z"/><path d="M16.8 9.4c2.8.4 4.7 2.4 4.7 4.9 0 1.2-.5 2.3-1.3 3.1l.8 2.6-3.1-1.3c-.6.2-1.2.3-1.9.3-2.3 0-4.3-1-5.2-2.6"/></svg><i class="nbd" id="nbC" hidden></i></span><span class="nl">Chats</span></button><button data-act="nav" data-n="story"><span class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><circle cx="12" cy="9.6" r="3"/><path d="M6.2 18.2c1.2-2.3 3.2-3.5 5.8-3.5s4.6 1.2 5.8 3.5"/></svg><i class="nbd dot" id="nbS" hidden></i></span><span class="nl">Novedades</span></button><button data-act="nav" data-n="settings"><span class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></span><span class="nl">Ajustes</span></button><button data-act="nav" data-n="profile"><span class="ni" id="navAv"></span><span class="nl">Perfil</span></button></nav>
   </aside>
   <main class="main" id="main"></main>
  </div>
@@ -919,10 +953,10 @@ const av = (name, foto, cls = "") => {
     : `<div class="av ${cls} dflt" role="img" aria-label="Sin foto de perfil" style="--h:${hue(name)}"></div>`;
 };
 const SEAL = (() => { let d = ""; for(let k = 0; k <= 160; k++){ const t = k / 160 * 2 * Math.PI, r = 10.55 + 0.62 * Math.cos(8 * t); d += (k ? "L" : "M") + (12 + r * Math.cos(t)).toFixed(2) + " " + (12 + r * Math.sin(t)).toFixed(2); } return d + "Z"; })();
-const SEALC = { "#1d8cff": ["#4db2ff", "#1275ec", "sB"], "#f0423c": ["#ff7469", "#d92a2f", "sR"] };
+const SEALC = { "#1d8cff": ["#4db2ff", "#1275ec", "sB"], "#f0423c": ["#ff7469", "#d92a2f", "sR"], "#1fa94a": ["#5be07a", "#169a3f", "sG"] };
 let sealN = 0;
 const sealSvg = (col, cls = "vb") => { const g = (SEALC[col] || [col, col]).slice(0, 2).concat("sg" + (++sealN)); return `<svg class="${cls}" viewBox="0 0 24 24" aria-label="Cuenta verificada"><defs><linearGradient id="${g[2]}" x1="3" y1="2" x2="21" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="${g[0]}"/><stop offset="1" stop-color="${g[1]}"/></linearGradient></defs><path d="${SEAL}" fill="url(#${g[2]})"/><path d="M12 2.6a9.4 9.4 0 0 1 8.4 5.2" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.1" stroke-linecap="round"/><path d="M7.6 12.4l3.1 3.1 5.7-6.3" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`; };
-const badge = (p) => (p && p.verificado) ? sealSvg(p.rango === "Creador" ? "#f0423c" : "#1d8cff") : "";
+const badge = (p) => (p && p.verificado) ? sealSvg(p.empresa ? "#1fa94a" : p.rango === "Creador" ? "#f0423c" : "#1d8cff") : "";
 const rkTag = (p) => (p && p.rango) ? `<div><span class="rk ${p.rango === "Creador" ? "cr" : ""}">${esc(p.rango)}</span></div>` : "";
 const normU = (v) => String(v || "").trim().replace(/^@/, "").toLowerCase();
 const unameFmt = (u) => UNAME_RE.test(u) && !u.includes("..") && (!RESERVED.includes(u) || (user && (user.email || "").toLowerCase() === ADMIN_EMAIL));
@@ -930,7 +964,7 @@ const socials = (p) => {
   const o = [];
   if(p && /^\d{7,15}$/.test(p.wa || "")) o.push(`<a class="soc wa" target="_blank" rel="noopener noreferrer" href="https://wa.me/${p.wa}">WhatsApp</a>`);
   if(p && /^[A-Za-z0-9._]{1,30}$/.test(p.ig || "")) o.push(`<a class="soc ig" target="_blank" rel="noopener noreferrer" href="https://instagram.com/${p.ig}">Instagram</a>`);
-  if(p && /^https:\/\//.test(p.link || "")){ try{ const u = new URL(p.link); o.push(`<a class="soc ln" target="_blank" rel="noopener noreferrer" href="${esc(u.href)}">🔗 ${esc(u.hostname.replace(/^www\./, "").slice(0, 28))}</a>`); }catch(e){} }
+  if(p && /^https:\/\//.test(p.link || "")){ try{ const u = new URL(p.link); o.push(`<a class="soc ln" target="_blank" rel="noopener noreferrer" href="${esc(u.href)}">${esc(u.hostname.replace(/^www\./, "").slice(0, 28))}</a>`); }catch(e){} }
   return o.length ? `<div class="socs">${o.join("")}</div>` : "";
 };
 let unT = null;
@@ -942,7 +976,7 @@ function watchUname(inp, st, own){
     if(u === (typeof own === "function" ? own() : own)){ st.className = "ustat ok"; st.textContent = "Este es tu usuario actual."; return; }
     st.textContent = "Comprobando…";
     unT = setTimeout(async () => {
-      try{ const s = await getDoc(doc(db, "wm_usernames", u)); if(normU(inp.value) !== u) return; st.className = "ustat " + (s.exists() ? "bad" : "ok"); st.textContent = s.exists() ? "@" + u + " no está disponible." : "@" + u + " está disponible ✓"; }
+      try{ const s = await getDoc(doc(db, "wm_usernames", u)); if(normU(inp.value) !== u) return; st.className = "ustat " + (s.exists() ? "bad" : "ok"); st.textContent = s.exists() ? "@" + u + " no está disponible." : "@" + u + " está disponible"; }
       catch(e){ st.textContent = ""; }
     }, 350);
   });
@@ -955,6 +989,19 @@ async function claimUsername(u){
 }
 const unameErr = (e) => e && e.code === "wm/utaken" ? "Ese nombre de usuario no está disponible. Prueba con otro." : e && e.code === "wm/ufmt" ? "Usuario no válido: de 3 a 20 caracteres, letras minúsculas, números, _ y . (empieza por letra)." : null;
 let toastT = null;
+function askC(text, o){ o = o || {}; return new Promise((res) => {
+  const d = document.createElement("div"); d.className = "vmod askm"; d.setAttribute("role", "alertdialog");
+  d.innerHTML = `<div class="vcard"><h3>${esc(o.title || "Confirmar")}</h3><p style="white-space:pre-line">${esc(text)}</p>${o.input ? `<input class="in" id="askIn" autocomplete="off" placeholder="${esc(o.ph || "")}" style="margin:0 0 14px">` : ""}<div class="askb"><button class="btn ghost" data-k="0">${esc(o.no || "Cancelar")}</button><button class="btn ${o.bad ? "bad" : ""}" data-k="1">${esc(o.ok || "Aceptar")}</button></div></div>`;
+  document.body.appendChild(d); const i = d.querySelector("#askIn"), done = (v) => { d.remove(); res(v); };
+  d.addEventListener("click", (e) => { const k = e.target.closest("[data-k]"); if(k) done(k.dataset.k === "1" ? (o.input ? i.value : true) : (o.input ? null : false)); else if(e.target === d) done(o.input ? null : false); });
+  if(i){ i.addEventListener("keydown", (e) => { if(e.key === "Enter") done(i.value); }); setTimeout(() => i.focus(), 60); }
+}); }
+const fmtRich = (s) => { let t = esc(String(s || "")); const L = [];
+  t = t.replace(/`([^`\n]+)`/g, (m, x) => { L.push(x); return "\ue010" + (L.length - 1) + "\ue011"; });
+  t = t.replace(/(^|[\s(>])\*([^*\n]+)\*(?=$|[\s).,:;!?<])/g, "$1<b>$2</b>").replace(/(^|[\s(>])_([^_\n]+)_(?=$|[\s).,:;!?<])/g, "$1<i>$2</i>").replace(/(^|[\s(>])~([^~\n]+)~(?=$|[\s).,:;!?<])/g, "$1<s>$2</s>");
+  t = t.replace(/(https:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>').replace(/^- /gm, "• ");
+  return t.replace(/\ue010(\d+)\ue011/g, (m, i) => "<code>" + L[i] + "</code>"); };
+const plainRich = (s) => String(s || "").replace(/[*_~`]/g, "");
 function toast(t){ const e = $("toast"); e.textContent = t; e.classList.add("on"); clearTimeout(toastT); toastT = setTimeout(() => e.classList.remove("on"), 3200); }
 const pad2 = (n) => String(n).padStart(2, "0");
 const fmtT = (t) => new Date(t).toLocaleTimeString("es-CO", { hour:"numeric", minute:"2-digit", hour12:true }).replace(/\s+/g, " ");
@@ -966,7 +1013,7 @@ function dayLabel(t){
 const fmtList = (t) => { if(!t) return ""; const n = Date.now(); return sameDay(t, n) ? fmtT(t) : sameDay(t, n - 864e5) ? "Ayer" : new Date(t).toLocaleDateString("es-CO", { day:"2-digit", month:"2-digit", year:"2-digit" }); };
 const fmtFull = (t) => t ? new Date(t).toLocaleString("es-CO", { dateStyle:"medium", timeStyle:"short" }) : "—";
 const fmtDur = (s) => { s = Math.round(s || 0); if(s < 60) return s + " s"; const m = Math.floor(s / 60); return m < 60 ? m + " min " + (s % 60) + " s" : Math.floor(m / 60) + " h " + (m % 60) + " min"; };
-const flagOf = (cc) => (cc && /^[A-Za-z]{2}$/.test(cc)) ? String.fromCodePoint(...cc.toUpperCase().split("").map((c) => 127397 + c.charCodeAt(0))) : "🌍";
+const flagOf = (cc) => (cc && /^[A-Za-z]{2}$/.test(cc)) ? String.fromCodePoint(...cc.toUpperCase().split("").map((c) => 127397 + c.charCodeAt(0))) : "";
 async function hashText(text){
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
   return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, "0")).join("");
@@ -1002,7 +1049,7 @@ async function fileToAvatar(file){
 let user = null, prof = null, priv = null, isAdm = false, seq = 0;
 let chats = new Map(), peers = new Map(), cur = null, msgsData = [], msgLimit = 40, ptab = "chats", qtxt = "", qSeq = 0, qRes = null;
 let unsubTk = null, unsubChats = null, unsubMsgs = null, unsubPeer = null, unsubSelf = null, statusT = null, verT = null, compSig = "", firstChats = true, olderFlag = false, firstMsgs = true;
-let srch = false, sf = "all", avisos = [], unsubAv = null, botOn = false, avDeliv = new Set(), avSeen = new Set(), claimTried = false, imgTarget = "", stDraft = null, sv = null, stT = null, notesOn = false, unsubNotes = null, notesData = [], gaRes0 = null;
+let botK = "w", srch = false, sf = "all", avisos = [], unsubAv = null, botOn = false, avDeliv = new Set(), avSeen = new Set(), claimTried = false, imgTarget = "", stDraft = null, sv = null, stT = null, notesOn = false, unsubNotes = null, notesData = [], gaRes0 = null;
 let sel = new Set(), expT = null, noSeen = false, selChat = null, chatsP = new Map(), groupsP = new Map(), unsubGrp = null;
 let photo = { onb: null, prof: null }, avTarget = "onb", lastSend = 0, markBusy = false;
 const me = () => user && user.uid;
@@ -1189,7 +1236,7 @@ async function ticketSend(){
   busy("tkGo", true, "Enviando…");
   try{
     await addDoc(collection(db, "wm_tickets"), { uid: user.uid, email: user.email || "", nombre: prof ? prof.nombre : "", usuario: prof ? prof.usuario || "" : "", estadoCuenta: prof ? prof.estado : "", mensaje: m, creado: serverTimestamp(), estado:"abierto" });
-    closeOv("ovTk"); toast("Solicitud enviada. Te responderemos aquí ✅");
+    closeOv("ovTk"); toast("Solicitud enviada. Te responderemos aquí");
   }catch(e){ console.log(e); setMsg("tkErr", "No se pudo enviar. Inténtalo de nuevo."); busy("tkGo", false); }
 }
 
@@ -1225,10 +1272,11 @@ async function createProfile(){
       try{ await setDoc(doc(db, "wm_ids", c), { uid: user.uid, creado: serverTimestamp() }); id = c; }catch(e){ if(e.code !== "permission-denied") throw e; }
     }
     if(!id) throw { code:"wm/id" };
-    await setDoc(doc(db, "wm_users", user.uid), { id, usuario: us, nombre, foto: photo.onb || "", bio, estado:"activo", creado: serverTimestamp(), ultimaConexion: serverTimestamp() });
+    const geo = await Promise.race([getGeoRaw(), new Promise((r) => setTimeout(() => r({}), 3500))]).catch(() => ({})), loc = geo && geo.pais ? { pais: String(geo.pais).slice(0, 60), cc: String(geo.cc || "").slice(0, 2).toUpperCase() } : {};
+    await setDoc(doc(db, "wm_users", user.uid), { id, usuario: us, nombre, foto: photo.onb || "", bio, estado:"activo", creado: serverTimestamp(), ultimaConexion: serverTimestamp(), ...loc });
     await setDoc(doc(db, "wm_priv", user.uid), { email: user.email, nacimiento: bd, proveedor: (user.providerData[0] && user.providerData[0].providerId) || "", nVisitas: 0, creado: serverTimestamp() });
     setDoc(doc(db, "wm_avisos", "bienvenida_" + user.uid), { para: user.uid, tipo:"bienvenida", texto:`¡Bienvenido a WarMess, ${nombre}! Tu cuenta ya está lista. Busca a tus amigos por su @usuario o por su ID, comparte el tuyo y chatea en tiempo real. Si necesitas ayuda, escríbenos desde Ajustes > Información > Enviar comentarios.`, de:"sistema", creado: serverTimestamp() }).catch((e) => console.log("Bienvenida:", e));
-    photo.onb = null; await route(); if(prof && prof.estado === "activo"){ toast("¡Bienvenido a WarMess! 🎉 Completa tu perfil"); pgGo("settings"); pgGo("profile"); }
+    photo.onb = null; await route(); if(prof && prof.estado === "activo"){ toast("¡Bienvenido a WarMess! Completa tu perfil"); pgGo("settings"); pgGo("profile"); }
   }catch(e){
     console.log("Perfil:", e);
     setMsg("onbMsg", unameErr(e) || (e.code === "wm/id" || e.code === "permission-denied" ? "No se pudo crear tu perfil. Si eres el administrador, revisa que las reglas de Firestore v16 estén publicadas." : "No se pudo crear tu perfil. Inténtalo de nuevo."));
@@ -1250,7 +1298,7 @@ async function uscrGo(){
 
 /* ================= APP ================= */
 function teardown(){
-  try{ unsubAv && unsubAv(); }catch(e){} unsubAv = null; avisos = []; botOn = false; avDeliv = new Set(); avSeen = new Set(); try{ const m = document.getElementById("vmod"); m && m.remove(); }catch(e){}
+  try{ stW.forEach((s) => s.unsub()); stW.clear(); }catch(e){} try{ unsubAv && unsubAv(); }catch(e){} unsubAv = null; avisos = []; botOn = false; avDeliv = new Set(); avSeen = new Set(); try{ const m = document.getElementById("vmod"); m && m.remove(); }catch(e){}
   [unsubChats, unsubMsgs, unsubPeer, unsubSelf, unsubTk].forEach((f) => { try{ f && f(); }catch(e){} });
   unsubChats = unsubMsgs = unsubPeer = unsubSelf = unsubTk = null;
   clearInterval(statusT); clearInterval(verT); clearInterval(sessT); clearInterval(secT); sessT = secT = null;
@@ -1271,7 +1319,7 @@ function saveAccount(){
   setAccounts(a); store.set("wm_prev_slot", "");
 }
 function enterApp(){
-  saveAccount(); subGinv(); subAvisos(); syncEmail(); enforceLimit(); setTimeout(checkBirthday, 1500);
+  saveAccount(); subGinv(); subAvisos(); syncEmail(); enforceLimit(); setTimeout(checkBirthday, 1500); setTimeout(backfillPais, 4000);
   isAdm = (user.email || "").toLowerCase() === ADMIN_EMAIL && user.emailVerified;
   renderMe(); scr("app"); $("main").innerHTML = welcomeHTML(); setPtab("chats");
   unsubChats = onSnapshot(query(collection(db, "wm_chats"), where("miembros", "array-contains", user.uid)), onChats, (e) => { console.log("Chats:", e); toast("No se pudieron cargar los chats. ¿Reglas v15 publicadas?"); });
@@ -1302,11 +1350,11 @@ function mergeChats(){
   if(!firstChats){
     chats.forEach((c, id) => {
       const p = prev.get(id);
-      if(c.estado === "activo" && c.ultimoDe && c.ultimoDe !== me() && p && ms(c.ultimoMsgAt) > ms(p.ultimoMsgAt) && (cur !== id || document.hidden)) beep();
+      if(c.estado === "activo" && c.ultimoDe && c.ultimoDe !== me() && p && ms(c.ultimoMsgAt) > ms(p.ultimoMsgAt) && (cur !== id || document.hidden)){ unc[id] = (unc[id] || 0) + 1; uncSave(); beep(); }
       if(c.estado === "pendiente" && c.solicita !== me() && !p) beep();
     });
   }
-  firstChats = false;
+  firstChats = false; let ch = false; Object.keys(unc).forEach((k) => { const c = chats.get(k); if(!c || !unreadOf(c)){ delete unc[k]; ch = true; } }); if(ch) uncSave();
   if(cur && !chats.has(cur)) closeChatUI();
   ensurePeers(); renderList(); updateBadges();
   if(cur){ renderHeader(); renderComp(); markRead(); }
@@ -1329,6 +1377,9 @@ function updateBadges(){
   const n = $("reqN"); n.textContent = r; n.hidden = !r;
   const un = [...chats.values()].filter((c) => unreadOf(c) && !isDel(c)).length;
   const an = [...chats.values()].filter((c) => isArch(c) && unreadOf(c) && !isDel(c)).length, ab = $("archN"); if(ab){ ab.textContent = an; ab.hidden = !an; }
+  const tot = [...chats.values()].filter((c) => !isDel(c)).reduce((s, c) => s + uncOf(c), 0) + avUnread(), nb = $("nbC"), ns = $("nbS");
+  if(nb){ nb.textContent = tot > 99 ? "99+" : tot; nb.hidden = !tot; } if(ns) ns.hidden = !stUnseen();
+  try{ watchMyStories(); }catch(e){}
   document.title = (un + r ? `(${un + r}) ` : "") + "WarMess · By Sxgura Inc";
 }
 const THEMES = [["default", "Predeterminado"], ["iosdark", "iOS oscuro"], ["ios", "iOS claro"]];
@@ -1337,16 +1388,32 @@ applyTheme(store.get("wm_theme", "default"));
 let actx = null;
 const TONES = [["Clásico", [880]], ["Gota", [660, 990]], ["Burbuja", [520, 780, 1040]]];
 const sndOn = () => store.get("wm_snd_on", "1") !== "0", sndTone = () => Math.min(TONES.length - 1, Math.max(0, parseInt(store.get("wm_snd_tone", "0")) || 0));
-function beep(force){
+function actxGo(){ actx = actx || new (window.AudioContext || window.webkitAudioContext)(); if(actx.state === "suspended") actx.resume().catch(() => {}); return actx; }
+const tone = (f, t0, d, vol, type, f2) => { const o = actx.createOscillator(), g = actx.createGain(); o.type = type || "sine"; o.frequency.setValueAtTime(f, t0); if(f2) o.frequency.exponentialRampToValueAtTime(f2, t0 + d);
+  g.gain.setValueAtTime(.0001, t0); g.gain.exponentialRampToValueAtTime(vol, t0 + .012); g.gain.exponentialRampToValueAtTime(.0001, t0 + d); o.connect(g); g.connect(actx.destination); o.start(t0); o.stop(t0 + d + .03); };
+function snd(kind, force){
   if(!force && !sndOn()) return;
-  try{
-    actx = actx || new (window.AudioContext || window.webkitAudioContext)();
-    TONES[sndTone()][1].forEach((f, i) => { const o = actx.createOscillator(), g = actx.createGain(), t0 = actx.currentTime + i * .13;
-      o.type = "sine"; o.frequency.value = f; g.gain.setValueAtTime(.0001, t0); g.gain.exponentialRampToValueAtTime(.12, t0 + .02); g.gain.exponentialRampToValueAtTime(.0001, t0 + .22);
-      o.connect(g); g.connect(actx.destination); o.start(t0); o.stop(t0 + .24); });
+  try{ actxGo(); const t = actx.currentTime;
+    if(kind === "out"){ tone(520, t, .09, .45, "sine", 900); tone(1040, t + .07, .11, .25, "sine"); }
+    else if(kind === "img"){ tone(400, t, .08, .4, "triangle", 700); tone(700, t + .08, .1, .4, "triangle", 1200); tone(1200, t + .17, .14, .3, "sine"); }
+    else if(kind === "react"){ [880, 1175, 1568].forEach((f, i) => tone(f, t + i * .08, .2, .4, "sine")); }
+    else TONES[sndTone()][1].forEach((f, i) => tone(f, t + i * .13, .28, .55, "triangle"));
   }catch(e){}
-  try{ navigator.vibrate && navigator.vibrate(40); }catch(e){}
 }
+function beep(force){ snd("in", force); try{ navigator.vibrate && navigator.vibrate(40); }catch(e){} }
+["pointerdown", "keydown", "touchstart"].forEach((ev) => document.addEventListener(ev, () => { try{ actxGo(); }catch(e){} }, { once:true, passive:true }));
+const stW = new Map();
+function watchMyStories(){
+  if(!prof) return; const ids = new Set(activeHist(prof).map((h) => h.id));
+  stW.forEach((s, id) => { if(!ids.has(id)){ try{ s.unsub(); }catch(e){} stW.delete(id); } });
+  ids.forEach((id) => { if(stW.has(id)) return; const st = { first:true, h:new Set() };
+    st.unsub = onSnapshot(collection(db, "wm_stories", id, "views"), (snap) => { let ring = false; snap.docs.forEach((d) => { const x = d.data(); if(x.corazon){ if(!st.h.has(d.id)){ st.h.add(d.id); if(!st.first) ring = true; } } else st.h.delete(d.id); }); st.first = false; if(ring) snd("react"); }, () => {});
+    stW.set(id, st); });
+}
+let unc = {}; try{ unc = JSON.parse(store.get("wm_unc", "{}")) || {}; }catch(e){}
+const uncSave = () => store.set("wm_unc", JSON.stringify(unc));
+const uncOf = (c) => unreadOf(c) ? Math.max(1, unc[c.id] || 0) : 0;
+const stUnseen = () => { try{ const seen = seenSet(); return friendsList().some((c) => activeHist(peers.get(otherOf(c))).some((s) => !seen.has(s.id))); }catch(e){ return false; } };
 /* ---- lista de chats / solicitudes / búsqueda por ID ---- */
 function setPtab(t){
   if(srch) srchOff();
@@ -1357,14 +1424,14 @@ function setPtab(t){
 function avQuick(cid){
   const c = chats.get(cid); if(!c) return; const g = isG(c), p = g ? null : (peers.get(otherOf(c)) || {}), nm = nameOf(c), foto = g ? c.foto : fotoOf(p);
   const big = photoOk(foto) ? `<div class="qimg" style="background-image:url('${esc(foto)}')"></div>` : `<div class="qimg dfl">${g ? avG(nm, "", "xl") : av(nm, "", "xl")}</div>`;
-  $("qv").innerHTML = `<div class="qcard" role="dialog" aria-label="${esc(nm)}">${big}<div class="qnm">${g ? "👥 " : ""}${esc(nm)}${badge(p)}</div><div class="qbar"><button data-act="qvMsg" data-c="${esc(cid)}" aria-label="Mensaje">${P('<path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/>')}</button><button data-act="qvInfo" data-c="${esc(cid)}" aria-label="Información">${P('<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/>')}</button></div></div>`;
+  $("qv").innerHTML = `<div class="qcard" role="dialog" aria-label="${esc(nm)}">${big}<div class="qnm">${g ? "" : ""}${esc(nm)}${badge(p)}</div><div class="qbar"><button data-act="qvMsg" data-c="${esc(cid)}" aria-label="Mensaje">${P('<path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/>')}</button><button data-act="qvInfo" data-c="${esc(cid)}" aria-label="Información">${P('<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/>')}</button></div></div>`;
   $("qv").hidden = false;
 }
 function chatRow(c){
   const g = isG(c), p = g ? null : peers.get(otherOf(c)), nm = nameOf(c), un = unreadOf(c);
   const cleared = ms(c.ultimoMsgAt) <= myClear(c);
   let sub = c.estado === "pendiente" ? "Solicitud enviada · esperando respuesta" : cleared ? "" : (c.ultimoMsg ? (c.ultimoDe === me() ? "Tú: " : (g && c.ultimoDe ? ((peers.get(c.ultimoDe) || {}).nombre || "").split(" ")[0] + ": " : "")) + c.ultimoMsg : (!c.ultimoDe ? (g ? "Grupo nuevo" : "Conectados · escribe el primer mensaje") : ""));
-  return `<button class="row ${c.id === cur ? "sel" : ""}" data-act="open" data-c="${esc(c.id)}"><span class="avt" data-act="avQuick" data-c="${esc(c.id)}" role="button" aria-label="Ver foto e información">${g ? avG(nm, c.foto) : av(nm, fotoOf(p))}</span><div class="mid"><div class="nm">${g ? "👥 " : ""}${esc(nm)}${badge(p)}</div><div class="sub ${un ? "un" : ""}">${esc(sub)}</div></div><div class="meta"><span>${esc(fmtList(ms(c.ultimoMsgAt)))}</span>${un ? '<span class="unr"></span>' : ""}</div></button>`;
+  return `<button class="row ${c.id === cur ? "sel" : ""}" data-act="open" data-c="${esc(c.id)}"><span class="avt" data-act="avQuick" data-c="${esc(c.id)}" role="button" aria-label="Ver foto e información">${g ? avG(nm, c.foto) : av(nm, fotoOf(p))}</span><div class="mid"><div class="nm">${g ? "" : ""}${esc(nm)}${badge(p)}</div><div class="sub ${un ? "un" : ""}">${esc(sub)}</div></div><div class="meta"><span>${esc(fmtList(ms(c.ultimoMsgAt)))}</span>${un ? `<span class="unr n">${uncOf(c)}</span>` : ""}</div></button>`;
 }
 const qMode = () => { const q = qtxt.trim(), raw = q.replace(/^@/, ""); if(/^\d+$/.test(raw)) return "id"; if(raw && (q.startsWith("@") || raw.length >= 3)) return "u"; return ""; };
 const ICA = '<svg viewBox="0 0 24 24"><path d="M4 5.5h16v3.5H4zM5.5 9v9.5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V9"/><path d="M12 11.5v5M9.8 14.6 12 16.8l2.2-2.2"/></svg>';
@@ -1412,10 +1479,10 @@ function renderList(){
   const q = qtxt.trim(), all = [...chats.values()];
   if(ptab === "reqs"){
     const rs = all.filter((c) => c.estado === "pendiente" && c.solicita !== me()).sort((a, b) => ms(b.creado) - ms(a.creado));
-    const gi = (typeof ginvs !== "undefined" ? ginvs : []).map((g) => `<div class="req"><div class="rq"><div class="av dflt" style="width:44px;height:44px"></div><div class="mid" style="flex:1;min-width:0"><div class="nm" style="font-weight:650">👥 ${esc(g.gnombre)}</div><div class="sub" style="font-size:13px;color:var(--mut)">${esc(g.dnombre || "Alguien")} te invitó a este grupo</div></div></div><div class="acts"><button class="btn sm" data-act="ginvOk" data-i="${esc(g.id)}">Unirme</button><button class="btn sm ghost" data-act="ginvNo" data-i="${esc(g.id)}">Rechazar</button></div></div>`).join("");
+    const gi = (typeof ginvs !== "undefined" ? ginvs : []).map((g) => `<div class="req"><div class="rq"><div class="av dflt" style="width:44px;height:44px"></div><div class="mid" style="flex:1;min-width:0"><div class="nm" style="font-weight:650">${esc(g.gnombre)}</div><div class="sub" style="font-size:13px;color:var(--mut)">${esc(g.dnombre || "Alguien")} te invitó a este grupo</div></div></div><div class="acts"><button class="btn sm" data-act="ginvOk" data-i="${esc(g.id)}">Unirme</button><button class="btn sm ghost" data-act="ginvNo" data-i="${esc(g.id)}">Rechazar</button></div></div>`).join("");
     L.innerHTML = backRow("Solicitudes") + gi + (rs.length ? rs.map((c) => { const p = peers.get(otherOf(c)), nm = (p && p.nombre) || "…";
       return `<div class="req"><div class="rq" data-act="peerView" data-u="${esc(otherOf(c))}" style="cursor:pointer">${av(nm, fotoOf(p))}<div class="mid" style="flex:1;min-width:0"><div class="nm" style="font-weight:650">${esc(nm)}${badge(p)}</div><div class="sub" style="font-size:13px;color:var(--mut)">${p && p.usuario ? "@" + esc(p.usuario) + " · " : ""}ID ${esc((p && p.id) || "…")} · ${esc(fmtList(ms(c.creado)))}</div></div></div>${c.primerMsg ? `<div class="q">${esc(c.primerMsg)}</div>` : ""}<div class="acts"><button class="btn sm" data-act="accept" data-c="${esc(c.id)}">Aceptar</button><button class="btn sm ghost" data-act="reject" data-c="${esc(c.id)}">Rechazar</button><button class="btn sm ghost" data-act="peerView" data-u="${esc(otherOf(c))}">Ver perfil</button></div></div>`; }).join("")
-      : (gi ? "" : `<div class="empty"><div class="big">📭</div>No tienes solicitudes pendientes.</div>`));
+      : (gi ? "" : `<div class="empty"><div class="big"><svg viewBox="0 0 24 24" class="bigi"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17H5A1.5 1.5 0 0 1 3.5 15.5V7A1.5 1.5 0 0 1 5 5.5z"/></svg></div>No tienes solicitudes pendientes.</div>`));
     return;
   }
   const mode = qMode(), raw = q.replace(/^@/, "");
@@ -1427,10 +1494,10 @@ function renderList(){
     html += `<div class="hint">${mode === "id" ? `Resultados para el ID <b>${esc(raw)}</b>` : `Usuarios que coinciden con <b>@${esc(raw.toLowerCase())}</b>`}</div>`;
     if(raw.length < 3) html += `<div class="empty" style="padding:24px">Escribe al menos 3 ${mode === "id" ? "dígitos del ID" : "letras del usuario"}.</div>`;
     else if(qRes === null) html += `<div class="empty" style="padding:24px">Buscando…</div>`;
-    else if(!qRes.length) html += `<div class="empty" style="padding:24px"><div class="big">🔎</div>No hay usuarios ni grupos con ${mode === "id" ? "ese ID" : "ese usuario"}.</div>`;
+    else if(!qRes.length) html += `<div class="empty" style="padding:24px"><div class="big"><svg viewBox="0 0 24 24" class="bigi"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17H5A1.5 1.5 0 0 1 3.5 15.5V7A1.5 1.5 0 0 1 5 5.5z"/></svg></div>No hay usuarios ni grupos con ${mode === "id" ? "ese ID" : "ese usuario"}.</div>`;
     else html += qRes.map((u) => {
       if(u.g){ const ex = chats.get(u.gid), bt = ex ? `<button class="btn sm ghost" data-act="open" data-c="${esc(u.gid)}">Abrir</button>` : u.abierto ? `<button class="btn sm" data-act="joinG" data-g="${esc(u.gid)}">Unirse</button>` : '<span style="color:var(--mut);font-size:12.5px">Solo por invitación</span>';
-        return `<div class="row" style="cursor:default">${avG(u.nombre, u.foto)}<div class="mid"><div class="nm">👥 ${esc(u.nombre)}</div><div class="sub">Grupo · @${esc(u.usuario)} · ID ${esc(u.id)}</div></div>${bt}</div>`; }
+        return `<div class="row" style="cursor:default">${avG(u.nombre, u.foto)}<div class="mid"><div class="nm">${esc(u.nombre)}</div><div class="sub">Grupo · @${esc(u.usuario)} · ID ${esc(u.id)}</div></div>${bt}</div>`; }
       const cid = [me(), u.uid].sort().join("_"), ex = chats.get(cid), self = u.uid === me();
       const btn = self ? '<span style="color:var(--mut);font-size:13px">Eres tú</span>' : ex ? `<button class="btn sm ghost" data-act="open" data-c="${esc(cid)}">${ex.estado === "pendiente" ? (ex.solicita === me() ? "Pendiente" : "Ver solicitud") : "Abrir"}</button>` : `<button class="btn sm" data-act="connect" data-u="${esc(u.uid)}">Agregar</button>`;
       return `<div class="row" style="cursor:default">${av(u.nombre, fotoOf(u))}<div class="mid"><div class="nm">${esc(u.nombre)}${badge(u)}</div><div class="sub">${u.usuario ? "@" + esc(u.usuario) + " · " : ""}ID ${esc(u.id)}</div></div>${btn}</div>`; }).join("");
@@ -1438,15 +1505,15 @@ function renderList(){
   }
   if(ptab === "arch" && !mode) html += backRow("Chats archivados");
   if(ptab === "chats" && !mode && !q){
-    const an = all.filter((c) => isArch(c) && !isDel(c) && c.estado === "activo").length + (botIsArch() ? 1 : 0), rn = all.filter((c) => c.estado === "pendiente" && c.solicita !== me()).length + (typeof ginvs !== "undefined" ? ginvs.length : 0), au = all.filter((c) => isArch(c) && unreadOf(c) && !isDel(c)).length;
+    const an = all.filter((c) => isArch(c) && !isDel(c) && c.estado === "activo").length + (botIsArch("w") ? 1 : 0) + (bfOk() && botIsArch("f") ? 1 : 0), rn = all.filter((c) => c.estado === "pendiente" && c.solicita !== me()).length + (typeof ginvs !== "undefined" ? ginvs.length : 0), au = all.filter((c) => isArch(c) && unreadOf(c) && !isDel(c)).length;
     html += `<button class="row arow noic" data-act="ptab" data-t="arch"><div class="mid"><div class="nm mut">Chats archivados</div></div>${au ? `<span class="cnt">${au}</span>` : an ? `<span class="meta"><span>${an}</span></span>` : ""}</button>`;
     if(rn) html += `<button class="row arow" data-act="ptab" data-t="reqs"><div class="ab">${ICQ}</div><div class="mid"><div class="nm">Solicitudes</div><div class="sub">Personas y grupos que quieren conectar</div></div><span class="cnt">${rn}</span></button>`;
   }
-  if(ptab === "chats" && !mode && !q && !botIsArch()) html += botRowHTML();
-  if(ptab === "arch" && !mode && botIsArch()) html += botRowHTML();
+  if(ptab === "chats" && !mode && !q){ if(!botIsArch("w")) html += botRowHTML("w"); if(bfOk() && !botIsArch("f")) html += botRowHTML("f"); }
+  if(ptab === "arch" && !mode){ if(botIsArch("w")) html += botRowHTML("w"); if(bfOk() && botIsArch("f")) html += botRowHTML("f"); }
   if(ptab === "chats" && !mode && !q && prof) html += notesRowHTML();
-  if(ptab === "arch" && !rows.length && !mode && !botIsArch()) html += `<div class="empty"><div class="big">🗃️</div>No tienes chats archivados.</div>`;
-  html += rows.length ? rows.map(chatRow).join("") : (!mode && ptab !== "arch" ? (q ? `<div class="empty">Ningún chat coincide con «${esc(q)}».<br>Para buscar a alguien nuevo escribe su <b>@usuario</b> o su <b>ID</b>.</div>` : `<div class="empty"><div class="big">💬</div>Aún no tienes chats.<br>Pide a alguien su <b>@usuario</b> o <b>ID</b> y búscalo arriba para conectarte. Los tuyos están en tu perfil.</div>`) : "");
+  if(ptab === "arch" && !rows.length && !mode && !botIsArch("w") && !(bfOk() && botIsArch("f"))) html += `<div class="empty"><div class="big"><svg viewBox="0 0 24 24" class="bigi"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17H5A1.5 1.5 0 0 1 3.5 15.5V7A1.5 1.5 0 0 1 5 5.5z"/></svg></div>No tienes chats archivados.</div>`;
+  html += rows.length ? rows.map(chatRow).join("") : (!mode && ptab !== "arch" ? (q ? `<div class="empty">Ningún chat coincide con «${esc(q)}».<br>Para buscar a alguien nuevo escribe su <b>@usuario</b> o su <b>ID</b>.</div>` : `<div class="empty"><div class="big"><svg viewBox="0 0 24 24" class="bigi"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17H5A1.5 1.5 0 0 1 3.5 15.5V7A1.5 1.5 0 0 1 5 5.5z"/></svg></div>Aún no tienes chats.<br>Pide a alguien su <b>@usuario</b> o <b>ID</b> y búscalo arriba para conectarte. Los tuyos están en tu perfil.</div>`) : "");
   L.innerHTML = html;
 }
 let qT = null;
@@ -1485,8 +1552,8 @@ async function sendReq(uid){
   const a = [me(), uid].sort(), txt = ($("cnMsg").value || "").trim().slice(0, 200), u0 = (qRes || []).find((x) => x.uid === uid) || {}, isCr = u0.id === "222222";
   busy("cnGo", true, "Enviando…");
   try{
-    await setDoc(doc(db, "wm_chats", cid), { a:a[0], b:a[1], miembros:a, estado: isCr ? "activo" : "pendiente", solicita:me(), primerMsg:txt, creado:serverTimestamp(), ultimoMsg: isCr ? (txt || "Hola 👋").slice(0, 80) : "", ultimoMsgAt:serverTimestamp(), ultimoDe: isCr ? me() : "", leidoA:serverTimestamp(), leidoB:serverTimestamp(), apodoA:"", apodoB:"", bloqueadoPor:"" });
-    closeOv("ovConn"); toast(isCr ? "Mensaje enviado ✅" : "Solicitud de amistad enviada ✅"); $("q").value = ""; qtxt = ""; qRes = null; setPtab("chats");
+    await setDoc(doc(db, "wm_chats", cid), { a:a[0], b:a[1], miembros:a, estado: isCr ? "activo" : "pendiente", solicita:me(), primerMsg:txt, creado:serverTimestamp(), ultimoMsg: isCr ? (txt || "Hola").slice(0, 80) : "", ultimoMsgAt:serverTimestamp(), ultimoDe: isCr ? me() : "", leidoA:serverTimestamp(), leidoB:serverTimestamp(), apodoA:"", apodoB:"", bloqueadoPor:"" });
+    closeOv("ovConn"); toast(isCr ? "Mensaje enviado" : "Solicitud de amistad enviada"); $("q").value = ""; qtxt = ""; qRes = null; setPtab("chats");
     logEv("solicitud", isCr ? "escribió al creador" : "envió una solicitud de amistad a " + (u0.nombre || "alguien"), (u0.nombre || "") + (u0.usuario ? " (@" + u0.usuario + ")" : ""), cid);
     if(isCr){ const t = setInterval(() => { if(chats.has(cid)){ clearInterval(t); openChat(cid); } }, 150); setTimeout(() => clearInterval(t), 5000); }
   }catch(e){ console.log("Solicitud:", e); setMsg("cnErr", e.code === "permission-denied" ? "No es posible enviar la solicitud a este usuario." : "No se pudo enviar. Inténtalo de nuevo."); busy("cnGo", false); }
@@ -1522,18 +1589,18 @@ function subMsgs(){
   const cid = cur; try{ unsubMsgs && unsubMsgs(); }catch(e){}
   unsubMsgs = onSnapshot(query(collection(db, colOf(chats.get(cid)), cid, "msgs"), orderBy("creado", "desc"), limit(msgLimit)), (snap) => {
     if(cur !== cid) return;
-    const fresh = snap.docChanges ? snap.docChanges().filter((ch) => ch.type === "added" && !ch.doc.metadata.hasPendingWrites && ch.doc.data().de !== me()).length : 0;
+    const freshD = snap.docChanges ? snap.docChanges().filter((ch) => ch.type === "added" && !ch.doc.metadata.hasPendingWrites && ch.doc.data().de !== me() && ch.doc.data().tipo !== "sys") : [], fresh = freshD.length;
     msgsData = snap.docs.map((d) => ({ id:d.id, ...d.data({ serverTimestamps:"estimate" }), pend: !!(d.metadata && d.metadata.hasPendingWrites) })).reverse();
     renderMsgs(); markRead();
-    if(!firstMsgs && fresh && document.hidden) beep();
+    if(!firstMsgs && fresh && !document.hidden){ if(freshD.some((ch) => (ch.doc.data().resp || {}).k === "st")) snd("react"); else beep(); }
     firstMsgs = false;
   }, (e) => { console.log("Mensajes:", e); toast("No se pudieron cargar los mensajes."); });
 }
 function renderHeader(){
   const c = chats.get(cur); if(!c || !$("mhN")) return;
   if(isG(c)){
-    $("mhAv").innerHTML = avG(c.nombre, c.foto, "sm"); $("mhN").innerHTML = "👥 " + esc(c.nombre);
-    let t = (c.miembros || []).length + " miembros"; if(c.estado === "suspendido") t = "Grupo suspendido"; else if(tempOf(c) !== "off") t += " · ⏱ " + TEMP_LBL[tempOf(c)];
+    $("mhAv").innerHTML = avG(c.nombre, c.foto, "sm"); $("mhN").innerHTML = "" + esc(c.nombre);
+    let t = (c.miembros || []).length + " miembros"; if(c.estado === "suspendido") t = "Grupo suspendido"; else if(tempOf(c) !== "off") t += " · " + TEMP_LBL[tempOf(c)];
     $("mhS").textContent = t; $("mhS").className = "t2"; return;
   }
   const p = peers.get(otherOf(c)), nm = nameOf(c);
@@ -1546,7 +1613,7 @@ function renderHeader(){
   else if(peerOnline(p)){ t = "en línea"; on = true; }
   else if(!canSee(p, "ult")) t = "";
   else{ const l = ms(p.ultimaConexion); t = l ? (sameDay(l, Date.now()) ? "últ. vez hoy a las " + fmtT(l) : sameDay(l, Date.now() - 864e5) ? "últ. vez ayer a las " + fmtT(l) : "últ. vez " + new Date(l).toLocaleDateString("es-CO")) : ""; }
-  if(tempOf(c) !== "off" && c.estado === "activo") t = (t ? t + " · " : "") + "⏱ " + TEMP_LBL[tempOf(c)];
+  if(tempOf(c) !== "off" && c.estado === "activo") t = (t ? t + " · " : "") + "" + TEMP_LBL[tempOf(c)];
   s.textContent = t; s.className = "t2" + (on ? " on" : "");
 }
 function renderComp(){
@@ -1555,7 +1622,7 @@ function renderComp(){
   if(sig === compSig) return; compSig = sig;
   if(c.estado === "activo" && !c.bloqueadoPor){
     const draft = ($("cTxt") || {}).value || "";
-    w.innerHTML = `<div id="rplWrap"></div><form class="comp" id="cForm" autocomplete="off"><button class="cimg" type="button" data-act="chatImg" aria-label="Enviar imagen">${IMGI}</button><textarea id="cTxt" rows="1" maxlength="1000" placeholder="${tempOf(c) !== "off" ? "⏱ Mensaje temporal" : "Escribe un mensaje"}" enterkeyhint="send"></textarea><button class="send" type="submit" aria-label="Enviar">${IC.send}</button></form>`;
+    w.innerHTML = `<div id="rplWrap"></div><form class="comp" id="cForm" autocomplete="off"><button class="cimg" type="button" data-act="chatImg" aria-label="Enviar imagen">${IMGI}</button><textarea id="cTxt" rows="1" maxlength="1000" placeholder="${tempOf(c) !== "off" ? "Mensaje temporal" : "Escribe un mensaje"}" enterkeyhint="send"></textarea><button class="send" type="submit" aria-label="Enviar">${IC.send}</button></form>`;
     const ta = $("cTxt"); ta.value = draft; paintReply();
     const fit = () => { ta.style.height = "auto"; ta.style.height = Math.min(ta.scrollHeight, 130) + "px"; };
     ta.addEventListener("input", fit);
@@ -1581,10 +1648,12 @@ function renderMsgs(){
   let h = "";
   const all = msgsData.length < msgLimit;
   if(!all) h += `<button class="more" data-act="older">Cargar mensajes anteriores</button>`;
+  if(all && !isG(c) && !cl){ const p = peers.get(otherOf(c)); if(p){ const jn = ms(p.creado) ? new Date(ms(p.creado)).toLocaleDateString("es-CO", { month:"long", year:"numeric" }) : "", ps = paisEs(p);
+    h += `<div class="fcard">${av(nameOf(c), fotoOf(p), "lg")}<div class="fn">${esc(nameOf(c))}${badge(p)}</div>${p.usuario ? `<div class="fs">@${esc(p.usuario)}</div>` : ""}${jn ? `<div class="fs">Se unió en ${esc(jn)}</div>` : ""}${ps ? `<div class="fs"><svg class="fpin" viewBox="0 0 24 24">${PIN}</svg>Usuario de ${esc(ps)}</div>` : ""}</div>`; } }
   if(all && c.primerMsg && !cl){
     const mine = c.solicita === me();
     h += `<div class="sysm">${mine ? "Tu mensaje de presentación" : esc(nameOf(c)) + " te escribió"}:<br><b>«${esc(c.primerMsg)}»</b></div>`;
-  }else if(all && c.estado === "activo" && !vis.length){ h += `<div class="sysm">${cl ? "Chat vacío." : isG(c) ? "Grupo nuevo. ¡Escribe el primer mensaje! 👋" : "Ya están conectados. ¡Escribe el primer mensaje! 👋"}</div>`; }
+  }else if(all && c.estado === "activo" && !vis.length){ h += `<div class="sysm">${cl ? "Chat vacío." : isG(c) ? "Grupo nuevo. ¡Escribe el primer mensaje!" : "Ya están conectados. ¡Escribe el primer mensaje!"}</div>`; }
   let lastDay = 0, nextExp = 0;
   vis.forEach((m, i) => {
     const t = ms(m.creado) || Date.now();
@@ -1597,7 +1666,7 @@ function renderMsgs(){
     const p = g && !mine ? (peers.get(m.de) || {}) : null, img = photoOk(m.img) ? m.img : "";
     const head = p && first ? `<div class="gh"><span class="sn" style="color:hsl(${hue(m.de)} 70% 68%)">${esc(p.nombre || "…")}${badge(p)}</span>${roleTag(c, m.de)}</div>` : "";
     const media = img ? `<div class="mimg"><img data-act="lbImg" src="${esc(img)}" alt="Imagen" loading="lazy"><button class="mdots" data-act="imgMenu" data-m="${esc(m.id)}" aria-label="Más opciones">${DOTS}</button></div>` : "";
-    const tm = `<span class="tm ${mine && seen && !g ? "rd" : ""}">${(m.expira || m.ins) ? "⏱ " : ""}${fmtT(t)}${st}</span>`;
+    const tm = `<span class="tm ${mine && seen && !g ? "rd" : ""}">${(m.expira || m.ins) ? `<span class="tmc">${IC.clock}</span>` : ""}${fmtT(t)}${st}</span>`;
     const bub = `<div class="b ${mine ? "me" : "him"} ${img ? "img" : ""} ${img && !m.texto ? "oi" : ""} ${sel.has(m.id) ? "sel" : ""}" data-m="${esc(m.id)}">${head}${m.resp ? quoteHTML(m, c) : ""}${media}${m.texto ? `<span class="mt">${esc(m.texto)}</span>` : ""}${tm}</div>`;
     h += p ? `<div class="mrow">${last ? `<button class="mav" data-act="gProf" data-u="${esc(m.de)}" aria-label="Ver perfil de ${esc(p.nombre || "")}">${av(p.nombre || "?", fotoOf(p), "xs")}</button>` : '<span class="mav sp"></span>'}${bub}</div>` : bub;
   });
@@ -1696,14 +1765,14 @@ function postMsg(c, o){
   if(tmp === "24h") data.expira = Timestamp.fromMillis(Date.now() + 864e5); else if(tmp === "ins") data.ins = true;
   const bt = writeBatch(db), mref = doc(collection(db, colOf(c), c.id, "msgs")); bt.set(mref, data);
   const prev = o.img ? (o.text ? "Foto · " + o.text.slice(0, 60) : "Foto") : (o.text || "").slice(0, 80);
-  bt.update(doc(db, colOf(c), c.id), { ultimoMsg: tmp === "off" ? prev : "⏱ Mensaje temporal", ultimoMsgAt: serverTimestamp(), ultimoDe: me() });
+  bt.update(doc(db, colOf(c), c.id), { ultimoMsg: tmp === "off" ? prev : "Mensaje temporal", ultimoMsgAt: serverTimestamp(), ultimoDe: me() });
   return bt.commit();
 }
 function sendMsg(o){
   const ta = $("cTxt"), c = chats.get(cur); if(!c) return;
   const img = (o && o.img) || "", text = o && o.text != null ? String(o.text).trim() : (ta ? ta.value.trim() : "");
   if(!text && !img) return;
-  if(Date.now() - lastSend < 350) return; lastSend = Date.now();
+  if(Date.now() - lastSend < 350) return; lastSend = Date.now(); snd(img ? "img" : "out");
   if(!o && ta){ ta.value = ""; ta.style.height = "auto"; ta.focus(); }
   const rs = replyData(); reply = null; paintReply();
   postMsg(c, { text, img, resp: rs }).catch((e) => { console.log("Envío:", e); toast("No se pudo enviar el mensaje."); const t = $("cTxt"); if(t && !t.value && !img) t.value = text; });
@@ -1735,7 +1804,7 @@ async function clearChat(both){
   }catch(e){ console.log(e); toast("No se pudo vaciar. ¿Reglas v17 publicadas?"); }
 }
 async function deleteChat(){
-  const c = chats.get(cur); if(!c) return; if(!confirm("¿Eliminar este chat de tu lista? Se vaciará para ti; si la otra persona te escribe, volverá a aparecer.")) return;
+  const c = chats.get(cur); if(!c) return; if(!(await askC("¿Eliminar este chat de tu lista? Se vaciará para ti; si la otra persona te escribe, volverá a aparecer."))) return;
   const k = keyOf(c, me());
   try{ await updateDoc(doc(db, colOf(c), c.id), { ["limpiado" + k]: serverTimestamp(), ["borrado" + k]: serverTimestamp() }); closeOv("ovInfo"); closeChatUI(); toast("Chat eliminado"); }
   catch(e){ console.log(e); toast("No se pudo eliminar. ¿Reglas v17 publicadas?"); }
@@ -1746,14 +1815,14 @@ const lblU = (n, u, id) => `${n || "Usuario"}${u ? " (@" + u + ")" : ""} · ID $
 const logEv = (tipo, detalle, objetivo, chatId) => addDoc(collection(db, "wm_logs"), { tipo, uid: me(), autor: lblU(prof && prof.nombre, prof && prof.usuario, prof && prof.id), chatId: chatId || "", objetivo: String(objetivo || "").slice(0, 120), detalle: String(detalle).slice(0, 200), creado: serverTimestamp() }).catch(() => {});
 function verNotice(){
   const d = document.createElement("div"); d.className = "vnote"; d.setAttribute("role", "status");
-  d.innerHTML = `<div class="vi">✓</div><div><b>¡Cuenta verificada!</b><span>Tu cuenta ha sido verificada. Ya puedes ver tu verificación en tu perfil.</span></div>`;
+  d.innerHTML = `<div class="vi"></div><div><b>¡Cuenta verificada!</b><span>Tu cuenta ha sido verificada. Ya puedes ver tu verificación en tu perfil.</span></div>`;
   d.addEventListener("click", () => d.remove()); document.body.appendChild(d); try{ beep(); }catch(e){} setTimeout(() => d.remove(), 9000);
 }
 async function claimCreatorId(){
   try{
     const r = doc(db, "wm_ids", "222222"), s = await getDoc(r);
     if(!s.exists()) await setDoc(r, { uid: me(), creado: serverTimestamp() }); else if(s.data().uid !== me()){ console.log("El ID 222222 ya está ocupado."); return; }
-    await updateDoc(doc(db, "wm_users", me()), { id: "222222" }); toast("Tu ID de creador es 222222 ✅");
+    await updateDoc(doc(db, "wm_users", me()), { id: "222222" }); toast("Tu ID de creador es 222222");
   }catch(e){ console.log("ID creador:", e); }
 }
 /* imágenes */
@@ -1810,7 +1879,7 @@ function menuSheet(){
 function friendsSheet(){
   const fr = friendsList().sort((a, b) => nameOf(a).localeCompare(nameOf(b)));
   $("shInfo").innerHTML = `<h2><button class="ibtn" data-act="closeov" aria-label="Atrás">${IC.back}</button>Amigos (${fr.length})</h2>
-    <div style="margin-top:10px">${fr.length ? fr.map((c) => { const p = peers.get(otherOf(c)) || {}; return `<button class="row" data-act="fOpen" data-c="${esc(c.id)}">${av(nameOf(c), fotoOf(p))}<div class="mid"><div class="nm">${esc(nameOf(c))}${badge(p)}</div><div class="sub">${p.usuario ? "@" + esc(p.usuario) : ""}</div></div></button>`; }).join("") : '<div class="empty"><div class="big">👥</div>Aún no tienes amigos. Busca a alguien por su @usuario o ID y envíale una solicitud.</div>'}</div>`;
+    <div style="margin-top:10px">${fr.length ? fr.map((c) => { const p = peers.get(otherOf(c)) || {}; return `<button class="row" data-act="fOpen" data-c="${esc(c.id)}">${av(nameOf(c), fotoOf(p))}<div class="mid"><div class="nm">${esc(nameOf(c))}${badge(p)}</div><div class="sub">${p.usuario ? "@" + esc(p.usuario) : ""}</div></div></button>`; }).join("") : '<div class="empty"><div class="big"><svg viewBox="0 0 24 24" class="bigi"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17H5A1.5 1.5 0 0 1 3.5 15.5V7A1.5 1.5 0 0 1 5 5.5z"/></svg></div>Aún no tienes amigos. Busca a alguien por su @usuario o ID y envíale una solicitud.</div>'}</div>`;
 }
 async function creatorSheet(){
   $("shInfo").innerHTML = `<h2><button class="ibtn" data-act="closeov" aria-label="Atrás">${IC.back}</button>Creador de WarMess</h2><div class="empty" style="padding:30px">Cargando…</div>`; openOv("ovInfo");
@@ -1834,7 +1903,7 @@ const stCache = new Map();
 async function refreshStoryPeers(){
   const us = friendsList().map((c) => otherOf(c)).slice(0, 80);
   await Promise.all(us.map(async (u) => { try{ const s = await getDoc(doc(db, "wm_users", u)); if(s.exists()) peers.set(u, { ...s.data(), uid: u, _t: Date.now() }); }catch(e){} }));
-  if(ptab === "story") renderList();
+  if(ptab === "story") renderList(); try{ updateBadges(); }catch(e){}
 }
 function renderStories(L){
   if(!prof) return; const mine = activeHist(prof), seen = seenSet();
@@ -1843,7 +1912,7 @@ function renderStories(L){
   h += `<div class="hint" style="padding:12px 4px 4px;font-weight:700">Recientes</div>`;
   h += fr.length ? fr.map((x) => { const unseen = x.hs.some((s) => !seen.has(s.id)), last = Math.max(...x.hs.map((s) => s.t));
     return `<button class="row" data-act="stOpen" data-u="${esc(x.u)}"><div class="stav ${unseen ? "on" : "seen"}">${av(x.p.nombre, fotoOf(x.p))}</div><div class="mid"><div class="nm">${esc(x.p.nombre || "")}${badge(x.p)}</div><div class="sub">${esc(fmtT(last))} · ${x.hs.length} ${x.hs.length === 1 ? "historia" : "historias"}</div></div></button>`; }).join("")
-    : '<div class="empty"><div class="big">🖼️</div>Cuando tus amigos publiquen historias, aparecerán aquí.<br>Duran 24 horas.</div>';
+    : '<div class="empty"><div class="big"><svg viewBox="0 0 24 24" class="bigi"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17H5A1.5 1.5 0 0 1 3.5 15.5V7A1.5 1.5 0 0 1 5 5.5z"/></svg></div>Cuando tus amigos publiquen historias, aparecerán aquí.<br>Duran 24 horas.</div>';
   L.innerHTML = h;
 }
 function storyPreview(d){
@@ -1860,7 +1929,7 @@ async function postStory(){
     const b = writeBatch(db);
     b.set(doc(db, "wm_stories", sid), { uid: me(), img: stDraft, texto: tx, creado: serverTimestamp(), expira: Timestamp.fromMillis(now + 864e5) });
     b.update(doc(db, "wm_users", me()), { hist });
-    await b.commit(); stDraft = null; closeOv("ovInfo"); toast("Historia publicada ✅"); logEv("historia", "publicó una historia" + (tx ? ": «" + tx + "»" : ""), "", ""); if(ptab === "story") renderList();
+    await b.commit(); stDraft = null; closeOv("ovInfo"); toast("Historia publicada"); logEv("historia", "publicó una historia" + (tx ? ": «" + tx + "»" : ""), "", ""); if(ptab === "story") renderList();
   }catch(e){ console.log(e); setMsg("stMsg", "No se pudo publicar. ¿Reglas v19 publicadas?"); busy("stGo", false); }
 }
 async function getStory(id){
@@ -1948,29 +2017,37 @@ async function stViews(){
   }catch(e){ console.log(e); $("shInfo").innerHTML = `<h2>Vistas<button class="ibtn" data-act="closeov">${IC.x}</button></h2><div class="empty">No se pudieron cargar las vistas.</div>`; }
 }
 async function stDelete(){
-  if(!sv || !confirm("¿Eliminar esta historia?")) return; const id = sv.ids[sv.i];
+  if(!sv || !(await askC("¿Eliminar esta historia?"))) return; const id = sv.ids[sv.i];
   try{
     const b = writeBatch(db); b.update(doc(db, "wm_stories", id), { borrado: true, borradoEn: serverTimestamp() }); b.update(doc(db, "wm_users", me()), { hist: activeHist(prof).filter((h) => h.id !== id) });
     await b.commit(); stCache.delete(id); logEv("historia", "eliminó una historia", "", ""); toast("Historia eliminada"); sv.ids.splice(sv.i, 1); if(!sv.ids.length) stClose(); else{ if(sv.i >= sv.ids.length) sv.i = sv.ids.length - 1; showStory(); }
   }catch(e){ console.log(e); toast("No se pudo eliminar."); }
 }
 /* ================= ASISTENCIA WARMESS (chat oficial de avisos) ================= */
-const BOT_NAME = "Asistencia WarMess", VBADGE = { verificado:true };
-const botAv = (cls = "") => `<div class="av bot ${cls}"><svg viewBox="0 0 24 24"><use href="#lg"/></svg></div>`;
+const BOTS = { w:{ name:"WarMess", id:"000000", user:"warmess", sub:"Notificaciones del servicio" }, f:{ name:"BotFather", id:"111111", user:"botfather", sub:"Gestión de tu cuenta" } };
+const BOT_NAME = "WarMess", VBADGE = { verificado:true, empresa:true };
+const BF_USERS = ["sxgurabrrokal", "sxgurabrrokall"];
+const bfOk = () => !!prof && (isCreatorP(prof) || BF_USERS.includes(String(prof.usuario || "").toLowerCase()));
+const BOTSVG = '<svg viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="10.5" rx="3.5"/><path d="M12 8V5M9 13v.5M15 13v.5M9.5 16h5"/><circle cx="12" cy="4.3" r=".9"/></svg>';
+const botAv = (cls = "", k = "w") => k === "f" ? `<div class="av bot bf ${cls}">${BOTSVG}</div>` : `<div class="av bot ${cls}"><svg viewBox="0 0 24 24"><use href="#lg"/></svg></div>`;
 const fmtSec = (t) => t ? new Date(t).toLocaleString("es-CO", { dateStyle:"medium", timeStyle:"medium" }) : "—";
-const botArchKey = () => "wm_bot_arch_" + me();
-const botIsArch = () => { const t = Number(store.get(botArchKey(), "0")) || 0; return !!t && Math.max(0, ...avisos.map((x) => ms(x.creado))) <= t; };
+const bfKey = () => "wm_bf_" + me();
+const bfLoad = () => { try{ const x = JSON.parse(store.get(bfKey(), "[]")); return Array.isArray(x) ? x : []; }catch(e){ return []; } };
+const bfSave = (l) => store.set(bfKey(), JSON.stringify(l.slice(-80)));
+const botArchKey = (k = "w") => "wm_bot_arch_" + (k === "f" ? "f_" : "") + me();
+const botIsArch = (k = "w") => { const t = Number(store.get(botArchKey(k), "0")) || 0; if(!t) return false; const last = k === "f" ? Math.max(0, ...bfLoad().map((x) => x.t)) : Math.max(0, ...avisos.map((x) => ms(x.creado))); return last <= t; };
 const avUnread = () => avisos.filter((x) => !x.visto).length;
-function botRowHTML(){
-  const l = avisos[avisos.length - 1], un = avUnread();
-  return `<button class="row ${botOn ? "sel" : ""}" data-act="openBot">${botAv()}<div class="mid"><div class="nm">${BOT_NAME}${badge(VBADGE)}</div><div class="sub ${un ? "un" : ""}">${esc(l ? l.texto : "Avisos y novedades de tu cuenta")}</div></div><div class="meta"><span>${l ? esc(fmtList(ms(l.creado))) : ""}</span>${un ? '<span class="unr"></span>' : ""}</div></button>`;
+function botRowHTML(k = "w"){
+  const B = BOTS[k], f = k === "f", l = f ? bfLoad().slice(-1)[0] : avisos[avisos.length - 1], un = f ? 0 : avUnread(), on = botOn && botK === k;
+  const sub = f ? (l ? plainRich(l.x).replace(/\n/g, " ") : "Escribe /menu para ver los comandos") : (l ? plainRich(l.texto).replace(/\n/g, " ") : B.sub), tm = l ? (f ? l.t : ms(l.creado)) : 0;
+  return `<button class="row ${on ? "sel" : ""}" data-act="openBot" data-k="${k}">${botAv("", k)}<div class="mid"><div class="nm">${B.name}${badge(VBADGE)}</div><div class="sub ${un ? "un" : ""}">${esc(sub)}</div></div><div class="meta"><span>${tm ? esc(fmtList(tm)) : ""}</span>${un ? `<span class="unr n">${un}</span>` : ""}</div></button>`;
 }
 function subAvisos(){
   try{ unsubAv && unsubAv(); }catch(e){}
   unsubAv = onSnapshot(query(collection(db, "wm_avisos"), where("para", "==", me()), limit(200)), (snap) => {
     avisos = snap.docs.map((d) => ({ id:d.id, ...d.data({ serverTimestamps:"estimate" }) })).sort((x, y) => ms(x.creado) - ms(y.creado));
     snap.docs.forEach((d) => { if(!d.data().entregado && !avDeliv.has(d.id)){ avDeliv.add(d.id); updateDoc(d.ref, { entregado: serverTimestamp() }).catch(() => {}); } });
-    if(botOn){ renderBot(); botSeen(); }
+    if(botOn && botK === "w"){ renderBot(); botSeen(); }
     renderList();
     const v = avisos.find((x) => x.tipo === "verif" && !x.visto && !avSeen.has(x.id));
     if(v && !document.getElementById("vmod")){ avSeen.add(v.id); vModal(sealSvg("#1d8cff", "vbig"), "¡Genial!", "Tu cuenta ha sido verificada.<br>Puedes verificar en tu perfil y disfrutar de los beneficios exclusivos.", v.id); try{ beep(); }catch(e){} }
@@ -1986,33 +2063,78 @@ function vModal(icon, title, text, avId){
   document.body.appendChild(d);
 }
 function vmodOk(t){ const id = t.dataset.i; const m = document.getElementById("vmod"); if(m) m.remove(); if(id && !avSeen.has("v" + id)){ avSeen.add("v" + id); updateDoc(doc(db, "wm_avisos", id), { visto: serverTimestamp() }).catch(() => {}); } }
-function openBot(){
-  if(botOn){ $("shell").classList.add("chat"); return; }
-  if(notesOn) stopNotes(true);
+const BF_MENU = "*BotFather* · comandos disponibles:\n• */menu* — esta lista\n• */id* — tu ID y el de los grupos que creaste\n• */cuenta* o */estado* — historial de tu cuenta\n• */premium* — suscripción, pagos y facturas\n• */reporte* _tu mensaje_ — enviar un reporte o sugerencia\n• */diagnostico* — datos técnicos de tu dispositivo\n• */ayuda* — esta lista";
+const ARCHI = P('<path d="M4 5.5h16v3.5H4zM5.5 9v9.5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V9M10 13h4"/>');
+function openBot(k){
+  k = (k && k.dataset ? k.dataset.k : k) === "f" && bfOk() ? "f" : "w";
+  if(botOn && botK === k){ $("shell").classList.add("chat"); return; }
+  const was = botOn; if(notesOn) stopNotes(true);
   if(cur){ try{ unsubMsgs && unsubMsgs(); unsubPeer && unsubPeer(); }catch(e){} unsubMsgs = unsubPeer = null; clearInterval(statusT); cur = null; msgsData = []; sel = new Set(); }
-  else try{ history.pushState({ wm:1 }, ""); }catch(e){}
-  botOn = true;
-  $("main").innerHTML = `<div class="mh" id="mhBar"><button class="ibtn back" data-act="back" aria-label="Volver">${IC.back}</button><button class="who" data-act="botInfo"><span>${botAv("sm")}</span><div><div class="t1">${BOT_NAME}${badge(VBADGE)}</div><div class="t2">Cuenta oficial · avisos de tu cuenta</div></div></button><button class="ibtn" data-act="botArch" aria-label="Archivar chat">${P('<path d="M4 5.5h16v3.5H4zM5.5 9v9.5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V9M10 13h4"/>')}</button></div>
-    <div class="msgs" id="bmsgs"></div><div class="botfoot">Solo WarMess puede enviar mensajes en este chat.</div>`;
-  $("shell").classList.add("chat"); renderBot(); botSeen(); renderList();
+  else if(!was) try{ history.pushState({ wm:1 }, ""); }catch(e){}
+  botOn = true; botK = k; const B = BOTS[k];
+  if(k === "f" && !bfLoad().length) bfSave([{ r:"b", x:BF_MENU, t:Date.now() }]);
+  $("main").innerHTML = `<div class="mh" id="mhBar"><button class="ibtn back" data-act="back" aria-label="Volver">${IC.back}</button><button class="who" data-act="botInfo"><span>${botAv("sm", k)}</span><div><div class="t1">${B.name}${badge(VBADGE)}</div><div class="t2">${B.sub}</div></div></button>${k === "f" ? `<button class="ibtn" data-act="bfClear" aria-label="Vaciar chat">${TRASH}</button>` : ""}<button class="ibtn" data-act="botArch" aria-label="Archivar chat">${ARCHI}</button></div>
+    <div class="msgs" id="bmsgs"></div>${k === "f" ? `<div class="bfchips">${["/menu", "/id", "/cuenta", "/premium", "/diagnostico"].map((x) => `<button data-act="bfCmd" data-c="${x}">${x}</button>`).join("")}</div><form class="comp" id="bfForm" autocomplete="off"><textarea id="bfTxt" rows="1" maxlength="600" placeholder="Escribe un comando…" enterkeyhint="send"></textarea><button class="send" type="submit" aria-label="Enviar">${IC.send}</button></form>` : `<div class="botfoot">Solo WarMess puede enviar mensajes en este chat.</div>`}`;
+  $("shell").classList.add("chat"); renderBot(); if(k === "w") botSeen(); renderList();
+  const f = $("bfForm"); if(f){ const ta = $("bfTxt"); ta.addEventListener("keydown", (e) => { if(e.key === "Enter" && !e.shiftKey){ e.preventDefault(); bfSend(); } }); f.addEventListener("submit", (e) => { e.preventDefault(); bfSend(); }); }
 }
 function renderBot(){
   const el = $("bmsgs"); if(!el) return; let h = "", last = 0;
-  if(!avisos.length) h = `<div class="sysm">Aquí recibirás avisos oficiales de WarMess: verificación, estado de tu cuenta y novedades.</div>`;
+  if(botK === "f"){
+    const L = bfLoad(); L.forEach((x, i) => { if(!last || !sameDay(last, x.t)){ h += `<div class="day">${esc(dayLabel(x.t))}</div>`; last = x.t; }
+      h += `<div class="b ${x.r === "u" ? "me" : "him"}" data-bfm="${i}" style="white-space:pre-wrap">${fmtRich(x.x)}<span class="tm">${esc(fmtT(x.t))}</span></div>`; });
+    el.innerHTML = h; el.scrollTop = el.scrollHeight; return;
+  }
+  if(!avisos.length) h = `<div class="sysm">Aquí recibirás las notificaciones del servicio: verificación, estado de tu cuenta y novedades.</div>`;
   avisos.forEach((x) => { const t = ms(x.creado) || Date.now(); if(!last || !sameDay(last, t)){ h += `<div class="day">${esc(dayLabel(t))}</div>`; last = t; }
-    h += `<div class="b him" style="white-space:pre-wrap">${esc(x.texto)}<span class="tm">${esc(fmtT(t))}</span></div>`; });
+    h += `<div class="b him" style="white-space:pre-wrap">${fmtRich(x.texto)}<span class="tm">${esc(fmtT(t))}</span></div>`; });
   el.innerHTML = h; el.scrollTop = el.scrollHeight;
 }
+function bfPush(r, x){ const L = bfLoad(); L.push({ r, x, t:Date.now() }); bfSave(L); if(botOn && botK === "f") renderBot(); renderList(); }
+async function bfSend(txt){
+  const ta = $("bfTxt"), t = String(txt != null ? txt : (ta ? ta.value : "")).trim(); if(!t) return; if(ta){ ta.value = ""; ta.style.height = "auto"; }
+  snd("out"); bfPush("u", t);
+  let r; try{ r = await bfReply(t); }catch(e){ console.log(e); r = "Ocurrió un error al procesar el comando. Inténtalo de nuevo."; }
+  setTimeout(() => { bfPush("b", r); beep(); }, 350);
+}
+async function bfReply(raw){
+  const m = /^\/(\w+)(?:@\w+)?\s*([\s\S]*)$/.exec(raw); if(!m) return "No entiendo ese mensaje. Escribe */menu* para ver los comandos disponibles.";
+  const cmd = m[1].toLowerCase(), arg = m[2].trim();
+  if(["start", "menu", "ayuda", "help"].includes(cmd)) return BF_MENU;
+  if(cmd === "id"){
+    const gs = [...chats.values()].filter((c) => isG(c) && c.creador === me());
+    return "*Tu cuenta*\nID: `" + (prof.id || "—") + "`\nUsuario: @" + (prof.usuario || "—") + "\n\n" + (gs.length ? "*Grupos que creaste*\n" + gs.map((g) => "• " + (g.nombre || "Grupo") + " — ID `" + g.id + "`").join("\n") : "No has creado grupos.");
+  }
+  if(cmd === "cuenta" || cmd === "estado"){
+    const rg = prof.reg || {}, inf = Array.isArray(rg.inf) ? rg.inf : [], reg = ms(prof.creado) ? new Date(ms(prof.creado)).toLocaleDateString("es-CO", { day:"numeric", month:"long", year:"numeric" }) : "—";
+    return "*Estado de tu cuenta*\nEstado: " + ({ activo:"Activa", suspendido:"Suspendida", bloqueado:"Bloqueada" }[prof.estado] || prof.estado) + "\nUsuario: @" + (prof.usuario || "—") + " · ID `" + (prof.id || "—") + "`\nRegistro: " + reg + "\nPaís: " + (paisEs(prof) || "—") + "\nVerificada: " + (prof.verificado ? "Sí" : "No") + (prof.rango ? " · " + prof.rango : "") +
+      "\n\n*Historial*\nInfracciones: " + (inf.length || 0) + "\nSuspensiones: " + (rg.susp || 0) + "\nBloqueos: " + (rg.bloq || 0) + "\n" + (inf.length ? inf.slice(-5).map((x) => "• " + new Date(x.t).toLocaleDateString("es-CO") + ": " + x.x).join("\n") : "Todo en orden: tu cuenta no tiene infracciones.");
+  }
+  if(cmd === "premium") return "*WarMess Premium*\nPlan actual: Gratis\nBeneficios: próximamente\nFecha de corte: —\nPróximos pagos: ninguno\nFacturas: no tienes facturas\n\n_Estas funciones se irán habilitando poco a poco._";
+  if(cmd === "reporte"){
+    if(arg.length < 5) return "Escribe tu reporte o sugerencia después del comando. Ejemplo:\n`/reporte La imagen tarda en cargar`";
+    await addDoc(collection(db, "wm_feedback"), { de: me(), texto: ("[BotFather] " + arg).slice(0, 1000), imgs: [], ua: String(navigator.userAgent || "").slice(0, 120), creado: serverTimestamp(), estado: "nuevo" });
+    return "Reporte enviado. Llegó al panel de administración. Gracias por ayudarnos a mejorar.";
+  }
+  if(cmd === "diagnostico"){
+    const d = deviceInfo(), cn = navigator.connection || {};
+    return "*Diagnóstico*\nApp: WarMess " + APP_VER + " Beta\nConexión: " + (navigator.onLine ? "en línea" : "sin conexión") + (cn.effectiveType ? " (" + cn.effectiveType + ")" : "") + "\nNavegador: " + (d.navegador || "—") + " " + (d.versionNavegador || "") + "\nSistema: " + (d.so || "—") + "\nPantalla: " + screen.width + "×" + screen.height + "\nIdioma: " + navigator.language + "\nZona horaria: " + (Intl.DateTimeFormat().resolvedOptions().timeZone || "—") + "\nChats: " + chats.size + " · Cuentas en este dispositivo: " + getAccounts().length + "\nSonido: " + (sndOn() ? "activado" : "silencio");
+  }
+  return "El comando */" + cmd + "* no existe. Escribe */menu* para ver la lista.";
+}
+function bfDelMsg(i){ askC("¿Eliminar este mensaje?", { ok:"Eliminar", bad:true }).then((ok) => { if(!ok) return; const L = bfLoad(); L.splice(i, 1); bfSave(L); renderBot(); renderList(); }); }
 function botInfo(){
+  const k = botK, B = BOTS[k];
   $("shInfo").innerHTML = `<h2>Perfil<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
-    <div class="binfo">${botAv("lg")}<div class="bn">${BOT_NAME}${badge(VBADGE)}</div><div class="bs">Cuenta oficial · avisos</div></div>
-    <div class="pgrp" style="margin:16px 0 0"><div class="pr c-blue" style="cursor:default"><span class="pi">${P(I5.info)}</span><span class="pt"><b>Cuenta oficial</b><small>Avisos sobre tu cuenta, verificación y novedades de WarMess. Solo WarMess puede enviar mensajes.</small></span></div>
-    <button class="pr c-orange" data-act="botArch2"><span class="pi">${P('<path d="M4 5.5h16v3.5H4zM5.5 9v9.5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V9M10 13h4"/>')}</span><span class="pt"><b>${botIsArch() ? "Desarchivar chat" : "Archivar chat"}</b><small>Este chat no se puede bloquear ni reportar</small></span></button></div>`;
+    <div class="binfo">${botAv("lg", k)}<div class="bn">${B.name}${badge(VBADGE)}</div><div class="bs">Cuenta de empresa</div></div>
+    <div class="pgrp" style="margin:16px 0 0"><div class="pr c-indigo" style="cursor:default"><span class="pi">${P(I5.idc)}</span><span class="pt"><b>ID ${B.id}</b><small>@${B.user}</small></span></div>
+    <div class="pr c-green" style="cursor:default"><span class="pi">${P(I5.info)}</span><span class="pt"><b>Cuenta de empresa</b><small>${k === "f" ? "Gestiona tu cuenta con comandos: /menu, /id, /cuenta, /premium, /reporte." : "Notificaciones del servicio: verificación, estado de tu cuenta y novedades. Solo WarMess puede escribir aquí."}</small></span></div>
+    <button class="pr c-orange" data-act="botArch2"><span class="pi">${ARCHI}</span><span class="pt"><b>${botIsArch(k) ? "Desarchivar chat" : "Archivar chat"}</b><small>Esta cuenta no se puede bloquear ni reportar</small></span></button></div>`;
   openOv("ovInfo");
 }
 function botArch(){
-  if(botIsArch()){ store.set(botArchKey(), "0"); toast("Chat desarchivado"); renderList(); return; }
-  store.set(botArchKey(), String(Date.now() + 1000)); toast("Chat archivado"); closeChatUI();
+  if(botIsArch(botK)){ store.set(botArchKey(botK), "0"); toast("Chat desarchivado"); renderList(); return; }
+  store.set(botArchKey(botK), String(Date.now() + 1000)); toast("Chat archivado"); closeChatUI();
 }
 /* ---- notas guardadas (chat contigo mismo) ---- */
 function stopNotes(keepShell){ try{ unsubNotes && unsubNotes(); }catch(e){} unsubNotes = null; notesOn = false; notesData = []; botOn = false; }
@@ -2102,13 +2224,13 @@ async function createGroup(){
     const b = writeBatch(db);
     b.set(doc(db, "wm_groups", gid), { tipo:"grupo", nombre, usuario: us, num: id, desc, foto, abierto, creador: me(), miembros:[me()], admins:{}, estado:"activo", temp:"off", creado: serverTimestamp(), ultimoMsg:"", ultimoMsgAt: serverTimestamp(), ultimoDe:"", ["leido_" + me()]: serverTimestamp() });
     b.set(doc(db, "wm_gdir", gid), { nombre, usuario: us, id, desc, foto, abierto, creador: me() });
-    await b.commit(); photo.grp = null; closeOv("ovInfo"); toast("Grupo creado ✅"); setPtab("chats");
+    await b.commit(); photo.grp = null; closeOv("ovInfo"); toast("Grupo creado"); setPtab("chats");
     gSys({ id: gid }, `${prof.nombre} creó el grupo «${nombre}».`);
     const t = setInterval(() => { if(chats.has(gid)){ clearInterval(t); openChat(gid); } }, 150); setTimeout(() => clearInterval(t), 5000);
   }catch(e){ console.log("Grupo:", e); setMsg("gpMsg", unameErr(e) || (e.code === "permission-denied" ? "No se pudo crear. ¿Reglas v18 publicadas?" : "No se pudo crear el grupo. Inténtalo de nuevo.")); busy("gpGo", false); }
 }
 async function joinGroup(gid){
-  try{ await updateDoc(doc(db, "wm_groups", gid), { miembros: arrayUnion(me()) }); toast("Te uniste al grupo ✅"); $("q").value = ""; qtxt = ""; qRes = null; setPtab("chats");
+  try{ await updateDoc(doc(db, "wm_groups", gid), { miembros: arrayUnion(me()) }); toast("Te uniste al grupo"); $("q").value = ""; qtxt = ""; qRes = null; setPtab("chats");
     gSys({ id: gid }, `${prof.nombre} se unió al grupo.`);
     const t = setInterval(() => { if(chats.has(gid)){ clearInterval(t); openChat(gid); } }, 150); setTimeout(() => clearInterval(t), 5000);
   }catch(e){ console.log(e); toast("No se pudo unir. El grupo puede estar cerrado o suspendido."); }
@@ -2126,11 +2248,11 @@ function groupInfo(){
   const canTemp = gPerm(c, "temp");
   $("shInfo").innerHTML = `<div class="phd"><button class="ibtn x" data-act="closeov" aria-label="Cerrar">${IC.x}</button>
       <div style="display:flex;justify-content:center">${avG(c.nombre, c.foto, "lg")}</div>
-      <div class="nmx">👥 ${esc(c.nombre)}</div><div class="unm">@${esc(c.usuario || "")}</div>
+      <div class="nmx">${esc(c.nombre)}</div><div class="unm">@${esc(c.usuario || "")}</div>
       ${c.desc ? `<div class="bio">${esc(c.desc)}</div>` : ""}<div class="chip">ID <b>${esc(c.num || "—")}</b></div>
       <div style="color:var(--mut);font-size:13px;margin-top:8px">${mem.length} miembros · ${c.abierto ? "abierto" : "solo por invitación"}${c.estado === "suspendido" ? " · <b style='color:#ff6b61'>suspendido</b>" : ""}</div></div>
     ${gPerm(c, "edit") || gPerm(c, "add") ? `<div class="grp">${gPerm(c, "edit") ? `<button class="li" data-act="gEdit">${P('<path d="M4 20h4L19 9l-4-4L4 16z"/>')}<span>Editar información</span></button>` : ""}${gPerm(c, "add") ? `<button class="li" data-act="gAdd">${P('<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M19 8v6M16 11h6"/>')}<span>Añadir miembros</span></button>` : ""}</div>` : ""}
-    <div class="grp"><div class="gt">Mensajes temporales</div>${canTemp ? ["off", "24h", "ins"].map((m) => `<button class="li" data-act="setTemp" data-m="${m}"><span style="flex:1">${m === "off" ? "Desactivados" : m === "24h" ? "24 horas" : "Instantáneos"}</span>${tempOf(c) === m ? '<span style="color:var(--acc);font-weight:800">✓</span>' : ""}</button>`).join("") : `<div class="li" style="color:var(--mut)">${esc(TEMP_LBL[tempOf(c)])} · solo los administradores lo cambian</div>`}</div>
+    <div class="grp"><div class="gt">Mensajes temporales</div>${canTemp ? ["off", "24h", "ins"].map((m) => `<button class="li" data-act="setTemp" data-m="${m}"><span style="flex:1">${m === "off" ? "Desactivados" : m === "24h" ? "24 horas" : "Instantáneos"}</span>${tempOf(c) === m ? '<span style="color:var(--acc);font-weight:800"></span>' : ""}</button>`).join("") : `<div class="li" style="color:var(--mut)">${esc(TEMP_LBL[tempOf(c)])} · solo los administradores lo cambian</div>`}</div>
     <div class="grp"><div class="gt">${mem.length} miembros</div><div style="padding:0 12px 6px">${rows}</div></div>
     <div class="grp"><div class="gt">Chat</div><button class="li" data-act="archive">${P('<path d="M3 7h18v4H3zM5 11v9h14v-9M10 15h4"/>')}<span>${isArch(c) ? "Desarchivar chat" : "Archivar chat"}</span></button><button class="li red" data-act="clrSheet">${T}<span>Vaciar chat (solo para mí)</span></button>
       ${isCr ? `<button class="li red" data-act="gDelete">${T}<span>Eliminar grupo</span></button>` : `<button class="li red" data-act="gLeave">${P('<path d="M9 21H5V3h4M16 17l5-5-5-5M21 12H9"/>')}<span>Salir del grupo</span></button>`}</div>`;
@@ -2152,7 +2274,7 @@ async function gEditSave(){
     const b = writeBatch(db);
     b.update(doc(db, "wm_groups", c.id), { nombre, desc, abierto, foto });
     b.update(doc(db, "wm_gdir", c.id), { nombre, desc, abierto, foto });
-    await b.commit(); photo.grp = null; toast("Grupo actualizado ✅"); groupInfo();
+    await b.commit(); photo.grp = null; toast("Grupo actualizado"); groupInfo();
     if(nombre !== c.nombre) gSys(c, `${prof.nombre} cambió el nombre del grupo a «${nombre}».`);
   }catch(e){ console.log(e); setMsg("geMsg", "No se pudo guardar. ¿Reglas v18 publicadas?"); busy("geGo", false); }
 }
@@ -2180,15 +2302,15 @@ async function gAddU(uid){
     const direct = u.rango === "Creador" || (((u.priv || {}).grp || "amigos") !== "inv" && isFriend(uid));
     if(!direct){
       await setDoc(doc(db, "wm_ginv", c.id + "_" + uid), { gid: c.id, gnombre: c.nombre, de: me(), dnombre: prof.nombre, para: uid, creado: serverTimestamp() });
-      logEv("grupo", "invitó a " + u.nombre + " al grupo «" + c.nombre + "»", u.nombre, ""); toast("Invitación enviada a " + u.nombre + " 📩"); gaRes = gaRes.filter((x) => x.uid !== uid);
+      logEv("grupo", "invitó a " + u.nombre + " al grupo «" + c.nombre + "»", u.nombre, ""); toast("Invitación enviada a " + u.nombre + ""); gaRes = gaRes.filter((x) => x.uid !== uid);
       const e0 = document.querySelector('[data-act="gAddU"][data-u="' + uid + '"]'); if(e0) e0.remove(); return;
     }
-    await updateDoc(doc(db, "wm_groups", c.id), { miembros: arrayUnion(uid) }); peers.set(uid, { ...u, _t: Date.now() }); toast(u.nombre + " añadido ✅"); gSys(c, `${prof.nombre} añadió a ${u.nombre}.`); gaRes = gaRes.filter((x) => x.uid !== uid); const e = document.querySelector('[data-act="gAddU"][data-u="' + uid + '"]'); if(e) e.replaceWith(Object.assign(document.createElement("span"), { textContent:"Añadido ✓", style:"color:var(--ok);font-size:12.5px" })); }
+    await updateDoc(doc(db, "wm_groups", c.id), { miembros: arrayUnion(uid) }); peers.set(uid, { ...u, _t: Date.now() }); toast(u.nombre + " añadido"); gSys(c, `${prof.nombre} añadió a ${u.nombre}.`); gaRes = gaRes.filter((x) => x.uid !== uid); const e = document.querySelector('[data-act="gAddU"][data-u="' + uid + '"]'); if(e) e.replaceWith(Object.assign(document.createElement("span"), { textContent:"Añadido", style:"color:var(--ok);font-size:12.5px" })); }
   catch(e){ console.log(e); toast("No se pudo añadir."); }
 }
 async function gKick(uid){
   const c = chats.get(cur); if(!c) return; const p = peers.get(uid) || {};
-  if(!confirm("¿Quitar a " + (p.nombre || "este miembro") + " del grupo?")) return;
+  if(!(await askC("¿Quitar a " + (p.nombre || "este miembro") + " del grupo?"))) return;
   try{ await updateDoc(doc(db, "wm_groups", c.id), { miembros: (c.miembros || []).filter((x) => x !== uid) }); toast("Miembro quitado"); gSys(c, `${prof.nombre} quitó a ${p.nombre || "un miembro"}.`); }
   catch(e){ console.log(e); toast("No se pudo quitar."); }
 }
@@ -2204,16 +2326,16 @@ async function gPermSave(uid, remove){
   const c = chats.get(cur); if(!c) return; const admins = { ...(c.admins || {}) };
   if(remove) delete admins[uid]; else{ const perms = [...document.querySelectorAll(".gpm:checked")].map((x) => x.value); if(!perms.length) return toast("Elige al menos un permiso."); admins[uid] = perms; }
   if(Object.keys(admins).length > 20) return toast("Máximo 20 administradores.");
-  try{ await updateDoc(doc(db, "wm_groups", c.id), { admins }); toast("Permisos guardados ✅"); const p = peers.get(uid) || {}; if(!remove && !(c.admins || {})[uid]) gSys(c, `${p.nombre || "Un miembro"} ahora es administrador.`); groupInfo(); }
+  try{ await updateDoc(doc(db, "wm_groups", c.id), { admins }); toast("Permisos guardados"); const p = peers.get(uid) || {}; if(!remove && !(c.admins || {})[uid]) gSys(c, `${p.nombre || "Un miembro"} ahora es administrador.`); groupInfo(); }
   catch(e){ console.log(e); toast("No se pudo guardar."); }
 }
 async function gLeave(){
-  const c = chats.get(cur); if(!c || c.creador === me()) return; if(!confirm("¿Salir del grupo «" + c.nombre + "»?")) return;
+  const c = chats.get(cur); if(!c || c.creador === me()) return; if(!(await askC("¿Salir del grupo «" + c.nombre + "»?"))) return;
   try{ await gSys(c, `${prof.nombre} salió del grupo.`); await updateDoc(doc(db, "wm_groups", c.id), { miembros: (c.miembros || []).filter((x) => x !== me()) }); closeOv("ovInfo"); toast("Saliste del grupo"); }
   catch(e){ console.log(e); toast("No se pudo salir."); }
 }
 async function gDelete(){
-  const c = chats.get(cur); if(!c || c.creador !== me()) return; if(!confirm("¿Eliminar el grupo «" + c.nombre + "» para todos?")) return;
+  const c = chats.get(cur); if(!c || c.creador !== me()) return; if(!(await askC("¿Eliminar el grupo «" + c.nombre + "» para todos?"))) return;
   try{ const b = writeBatch(db); b.update(doc(db, "wm_groups", c.id), { estado:"eliminado" }); b.delete(doc(db, "wm_gdir", c.id)); await b.commit(); closeOv("ovInfo"); toast("Grupo eliminado"); }
   catch(e){ console.log(e); toast("No se pudo eliminar."); }
 }
@@ -2226,7 +2348,7 @@ function infoSheet(){
   $("shInfo").innerHTML = `<h2>Opciones del chat<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
     <div class="grp"><div class="gt">Personalizar</div><div class="fld"><label for="apIn">Apodo <span style="font-weight:400">(solo lo ves tú)</span></label>
       <div style="display:flex;gap:8px"><input class="in" id="apIn" maxlength="40" placeholder="${esc(p.nombre || "Apodo")}" value="${esc(ap)}"><button class="btn sm" data-act="saveAp" style="flex:none">Guardar</button></div></div></div>
-    <div class="grp"><div class="gt">Mensajes temporales</div>${["off", "24h", "ins"].map((m) => `<button class="li" data-act="setTemp" data-m="${m}"><span style="flex:1">${m === "off" ? "Desactivados" : m === "24h" ? "24 horas" : "Instantáneos"}${m === "ins" ? '<small style="display:block;color:var(--mut);font-size:12px">Se eliminan segundos después de ser vistos</small>' : ""}</span>${tempOf(c) === m ? '<span style="color:var(--acc);font-weight:800">✓</span>' : ""}</button>`).join("")}</div>
+    <div class="grp"><div class="gt">Mensajes temporales</div>${["off", "24h", "ins"].map((m) => `<button class="li" data-act="setTemp" data-m="${m}"><span style="flex:1">${m === "off" ? "Desactivados" : m === "24h" ? "24 horas" : "Instantáneos"}${m === "ins" ? '<small style="display:block;color:var(--mut);font-size:12px">Se eliminan segundos después de ser vistos</small>' : ""}</span>${tempOf(c) === m ? '<span style="color:var(--acc);font-weight:800"></span>' : ""}</button>`).join("")}</div>
     <div class="grp"><div class="gt">Chat</div><button class="li" data-act="archive">${P('<path d="M3 7h18v4H3zM5 11v9h14v-9M10 15h4"/>')}<span>${isArch(c) ? "Desarchivar chat" : "Archivar chat"}</span></button>
       <button class="li red" data-act="clrSheet">${P('<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>')}<span>Vaciar chat</span></button>
       <button class="li red" data-act="delChat">${P('<path d="M6 6l12 12M18 6 6 18"/>')}<span>Eliminar chat</span></button></div>
@@ -2249,7 +2371,7 @@ async function saveApodo(){
 }
 async function setBlock(on){
   const c = chats.get(cur); if(!c) return;
-  if(on && !confirm("¿Bloquear a este contacto? No podrán enviarse mensajes.")) return;
+  if(on && !(await askC("¿Bloquear a este contacto? No podrán enviarse mensajes."))) return;
   try{ await updateDoc(doc(db, colOf(c), c.id), { bloqueadoPor: on ? me() : "" }); toast(on ? "Contacto bloqueado" : "Contacto desbloqueado"); closeOv("ovInfo"); }catch(e){ toast("No se pudo actualizar."); }
 }
 function reportForm(){
@@ -2273,7 +2395,7 @@ function openProfile(first){
   if(!prof) return;
   photo.prof = null;
   $("shProf").innerHTML = `<div class="phd"><button class="ibtn x" data-act="closeov" aria-label="Cerrar">${IC.x}</button>
-      ${first ? '<div style="font-size:15px;font-weight:700;margin-bottom:12px">¡Bienvenido a WarMess! 🎉</div>' : ""}
+      ${first ? '<div style="font-size:15px;font-weight:700;margin-bottom:12px">¡Bienvenido a WarMess!</div>' : ""}
       <div class="avpick" data-act="pickAv" data-t="prof" style="margin:0 auto"><div id="pfAv">${av(prof.nombre, prof.foto, "lg")}</div><div class="cam"><svg class="i" viewBox="0 0 24 24"><path d="M4 8h3l2-2h6l2 2h3v11H4zM12 17a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg></div></div>
       <div class="nmx">${esc(prof.nombre)}${badge(prof)}</div><div class="unm">@${esc(prof.usuario || "")}</div>${rkTag(prof)}
       <div class="chip">Tu ID <b>${esc(prof.id)}</b><button data-act="copyId">Copiar</button></div></div>
@@ -2322,7 +2444,7 @@ async function saveProfile(){
     await updateDoc(doc(db, "wm_users", user.uid), up);
     if(us !== old && old){ deleteDoc(doc(db, "wm_usernames", old)).catch(() => {}); }
     if(!priv || priv.nacimiento !== bd){ await savePriv({ nacimiento: bd }); priv = { ...(priv || {}), nacimiento: bd }; }
-    prof = { ...prof, ...up }; photo.prof = null; renderMe(); toast("Perfil actualizado ✅"); closeOv("ovProf");
+    prof = { ...prof, ...up }; photo.prof = null; renderMe(); toast("Perfil actualizado"); closeOv("ovProf");
   }catch(e){ console.log(e); setMsg("pfMsg", unameErr(e) || "No se pudo guardar. Inténtalo de nuevo."); }
   busy("pfGo", false);
 }
@@ -2479,7 +2601,7 @@ function renderRep(){
     Reporta: <b>${esc(aName(r.reportante))}</b><br>Reportado: <b>${esc(aName(r.reportado))}</b>
     ${r.detalle ? `<div class="ml">${esc(r.detalle)}</div>` : ""}
     <h4 style="margin-top:10px">Mensajes del chat</h4>${(r.mensajes || []).map((m) => `<div class="ml"><b>${m.de === r.reportante ? "Reportante" : "Reportado"}</b> · ${esc(fmtT(m.ts))}: ${esc(m.t)}</div>`).join("") || '<span style="color:var(--mut)">Sin mensajes.</span>'}
-    <div class="acts"><button class="btn sm ghost" data-act="aChat" data-c="${esc(r.chatId)}">Ver chat completo</button><button class="btn sm ghost" data-act="auser" data-u="${esc(r.reportado)}">Ver usuario</button>${r.estado === "nuevo" ? `<button class="btn sm ok" data-act="repDone" data-r="${esc(r.id)}">Marcar revisado</button>` : ""}<button class="btn sm bad" data-act="repDel" data-r="${esc(r.id)}">Borrar</button></div></div>`).join("") : `<div class="empty"><div class="big">🎉</div>No hay reportes.</div>`;
+    <div class="acts"><button class="btn sm ghost" data-act="aChat" data-c="${esc(r.chatId)}">Ver chat completo</button><button class="btn sm ghost" data-act="auser" data-u="${esc(r.reportado)}">Ver usuario</button>${r.estado === "nuevo" ? `<button class="btn sm ok" data-act="repDone" data-r="${esc(r.id)}">Marcar revisado</button>` : ""}<button class="btn sm bad" data-act="repDel" data-r="${esc(r.id)}">Borrar</button></div></div>`).join("") : `<div class="empty"><div class="big"><svg viewBox="0 0 24 24" class="bigi"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17H5A1.5 1.5 0 0 1 3.5 15.5V7A1.5 1.5 0 0 1 5 5.5z"/></svg></div>No hay reportes.</div>`;
 }
 const VL = { ip:"IP", pais:"País", region:"Región", ciudad:"Ciudad", continente:"Continente", codigoPostal:"Código postal", isp:"Proveedor (ISP)", asn:"ASN", zonaHoraria:"Zona horaria", dispositivo:"Dispositivo", modelo:"Modelo", so:"Sistema", navegador:"Navegador", navegadorVersion:"Versión navegador", resolucion:"Pantalla", viewport:"Ventana", dpr:"DPR", idioma:"Idioma", memoriaGB:"Memoria (GB)", nucleos:"Núcleos", tactil:"Puntos táctiles", conexion:"Conexión", referrer:"Llegó desde", fecha:"Fecha", hora:"Hora" };
 async function userSheet(uid, refresh){
@@ -2489,7 +2611,7 @@ async function userSheet(uid, refresh){
   if(!self && u.estado !== "eliminado"){
     if(u.estado === "activo"){ btns.push(`<button class="btn sm bad" data-act="aset" data-u="${esc(uid)}" data-s="suspendido">Suspender</button>`, `<button class="btn sm bad" data-act="aset" data-u="${esc(uid)}" data-s="bloqueado">Bloquear</button>`); }
     else btns.push(`<button class="btn sm ok" data-act="aset" data-u="${esc(uid)}" data-s="activo">Reactivar</button>`);
-    btns.push(`<button class="btn sm bad" data-act="adel" data-u="${esc(uid)}">Eliminar</button>`);
+    btns.push(`<button class="btn sm ghost" data-act="ainf" data-u="${esc(uid)}">Anotar infracción</button>`, `<button class="btn sm bad" data-act="adel" data-u="${esc(uid)}">Eliminar</button>`);
   }
   const rows = (o) => Object.entries(o).filter(([k, x]) => x !== "" && x != null && typeof x !== "object" && !["lat", "lon", "offsetMin", "codigoPais"].includes(k)).map(([k, x]) => `<div class="kv"><span>${esc(VL[k] || k)}</span><span>${esc(x)}</span></div>`).join("");
   $("shAdm").dataset.k = "u";
@@ -2518,22 +2640,28 @@ async function userSheet(uid, refresh){
     if(box && aSel === uid) box.innerHTML = vs.length ? vs.map((x) => `<div class="ml">${esc(fmtFull(ms(x.creado)))} · ${flagOf(x.codigoPais)} ${esc(x.ciudad || "")} · IP ${esc(x.ip)} · ${esc(x.dispositivo || "")} ${esc(x.navegador || "")} · ${esc(fmtDur(x.duracionSeg))}</div>`).join("") : '<span style="color:var(--mut)">Sin visitas.</span>';
   }catch(e){ const box = $("uVis"); if(box) box.textContent = "No se pudo cargar."; }
 }
+async function addInf(uid){
+  const u = aUsers.get(uid); if(!u) return; const x = await askC("Describe la infracción de " + u.nombre + ":", { input:true, ok:"Anotar", title:"Anotar infracción" }); if(!x || x.trim().length < 3) return;
+  const rg = { inf: [], susp: 0, bloq: 0, ...(u.reg || {}) }; rg.inf = [...(rg.inf || []), { t: Date.now(), x: x.trim().slice(0, 120) }].slice(-20);
+  try{ await updateDoc(doc(db, "wm_users", uid), { reg: rg }); toast("Infracción anotada"); }catch(e){ console.log(e); toast("No se pudo anotar. ¿Reglas v23 publicadas?"); }
+}
 async function setEstado(uid, st){
   const u = aUsers.get(uid); if(!u || uid === me()) return;
   const txt = { suspendido:"suspender", bloqueado:"bloquear", activo:"reactivar" }[st];
-  if(!confirm(`¿Quieres ${txt} a ${u.nombre} (ID ${u.id})?` + (st !== "activo" ? "\n\nSu nombre de usuario quedará anulado." : ""))) return;
+  if(!(await askC(`¿Quieres ${txt} a ${u.nombre} (ID ${u.id})?` + (st !== "activo" ? "\n\nSu nombre de usuario quedará anulado." : "")))) return;
   try{
-    await updateDoc(doc(db, "wm_users", uid), { estado: st });
+    const rg = { inf: [], susp: 0, bloq: 0, ...(u.reg || {}) }; if(st === "suspendido") rg.susp++; if(st === "bloqueado") rg.bloq++;
+    await updateDoc(doc(db, "wm_users", uid), st === "activo" ? { estado: st } : { estado: st, reg: rg });
     if(u.usuario){ try{ await updateDoc(doc(db, "wm_usernames", u.usuario), { anulado: st !== "activo" }); }catch(e){ console.log(e); } }
     const em = ((aPriv.get(uid) || {}).email || "").toLowerCase();
     if(em){ try{ if(st === "bloqueado") await setDoc(doc(db, "wm_blocked_emails", em), { email: em, motivo: "bloqueado", creado: serverTimestamp() }); else if(st === "activo") await deleteDoc(doc(db, "wm_blocked_emails", em)); }catch(e){ console.log(e); } }
-    toast("Listo ✅");
+    toast("Listo");
   }catch(e){ console.log(e); toast("No se pudo actualizar. ¿Reglas v16 publicadas?"); }
 }
 async function delUser(uid){
   const u = aUsers.get(uid); if(!u || uid === me()) return;
-  if(!confirm(`¿ELIMINAR la cuenta de ${u.nombre} (ID ${u.id})?\n\nSe borrarán sus chats, mensajes y datos personales. Su correo y su usuario quedarán bloqueados. No se puede deshacer.`)) return;
-  if((prompt('Para confirmar escribe: ELIMINAR') || "").trim() !== "ELIMINAR") return toast("Cancelado");
+  if(!(await askC(`¿ELIMINAR la cuenta de ${u.nombre} (ID ${u.id})?\n\nSe borrarán sus chats, mensajes y datos personales. Su correo y su usuario quedarán bloqueados. No se puede deshacer.`))) return;
+  if(((await askC("Para confirmar escribe: ELIMINAR", { input:true, ok:"Eliminar", bad:true, title:"Confirmar eliminación" })) || "").trim() !== "ELIMINAR") return toast("Cancelado");
   try{
     const cs = await getDocs(query(collection(db, "wm_chats"), where("miembros", "array-contains", uid)));
     for(const c of cs.docs){
@@ -2546,13 +2674,13 @@ async function delUser(uid){
     await setDoc(doc(db, "wm_priv", uid), { email: p.email || "", eliminado:true, creado: p.creado || serverTimestamp() });
     if(u.usuario){ try{ await updateDoc(doc(db, "wm_usernames", u.usuario), { anulado:true }); }catch(e){} }
     if(em){ try{ await setDoc(doc(db, "wm_blocked_emails", em), { email: em, motivo: "eliminado", creado: serverTimestamp() }); }catch(e){} }
-    toast("Cuenta eliminada ✅ (borra también su acceso en Firebase → Authentication)");
+    toast("Cuenta eliminada (borra también su acceso en Firebase → Authentication)");
   }catch(e){ console.log(e); toast("No se pudo eliminar por completo. Inténtalo de nuevo."); }
 }
 async function setVerif(uid, on){
   const u = aUsers.get(uid); if(!u) return;
   const rg = on ? ($("rgIn").value.replace(/\s+/g, " ").trim().slice(0, 20) || "Verificado") : "";
-  try{ await updateDoc(doc(db, "wm_users", uid), { verificado: on, rango: rg }); if(on && !u.verificado) await addDoc(collection(db, "wm_avisos"), { para:uid, tipo:"verif", texto:"¡Genial! Tu cuenta ha sido verificada. Puedes verificar en tu perfil y disfrutar de los beneficios exclusivos.", de:me(), creado:serverTimestamp() }).catch((e) => console.log(e)); toast(on ? "Cuenta verificada ✅ · se le notificó" : "Verificación quitada"); }catch(e){ console.log(e); toast("No se pudo actualizar."); }
+  try{ await updateDoc(doc(db, "wm_users", uid), { verificado: on, rango: rg }); if(on && !u.verificado) await addDoc(collection(db, "wm_avisos"), { para:uid, tipo:"verif", texto:"¡Genial! Tu cuenta ha sido verificada. Puedes verificar en tu perfil y disfrutar de los beneficios exclusivos.", de:me(), creado:serverTimestamp() }).catch((e) => console.log(e)); toast(on ? "Cuenta verificada · se le notificó" : "Verificación quitada"); }catch(e){ console.log(e); toast("No se pudo actualizar."); }
 }
 /* ---- Inspeccionar: conversaciones, aunque las personas las hayan eliminado ---- */
 const mediaA = (m) => (photoOk(m.img) ? `<img class="athumb" style="width:110px;height:110px;margin:4px 0;display:block" src="${esc(m.img)}" alt="" data-act="lbImg">` : "") + (m.resp ? `<div class="ml" style="margin:3px 0;opacity:.8">↩ ${esc((m.resp.k === "st" ? "Historia" : "Respuesta") + (m.resp.t ? ": " + m.resp.t : ""))}</div>` : "");
@@ -2570,7 +2698,7 @@ async function chatSheet(cid){
     const s = await getDocs(query(collection(db, "wm_chats", cid, "msgs"), orderBy("creado", "asc"), limit(500)));
     const ch = cs.exists() ? cs.data() : null;
     $("cInfo").innerHTML = ch ? `${esc(aName(ch.a))} ↔ ${esc(aName(ch.b))}<br>Estado: <b>${esc(ch.estado)}</b>${ch.bloqueadoPor ? " · bloqueado por " + esc(aName(ch.bloqueadoPor)) : ""} · ${s.size} mensaje(s)${ch.primerMsg ? `<br>Presentación: «${esc(ch.primerMsg)}»` : ""}${ch.temp && ch.temp !== "off" ? `<br>Mensajes temporales: ${esc(TEMP_LBL[ch.temp])}` : ""}<br><span style="font-size:12px">Aquí también ves los mensajes que los usuarios eliminaron o que expiraron.</span>` : "Este chat ya no existe.";
-    $("cMsgs").innerHTML = s.docs.map((d) => { const m = d.data({ serverTimestamps:"estimate" }); const fl = [m.tipo === "sys" ? "⚙ aviso del sistema" : "", m.borrado ? "🗑 eliminado por " + esc(aName(m.borradoPor)) + " · " + esc(fmtFull(ms(m.borradoEn))) : "", (m.ocultoPor || []).length ? "👁‍🗨 oculto para " + (m.ocultoPor || []).map((u) => esc(aName(u))).join(", ") : "", m.expira && ms(m.expira) <= Date.now() ? "⏱ expiró " + esc(fmtFull(ms(m.expira))) : m.expira ? "⏱ expira " + esc(fmtFull(ms(m.expira))) : m.ins ? "⏱ instantáneo" : "", m.vistoEn ? "✓✓ visto " + esc(fmtFull(ms(m.vistoEn))) : ""].filter(Boolean).join(" · ");
+    $("cMsgs").innerHTML = s.docs.map((d) => { const m = d.data({ serverTimestamps:"estimate" }); const fl = [m.tipo === "sys" ? "aviso del sistema" : "", m.borrado ? "eliminado por " + esc(aName(m.borradoPor)) + " · " + esc(fmtFull(ms(m.borradoEn))) : "", (m.ocultoPor || []).length ? "oculto para " + (m.ocultoPor || []).map((u) => esc(aName(u))).join(", ") : "", m.expira && ms(m.expira) <= Date.now() ? "expiró " + esc(fmtFull(ms(m.expira))) : m.expira ? "expira " + esc(fmtFull(ms(m.expira))) : m.ins ? "instantáneo" : "", m.vistoEn ? "visto " + esc(fmtFull(ms(m.vistoEn))) : ""].filter(Boolean).join(" · ");
       return `<div class="mline ${ch && m.de === ch.a ? "" : "b2"}" ${m.borrado ? 'style="opacity:.75;border:1px dashed #5a2a2a"' : ""}><small>${esc(aName(m.de))} · ${esc(fmtFull(ms(m.creado)))}</small>${mediaA(m)}${esc(m.texto)}${fl ? `<small style="margin-top:3px">${fl}</small>` : ""}</div>`; }).join("") || '<div class="empty">Sin mensajes.</div>';
   }catch(e){ console.log(e); $("cInfo").textContent = "No se pudo cargar el historial."; }
 }
@@ -2579,18 +2707,18 @@ function renderSto(){
   const c = $("acont"); if(!c) return;
   c.innerHTML = `<p class="hint" style="padding:6px 2px">Historias (las 60 más recientes), incluidas las eliminadas por su autor y las que ya expiraron.</p>` + (aSto.length ? aSto.map((s) => {
     const exp = ms(s.expira) <= Date.now(), st = s.borrado ? "eliminada" : exp ? "expirada" : "activa";
-    return `<div class="acard"><div style="display:flex;gap:12px"><img class="athumb" src="${esc(s.img)}" alt="" data-act="lbS" data-s="${esc(s.id)}"><div style="min-width:0;flex:1"><span class="pill ${st === "activa" ? "activo" : "suspendido"}" style="margin:0">${st}</span><br><b>${esc(aName(s.uid))}</b><br><span style="color:var(--mut);font-size:12.5px">Publicada ${esc(fmtFull(ms(s.creado)))}<br>${s.borrado ? "Eliminada " + esc(fmtFull(ms(s.borradoEn))) : (exp ? "Expiró " : "Expira ") + esc(fmtFull(ms(s.expira)))}</span>${s.texto ? `<div class="ml" style="margin-top:6px">${esc(s.texto)}</div>` : ""}<button class="btn sm ghost" data-act="aViews" data-s="${esc(s.id)}" style="margin:8px 0 0">Ver vistas y reacciones</button></div></div><div id="vw_${esc(s.id)}"></div></div>`; }).join("") : `<div class="empty"><div class="big">🖼️</div>Aún no hay historias.</div>`);
+    return `<div class="acard"><div style="display:flex;gap:12px"><img class="athumb" src="${esc(s.img)}" alt="" data-act="lbS" data-s="${esc(s.id)}"><div style="min-width:0;flex:1"><span class="pill ${st === "activa" ? "activo" : "suspendido"}" style="margin:0">${st}</span><br><b>${esc(aName(s.uid))}</b><br><span style="color:var(--mut);font-size:12.5px">Publicada ${esc(fmtFull(ms(s.creado)))}<br>${s.borrado ? "Eliminada " + esc(fmtFull(ms(s.borradoEn))) : (exp ? "Expiró " : "Expira ") + esc(fmtFull(ms(s.expira)))}</span>${s.texto ? `<div class="ml" style="margin-top:6px">${esc(s.texto)}</div>` : ""}<button class="btn sm ghost" data-act="aViews" data-s="${esc(s.id)}" style="margin:8px 0 0">Ver vistas y reacciones</button></div></div><div id="vw_${esc(s.id)}"></div></div>`; }).join("") : `<div class="empty"><div class="big"><svg viewBox="0 0 24 24" class="bigi"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17H5A1.5 1.5 0 0 1 3.5 15.5V7A1.5 1.5 0 0 1 5 5.5z"/></svg></div>Aún no hay historias.</div>`);
 }
 async function aViews(sid){
   const box = $("vw_" + sid); if(!box) return; box.innerHTML = '<div class="ml">Cargando…</div>';
   try{
     const s = await getDocs(collection(db, "wm_stories", sid, "views")), v = s.docs.map((d) => d.data({ serverTimestamps:"estimate" })).sort((a, b) => ms(a.vistoEn) - ms(b.vistoEn));
-    box.innerHTML = v.length ? `<div class="ml">${v.map((x) => `👁 <b>${esc(aName(x.viewer))}</b> · vio ${esc(fmtFull(ms(x.vistoEn)))}${x.oculto ? " (vista oculta)" : ""}${x.corazon ? ` · ❤️ reaccionó ${esc(fmtFull(ms(x.corazonEn)))}` : ""}`).join("<br>")}</div>` : '<div class="ml">Sin vistas.</div>';
+    box.innerHTML = v.length ? `<div class="ml">${v.map((x) => `<b>${esc(aName(x.viewer))}</b> · vio ${esc(fmtFull(ms(x.vistoEn)))}${x.oculto ? " (vista oculta)" : ""}${x.corazon ? ` · reaccionó ${esc(fmtFull(ms(x.corazonEn)))}` : ""}`).join("<br>")}</div>` : '<div class="ml">Sin vistas.</div>';
   }catch(e){ console.log(e); box.innerHTML = '<div class="ml">No se pudieron cargar las vistas.</div>'; }
 }
 function renderNot(){
   const c = $("acont"); if(!c) return;
-  c.innerHTML = `<p class="hint" style="padding:6px 2px">Notas guardadas (chat de cada persona consigo misma). Ves también las que borraron.</p>` + (aNot.length ? aNot.map((n) => `<button class="row" data-act="aNote" data-u="${esc(n.id)}" style="border:1px solid var(--line);border-radius:14px;margin-top:8px;background:var(--card)"><div class="mid"><div class="nm" style="white-space:normal">📝 ${esc(aName(n.id))}</div><div class="sub">Última nota: ${esc(fmtFull(ms(n.ultimoAt)))}</div></div></button>`).join("") : `<div class="empty"><div class="big">📝</div>Nadie ha guardado notas todavía.</div>`);
+  c.innerHTML = `<p class="hint" style="padding:6px 2px">Notas guardadas (chat de cada persona consigo misma). Ves también las que borraron.</p>` + (aNot.length ? aNot.map((n) => `<button class="row" data-act="aNote" data-u="${esc(n.id)}" style="border:1px solid var(--line);border-radius:14px;margin-top:8px;background:var(--card)"><div class="mid"><div class="nm" style="white-space:normal">${esc(aName(n.id))}</div><div class="sub">Última nota: ${esc(fmtFull(ms(n.ultimoAt)))}</div></div></button>`).join("") : `<div class="empty"><div class="big"><svg viewBox="0 0 24 24" class="bigi"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17H5A1.5 1.5 0 0 1 3.5 15.5V7A1.5 1.5 0 0 1 5 5.5z"/></svg></div>Nadie ha guardado notas todavía.</div>`);
 }
 let aNoteItems = [];
 async function noteSheet(uid){
@@ -2599,15 +2727,15 @@ async function noteSheet(uid){
   try{
     const s = await getDocs(query(collection(db, "wm_notes", uid, "items"), orderBy("creado", "asc"), limit(300)));
     aNoteItems = s.docs.map((d) => ({ id: d.id, ...d.data({ serverTimestamps:"estimate" }) }));
-    $("cMsgs").innerHTML = aNoteItems.map((m, i) => `<div class="mline" ${m.borrado ? 'style="opacity:.75;border:1px dashed #5a2a2a"' : ""}><small>${esc(fmtFull(ms(m.creado)))}${m.borrado ? " · 🗑 eliminada " + esc(fmtFull(ms(m.borradoEn))) : ""}</small>${m.img ? `<img class="athumb" style="width:120px;height:120px" src="${esc(m.img)}" alt="" data-act="lbA" data-i="${i}"><br>` : ""}${esc(m.texto || "")}</div>`).join("") || '<div class="empty">Sin notas.</div>';
+    $("cMsgs").innerHTML = aNoteItems.map((m, i) => `<div class="mline" ${m.borrado ? 'style="opacity:.75;border:1px dashed #5a2a2a"' : ""}><small>${esc(fmtFull(ms(m.creado)))}${m.borrado ? " · eliminada " + esc(fmtFull(ms(m.borradoEn))) : ""}</small>${m.img ? `<img class="athumb" style="width:120px;height:120px" src="${esc(m.img)}" alt="" data-act="lbA" data-i="${i}"><br>` : ""}${esc(m.texto || "")}</div>`).join("") || '<div class="empty">Sin notas.</div>';
   }catch(e){ console.log(e); $("cMsgs").innerHTML = '<div class="empty">No se pudieron cargar las notas.</div>'; }
 }
-const logOther = (l) => { const ic = { solicitud:"🤝", historia:"🖼️", nota:"📝", cuenta:"🔐", privacidad:"🛡️", perfil:"👤", comentario:"💬", grupo:"👥" }[l.tipo] || "•"; return `<div class="acard"><span class="pill nuevo" style="margin:0">${ic} ${esc(l.tipo)}</span> <span style="color:var(--mut)">${esc(fmtFull(ms(l.creado)))}</span><br><b>${esc(l.autor)}</b> ${esc(l.detalle || "")}${l.objetivo ? ` · <b>${esc(l.objetivo)}</b>` : ""}${l.chatId ? ` <button class="btn sm ghost" data-act="aChat" data-c="${esc(l.chatId)}" style="margin:6px 0 0">Ver conversación</button>` : ""}</div>`; };
+const logOther = (l) => { const ic = { solicitud:"", historia:"", nota:"", cuenta:"", privacidad:"", perfil:"", comentario:"", grupo:"" }[l.tipo] || "•"; return `<div class="acard"><span class="pill nuevo" style="margin:0">${ic} ${esc(l.tipo)}</span> <span style="color:var(--mut)">${esc(fmtFull(ms(l.creado)))}</span><br><b>${esc(l.autor)}</b> ${esc(l.detalle || "")}${l.objetivo ? ` · <b>${esc(l.objetivo)}</b>` : ""}${l.chatId ? ` <button class="btn sm ghost" data-act="aChat" data-c="${esc(l.chatId)}" style="margin:6px 0 0">Ver conversación</button>` : ""}</div>`; };
 /* ---- Grupos (administración) ---- */
 function renderGrp(){
   const c = $("acont"); if(!c) return;
   c.innerHTML = `<p class="hint" style="padding:6px 2px">Grupos (los 100 más recientes). Toca uno para ver miembros e historial completo, suspenderlo o eliminarlo.</p>` + (aGroups.length ? aGroups.map((g) =>
-    `<button class="row" data-act="aGrp" data-c="${esc(g.id)}" style="border:1px solid var(--line);border-radius:14px;margin-top:8px;background:var(--card)"><div class="mid"><div class="nm" style="white-space:normal">👥 ${esc(g.nombre)} <span style="color:var(--mut);font-weight:400">@${esc(g.usuario)}</span></div><div class="sub">${(g.miembros || []).length} miembros · creador: ${esc(aName(g.creador))}</div></div><div class="meta"><span class="pill ${g.estado === "activo" ? "activo" : "suspendido"}" style="margin:0">${esc(g.estado)}</span><span>${esc(fmtList(ms(g.ultimoMsgAt)))}</span></div></button>`).join("") : `<div class="empty"><div class="big">👥</div>Aún no hay grupos.</div>`);
+    `<button class="row" data-act="aGrp" data-c="${esc(g.id)}" style="border:1px solid var(--line);border-radius:14px;margin-top:8px;background:var(--card)"><div class="mid"><div class="nm" style="white-space:normal">${esc(g.nombre)} <span style="color:var(--mut);font-weight:400">@${esc(g.usuario)}</span></div><div class="sub">${(g.miembros || []).length} miembros · creador: ${esc(aName(g.creador))}</div></div><div class="meta"><span class="pill ${g.estado === "activo" ? "activo" : "suspendido"}" style="margin:0">${esc(g.estado)}</span><span>${esc(fmtList(ms(g.ultimoMsgAt)))}</span></div></button>`).join("") : `<div class="empty"><div class="big"><svg viewBox="0 0 24 24" class="bigi"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17H5A1.5 1.5 0 0 1 3.5 15.5V7A1.5 1.5 0 0 1 5 5.5z"/></svg></div>Aún no hay grupos.</div>`);
 }
 async function grpSheet(gid){
   $("shAdm").dataset.k = "g"; aSel = null;
@@ -2618,12 +2746,12 @@ async function grpSheet(gid){
     const g = gs.exists() ? gs.data() : null; if(!g){ $("cInfo").textContent = "Este grupo ya no existe."; return; }
     $("cInfo").innerHTML = `<b style="color:var(--txt);font-size:16px">${esc(g.nombre)}</b> · @${esc(g.usuario)} · ID ${esc(g.num || "")}<br>Estado: <b>${esc(g.estado)}</b> · ${g.abierto ? "abierto" : "por invitación"} · ${s.size} mensaje(s)${g.temp && g.temp !== "off" ? " · temporales: " + esc(TEMP_LBL[g.temp]) : ""}${g.desc ? `<br>«${esc(g.desc)}»` : ""}<br>Creador: ${esc(aName(g.creador))}<br>Admins: ${Object.keys(g.admins || {}).map((u) => esc(aName(u)) + " [" + (g.admins[u] || []).join(",") + "]").join("; ") || "—"}<br>Miembros: ${(g.miembros || []).map((u) => esc(aName(u))).join("; ")}`;
     $("gAct").innerHTML = `<div class="acts" style="margin:10px 0">${g.estado === "suspendido" ? `<button class="btn sm" data-act="gaSet" data-c="${esc(gid)}" data-s="activo">Reactivar</button>` : g.estado === "activo" ? `<button class="btn sm ghost" data-act="gaSet" data-c="${esc(gid)}" data-s="suspendido">Suspender</button>` : ""}${g.estado !== "eliminado" ? `<button class="btn sm ghost" style="color:#ff6b61" data-act="gaSet" data-c="${esc(gid)}" data-s="eliminado">Eliminar</button>` : ""}</div><span style="font-size:12px;color:var(--mut)">Aquí también ves los mensajes eliminados o expirados.</span>`;
-    $("cMsgs").innerHTML = s.docs.map((d) => { const m = d.data({ serverTimestamps:"estimate" }); const fl = [m.tipo === "sys" ? "⚙ aviso del sistema" : "", m.borrado ? "🗑 eliminado por " + esc(aName(m.borradoPor)) + " · " + esc(fmtFull(ms(m.borradoEn))) : "", (m.ocultoPor || []).length ? "👁‍🗨 oculto para " + (m.ocultoPor || []).map((u) => esc(aName(u))).join(", ") : "", m.expira && ms(m.expira) <= Date.now() ? "⏱ expiró " + esc(fmtFull(ms(m.expira))) : m.expira ? "⏱ expira " + esc(fmtFull(ms(m.expira))) : m.ins ? "⏱ instantáneo" : "", m.vistoEn ? "✓ visto " + esc(fmtFull(ms(m.vistoEn))) : ""].filter(Boolean).join(" · ");
+    $("cMsgs").innerHTML = s.docs.map((d) => { const m = d.data({ serverTimestamps:"estimate" }); const fl = [m.tipo === "sys" ? "aviso del sistema" : "", m.borrado ? "eliminado por " + esc(aName(m.borradoPor)) + " · " + esc(fmtFull(ms(m.borradoEn))) : "", (m.ocultoPor || []).length ? "oculto para " + (m.ocultoPor || []).map((u) => esc(aName(u))).join(", ") : "", m.expira && ms(m.expira) <= Date.now() ? "expiró " + esc(fmtFull(ms(m.expira))) : m.expira ? "expira " + esc(fmtFull(ms(m.expira))) : m.ins ? "instantáneo" : "", m.vistoEn ? "visto " + esc(fmtFull(ms(m.vistoEn))) : ""].filter(Boolean).join(" · ");
       return `<div class="mline ${m.de === g.creador ? "" : "b2"}" ${m.borrado ? 'style="opacity:.75;border:1px dashed #5a2a2a"' : ""}><small>${esc(aName(m.de))} · ${esc(fmtFull(ms(m.creado)))}</small>${mediaA(m)}${esc(m.texto)}${fl ? `<small style="margin-top:3px">${fl}</small>` : ""}</div>`; }).join("") || '<div class="empty">Sin mensajes.</div>';
   }catch(e){ console.log(e); $("cInfo").textContent = "No se pudo cargar el grupo."; }
 }
 async function gaSet(gid, st){
-  if(st === "eliminado" && !confirm("¿Eliminar este grupo para todos? Tú conservarás el historial.")) return;
+  if(st === "eliminado" && !(await askC("¿Eliminar este grupo para todos? Tú conservarás el historial."))) return;
   try{ await updateDoc(doc(db, "wm_groups", gid), { estado: st }); if(st === "eliminado") await deleteDoc(doc(db, "wm_gdir", gid)).catch(() => {}); toast(st === "activo" ? "Grupo reactivado" : st === "suspendido" ? "Grupo suspendido" : "Grupo eliminado"); grpSheet(gid); }
   catch(e){ console.log(e); toast("No se pudo actualizar el grupo."); }
 }
@@ -2633,28 +2761,36 @@ function renderAvi(){
   if(!$("avTx")){
     const us = [...aUsers.entries()].filter(([, u]) => u.estado === "activo").sort((x, y) => (x[1].nombre || "").localeCompare(y[1].nombre || ""));
     c.innerHTML = `<div class="grp" style="margin-top:6px"><div class="gt">Enviar aviso desde ${BOT_NAME}</div>
-      <div class="fld"><label for="avTo">Destinatario</label><select class="in" id="avTo"><option value="*">Todos los usuarios activos (${us.length})</option>${us.map(([uid, u]) => `<option value="${esc(uid)}">${esc(u.nombre)}${u.usuario ? " (@" + esc(u.usuario) + ")" : ""} · ID ${esc(u.id)}</option>`).join("")}</select></div>
-      <div class="fld"><label for="avTx">Mensaje</label><textarea class="in" id="avTx" rows="4" maxlength="500" style="resize:none" placeholder="Escribe el aviso…"></textarea></div>
+      <div class="fld"><label for="avTo">Destinatarios</label><select class="in" id="avTo"><option value="*">Todos los usuarios activos (${us.length})</option><option value="ver">Solo verificados</option><option value="nover">Solo no verificados</option><option value="new">Nuevos (últimos 7 días)</option>${[...new Set(us.map(([, u]) => paisEs(u)).filter(Boolean))].sort().map((p) => `<option value="p:${esc(p)}">País: ${esc(p)}</option>`).join("")}<option value="sel">Elegir usuarios…</option>${us.map(([uid, u]) => `<option value="${esc(uid)}">${esc(u.nombre)}${u.usuario ? " (@" + esc(u.usuario) + ")" : ""} · ID ${esc(u.id)}</option>`).join("")}</select></div>
+      <div id="avPick" hidden style="max-height:190px;overflow:auto;border:1px solid var(--line,#2a2a30);border-radius:12px;padding:6px;margin-bottom:12px"><input class="in" id="avSq" placeholder="Buscar…" style="margin-bottom:6px">${us.map(([uid, u]) => `<label class="avpk" data-s="${esc(((u.nombre || "") + " " + (u.usuario || "") + " " + (u.id || "")).toLowerCase())}"><input type="checkbox" value="${esc(uid)}"> ${esc(u.nombre)}${u.usuario ? " (@" + esc(u.usuario) + ")" : ""}</label>`).join("")}</div>
+      <div class="fld"><label for="avTx">Mensaje</label><textarea class="in" id="avTx" rows="6" maxlength="4000" style="resize:none" placeholder="Escribe el aviso…"></textarea><div class="fmtleg"><b>Formatos:</b> *negrita* · _cursiva_ · ~tachado~ · &#96;monoespacio&#96; · «- » viñeta · https://enlace<br>Vista previa: <span id="avPv"></span></div></div>
       <button class="btn" data-act="avSend">Enviar aviso</button></div>
       <div class="gt" style="margin:18px 2px 6px">Avisos enviados (los 200 más recientes)</div><div id="avList"></div>`;
   }
   const L = $("avList"); if(!L) return;
-  L.innerHTML = aAvi.length ? aAvi.map((x) => `<div class="acard"><div class="nm" style="font-weight:650">${esc(aName(x.para))}${{ verif:"verificación", bienvenida:"bienvenida", cumple:"cumpleaños" }[x.tipo] ? ` <span class="pill activo" style="margin:0">${{ verif:"verificación", bienvenida:"bienvenida", cumple:"cumpleaños" }[x.tipo]}</span>` : ""}</div><div style="margin:5px 0;white-space:pre-wrap">${esc(x.texto)}</div><div style="font-size:12.5px;color:var(--mut);line-height:1.5">Enviado: ${esc(fmtSec(ms(x.creado)))}<br>Entregado: ${x.entregado ? esc(fmtSec(ms(x.entregado))) : "pendiente (aún no abre WarMess)"}<br>Visto: ${x.visto ? `<b style="color:var(--ok)">${esc(fmtSec(ms(x.visto)))}</b>` : "aún no"}</div><div class="acts" style="margin-top:8px"><button class="btn sm ghost" style="color:#ff6b61" data-act="aviDel" data-i="${esc(x.id)}">Eliminar</button>${x.lote && aAvi.filter((y) => y.lote === x.lote).length > 1 ? `<button class="btn sm ghost" style="color:#ff6b61" data-act="aviDelAll" data-i="${esc(x.id)}">Eliminar en los ${aAvi.filter((y) => y.lote === x.lote).length} usuarios</button>` : ""}</div></div>`).join("") : `<div class="empty">Aún no has enviado avisos.</div>`;
+  L.innerHTML = aAvi.length ? aAvi.map((x) => `<div class="acard"><div class="nm" style="font-weight:650">${esc(aName(x.para))}${{ verif:"verificación", bienvenida:"bienvenida", cumple:"cumpleaños" }[x.tipo] ? ` <span class="pill activo" style="margin:0">${{ verif:"verificación", bienvenida:"bienvenida", cumple:"cumpleaños" }[x.tipo]}</span>` : ""}</div><div style="margin:5px 0;white-space:pre-wrap">${fmtRich(x.texto)}</div><div style="font-size:12.5px;color:var(--mut);line-height:1.5">Enviado: ${esc(fmtSec(ms(x.creado)))}<br>Entregado: ${x.entregado ? esc(fmtSec(ms(x.entregado))) : "pendiente (aún no abre WarMess)"}<br>Visto: ${x.visto ? `<b style="color:var(--ok)">${esc(fmtSec(ms(x.visto)))}</b>` : "aún no"}</div><div class="acts" style="margin-top:8px"><button class="btn sm ghost" style="color:#ff6b61" data-act="aviDel" data-i="${esc(x.id)}">Eliminar</button>${x.lote && aAvi.filter((y) => y.lote === x.lote).length > 1 ? `<button class="btn sm ghost" style="color:#ff6b61" data-act="aviDelAll" data-i="${esc(x.id)}">Eliminar en los ${aAvi.filter((y) => y.lote === x.lote).length} usuarios</button>` : ""}</div></div>`).join("") : `<div class="empty">Aún no has enviado avisos.</div>`;
 }
 async function avDel(id, all){
   const x = aAvi.find((y) => y.id === id); if(!x) return; const list = all && x.lote ? aAvi.filter((y) => y.lote === x.lote) : [x];
-  if(!confirm(list.length > 1 ? `¿Eliminar este aviso en los ${list.length} usuarios? Dejarán de verlo.` : "¿Eliminar este aviso? La persona dejará de verlo.")) return;
+  if(!(await askC(list.length > 1 ? `¿Eliminar este aviso en los ${list.length} usuarios? Dejarán de verlo.` : "¿Eliminar este aviso? La persona dejará de verlo."))) return;
   try{ for(let i = 0; i < list.length; i += 400){ const b = writeBatch(db); list.slice(i, i + 400).forEach((y) => b.delete(doc(db, "wm_avisos", y.id))); await b.commit(); } toast(list.length > 1 ? "Avisos eliminados" : "Aviso eliminado"); }
   catch(e){ console.log(e); toast("No se pudo eliminar."); }
 }
+function avPv(){ const t = $("avTx"), p = $("avPv"); if(p && t) p.innerHTML = t.value ? fmtRich(t.value) : "—"; }
+document.addEventListener("input", (e) => { if(e.target && e.target.id === "avTx") avPv(); if(e.target && e.target.id === "avSq"){ const q = e.target.value.toLowerCase(); document.querySelectorAll("#avPick .avpk").forEach((l) => { l.style.display = l.dataset.s.includes(q) ? "" : "none"; }); } });
+document.addEventListener("change", (e) => { if(e.target && e.target.id === "avTo"){ const k = $("avPick"); if(k) k.hidden = e.target.value !== "sel"; } });
 async function avSend(){
   const to = $("avTo").value, tx = $("avTx").value.trim(); if(tx.length < 3) return toast("Escribe el mensaje del aviso.");
-  const ids = to === "*" ? [...aUsers.entries()].filter(([, u]) => u.estado === "activo").map(([k]) => k) : [to];
-  if(to === "*" && !confirm("¿Enviar este aviso a " + ids.length + " usuarios?")) return;
+  const act = [...aUsers.entries()].filter(([, u]) => u.estado === "activo"); let ids;
+  if(to === "*") ids = act.map(([k]) => k); else if(to === "ver") ids = act.filter(([, u]) => u.verificado).map(([k]) => k); else if(to === "nover") ids = act.filter(([, u]) => !u.verificado).map(([k]) => k);
+  else if(to === "new") ids = act.filter(([, u]) => ms(u.creado) > Date.now() - 7 * 864e5).map(([k]) => k); else if(to.startsWith("p:")) ids = act.filter(([, u]) => paisEs(u) === to.slice(2)).map(([k]) => k);
+  else if(to === "sel") ids = [...document.querySelectorAll("#avPick input[type=checkbox]:checked")].map((x) => x.value); else ids = [to];
+  if(!ids.length) return toast("No hay usuarios en ese grupo.");
+  if(ids.length > 1 && !(await askC("¿Enviar este aviso a " + ids.length + " usuarios?", { ok:"Enviar" }))) return;
   try{
     const lote = "l" + Date.now().toString(36);
     for(let i = 0; i < ids.length; i += 400){ const b = writeBatch(db); ids.slice(i, i + 400).forEach((u) => b.set(doc(collection(db, "wm_avisos")), { para:u, tipo:"aviso", texto:tx, de:me(), lote, creado:serverTimestamp() })); await b.commit(); }
-    $("avTx").value = ""; toast("Aviso enviado a " + ids.length + (ids.length === 1 ? " usuario" : " usuarios") + " ✅");
+    $("avTx").value = ""; avPv(); toast("Aviso enviado a " + ids.length + (ids.length === 1 ? " usuario" : " usuarios") + "");
   }catch(e){ console.log(e); toast("No se pudo enviar. ¿Reglas v21 publicadas?"); }
 }
 /* ---- Registro de actividad (apodos…) ---- */
@@ -2668,11 +2804,11 @@ function renderSop(){
   c.innerHTML = aTk.length ? aTk.map((t) => `<div class="acard"><span class="pill ${t.estado === "abierto" ? "nuevo" : "revisado"}" style="margin:0">${esc(t.estado)}</span> <b>${esc(t.nombre || "—")}</b> ${t.usuario ? "@" + esc(t.usuario) : ""} <span style="color:var(--mut)">· ${esc(t.email)} · cuenta ${esc(t.estadoCuenta)} · ${esc(fmtFull(ms(t.creado)))}</span>
     <div class="ml">${esc(t.mensaje)}</div>${t.respuesta ? `<div class="ml" style="background:#12202f"><b>Tu respuesta:</b> ${esc(t.respuesta)}</div>` : ""}
     <textarea class="in" id="tr_${esc(t.id)}" rows="2" maxlength="500" placeholder="Escribe una respuesta para el usuario…" style="margin-top:8px;resize:none"></textarea>
-    <div class="acts"><button class="btn sm" data-act="tkRep" data-r="${esc(t.id)}">Responder</button><button class="btn sm ghost" data-act="auser" data-u="${esc(t.uid)}">Ver usuario</button>${t.estado === "abierto" ? `<button class="btn sm ghost" data-act="tkClose" data-r="${esc(t.id)}">Cerrar</button>` : ""}</div></div>`).join("") : `<div class="empty"><div class="big">📭</div>No hay solicitudes de soporte.</div>`;
+    <div class="acts"><button class="btn sm" data-act="tkRep" data-r="${esc(t.id)}">Responder</button><button class="btn sm ghost" data-act="auser" data-u="${esc(t.uid)}">Ver usuario</button>${t.estado === "abierto" ? `<button class="btn sm ghost" data-act="tkClose" data-r="${esc(t.id)}">Cerrar</button>` : ""}</div></div>`).join("") : `<div class="empty"><div class="big"><svg viewBox="0 0 24 24" class="bigi"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17H5A1.5 1.5 0 0 1 3.5 15.5V7A1.5 1.5 0 0 1 5 5.5z"/></svg></div>No hay solicitudes de soporte.</div>`;
 }
 async function tkReply(id){
   const v = ($("tr_" + id) || {}).value || ""; if(v.trim().length < 2) return toast("Escribe una respuesta.");
-  try{ await updateDoc(doc(db, "wm_tickets", id), { respuesta: v.trim().slice(0, 500), estado:"respondido", respondidoEn: serverTimestamp() }); toast("Respuesta enviada ✅"); }catch(e){ console.log(e); toast("No se pudo responder."); }
+  try{ await updateDoc(doc(db, "wm_tickets", id), { respuesta: v.trim().slice(0, 500), estado:"respondido", respondidoEn: serverTimestamp() }); toast("Respuesta enviada"); }catch(e){ console.log(e); toast("No se pudo responder."); }
 }
 async function tkClose(id){ try{ await updateDoc(doc(db, "wm_tickets", id), { estado:"cerrado" }); }catch(e){ toast("No se pudo cerrar."); } }
 /* ---- Nombres de usuario y correos bloqueados ---- */
@@ -2682,12 +2818,12 @@ function renderBlq(){
     <div class="acard"><h4>Correos bloqueados (${aBe.length})</h4>${aBe.length ? aBe.map((x) => `<div class="kv"><span>${esc(x.email || x.id)} <span style="color:var(--mut);font-size:12.5px">${esc(x.motivo || "")}</span></span><span><button class="btn sm ghost" data-act="beFree" data-n="${esc(x.id)}">Permitir</button></span></div>`).join("") : '<span style="color:var(--mut)">Ninguno.</span>'}</div>`;
 }
 async function freeUser(n, uid){
-  if(!confirm(`¿Liberar el usuario @${n}?`)) return;
-  try{ await deleteDoc(doc(db, "wm_usernames", n)); if(uid){ try{ await updateDoc(doc(db, "wm_users", uid), { usuario:"" }); }catch(e){} } toast("Usuario liberado ✅"); }catch(e){ console.log(e); toast("No se pudo liberar."); }
+  if(!(await askC(`¿Liberar el usuario @${n}?`))) return;
+  try{ await deleteDoc(doc(db, "wm_usernames", n)); if(uid){ try{ await updateDoc(doc(db, "wm_users", uid), { usuario:"" }); }catch(e){} } toast("Usuario liberado"); }catch(e){ console.log(e); toast("No se pudo liberar."); }
 }
-async function freeEmail(n){ if(!confirm(`¿Permitir de nuevo el correo ${n}?`)) return; try{ await deleteDoc(doc(db, "wm_blocked_emails", n)); toast("Correo permitido ✅"); }catch(e){ toast("No se pudo actualizar."); } }
+async function freeEmail(n){ if(!(await askC(`¿Permitir de nuevo el correo ${n}?`))) return; try{ await deleteDoc(doc(db, "wm_blocked_emails", n)); toast("Correo permitido"); }catch(e){ toast("No se pudo actualizar."); } }
 async function repSet(id, done){
-  try{ if(done) await updateDoc(doc(db, "wm_reportes", id), { estado:"revisado" }); else if(confirm("¿Borrar este reporte?")) await deleteDoc(doc(db, "wm_reportes", id)); }catch(e){ toast("No se pudo actualizar el reporte."); }
+  try{ if(done) await updateDoc(doc(db, "wm_reportes", id), { estado:"revisado" }); else if((await askC("¿Borrar este reporte?"))) await deleteDoc(doc(db, "wm_reportes", id)); }catch(e){ toast("No se pudo actualizar el reporte."); }
 }
 
 
@@ -2708,6 +2844,8 @@ const I5 = {
 I5.wa = '<path d="M3.5 20.5l1.3-4.6A8.5 8.5 0 1 1 8 19.2z"/><path d="M9 8.5c.2 3 2.6 5.6 5.8 6.3l1.2-1.4-2-1-.9.7a4.5 4.5 0 0 1-2-2l.7-.9-1-2z"/>';
 I5.tg = '<path d="M21 4 3 11l6 2 2 6 3-4 4 3z"/><path d="m9 13 12-9"/>'; I5.globe = '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>'; I5.fb = '<circle cx="12" cy="12" r="9"/><path d="M13.5 20v-7h2.3l.4-2.6h-2.7V8.9c0-.8.3-1.3 1.4-1.3h1.4V5.3c-.3 0-1.1-.1-2-.1-2 0-3.3 1.2-3.3 3.4v1.8H8.7V13h2.3v7"/>'; I5.crown = '<path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/>';
 const APP_VER = "6.0", APP_LAUNCH = "21 de noviembre de 2026";
+const PIN = '<path d="M12 21s-6.5-5.7-6.5-11a6.5 6.5 0 0 1 13 0c0 5.3-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>';
+const paisEs = (p) => { if(!p) return ""; try{ if(p.cc) return new Intl.DisplayNames(["es"], { type:"region" }).of(String(p.cc).toUpperCase()); }catch(e){} return p.pais || ""; };
 const CREATOR = { name:"Sxgura", wa:"573150160607", waTxt:"+57 315 0160607", tg:"SxgProyect", ig:"sxgurabrrokall", fb:"Ell Sxgura", web:"https://sxgura.github.io/web/", perfil:"https://sxgura.github.io/perfil/" };
 const pgStack = []; let pgGuard = false, pgIgnore = 0;
 const PRIV_LBL = { todos:"Todos", amigos:"Mis amigos", nadie:"Nadie", inv:"Invitación", on:"Activada", off:"Desactivada", dm:"Día y mes", full:"Fecha completa" };
@@ -2774,7 +2912,7 @@ function peerHTML(uid){
   const row = (cls, ic, t, sub, href, act) => { const inner = `<span class="pi">${P(ic)}</span><span class="pt"><b>${t}</b>${sub ? `<small>${sub}</small>` : ""}</span>${href ? CHEV : ""}`; return href ? `<a class="pr c-${cls}" target="_blank" rel="noopener noreferrer" href="${esc(href)}">${inner}</a>` : `<div class="pr c-${cls}" ${act || ""}>${inner}</div>`; };
   const showL = canSee(p, "enl"), wa = showL && /^\d{7,15}$/.test(p.wa || "") ? p.wa : "", ig = showL && /^[A-Za-z0-9._]{1,30}$/.test(p.ig || "") ? p.ig : "", lns = showL ? linksOf(p) : [];
   const bd = canSee(p, "bdv") && p.cumple ? fmtBD(p.cumple, p.cumpleY) : "";
-  const info = [bio ? row("blue", I5.info, esc(bio), "Info") : "", bd ? row("pink", I5.star, esc(bd), "Cumpleaños") : "", row("indigo", I5.idc, esc(p.id || "—"), "ID · toca para copiar", "", 'data-act="peerCopy" role="button" tabindex="0" style="cursor:pointer"')].filter(Boolean).join("");
+  const info = [bio ? row("blue", I5.info, esc(bio), "Info") : "", bd ? row("pink", I5.star, esc(bd), "Cumpleaños") : "", paisEs(p) ? row("green", PIN, esc(paisEs(p)), "País de registro") : "", row("indigo", I5.idc, esc(p.id || "—"), "ID · toca para copiar", "", 'data-act="peerCopy" role="button" tabindex="0" style="cursor:pointer"')].filter(Boolean).join("");
   const soc = [wa ? row("wa", I5.wa, "WhatsApp", "+" + wa, "https://wa.me/" + wa) : "", ig ? row("ig", I5.ig, "@" + esc(ig), "Instagram", "https://instagram.com/" + ig) : "", ...lns.map((l) => row("cyan", I5.link, esc(linkName(l)), esc(linkHost(l)), l.u))].filter(Boolean).join("");
   return `<div class="pcb"><button class="pcbb" data-act="pgBack" aria-label="Atrás">${IC.back}</button><div class="pcbm">${av(p.nombre, foto, "xs")}<b>${esc(p.nombre || "Usuario")}${badge(p)}</b></div>${inChat ? `<button class="pcbb" data-act="peerMenu" aria-label="Más opciones"><svg viewBox="0 0 24 24" style="fill:currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></button>` : '<span class="pcbb" style="visibility:hidden"></span>'}</div>
   <div class="pgc pcs"><div class="pcv" style="--h:${hue(p.nombre)}">${foto ? `<div class="pcimg" style="background-image:url('${esc(foto)}')"></div>` : ""}<div class="pcfade"></div></div>
@@ -2806,7 +2944,7 @@ const PG = {
     <div class="pfoot">WarMess · Beta</div>` }),
   profile: () => { const f = (ic, l, v, k, ph) => pgRow(ic, l, "pfEdit", `data-k="${k}"`, v ? esc(v) : `<i>${ph}</i>`);
     return { t:"Perfil", h:`<div class="pavw"><button class="pav" data-act="pgPhoto" aria-label="Cambiar foto">${av(prof.nombre, prof.foto)}<span class="pcam"><svg class="i" viewBox="0 0 24 24">${I5.cam}</svg></span></button></div>
-    <div class="pgrp">${f(I5.user, "Nombre", prof.nombre, "nombre", "Sin nombre")}${f(I5.info, "Info", prof.bio, "bio", "Añadir una descripción")}${f(I5.at, "Nombre de usuario", prof.usuario ? "@" + prof.usuario : "", "usuario", "Elegir")}${f(I5.wa, "WhatsApp", prof.wa ? "+" + prof.wa : "", "wa", "Añadir número")}</div>
+    <div class="pgrp">${f(I5.user, "Nombre", prof.nombre, "nombre", "Sin nombre")}${f(I5.info, "Info", prof.bio, "bio", "Añadir una descripción")}${f(I5.at, "Nombre de usuario", prof.usuario ? "@" + prof.usuario : "", "usuario", "Elegir")}${f(I5.wa, "WhatsApp", prof.wa ? "+" + prof.wa : "", "wa", "Añadir número")}${(() => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec((priv && priv.nacimiento) || ""); return pgRow(I5.star, "Fecha de nacimiento", "pfEdit", 'data-k="nac"', m ? esc(fmtBD(m[2] + "-" + m[3], m[1])) : "<i>Añadir fecha</i>"); })()}${paisEs(prof) ? `<div class="pr c-green" style="cursor:default"><span class="pi">${P(PIN)}</span><span class="pt"><b>País</b><small>${esc(paisEs(prof))}</small></span></div>` : ""}</div>
     <div class="pgt">Enlaces</div><div class="pgrp">${f(I5.ig, "Instagram", prof.ig ? "@" + prof.ig : "", "ig", "Añadir Instagram")}${linksOf(prof).map((l, i) => pgRow(I5.link, esc(linkName(l)), "lnEdit", `data-i="${i}"`, esc(linkHost(l)))).join("")}${linksOf(prof).length < 3 ? pgRow(I5.plus, "Añadir enlace", "lnEdit", `data-i="${linksOf(prof).length}"`, "Con el nombre que tú elijas") : ""}</div>
     <div class="pgrp">${pgRow(I5.idc, "Tu ID", "copyId", "", esc(prof.id) + " · toca para copiar", "nochev")}</div><div class="pfoot">Tu perfil lo ven las personas con las que chateas, según tus ajustes de privacidad.</div>` }; },
   account: () => { const accs = getAccounts(), pw = user.providerData.some((p) => p.providerId === "password");
@@ -2834,7 +2972,7 @@ const PG = {
     const TS = { default:"linear-gradient(135deg,#0a84ff,#08080b)", iosdark:"linear-gradient(135deg,#0a84ff,#000)", ios:"linear-gradient(135deg,#007aff,#fff)" };
     const chips = (act, cur, arr) => `<div class="chs">${arr.map((x) => `<button class="chb ${cur === x[0] ? "on" : ""}" data-act="${act}" data-v="${x[0]}">${x[1]}</button>`).join("")}</div>`;
     return { t:"Apariencia", h:`<div class="pgt">Tema</div><div class="thg">${THEMES.map((t) => `<button class="thc ${th === t[0] ? "on" : ""}" data-act="thSet" data-v="${t[0]}"><span class="thp t-${t[0]}"><i class="b1"></i><i class="b2"></i><i class="b3"></i></span><b>${t[1]}</b><span class="thk"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></button>`).join("")}</div>
-    <div class="pgt">Burbujas de chat</div><div class="pgrp"><div class="prev"><div class="b him">¡Hola! 👋</div><div class="b me">Así se verán tus mensajes</div></div>
+    <div class="pgt">Burbujas de chat</div><div class="pgrp"><div class="prev"><div class="b him">¡Hola!</div><div class="b me">Así se verán tus mensajes</div></div>
       <div class="sws">${BCOLS.map((c) => `<button class="sw ${bc === c[0] ? "on" : ""}" data-act="bubC" data-v="${c[0]}" aria-label="${c[1]}" style="${c[0] ? "background:" + c[0] : ""}">${c[0] ? "" : "<small>Tema</small>"}</button>`).join("")}</div>
       ${chips("bubS", bs, [["rd", "Redonda"], ["soft", "Suave"], ["sq", "Cuadrada"]])}</div>
     <div class="pgt">Tamaño del texto</div><div class="pgrp">${chips("fsSet", fs, [["s", "Pequeño"], ["m", "Mediano"], ["l", "Grande"]])}</div>
@@ -2847,10 +2985,9 @@ const PG = {
   creator: () => { const C = CREATOR, row = (ic, t, s, href) => `<${href ? 'a target="_blank" rel="noopener noreferrer" href="' + esc(href) + '"' : 'div'} class="pr c-mono"><span class="pi">${P(ic)}</span><span class="pt"><b>${t}</b><small>${s}</small></span>${href ? CHEV : ""}</${href ? "a" : "div"}>`;
     return { t:"Creador", h:`<div class="crh"><div class="crav" id="crAv">${av(C.name, "", "lg")}</div><h2>${C.name}${sealSvg("#f0423c")}</h2><div class="crs">Creador de WarMess · Sxgura Inc</div></div>
     <div id="crDyn"></div>
-    <div class="pgt">Contacto</div><div class="pgrp">${row(I5.wa, "WhatsApp", C.waTxt, "https://wa.me/" + C.wa)}${row(I5.tg, "Telegram", "@" + C.tg, "https://t.me/" + C.tg)}</div>
-    <div class="pgt">Redes</div><div class="pgrp">${row(I5.ig, "Instagram", "@" + C.ig, "https://instagram.com/" + C.ig)}${row(I5.fb, "Facebook", C.fb)}</div>
-    <div class="pgt">Sitios</div><div class="pgrp">${row(I5.globe, "Sitio web", "sxgura.github.io/web", C.web)}${row(I5.user, "Perfil", "sxgura.github.io/perfil", C.perfil)}</div>
-    <div class="pfoot">Escríbeme por cualquiera de estos medios o directamente aquí, en WarMess.</div>`, after: () => loadCreator() }; },
+    <div class="pgrp">${row(I5.at, "Usuario", '<span id="crUs">@' + esc((creatorU && creatorU.usuario) || "…") + "</span>")}${row(I5.idc, "ID", "222222")}</div>
+    <div class="pgt">Contacto</div><div class="pgrp">${row(I5.wa, "WhatsApp", C.waTxt, "https://wa.me/" + C.wa)}${row(I5.ig, "Instagram", "@" + C.ig, "https://instagram.com/" + C.ig)}<button class="pr c-blue" data-act="crChat"><span class="pi">${P(I5.chat)}</span><span class="pt"><b>Chat en WarMess</b><small>Escríbeme directamente aquí</small></span>${CHEV}</button></div>
+    <div class="pfoot">Escríbeme por WhatsApp, Instagram o directamente aquí, en WarMess.</div>`, after: () => loadCreator() }; },
   premium: () => ({ t:"WarMess Premium", h:`<div class="prem"><div class="pcrown"><svg viewBox="0 0 24 24"><defs><linearGradient id="pcg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#ff9f0a"/></linearGradient></defs><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z" fill="url(#pcg)" stroke="#ffd35a" stroke-width="1.2" stroke-linejoin="round"/></svg></div><h3>WarMess Premium</h3><span class="pbadge">Próximamente</span><p>Esta sección está en fase de desarrollo. Estamos preparando funciones exclusivas para ti.</p></div>` }),
   reports: () => ({ t:"Reportes", h:`<div class="pgrp" id="rpList"><div class="pempty">Cargando…</div></div>`, after: async (el) => {
     const box = () => el.querySelector("#rpList"); if(!box()) return;
@@ -2877,11 +3014,12 @@ async function loadCreator(){
     const u = creatorU, box = $("crDyn"); if(!u || !box) return;
     const av_ = $("crAv"); if(av_) av_.innerHTML = av(u.nombre, fotoOf(u), "lg");
     const self = u.uid === me(), cid = [me(), u.uid].sort().join("_"), ex = chats.get(cid); qRes = [u];
-    box.innerHTML = `<div style="padding:0 14px">${self ? "" : ex ? `<button class="btn" data-act="crOpen" data-c="${esc(cid)}">Abrir chat en WarMess</button>` : `<button class="btn" data-act="crMsg" data-u="${esc(u.uid)}">Enviarme un mensaje en WarMess</button>`}</div>`;
+    const us_ = $("crUs"); if(us_ && u.usuario) us_.textContent = "@" + u.usuario;
+    box.innerHTML = `<div style="display:none">${self ? "" : ex ? `<button class="btn" data-act="crOpen" data-c="${esc(cid)}">Abrir chat en WarMess</button>` : `<button class="btn" data-act="crMsg" data-u="${esc(u.uid)}">Enviarme un mensaje en WarMess</button>`}</div>`;
   }catch(e){ console.log("Creador:", e); }
 }
 /* --- perfil: editar campos y foto --- */
-const PF = { nombre:{ l:"Nombre", max:40 }, bio:{ l:"Info", max:100, ph:"Cuéntanos algo sobre ti" }, usuario:{ l:"Nombre de usuario", max:20 }, wa:{ l:"WhatsApp (con código de país, solo números)", max:18, ph:"573001234567", im:"numeric" }, ig:{ l:"Instagram (solo el usuario)", max:31, ph:"tu.usuario" }, link:{ l:"Enlace (https://…)", max:200, ph:"https://…", ty:"url" } };
+const PF = { nombre:{ l:"Nombre", max:40 }, bio:{ l:"Info", max:100, ph:"Cuéntanos algo sobre ti" }, usuario:{ l:"Nombre de usuario", max:20 }, nac:{ l:"Fecha de nacimiento", max:10, ty:"date" }, wa:{ l:"WhatsApp (con código de país, solo números)", max:18, ph:"573001234567", im:"numeric" }, ig:{ l:"Instagram (solo el usuario)", max:31, ph:"tu.usuario" }, link:{ l:"Enlace (https://…)", max:200, ph:"https://…", ty:"url" } };
 const linksOf = (p) => { const x = Array.isArray(p && p.links) ? p.links.filter((l) => l && typeof l.u === "string" && /^https:\/\//.test(l.u)) : []; if(!x.length && p && /^https:\/\//.test(p.link || "")) x.push({ n:"", u:p.link }); return x.slice(0, 3).map((l) => ({ n: String(l.n || "").slice(0, 30), u: l.u })); };
 const linkHost = (l) => { try{ return new URL(l.u).hostname.replace(/^www\./, ""); }catch(e){ return "Enlace"; } };
 const linkName = (l) => l.n || linkHost(l);
@@ -2895,8 +3033,8 @@ function lnEdit(i){
   openOv("ovInfo");
 }
 async function lnWrite(arr, msg){
-  try{ await updateDoc(doc(db, "wm_users", user.uid), { links: arr, link: "" }); prof = { ...prof, links: arr, link: "" }; lgEv("perfil", msg); closeOv("ovInfo"); pgRefresh(); toast("Guardado ✅"); }
-  catch(e){ console.log(e); setMsg("lnMsg", "No se pudo guardar. ¿Reglas v22 publicadas?"); busy("lnGo", false); }
+  try{ await updateDoc(doc(db, "wm_users", user.uid), { links: arr, link: "" }); prof = { ...prof, links: arr, link: "" }; lgEv("perfil", msg); closeOv("ovInfo"); pgRefresh(); toast("Guardado"); }
+  catch(e){ console.log(e); setMsg("lnMsg", "No se pudo guardar. ¿Reglas v23 publicadas?"); busy("lnGo", false); }
 }
 function lnSave(i){
   i = Number(i) || 0; let u = ($("lnU").value || "").trim(), n = ($("lnN").value || "").replace(/\s+/g, " ").trim().slice(0, 30);
@@ -2907,10 +3045,10 @@ function lnSave(i){
 }
 function lnDel(i){ const arr = linksOf(prof); arr.splice(Number(i) || 0, 1); lnWrite(arr, "quitó un enlace de su perfil"); }
 function pfEdit(k){
-  const f = PF[k]; if(!f) return; const v = k === "usuario" ? prof.usuario || "" : String(prof[k] || "");
+  const f = PF[k]; if(!f) return; const v = k === "usuario" ? prof.usuario || "" : k === "nac" ? ((priv && priv.nacimiento) || "") : String(prof[k] || "");
   $("shInfo").innerHTML = `<h2>${f.l.split(" (")[0]}<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div class="fld" style="margin-top:12px"><label for="pfEd">${f.l}</label>
-    ${k === "usuario" ? `<div class="uwrap"><span style="top:12px">@</span><input class="in" id="pfEd" maxlength="20" autocapitalize="none" autocorrect="off" spellcheck="false" value="${esc(v)}"></div><div class="ustat" id="pfUst"></div>` : `<input class="in" id="pfEd" maxlength="${f.max}" ${f.im ? `inputmode="${f.im}"` : ""} ${f.ty ? `type="${f.ty}"` : ""} placeholder="${esc(f.ph || "")}" value="${esc(v)}">`}</div>
-    <div class="msg" id="pfMsg"></div><button class="btn" data-act="pfSave" data-k="${k}" id="pfGo">Guardar</button>${k !== "nombre" && k !== "usuario" && v ? `<button class="btn ghost" data-act="pfSave" data-k="${k}" data-clear="1">Quitar</button>` : ""}`;
+    ${k === "usuario" ? `<div class="uwrap"><span style="top:12px">@</span><input class="in" id="pfEd" maxlength="20" autocapitalize="none" autocorrect="off" spellcheck="false" value="${esc(v)}"></div><div class="ustat" id="pfUst"></div>` : `<input class="in" id="pfEd" maxlength="${f.max}" ${f.im ? `inputmode="${f.im}"` : ""} ${f.ty ? `type="${f.ty}"` : ""} ${k === "nac" ? `min="1900-01-01" max="${new Date().toISOString().slice(0, 10)}"` : ""} placeholder="${esc(f.ph || "")}" value="${esc(v)}">`}</div>
+    <div class="msg" id="pfMsg"></div><button class="btn" data-act="pfSave" data-k="${k}" id="pfGo">Guardar</button>${k !== "nombre" && k !== "usuario" && k !== "nac" && v ? `<button class="btn ghost" data-act="pfSave" data-k="${k}" data-clear="1">Quitar</button>` : ""}`;
   openOv("ovInfo"); if(k === "usuario") watchUname($("pfEd"), $("pfUst"), () => prof.usuario); setTimeout(() => { const e = $("pfEd"); if(e) e.focus(); }, 250);
 }
 async function pfSave(t){
@@ -2921,13 +3059,15 @@ async function pfSave(t){
   if(k === "ig"){ v = v.replace(/^@/, "").replace(/^https?:\/\/(www\.)?instagram\.com\//i, "").replace(/\/.*$/, ""); if(v && !/^[A-Za-z0-9._]{1,30}$/.test(v)) return setMsg("pfMsg", "Usuario de Instagram no válido."); }
   if(k === "link" && v){ let ok = false; try{ ok = new URL(v).protocol === "https:"; }catch(e){} if(!ok) return setMsg("pfMsg", "El enlace debe empezar por https://"); }
   if(k === "bio") v = v.slice(0, 100);
+  if(k === "nac"){ const ag = ageOf(v); if(ag < 0) return setMsg("pfMsg", "Indica tu fecha de nacimiento."); if(ag < MIN_AGE) return setMsg("pfMsg", `Debes tener al menos ${MIN_AGE} años.`); if(ag > 110) return setMsg("pfMsg", "Revisa tu fecha de nacimiento."); }
   setMsg("pfMsg", ""); busy("pfGo", true, "Guardando…");
   try{
+    if(k === "nac"){ await savePriv({ nacimiento: v }); priv = { ...(priv || {}), nacimiento: v }; await syncBirthday(); lgEv("perfil", "actualizó su fecha de nacimiento"); closeOv("ovInfo"); pgRefresh(); toast("Guardado"); busy("pfGo", false); return; }
     const old = prof.usuario; if(k === "usuario" && v !== old) await claimUsername(v);
     if(String(prof[k] || "") !== v) await updateDoc(doc(db, "wm_users", user.uid), { [k]: v });
     if(k === "usuario" && old && v !== old) deleteDoc(doc(db, "wm_usernames", old)).catch(() => {});
     prof = { ...prof, [k]: v }; if(!t.dataset.clear || true) lgEv("perfil", "actualizó su " + f.l.split(" (")[0].toLowerCase());
-    closeOv("ovInfo"); pgRefresh(); toast("Guardado ✅");
+    closeOv("ovInfo"); pgRefresh(); toast("Guardado");
   }catch(e){ console.log(e); setMsg("pfMsg", unameErr(e) || "No se pudo guardar. Inténtalo de nuevo."); }
   busy("pfGo", false);
 }
@@ -2936,7 +3076,7 @@ function pgPhoto(){
   openOv("ovInfo");
 }
 async function saveFoto(d){
-  try{ await updateDoc(doc(db, "wm_users", user.uid), { foto: d }); prof = { ...prof, foto: d }; lgEv("perfil", d ? "cambió su foto de perfil" : "quitó su foto de perfil"); closeOv("ovInfo"); pgRefresh(); toast(d ? "Foto actualizada ✅" : "Foto eliminada"); }
+  try{ await updateDoc(doc(db, "wm_users", user.uid), { foto: d }); prof = { ...prof, foto: d }; lgEv("perfil", d ? "cambió su foto de perfil" : "quitó su foto de perfil"); closeOv("ovInfo"); pgRefresh(); toast(d ? "Foto actualizada" : "Foto eliminada"); }
   catch(e){ console.log(e); toast("No se pudo guardar la foto."); }
 }
 
@@ -2969,7 +3109,7 @@ async function pwSave(){
   if(!a) return setMsg("pwMsg", "Escribe tu contraseña actual."); if(b.length < 6) return setMsg("pwMsg", "La nueva debe tener al menos 6 caracteres.");
   if(b !== c) return setMsg("pwMsg", "Las contraseñas nuevas no coinciden."); if(b === a) return setMsg("pwMsg", "La nueva debe ser distinta de la actual.");
   setMsg("pwMsg", ""); busy("pwGo", true, "Guardando…");
-  try{ await reauthenticateWithCredential(user, EmailAuthProvider.credential(user.email, a)); await updatePassword(user, b); lgEv("cuenta", "cambió su contraseña"); closeOv("ovInfo"); toast("Contraseña actualizada ✅"); }
+  try{ await reauthenticateWithCredential(user, EmailAuthProvider.credential(user.email, a)); await updatePassword(user, b); lgEv("cuenta", "cambió su contraseña"); closeOv("ovInfo"); toast("Contraseña actualizada"); }
   catch(e){ console.log(e); setMsg("pwMsg", authErr2(e)); }
   busy("pwGo", false);
 }
@@ -2985,7 +3125,7 @@ async function mailSave(){
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(n)) return setMsg("emMsg", "Escribe un correo válido."); if(n === String(user.email || "").toLowerCase()) return setMsg("emMsg", "Ese ya es tu correo actual.");
   if(!p) return setMsg("emMsg", "Escribe tu contraseña actual para confirmar."); setMsg("emMsg", ""); busy("emGo", true, "Enviando…");
   try{ await reauthenticateWithCredential(user, EmailAuthProvider.credential(user.email, p)); await verifyBeforeUpdateEmail(user, n); lgEv("cuenta", "solicitó cambiar su correo a " + n);
-    $("shInfo").innerHTML = `<h2>Revisa tu correo<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div class="empty" style="padding:26px 6px"><div class="big">📧</div>Enviamos un mensaje de confirmación a <b>${esc(n)}</b>.<br><br>Ábrelo y confirma el cambio. Después inicia sesión con el correo nuevo.</div><button class="btn" data-act="closeov">Entendido</button>`; }
+    $("shInfo").innerHTML = `<h2>Revisa tu correo<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div class="empty" style="padding:26px 6px"><div class="big"><svg viewBox="0 0 24 24" class="bigi"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17H5A1.5 1.5 0 0 1 3.5 15.5V7A1.5 1.5 0 0 1 5 5.5z"/></svg></div>Enviamos un mensaje de confirmación a <b>${esc(n)}</b>.<br><br>Ábrelo y confirma el cambio. Después inicia sesión con el correo nuevo.</div><button class="btn" data-act="closeov">Entendido</button>`; }
   catch(e){ console.log(e); setMsg("emMsg", authErr2(e)); busy("emGo", false); }
 }
 function syncEmail(){ try{ if(priv && user.email && priv.email && priv.email !== user.email) savePriv({ email: user.email }).then(() => { priv = { ...priv, email: user.email }; }).catch(() => {}); }catch(e){} }
@@ -3002,7 +3142,7 @@ async function enforceLimit(){
   const keep = [accs.find((x) => x.slot === SLOT), ...accs.filter((x) => x.slot !== SLOT)].filter(Boolean).slice(0, lim), drop = accs.filter((x) => !keep.includes(x));
   setAccounts(keep);
   for(const x of drop){ try{ const ap = initializeApp(firebaseConfig, x.slot), au = getAuth(ap); if(au.authStateReady) await au.authStateReady(); await signOut(au); }catch(e){} }
-  vModal("⚠️", "Sesión cerrada", `Tu cuenta ya no tiene verificación, así que el límite pasó a ${lim} cuentas. Se cerró la sesión de: ${drop.map((x) => esc(x.nombre || x.email)).join(", ")}.`, "");
+  vModal(P('<path d="M12 4 3 20h18z"/><path d="M12 10v4M12 17v.5"/>'), "Sesión cerrada", `Tu cuenta ya no tiene verificación, así que el límite pasó a ${lim} cuentas. Se cerró la sesión de: ${drop.map((x) => esc(x.nombre || x.email)).join(", ")}.`, "");
 }
 function authBack(){ try{ const s = localStorage.getItem("wm_prev_slot") || "default"; localStorage.setItem("wm_slot", s); localStorage.setItem("wm_prev_slot", ""); }catch(e){} location.reload(); }
 try{ if(localStorage.getItem("wm_prev_slot") && $("authBack")) $("authBack").hidden = false; }catch(e){}
@@ -3012,13 +3152,16 @@ const PRIV_T = { lect:"Confirmaciones de lectura", estv:"Estados", bdv:"Fecha de
 async function privSet(k, v){
   const q = { ...myPriv(), [k]: v };
   try{ await updateDoc(doc(db, "wm_users", user.uid), { priv: q }); prof = { ...prof, priv: q }; lgEv("privacidad", "cambió «" + ((OPT[k] && OPT[k].t) || PRIV_T[k] || k) + "» a " + (PRIV_LBL[v] || v)); if(k === "bdv" || k === "bdf") await syncBirthday(q); pgRefresh(); }
-  catch(e){ console.log(e); toast("No se pudo guardar. ¿Reglas v22 publicadas?"); }
+  catch(e){ console.log(e); toast("No se pudo guardar. ¿Reglas v23 publicadas?"); }
 }
 const privTog = (k) => privSet(k, myPriv()[k] === "on" ? "off" : "on");
 async function syncBirthday(q){
   q = q || myPriv(); const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec((priv && priv.nacimiento) || ""), up = { cumple:"", cumpleY:"" };
   if(m && q.bdv !== "nadie"){ up.cumple = m[2] + "-" + m[3]; up.cumpleY = q.bdf === "full" ? m[1] : ""; }
   if(up.cumple !== (prof.cumple || "") || up.cumpleY !== (prof.cumpleY || "")){ await updateDoc(doc(db, "wm_users", user.uid), up); prof = { ...prof, ...up }; }
+}
+async function backfillPais(){
+  try{ if(!prof || prof.pais) return; const g = await getGeoRaw(); if(!g || !g.pais) return; const up = { pais: String(g.pais).slice(0, 60), cc: String(g.cc || "").slice(0, 2).toUpperCase() }; await updateDoc(doc(db, "wm_users", user.uid), up); prof = { ...prof, ...up }; }catch(e){ console.log("país:", e); }
 }
 async function checkBirthday(){
   try{
@@ -3058,13 +3201,13 @@ function subGinv(){
   if(unGinv){ try{ unGinv(); }catch(e){} } ginvSeen = null;
   unGinv = onSnapshot(query(collection(db, "wm_ginv"), where("para", "==", me())), (s) => {
     const arr = s.docs.map((d) => ({ id: d.id, ...d.data({ serverTimestamps:"estimate" }) }));
-    if(ginvSeen) arr.filter((x) => !ginvSeen.has(x.id)).forEach((x) => toast("📩 " + (x.dnombre || "Alguien") + " te invitó al grupo «" + x.gnombre + "»"));
+    if(ginvSeen) arr.filter((x) => !ginvSeen.has(x.id)).forEach((x) => toast("" + (x.dnombre || "Alguien") + " te invitó al grupo «" + x.gnombre + "»"));
     ginvSeen = new Set(arr.map((x) => x.id)); ginvs = arr; pgRefresh(); try{ updateBadges(); renderList(); }catch(e){}
   }, () => {});
 }
 async function ginvOk(id){
   const g = ginvs.find((x) => x.id === id); if(!g) return;
-  try{ await updateDoc(doc(db, "wm_groups", g.gid), { miembros: arrayUnion(me()) }); await deleteDoc(doc(db, "wm_ginv", id)).catch(() => {}); gSys({ id: g.gid }, `${prof.nombre} aceptó la invitación y se unió al grupo.`); lgEv("grupo", "aceptó la invitación al grupo «" + g.gnombre + "»"); toast("Te uniste al grupo ✅"); pgClear(); setPtab("chats"); const t = setInterval(() => { if(chats.has(g.gid)){ clearInterval(t); openChat(g.gid); } }, 150); setTimeout(() => clearInterval(t), 5000); }
+  try{ await updateDoc(doc(db, "wm_groups", g.gid), { miembros: arrayUnion(me()) }); await deleteDoc(doc(db, "wm_ginv", id)).catch(() => {}); gSys({ id: g.gid }, `${prof.nombre} aceptó la invitación y se unió al grupo.`); lgEv("grupo", "aceptó la invitación al grupo «" + g.gnombre + "»"); toast("Te uniste al grupo"); pgClear(); setPtab("chats"); const t = setInterval(() => { if(chats.has(g.gid)){ clearInterval(t); openChat(g.gid); } }, 150); setTimeout(() => clearInterval(t), 5000); }
   catch(e){ console.log(e); toast("No se pudo unir. El grupo pudo cerrarse o suspenderse."); }
 }
 async function ginvNo(id){ try{ await deleteDoc(doc(db, "wm_ginv", id)); toast("Invitación rechazada"); }catch(e){ toast("No se pudo rechazar."); } }
@@ -3074,7 +3217,7 @@ function renderFb(){
   const c = $("acont"); if(!c) return;
   c.innerHTML = `<p class="hint" style="padding:6px 2px">Comentarios enviados por los usuarios (los 100 más recientes).</p>` + (aFb.length ? aFb.map((f) => `<div class="acard"><span class="pill ${f.estado === "nuevo" ? "nuevo" : "activo"}" style="margin:0">${esc(f.estado)}</span> <span style="color:var(--mut)">${esc(fmtFull(ms(f.creado)))}</span><br><b>${esc(aName(f.de))}</b>
     <div style="white-space:pre-wrap;margin-top:6px">${esc(f.texto)}</div>${(f.imgs || []).filter((s) => typeof s === "string" && s.startsWith("data:image/")).map((s, i) => `<button class="thm" data-act="fbImg" data-f="${esc(f.id)}" data-n="${i}" style="background-image:url('${esc(s)}');display:inline-block;margin:8px 8px 0 0"></button>`).join("")}
-    <div style="font-size:11.5px;color:var(--mut);margin-top:6px">${esc(f.ua || "")}</div><div class="acts" style="margin-top:8px">${f.estado === "nuevo" ? `<button class="btn sm" data-act="fbDone" data-f="${esc(f.id)}">Marcar revisado</button>` : ""}<button class="btn sm ghost" style="color:#ff6b61" data-act="fbDel" data-f="${esc(f.id)}">Borrar</button></div></div>`).join("") : `<div class="empty"><div class="big">💬</div>Aún no hay comentarios.</div>`);
+    <div style="font-size:11.5px;color:var(--mut);margin-top:6px">${esc(f.ua || "")}</div><div class="acts" style="margin-top:8px">${f.estado === "nuevo" ? `<button class="btn sm" data-act="fbDone" data-f="${esc(f.id)}">Marcar revisado</button>` : ""}<button class="btn sm ghost" style="color:#ff6b61" data-act="fbDel" data-f="${esc(f.id)}">Borrar</button></div></div>`).join("") : `<div class="empty"><div class="big"><svg viewBox="0 0 24 24" class="bigi"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17H5A1.5 1.5 0 0 1 3.5 15.5V7A1.5 1.5 0 0 1 5 5.5z"/></svg></div>Aún no hay comentarios.</div>`);
 }
 /* ================= FIN FASE 5 ================= */
 
@@ -3083,7 +3226,7 @@ const A = {
   retry: () => { scr("boot"); route(); }, amode: (t) => setAmode(t.dataset.m), forgot, vcheck: verCheck, vresend: verResend, logout,
   pickAv: (t) => { avTarget = t.dataset.t; $("avFile").click(); }, onbGo: createProfile, legal: () => openOv("ovLegal"),
   closeov: (t) => { t.closest(".ov").classList.remove("on"); if(sv) svResume(); }, profile: () => pgGo("profile"),
-  copyId: () => { const id = prof && prof.id; if(!id) return; (navigator.clipboard ? navigator.clipboard.writeText(id) : Promise.reject()).then(() => toast("ID copiado"), () => { try{ prompt("Copia tu ID:", id); }catch(e){} }); },
+  copyId: () => { const id = prof && prof.id; if(!id) return; (navigator.clipboard ? navigator.clipboard.writeText(id) : Promise.reject()).then(() => toast("ID copiado"), () => { toast("Tu ID: " + id); }); },
   saveProf: saveProfile, ptab: (t) => setPtab(t.dataset.t), open: (t) => openChat(t.dataset.c),
   accept: (t) => answerReq(t.dataset.c, true), reject: (t) => answerReq(t.dataset.c, false),
   connect: (t) => connectSheet(t.dataset.u), sendReq: (t) => sendReq(t.dataset.u),
@@ -3095,7 +3238,7 @@ const A = {
   aChat: (t) => chatSheet(t.dataset.c), aVer: (t) => setVerif(t.dataset.u, true), aUnver: (t) => setVerif(t.dataset.u, false),
   tkRep: (t) => tkReply(t.dataset.r), tkClose: (t) => tkClose(t.dataset.r), unFree: (t) => freeUser(t.dataset.n, t.dataset.u), beFree: (t) => freeEmail(t.dataset.n),
   pgGo: (t) => pgGo(t.dataset.p, t.dataset.k ? { k: t.dataset.k } : undefined), pgBack: () => pgPop(false), pgPhoto, pfPhotoRm: () => saveFoto(""), pfEdit: (t) => pfEdit(t.dataset.k), pfSave: (t) => pfSave(t),
-  pwSheet, pwSave, mailSheet, mailSave, accSw: (t) => { if(t.dataset.s !== SLOT) accSwitch(t.dataset.s, false); }, accAdd, authBack, pgLogout: () => { if(confirm("¿Cerrar sesión en esta cuenta?")) logout(); },
+  pwSheet, pwSave, mailSheet, mailSave, accSw: (t) => { if(t.dataset.s !== SLOT) accSwitch(t.dataset.s, false); }, accAdd, authBack, pgLogout: () => { askC("¿Cerrar sesión en esta cuenta?", { ok:"Cerrar sesión", bad:true }).then((ok) => { if(ok) logout(); }); },
   privSet: (t) => privSet(t.dataset.k, t.dataset.v), unblk: (t) => unblk(t.dataset.c),
   thSet: (t) => { store.set("wm_theme", t.dataset.v); applyTheme(t.dataset.v); pgRefresh(); },
   bubC: (t) => { store.set("wm_bme", t.dataset.v); applyLook(); pgRefresh(); }, bubS: (t) => { store.set("wm_bshape", t.dataset.v); applyLook(); pgRefresh(); }, fsSet: (t) => { store.set("wm_fs", t.dataset.v); applyLook(); pgRefresh(); },
@@ -3123,19 +3266,24 @@ const A = {
   nav: (t) => { if(srch) srchOff(); const n = t.dataset.n; if(n === "chats" || n === "story"){ if(cur) closeChatUI(); setPtab(n); } else if(n === "settings") pgGo("settings"); else if(n === "profile") pgGo("profile"); },
   fabNew: () => { setPtab("chats"); const q = $("q"); q.focus(); toast("Escribe un @usuario o un ID para buscar a alguien"); },
   sf: (t) => { sf = t.dataset.f; document.querySelectorAll("#sfil [data-f]").forEach((x) => x.classList.toggle("on", x.dataset.f === sf)); renderList(); }, srchX: () => { if(qtxt){ $("q").value = ""; onSearch(); $("q").focus(); } else srchOff(); },
-  openBot, botArch, botInfo, botArch2: () => { closeOv("ovInfo"); botArch(); }, vmodOk, avSend,
-  menu: () => pgGo("settings"), menuProf: () => { closeOv("ovInfo"); openProfile(); }, menuLegal: () => { closeOv("ovInfo"); openOv("ovLegal"); }, friends: friendsSheet,
+  ainf: (t) => addInf(t.dataset.u), crChat: () => { const b = document.querySelector('#crDyn [data-act="crOpen"],#crDyn [data-act="crMsg"]'); if(b) b.click(); else toast("Cargando…"); },
+  openBot, bfClear: () => { askC("¿Vaciar la conversación con BotFather?", { ok:"Vaciar", bad:true }).then((ok) => { if(ok){ bfSave([]); renderBot(); renderList(); } }); }, bfCmd: (t) => bfSend(t.dataset.c), botArch, botInfo, botArch2: () => { closeOv("ovInfo"); botArch(); }, vmodOk, avSend,
+  menu: (t) => { const d = $("dmenu"); if(!d.hidden){ d.hidden = true; return; } const r = t.getBoundingClientRect();
+    d.innerHTML = `<button data-act="newGroup">${P(I5.plus)}<span>Crear grupo</span></button><button data-act="openBot" data-k="w">${botAv("xs", "w")}<span>WarMess${badge(VBADGE)}</span></button>${bfOk() ? `<button data-act="openBot" data-k="f">${botAv("xs", "f")}<span>BotFather${badge(VBADGE)}</span></button>` : ""}`;
+    d.style.top = (r.bottom + 6) + "px"; d.style.right = Math.max(8, innerWidth - r.right) + "px"; d.hidden = false; }, menuProf: () => { closeOv("ovInfo"); openProfile(); }, menuLegal: () => { closeOv("ovInfo"); openOv("ovLegal"); }, friends: friendsSheet,
   fOpen: (t) => { closeOv("ovInfo"); openChat(t.dataset.c); }, creatorSheet, crMsg: (t) => { closeOv("ovInfo"); connectSheet(t.dataset.u); }, crOpen: (t) => { closeOv("ovInfo"); openChat(t.dataset.c); },
   stAdd: () => { imgTarget = "story"; $("imgFile").click(); }, stOpen: (t) => openStories(t.dataset.u), storyPost: postStory, svClose: stClose, svPrev: stPrev, svNext: () => stNext(false), svHeart: stHeart, svViews: stViews, svDel: stDelete,
   openNotes, noteImg: () => { imgTarget = "note"; $("imgFile").click(); },
   lbS: (t) => openLb((aSto.find((x) => x.id === t.dataset.s) || {}).img), lbN: (t) => openLb((notesData[+t.dataset.i] || {}).img), lbA: (t) => openLb((aNoteItems[+t.dataset.i] || {}).img), lbClose: () => { $("lb").hidden = true; },
   aViews: (t) => aViews(t.dataset.s), aNote: (t) => noteSheet(t.dataset.u),
   fbDone: (t) => updateDoc(doc(db, "wm_feedback", t.dataset.f), { estado:"revisado" }).catch(() => toast("No se pudo actualizar.")),
-  fbDel: (t) => { if(confirm("¿Borrar este comentario?")) deleteDoc(doc(db, "wm_feedback", t.dataset.f)).catch(() => toast("No se pudo borrar.")); },
+  fbDel: async (t) => { if(await askC("¿Borrar este comentario?", { ok:"Borrar", bad:true })) deleteDoc(doc(db, "wm_feedback", t.dataset.f)).catch(() => toast("No se pudo borrar.")); },
   fbImg: (t) => { const f = aFb.find((x) => x.id === t.dataset.f); if(f && f.imgs) openLb(f.imgs[+t.dataset.n]); },
   aGrp: (t) => grpSheet(t.dataset.c), gaSet: (t) => gaSet(t.dataset.c, t.dataset.s)
 };
 document.addEventListener("click", (e) => {
+  const dm = $("dmenu"); if(dm && !dm.hidden && !e.target.closest('[data-act="menu"]')) dm.hidden = true;
+  const bm = e.target.closest && e.target.closest("[data-bfm]"); if(bm && !window.getSelection().toString()){ bfDelMsg(Number(bm.dataset.bfm)); return; }
   const t = e.target.closest("[data-act]");
   if(t && A[t.dataset.act]){ A[t.dataset.act](t); return; }
   if(e.target.classList && e.target.classList.contains("ov") && e.target.hasAttribute("data-close")){ e.target.classList.remove("on"); if(sv) svResume(); }
