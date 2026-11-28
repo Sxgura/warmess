@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#08080b">
 <meta name="robots" content="noindex">
-<title>WarMess · Beta</title>
+<title>WarMess</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a84ff'/%3E%3Cpath d='M14 16h36a3 3 0 0 1 3 3v21a3 3 0 0 1-3 3H27l-12 9V43a3 3 0 0 1-3-3V19a3 3 0 0 1 3-3z' fill='white'/%3E%3C/svg%3E">
 <style>
 :root{--bg:#08080b;--card:#121217;--card2:#18181f;--line:#23232c;--txt:#f2f2f7;--mut:#8e8e93;--acc:#0a84ff;--acc2:#5e5ce6;--ok:#30d158;--bad:#ff453a;--warn:#ff9f0a;--vh:100dvh;--r:16px}
@@ -847,6 +847,44 @@ html,body,.main,.side,.msgs,.comp,.main .mh,.mwrap{background:#000}
 .pr.red .pi,.pr.c-red .pi{color:#fff}
 .grp .li svg{color:#4da3ff}.grp .li:nth-child(3n+2) svg{color:#ffb23a}.grp .li:nth-child(3n+3) svg{color:#4be37a}.grp .li.red svg{color:#ff5a4d}.grp .li .lic svg{color:#fff}
 
+/* ===== v33 ===== */
+.top h1{font-family:"Nunito","Poppins","Segoe UI",system-ui,-apple-system,Roboto,sans-serif!important;font-size:31px!important;font-weight:800!important;letter-spacing:-1.4px!important;color:#fff;text-transform:none}
+.srch input{height:44px!important;background:#2c2c2e!important;box-shadow:none!important;border:0!important;border-radius:999px!important;font-size:16px!important;padding-left:46px!important;color:#fff}
+.srch input::placeholder{color:#9a9aa0}.srch input::-webkit-search-cancel-button,.srch input::-webkit-search-decoration{-webkit-appearance:none;display:none}
+.srch svg{top:15px!important;left:27px!important;width:20px!important;height:20px!important;color:#b0b0b6!important}
+#app.sm .srch input{background:#2c2c2e!important;box-shadow:0 0 0 1.5px rgba(77,155,255,.5)!important;padding-right:50px!important}
+#app.sm .srch svg{top:calc(max(14px,env(safe-area-inset-top)) + 12px)!important}
+#app.sm .srch .sx{top:calc(max(14px,env(safe-area-inset-top)) + 7px)!important;right:20px!important;width:30px;height:30px;background:#48484c;color:#fff}
+#app.sm .srch .sx svg{position:static!important;width:15px!important;height:15px!important;color:#fff!important}
+.lsb{display:none;align-items:center;gap:2px;padding:max(10px,env(safe-area-inset-top)) 8px 8px;background:#000}
+.side.ls .top{display:none}.side.ls .lsb{display:flex}.lsb b{flex:1;font-size:18px;margin-left:6px}
+.lsb .ibtn{width:44px;height:44px;display:grid;place-items:center;color:#fff}.lsb .ibtn svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.row.lsd{background:rgba(10,132,255,.16)}.avt{position:relative}.lck{position:absolute;right:-2px;bottom:-2px;width:22px;height:22px;border-radius:50%;background:var(--acc,#0a84ff);display:grid;place-items:center;box-shadow:0 0 0 2.5px #000}.lck svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round}
+.side.ls #sfil,.side.ls .srch{opacity:.5;pointer-events:none}
+/* perfil */
+.ppb{background:transparent!important}
+.ppcv{position:absolute;top:0;left:0;right:0;height:330px;overflow:hidden;pointer-events:none;background:radial-gradient(circle at 30% 20%,hsl(220 60% 24%),#000 75%)}
+.ppcv .pcimg{position:absolute;inset:-30px;background:center/cover no-repeat;filter:blur(22px) saturate(1.3) brightness(.7);transform:scale(1.1)}
+.ppcv .pcfade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 40%,#000 100%)}
+.pcs.pp{position:relative;text-align:center}.pcs.pp>*:not(.ppcv){position:relative}
+.ppav{width:118px!important;height:118px!important;margin-top:4px!important;box-shadow:0 0 0 3px rgba(0,0,0,.85),0 0 0 4.5px rgba(255,255,255,.18),0 12px 30px rgba(0,0,0,.55)!important}
+.ppav .av{font-size:44px!important}
+.pp h1{margin:14px 0 4px!important;font-size:24px!important}
+.pp .rk{margin-top:2px}.pp>div:not(.ppact):not(.pgrp):not(.pgt):not(.pfoot):not(.ppcv){text-align:center}
+.ppu{color:var(--mut);font-size:13px}
+.ppact{gap:14px!important;margin:18px 12px 4px!important}.ppact button{font-size:12px!important;min-width:70px!important;gap:6px!important}
+.ppact button span{width:44px!important;height:44px!important}.ppact svg{width:21px!important;height:21px!important}.ppact .aa{font-size:16px!important}
+.pp .pgrp{text-align:left}.pp .pr .pi{width:32px!important;height:32px!important;border-radius:10px!important}.pp .pr .pi svg{width:17px!important;height:17px!important}
+.pp .pr b{font-size:15.5px}.pp .pr small{font-size:12.5px}.pp .pr{padding-top:10px;padding-bottom:10px}
+.pp .pgt{text-align:left}
+.pvc{gap:0!important}
+/* like */
+.b.big{padding:0!important}
+.likei{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 30% 22%,rgba(255,255,255,.3),transparent 55%),color-mix(in srgb,var(--ta,#0a84ff) 22%,#06080c);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--ta,#0a84ff) 70%,transparent),0 5px 14px color-mix(in srgb,var(--ta,#0a84ff) 38%,transparent)}
+.likei svg{width:26px!important;height:26px!important;filter:drop-shadow(0 1px 3px rgba(0,0,0,.5))!important}
+.comp .send .sq .fi,.comp .send .sq svg{width:32px;height:32px;filter:drop-shadow(0 0 6px color-mix(in srgb,var(--ta,#0a84ff) 55%,transparent))}
+.emop{max-height:250px}
+
 </style>
 </head>
 <body>
@@ -958,10 +996,11 @@ html,body,.main,.side,.msgs,.comp,.main .mh,.mwrap{background:#000}
   <div class="dmenu" id="dmenu" hidden></div>
   <aside class="side">
     <div class="top">
-      <h1>WarMess<small>Beta</small></h1>
+      <h1>warmess</h1>
       <button class="dots" data-act="menu" aria-label="Más opciones"><svg viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19.5" r="2"/></svg></button>
     </div>
-    <div class="srch"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" inputmode="search" placeholder="Buscar chats" autocomplete="off" maxlength="30" aria-label="Buscar"><button class="sx" data-act="srchX" aria-label="Cerrar búsqueda"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="lsb" id="lsBar"><button class="ibtn" data-act="lsX" aria-label="Cancelar"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button><b id="lsN">1 seleccionado</b><button class="ibtn" data-act="lsArch" aria-label="Archivar"><svg viewBox="0 0 24 24"><path d="M3.5 5h17v4h-17zM5 9v10h14V9M10 13h4"/></svg></button><button class="ibtn" data-act="lsDel" aria-label="Eliminar"><svg viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button><button class="ibtn" data-act="lsMore" aria-label="Más"><svg viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></button></div>
+    <div class="srch"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" inputmode="search" placeholder="Buscar" autocomplete="off" maxlength="30" aria-label="Buscar"><button class="sx" data-act="srchX" aria-label="Cerrar búsqueda"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
     <div class="sfil" id="sfil"><button class="on" data-act="sf" data-f="all">Todo</button><button data-act="sf" data-f="chats">Chats</button><button data-act="sf" data-f="people">Personas</button><button data-act="sf" data-f="groups">Grupos</button></div>
     <div class="ptabs" id="ptabs" hidden><button class="on" data-act="ptab" data-t="chats">Chats</button><button data-act="ptab" data-t="story">Historias</button><button data-act="ptab" data-t="arch">Archivados <b id="archN" hidden>0</b></button><button data-act="ptab" data-t="reqs">Solicitudes <b id="reqN" hidden>0</b></button></div>
     <div class="list" id="list"></div>
@@ -1577,11 +1616,24 @@ function avQuick(cid){
   $("qv").innerHTML = `<div class="qcard" role="dialog" aria-label="${esc(nm)}">${big}<div class="qnm">${g ? "" : ""}${esc(nm)}${badge(p)}</div><div class="qbar"><button data-act="qvMsg" data-c="${esc(cid)}" aria-label="Mensaje">${P('<path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/>')}</button><button data-act="qvInfo" data-c="${esc(cid)}" aria-label="Información">${P('<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/>')}</button></div></div>`;
   $("qv").hidden = false;
 }
+let lsel = new Set(), lsTm = 0, lsSwallow = false;
+const LSCK = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+function lsSync(){ const s = document.querySelector(".side"); if(s) s.classList.toggle("ls", lsel.size > 0); const n = $("lsN"); if(n) n.textContent = lsel.size + (lsel.size === 1 ? " seleccionado" : " seleccionados"); renderList(); }
+function lsToggle(id){ if(lsel.has(id)) lsel.delete(id); else{ if(!lsel.size){ try{ history.pushState({ wm:1 }, ""); }catch(_){} } lsel.add(id); } lsSync(); }
+const lsChats = () => [...lsel].map((id) => chats.get(id)).filter(Boolean);
+async function lsArchive(){ const cs = lsChats(), on = !cs.every(isArch); try{ await Promise.all(cs.map((c) => updateDoc(doc(db, colOf(c), c.id), { ["archivado" + keyOf(c, me())]: on }))); toast(on ? "Archivado" : "Desarchivado"); }catch(e){ console.log(e); toast("No se pudo archivar."); } lsel = new Set(); lsSync(); }
+async function lsDelete(){ const cs = lsChats(); if(!cs.length) return; if(!(await askC(cs.length === 1 ? "¿Eliminar este chat de tu lista? Se vaciará para ti; si la otra persona te escribe, volverá a aparecer." : "¿Eliminar " + cs.length + " chats de tu lista? Se vaciarán para ti."))) return;
+  try{ await Promise.all(cs.map((c) => { const k = keyOf(c, me()); return updateDoc(doc(db, colOf(c), c.id), { ["limpiado" + k]: serverTimestamp(), ["borrado" + k]: serverTimestamp() }); })); toast("Chats eliminados"); }catch(e){ console.log(e); toast("No se pudo eliminar."); } lsel = new Set(); lsSync(); }
+async function lsBlock(){ const cs = lsChats().filter((c) => !isG(c)); if(!cs.length){ toast("Solo puedes bloquear contactos."); return; } const on = !cs.every((c) => c.bloqueadoPor === me());
+  if(on && !(await askC(cs.length === 1 ? "¿Bloquear a este contacto? No podrán enviarse mensajes." : "¿Bloquear " + cs.length + " contactos?"))) return;
+  try{ await Promise.all(cs.map((c) => updateDoc(doc(db, colOf(c), c.id), { bloqueadoPor: on ? me() : "" }))); toast(on ? "Bloqueado" : "Desbloqueado"); }catch(e){ toast("No se pudo actualizar."); } lsel = new Set(); lsSync(); }
+function lsMore(){ const cs = lsChats(), blk = cs.filter((c) => !isG(c)).length && cs.filter((c) => !isG(c)).every((c) => c.bloqueadoPor === me());
+  $("shInfo").innerHTML = `<h2>Opciones<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div class="grp" style="margin-top:12px"><button class="li" data-act="lsArch"><span>${cs.length && cs.every(isArch) ? "Desarchivar" : "Archivar"}</span></button><button class="li" data-act="lsBlk"><span>${blk ? "Desbloquear" : "Bloquear"}</span></button><button class="li red" data-act="lsDel"><span>Eliminar</span></button></div>`; openOv("ovInfo"); }
 function chatRow(c){
   const g = isG(c), p = g ? null : peers.get(otherOf(c)), nm = nameOf(c), un = unreadOf(c);
   const cleared = ms(c.ultimoMsgAt) <= myClear(c);
   let sub = c.estado === "pendiente" ? "Solicitud enviada · esperando respuesta" : cleared ? "" : (c.ultimoMsg ? (c.ultimoDe === me() ? "Tú: " : (g && c.ultimoDe ? ((peers.get(c.ultimoDe) || {}).nombre || "").split(" ")[0] + ": " : "")) + (c.ultimoMsg === "👍" ? "Me gusta" : c.ultimoMsg) : (!c.ultimoDe ? (g ? "Grupo nuevo" : "Conectados · escribe el primer mensaje") : ""));
-  return `<button class="row ${c.id === cur ? "sel" : ""}" data-act="open" data-c="${esc(c.id)}"><span class="avt" data-act="avQuick" data-c="${esc(c.id)}" role="button" aria-label="Ver foto e información">${g ? avG(nm, c.foto) : av(nm, fotoOf(p))}${!g && c.estado === "activo" && peerOnline(p) ? '<i class="odot"></i>' : ""}</span><div class="mid"><div class="nm">${g ? "" : ""}${esc(nm)}${badge(p)}</div><div class="sub ${un ? "un" : ""}">${esc(sub)}</div></div><div class="meta"><span>${esc(fmtList(ms(c.ultimoMsgAt)))}</span>${un ? `<span class="unr n">${uncOf(c)}</span>` : ""}</div></button>`;
+  return `<button class="row ${c.id === cur ? "sel" : ""} ${lsel.has(c.id) ? "lsd" : ""}" data-act="open" data-c="${esc(c.id)}"><span class="avt" data-act="avQuick" data-c="${esc(c.id)}" role="button" aria-label="Ver foto e información">${g ? avG(nm, c.foto) : av(nm, fotoOf(p))}${!g && c.estado === "activo" && peerOnline(p) ? '<i class="odot"></i>' : ""}${lsel.has(c.id) ? `<i class="lck">${LSCK}</i>` : ""}</span><div class="mid"><div class="nm">${g ? "" : ""}${esc(nm)}${badge(p)}</div><div class="sub ${un ? "un" : ""}">${esc(sub)}</div></div><div class="meta"><span>${esc(fmtList(ms(c.ultimoMsgAt)))}</span>${un ? `<span class="unr n">${uncOf(c)}</span>` : ""}</div></button>`;
 }
 const qMode = () => { const q = qtxt.trim(), raw = q.replace(/^@/, ""); if(/^\d+$/.test(raw)) return "id"; if(raw && (q.startsWith("@") || raw.length >= 3)) return "u"; return ""; };
 const ICA = '<svg viewBox="0 0 24 24"><path d="M4 5.5h16v3.5H4zM5.5 9v9.5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V9"/><path d="M12 11.5v5M9.8 14.6 12 16.8l2.2-2.2"/></svg>';
@@ -1833,7 +1885,7 @@ function renderMsgs(){
     const bub = `<div class="b ${mine ? "me" : "him"} ${img ? "img" : ""} ${img && !m.texto ? "oi" : ""} ${big ? "big" : ""} ${first ? "fst" : ""} ${sel.has(m.id) ? "sel" : ""}" data-m="${esc(m.id)}">${head}${media}${big ? `<span class="likei" aria-label="Me gusta">${THUMB}</span>` : m.texto ? `<span class="mt">${esc(m.texto)}</span>` : ""}</div>`;
     const tmx = last ? `<div class="tmx ${mine && seen && !g ? "rd" : ""}">${(m.expira || m.ins) ? `<span class="tmc">${IC.clock}</span>` : ""}${fmtT(t)}${st}</div>` : "";
     const w = `<div class="mw ${mine ? "me" : "him"} ${first ? "fst" : ""}">${m.resp ? quoteNew(m, c, mine) : ""}${bub}${tmx}</div>`;
-    h += mine ? w : `<div class="mrow ${first ? "fst" : ""}">${last ? `<button class="mav" data-act="gProf" data-u="${esc(m.de)}" aria-label="Ver perfil de ${esc(p.nombre || "")}">${av(p.nombre || "?", fotoOf(p), "xs")}${peerOnline(p) ? '<i class="odot s"></i>' : ""}</button>` : '<span class="mav sp"></span>'}${w}</div>`;
+    h += mine ? w : `<div class="mrow ${first ? "fst" : ""}">${last ? `<button class="mav" data-act="gProf" data-u="${esc(m.de)}" aria-label="Ver perfil de ${esc(p.nombre || "")}">${av(p.nombre || "?", fotoOf(p), "xs")}</button>` : '<span class="mav sp"></span>'}${w}</div>`;
   });
   const changed = patchList(el, h);
   clearTimeout(expT); if(nextExp) expT = setTimeout(renderMsgs, Math.max(200, nextExp - Date.now() + 80));
@@ -1869,11 +1921,13 @@ function renderSel(){
   const one = sel.size === 1 ? selMsgs()[0] : null;
   $("selInfoB").style.display = one ? "" : "none";
   $("selReplyB").style.display = one && one.tipo !== "sys" && $("cForm") ? "" : "none";
+  const cb = document.querySelector('#selBar [data-act=selCopy]'); if(cb) cb.style.display = selMsgs().some((m) => m.texto && !isLike(m)) ? "" : "none";
   $("selSaveB").style.display = one && photoOk(one.img) ? "" : "none";
 }
+const isLike = (m) => m.texto === "👍" && !m.img && !m.resp;
 const selMsgs = () => visMsgs().filter((m) => sel.has(m.id));
 function selCopy(){
-  const t = selMsgs().map((m) => m.texto).filter(Boolean).join("\n"); if(!t){ toast("Los mensajes seleccionados no tienen texto."); return; }
+  const t = selMsgs().filter((m) => !isLike(m)).map((m) => m.texto).filter(Boolean).join("\n"); if(!t){ toast("Los mensajes seleccionados no tienen texto."); return; }
   (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => toast("Copiado"), () => toast("No se pudo copiar."));
   sel = new Set(); renderMsgs();
 }
@@ -2063,7 +2117,7 @@ function saveImg(src){
 function thumbOf(src, size = 72){
   return new Promise((res, rej) => { const im = new Image(); im.onload = () => { try{ const w = im.naturalWidth, h = im.naturalHeight, s = Math.min(w, h), cv = document.createElement("canvas"); cv.width = cv.height = size; cv.getContext("2d").drawImage(im, (w - s) / 2, (h - s) / 2, s, s, 0, 0, size, size); res(cv.toDataURL("image/jpeg", .6)); }catch(e){ rej(e); } }; im.onerror = () => rej(new Error("thumb")); im.src = src; });
 }
-const EMOS = ["😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣", "😊", "😇", "🙂", "😉", "😍", "🥰", "😘", "😋", "😜", "🤪", "😎", "🤩", "🥳", "😏", "😒", "😞", "😔", "😟", "😕", "🙁", "😣", "😢", "😭", "😤", "😠", "😡", "🤯", "😳", "🥺", "😱", "😰", "😓", "🤗", "🤔", "🤭", "🤫", "😶", "😐", "😴", "🤤", "😷", "🤒", "🥵", "🥶", "👍", "👎", "👏", "🙌", "🙏", "💪", "🤝", "✌️", "🤞", "👌", "👋", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "💔", "🔥", "✨", "🎉", "💯", "⭐", "🌹", "🍕", "🍔", "☕", "🎶", "⚽", "🚀"];
+const EMOS = ["😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣", "🥲", "😊", "😇", "🙂", "🙃", "😉", "😌", "😍", "🥰", "😘", "😗", "😙", "😚", "😋", "😛", "😜", "🤪", "😝", "🤑", "🤗", "🤭", "🤫", "🤔", "🤐", "🤨", "😐", "😑", "😶", "😏", "😒", "🙄", "😬", "😮‍💨", "🤥", "😔", "😪", "🤤", "😴", "😷", "🤒", "🤕", "🤢", "🤮", "🤧", "🥵", "🥶", "🥴", "😵", "🤯", "🤠", "🥳", "😎", "🤓", "🧐", "😕", "😟", "🙁", "☹️", "😮", "😯", "😲", "😳", "🥺", "😦", "😧", "😨", "😰", "😥", "😢", "😭", "😱", "😖", "😣", "😞", "😓", "😩", "😫", "🥱", "😤", "😡", "😠", "🤬", "😈", "👿", "💀", "💩", "🤡", "👻", "👽", "🤖", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "🤎", "💔", "❣️", "💕", "💞", "💓", "💗", "💖", "💘", "💝", "💯", "🔥", "✨", "⭐", "🌟", "💥", "💫", "🎉", "🎊", "🎁", "👍", "👎", "👌", "✌️", "🤞", "🤟", "🤘", "🤙", "👈", "👉", "👆", "👇", "☝️", "✋", "🤚", "👋", "🤝", "👏", "🙌", "🙏", "💪", "🫶", "🫡", "🙈", "🙉", "🙊", "🐶", "🐱", "🦁", "🐼", "🦄", "🌹", "🌸", "🌞", "🌙", "⚽", "🏀", "🎮", "🎶", "🎧", "🍕", "🍔", "🍟", "🌮", "🍩", "🍫", "☕", "🍻", "🍷", "🚗", "✈️", "🚀", "💰", "📱", "💻", "📸", "🎂"];
 let imgCtx = "", ciDraft = "", reply = null, nsel = new Set();
 function imgMenuSheet(src){
   imgCtx = src;
@@ -2084,7 +2138,7 @@ function menuSheet(){
     <button class="li" data-act="friends">${P('<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M17 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/>')}<span style="flex:1">Amigos</span><span style="color:var(--mut)">${friendsList().length}</span></button>
     <button class="li" data-act="creatorSheet">${P('<path d="m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/>')}<span>Creador de WarMess</span></button>
     <button class="li" data-act="menuLegal">${P('<path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/>')}<span>Normas y privacidad</span></button></div>
-    <div class="foot" style="margin-top:14px">WarMess · Beta</div>`;
+    <div class="foot" style="margin-top:14px">WarMess</div>`;
   openOv("ovInfo");
 }
 function friendsSheet(){
@@ -2329,7 +2383,7 @@ async function bfReply(raw){
   }
   if(cmd === "diagnostico"){
     const d = deviceInfo(), cn = navigator.connection || {};
-    return "*Diagnóstico*\nApp: WarMess " + APP_VER + " Beta\nConexión: " + (navigator.onLine ? "en línea" : "sin conexión") + (cn.effectiveType ? " (" + cn.effectiveType + ")" : "") + "\nNavegador: " + (d.navegador || "—") + " " + (d.versionNavegador || "") + "\nSistema: " + (d.so || "—") + "\nPantalla: " + screen.width + "×" + screen.height + "\nIdioma: " + navigator.language + "\nZona horaria: " + (Intl.DateTimeFormat().resolvedOptions().timeZone || "—") + "\nChats: " + chats.size + " · Cuentas en este dispositivo: " + getAccounts().length + "\nSonido: " + (sndOn() ? "activado" : "silencio");
+    return "*Diagnóstico*\nApp: WarMess " + APP_VER + "\nConexión: " + (navigator.onLine ? "en línea" : "sin conexión") + (cn.effectiveType ? " (" + cn.effectiveType + ")" : "") + "\nNavegador: " + (d.navegador || "—") + " " + (d.versionNavegador || "") + "\nSistema: " + (d.so || "—") + "\nPantalla: " + screen.width + "×" + screen.height + "\nIdioma: " + navigator.language + "\nZona horaria: " + (Intl.DateTimeFormat().resolvedOptions().timeZone || "—") + "\nChats: " + chats.size + " · Cuentas en este dispositivo: " + getAccounts().length + "\nSonido: " + (sndOn() ? "activado" : "silencio");
   }
   return "El comando */" + cmd + "* no existe. Escribe */menu* para ver la lista.";
 }
@@ -3148,7 +3202,7 @@ function peerHTML(uid){
   const row = (cls, ic, t, sub, href, act) => { const inner = `<span class="pi">${P(ic)}</span><span class="pt"><b>${t}</b>${sub ? `<small>${sub}</small>` : ""}</span>${href || act ? CHEV : ""}`; return href ? `<a class="pr c-${cls}" target="_blank" rel="noopener noreferrer" href="${esc(href)}">${inner}</a>` : act ? `<button class="pr c-${cls}" ${act}>${inner}</button>` : `<div class="pr c-${cls}">${inner}</div>`; };
   const showL = canSee(p, "enl"), wa = showL && /^\d{7,15}$/.test(p.wa || "") ? p.wa : "", ig = showL && /^[A-Za-z0-9._]{1,30}$/.test(p.ig || "") ? p.ig : "", lns = showL ? linksOf(p) : [];
   const bd = canSee(p, "bdv") && p.cumple ? fmtBD(p.cumple, p.cumpleY) : "";
-  const info = [bio ? row("blue", I5.info, esc(bio), "Info") : "", p.usuario ? row("purple", I5.at, "@" + esc(p.usuario), "Usuario") : "", row("indigo", I5.idc, esc(p.id || "—"), "ID · toca para copiar", "", 'data-act="peerCopy"'), paisEs(p) ? row("green", PIN, "Cuenta de " + esc(paisEs(p)), "País de registro") : "", bd ? row("pink", I5.star, esc(bd), "Cumpleaños") : ""].filter(Boolean).join("");
+  const info = [bio ? row("blue", I5.info, esc(bio), "Info") : "", p.usuario ? row("purple", I5.at, "@" + esc(p.usuario), "Usuario", "", 'data-act="peerCopyU"') : "", row("indigo", I5.idc, esc(p.id || "—"), "ID", "", 'data-act="peerCopy"'), paisEs(p) ? row("green", PIN, "Cuenta de " + esc(paisEs(p)), "País de registro") : "", bd ? row("pink", I5.star, esc(bd), "Cumpleaños") : ""].filter(Boolean).join("");
   const soc = [wa ? row("wa", I5.wa, "WhatsApp", "+" + wa, "https://wa.me/" + wa) : "", ig ? row("ig", I5.ig, "@" + esc(ig), "Instagram", "https://instagram.com/" + ig) : "", ...lns.map((l) => row("cyan", I5.link, esc(linkName(l)), esc(linkHost(l)), l.u))].filter(Boolean).join("");
   const SHI = '<circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.8l7.4-4.3M8.3 13.2l7.4 4.3"/>';
   const ab = (cls, ic, lb, act, extra) => `<button class="${cls}" ${act} ${extra || ""}><span>${ic}</span>${lb}</button>`;
@@ -3156,8 +3210,8 @@ function peerHTML(uid){
   const chatSec = inChat ? `<div class="pgt">Información del chat</div><div class="pgrp pcg">${row("orange", '<circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 3h6"/>', "Mensajes temporales", esc(TEMP_LBL[tempOf(cP)]), "", 'data-act="ppTemp"')}${row("purple", '<rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="M4 18l5-5 4 4 3-3 4 4"/>', "Multimedia y enlaces", "Fotos y enlaces de este chat", "", 'data-act="pgGo" data-p="cmedia"')}</div>
     <div class="pgt">Acciones</div><div class="pgrp pcg">${row("blue", '<path d="M3 7h18v4H3zM5 11v9h14v-9M10 15h4"/>', isArch(cP) ? "Desarchivar chat" : "Archivar chat", "", "", 'data-act="archive"')}${row("red", '<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>', "Eliminar chat", "Se quita de tu lista", "", 'data-act="delChat"')}</div>` : "";
   return `<div class="ppb"><button data-act="pgBack" aria-label="Atrás">${IC.back}</button>${inChat ? `<button data-act="peerMenu" aria-label="Más opciones"><svg viewBox="0 0 24 24" style="fill:currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></button>` : "<span></span>"}</div>
-  <div class="pgc pcs pp"><button class="ppav" data-act="peerPhoto" data-u="${esc(uid)}" aria-label="Ver foto">${av(p.nombre, foto, "xl")}${peerOnline(p) && !self ? '<i class="odot l"></i>' : ""}</button>
-    <h1>${esc(p.nombre || "Usuario")}${badge(p)}${self ? '<span class="you"> (Tú)</span>' : ""}</h1>${p.usuario ? `<div class="ppu">@${esc(p.usuario)}</div>` : ""}${rkTag(p)}
+  <div class="pgc pcs pp"><div class="ppcv"><div class="pcimg" ${photoOk(foto) ? `style="background-image:url('${esc(foto)}')"` : ""}></div><div class="pcfade"></div></div><button class="ppav" data-act="peerPhoto" data-u="${esc(uid)}" aria-label="Ver foto">${av(p.nombre, foto, "xl")}</button>
+    <h1>${esc(p.nombre || "Usuario")}${badge(p)}${self ? '<span class="you"> (Tú)</span>' : ""}</h1>${rkTag(p) || '<div class="ppu">Usuario</div>'}
     <div class="ppact">${acts}</div>
     <div class="pgt">Información</div><div class="pgrp pcg">${info}</div>${soc ? `<div class="pgt">Enlaces</div><div class="pgrp pcg">${soc}</div>` : ""}${chatSec}
     <div class="pfoot">Perfil en WarMess · ${esc(p.rango || "Usuario")}</div>${pend ? '<div style="height:96px"></div>' : ""}</div>
@@ -3183,7 +3237,7 @@ const PG = {
     <div class="pgrp">${pgRow(I5.key, "Cuenta", "pgGo", 'data-p="account"', "Contraseña, correo y cuentas")}${pgRow(I5.lock, "Privacidad", "pgGo", 'data-p="privacy"', "Última vez, foto, lectura, grupos")}${pgRow(I5.pal, "Apariencia", "pgGo", 'data-p="look"', "Temas, burbujas, texto y sonidos")}</div>
     <div class="pgrp">${pgRow(I5.plus, "Nuevo grupo", "newGroup", "", "Crea un grupo con @usuario")}${ginvs.length ? pgRow(I5.up, "Invitaciones a grupos", "pgGo", 'data-p="ginv"', ginvs.length + " pendiente(s)") : ""}${pgRow(I5.crown, "WarMess Premium", "pgGo", 'data-p="premium"', "Próximamente", "c-yellow")}</div>
     <div class="pgrp">${pgRow(I5.info, "Información", "pgGo", 'data-p="about"', "Comentarios, políticas, reportes y créditos")}${isAdm ? pgRow(I5.key, "Panel de administración", "admin", "", "Solo creador") : ""}</div>
-    <div class="pfoot">WarMess · Beta</div>` }),
+    <div class="pfoot">WarMess</div>` }),
   profile: () => { const f = (ic, l, v, k, ph) => pgRow(ic, l, "pfEdit", `data-k="${k}"`, v ? esc(v) : `<i>${ph}</i>`);
     return { t:"Perfil", h:`<div class="pavw"><button class="pav" data-act="pgPhoto" aria-label="Cambiar foto">${av(prof.nombre, prof.foto)}<span class="pcam"><svg class="i" viewBox="0 0 24 24">${I5.cam}</svg></span></button></div>
     <div class="pgrp">${f(I5.user, "Nombre", prof.nombre, "nombre", "Sin nombre")}${f(I5.info, "Info", prof.bio, "bio", "Añadir una descripción")}${f(I5.at, "Nombre de usuario", prof.usuario ? "@" + prof.usuario : "", "usuario", "Elegir")}${f(I5.wa, "WhatsApp", prof.wa ? "+" + prof.wa : "", "wa", "Añadir número")}${(() => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec((priv && priv.nacimiento) || ""); return pgRow(I5.star, "Fecha de nacimiento", "pfEdit", 'data-k="nac"', m ? esc(fmtBD(m[2] + "-" + m[3], m[1])) : "<i>Añadir fecha</i>"); })()}${paisEs(prof) ? `<div class="pr c-green" style="cursor:default"><span class="pi">${P(PIN)}</span><span class="pt"><b>Cuenta de ${esc(paisEs(prof))}</b><small>País de registro</small></span></div>` : ""}</div>
@@ -3476,13 +3530,14 @@ function renderFb(){
 const A = {
   retry: () => { scr("boot"); route(); }, amode: (t) => setAmode(t.dataset.m), forgot, vcheck: verCheck, vresend: verResend, logout,
   pickAv: (t) => { avTarget = t.dataset.t; $("avFile").click(); }, onbGo: createProfile, legal: () => openOv("ovLegal"),
+  lsX: () => { lsel = new Set(); lsSync(); }, lsArch: () => { closeOv("ovInfo"); lsArchive(); }, lsDel: () => { closeOv("ovInfo"); lsDelete(); }, lsBlk: () => { closeOv("ovInfo"); lsBlock(); }, lsMore,
   closeov: (t) => { t.closest(".ov").classList.remove("on"); if(sv) svResume(); }, profile: () => pgGo("profile"),
   copyId: () => { const id = prof && prof.id; if(!id) return; (navigator.clipboard ? navigator.clipboard.writeText(id) : Promise.reject()).then(() => toast("ID copiado"), () => { toast("Tu ID: " + id); }); },
   saveProf: saveProfile, ptab: (t) => setPtab(t.dataset.t), open: (t) => openChat(t.dataset.c),
   accept: (t) => answerReq(t.dataset.c, true), reject: (t) => answerReq(t.dataset.c, false),
   connect: (t) => connectSheet(t.dataset.u), sendReq: (t) => sendReq(t.dataset.u),
   back: () => { if(history.state && history.state.wm){ history.back(); } else closeChatUI(); },
-  info: () => (isG(chats.get(cur)) ? groupInfo() : pgGo("peer", peerOf())), peerCopy: () => { const u = pgStack.length ? pgStack[pgStack.length - 1].arg : null, p = peers.get(u) || {}; try{ navigator.clipboard.writeText(String(p.id || "")); }catch(e){} toast("ID copiado"); }, peerShare: () => peerShare(pgStack[pgStack.length - 1].arg), saveAp: saveApodo, block: () => setBlock(true), unblock: () => setBlock(false), repForm: reportForm, repSend: sendReport,
+  info: () => (isG(chats.get(cur)) ? groupInfo() : pgGo("peer", peerOf())), peerCopyU: () => { const u = pgStack.length ? pgStack[pgStack.length - 1].arg : null, p = peers.get(u) || {}; try{ navigator.clipboard.writeText("@" + String(p.usuario || "")); }catch(e){} toast("Usuario copiado"); }, peerCopy: () => { const u = pgStack.length ? pgStack[pgStack.length - 1].arg : null, p = peers.get(u) || {}; try{ navigator.clipboard.writeText(String(p.id || "")); }catch(e){} toast("ID copiado"); }, peerShare: () => peerShare(pgStack[pgStack.length - 1].arg), saveAp: saveApodo, block: () => setBlock(true), unblock: () => setBlock(false), repForm: reportForm, repSend: sendReport,
   older: () => { msgLimit += 40; olderFlag = true; subMsgs(); },
   admin: () => { if(typeof pgStack !== "undefined" && pgStack.length) pgClear(); openAdmin(); }, admClose, admPin: admPinGo, atab: (t) => setATab(t.dataset.t), auser: (t) => userSheet(t.dataset.u),
   aset: (t) => setEstado(t.dataset.u, t.dataset.s), adel: (t) => delUser(t.dataset.u), repDone: (t) => repSet(t.dataset.r, true), repDel: (t) => repSet(t.dataset.r, false),
@@ -3515,7 +3570,7 @@ const A = {
   cMic: () => toast("Las notas de voz llegarán pronto."),
   cEmoji: () => { const e = $("emoP"); if(!e) return; if(!e.innerHTML) e.innerHTML = EMOS.map((x) => `<button type="button" data-act="emoPick" data-e="${x}">${x}</button>`).join(""); e.hidden = !e.hidden; },
   emoPick: (t) => { const ta = $("cTxt"); if(!ta) return; const s = ta.selectionStart || ta.value.length, e = ta.selectionEnd || s; ta.value = ta.value.slice(0, s) + t.dataset.e + ta.value.slice(e); ta.selectionStart = ta.selectionEnd = s + t.dataset.e.length; ta.dispatchEvent(new Event("input")); },
-  peerPhoto: (t) => { const p = peers.get(t.dataset.u) || {}, f = fotoOf(p); $("qv").innerHTML = `<div class="pvbg" ${photoOk(f) ? `style="background-image:url('${esc(f)}')"` : `style="background:#111"`}></div><div class="pvc">${photoOk(f) ? `<img class="pvimg" src="${esc(f)}" alt="">` : `<div class="pvimg dfl">${av(p.nombre, "", "xl")}</div>`}<div class="pvn">${esc(p.nombre || "")}</div></div>`; $("qv").hidden = false; },
+  peerPhoto: (t) => { const p = peers.get(t.dataset.u) || {}, f = fotoOf(p); $("qv").innerHTML = `<div class="pvbg" ${photoOk(f) ? `style="background-image:url('${esc(f)}')"` : `style="background:#111"`}></div><div class="pvc">${photoOk(f) ? `<img class="pvimg" src="${esc(f)}" alt="">` : `<div class="pvimg dfl">${av(p.nombre, "", "xl")}</div>`}</div>`; $("qv").hidden = false; },
   ppApodo: apodoSheet, ppTemp: tempSheet, peerMenu: peerMore, ctPick: (t) => { if(!cur) return; store.set("wm_ct_" + cur, t.dataset.v || ""); $("main").dataset.ct = chatTheme(cur); pgRefresh(); toast(t.dataset.v ? "Tema del chat aplicado" : "Usando el tema general"); },
   chatImg: () => { if(!$("cForm")) return; imgTarget = "chat"; $("imgFile").removeAttribute("capture"); $("imgFile").click(); }, chatCam: () => { if($("cForm")) camOpen(); }, toBot: () => { const e = $("msgs"); if(e) e.scrollTo({ top: e.scrollHeight, behavior:"smooth" }); }, ciSend, lbImg: (t) => openLb(t.getAttribute("src")), lbSave: () => saveImg($("lb").dataset.src),
   imgMenu: (t) => { const m = msgsData.find((x) => x.id === t.dataset.m); if(m && photoOk(m.img)) imgMenuSheet(m.img); }, noteImgMenu: (t) => { const n = notesData.find((x) => x.id === t.dataset.n); if(n && photoOk(n.img)) imgMenuSheet(n.img); },
@@ -3560,11 +3615,18 @@ document.addEventListener("input", (e) => { if(e.target.id === "aq") renderUsers
 $("aForm").addEventListener("submit", emailSubmit);
 $("avFile").addEventListener("change", onAvatarFile);
 $("q").addEventListener("input", onSearch);
+{ const L = $("list"), cancel = () => { clearTimeout(lsTm); lsTm = 0; }, rowOf = (t) => { const r = t.closest && t.closest(".row[data-c]"); return r && chats.has(r.dataset.c) && r.dataset.act === "open" ? r : null; }; let px = 0, py = 0;
+  L.addEventListener("pointerdown", (e) => { const r = rowOf(e.target); if(!r || srch) return; px = e.clientX; py = e.clientY; cancel(); lsTm = setTimeout(() => { lsTm = 0; lsSwallow = true; try{ navigator.vibrate && navigator.vibrate(15); }catch(_){} lsToggle(r.dataset.c); }, 480); });
+  L.addEventListener("pointermove", (e) => { if(lsTm && (Math.abs(e.clientX - px) > 10 || Math.abs(e.clientY - py) > 10)) cancel(); });
+  ["pointerup", "pointercancel", "pointerleave", "scroll"].forEach((n) => L.addEventListener(n, cancel, true));
+  L.addEventListener("contextmenu", (e) => { if(rowOf(e.target)) e.preventDefault(); });
+  L.addEventListener("click", (e) => { const r = rowOf(e.target); if(lsSwallow){ lsSwallow = false; e.stopPropagation(); e.preventDefault(); return; } if(r && lsel.size){ e.stopPropagation(); e.preventDefault(); lsToggle(r.dataset.c); } }, true); }
 $("q").addEventListener("focus", srchOn);
 $("onbNm").addEventListener("input", () => { if(!photo.onb) paintOnbAv(); });
 watchUname($("onbUs"), $("onbUst"), "");
 watchUname($("usIn"), $("usSt"), "");
-window.addEventListener("popstate", () => { if(srch){ srchOff(); return; } if(pgStack.length){ pgPop(); return; } if(cur || notesOn || botOn) closeChatUI(); });
+document.addEventListener("click", (e) => { const p = $("emoP"); if(p && !p.hidden && !e.target.closest("#emoP") && !e.target.closest("[data-act=cEmoji]")) p.hidden = true; }, true);
+window.addEventListener("popstate", () => { const ovs = [...document.querySelectorAll(".ov.on")]; if(ovs.length || ($("qv") && !$("qv").hidden) || document.querySelector(".camov,.edov")){ const q = $("qv"); if(document.querySelector(".edov")) document.querySelector(".edov").remove(); else if(document.querySelector(".camov")) document.querySelector(".camov").querySelector("[data-c=x]").click(); else if(q && !q.hidden) q.hidden = true; else ovs[ovs.length - 1].classList.remove("on"); try{ history.pushState({ wm:1 }, ""); }catch(_){} return; } if(lsel.size){ lsel = new Set(); lsSync(); return; } if(srch){ srchOff(); return; } if(pgStack.length){ pgPop(true); return; } if(cur || notesOn || botOn) closeChatUI(); });
 if(window.visualViewport){
   const f = () => { document.documentElement.style.setProperty("--vh", window.visualViewport.height + "px"); if(window.scrollY) window.scrollTo(0, 0); };
   window.visualViewport.addEventListener("resize", f); window.visualViewport.addEventListener("scroll", f); f();
