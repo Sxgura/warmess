@@ -791,6 +791,62 @@ html,body,.main,.side,.msgs,.comp,.main .mh,.mwrap{background:#000}
 .mav.sp{margin-bottom:0;height:1px}
 .mrow{gap:8px}
 
+/* ===== v32 ===== */
+.odot{width:10px;height:10px;box-shadow:0 0 0 2px #000}.odot.s{width:8px;height:8px;box-shadow:0 0 0 1.5px #000}.odot.l{width:22px;height:22px;right:12px;bottom:12px;box-shadow:0 0 0 4px #000}
+.comp{gap:4px;padding:8px 8px max(10px,env(safe-area-inset-bottom))}
+.comp .cb{width:36px;height:40px}.comp .cb .fi{width:28px;height:28px}
+.cpill{flex:1;min-width:0;display:flex;align-items:center;background:#2b2b2e;border-radius:24px;padding-right:6px;--pillbg:#2b2b2e}
+.cpill textarea{flex:1;min-width:0;background:none!important;border-radius:0;padding:11px 6px 11px 16px;min-height:44px}
+.cpill .cem{width:34px;height:36px;flex:none}.cpill .cem .fi{width:26px;height:26px}
+.comp .send{width:44px;height:44px;flex:none}.comp .send .sq .fi{width:34px;height:34px}
+.likei{display:block}.likei svg{width:58px;height:58px;fill:var(--ta);color:var(--ta)}
+.b.big .likei svg{filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
+.emop{display:grid;grid-template-columns:repeat(8,1fr);gap:2px;padding:8px 8px 4px;background:#0c0c0e;max-height:216px;overflow-y:auto;border-top:1px solid #1d1d21}
+.emop[hidden]{display:none}.emop button{font-size:26px;line-height:1;padding:6px 0;border-radius:10px}.emop button:active{background:rgba(255,255,255,.1)}
+.lic{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;color:#fff;background:linear-gradient(145deg,var(--c1,#3fa4ff),var(--c2,#1a73e8));flex:none;margin-right:2px}.lic svg{width:20px;height:20px;fill:#fff;stroke:#fff}.lic svg[class=i]{fill:none}
+/* panel del perfil */
+.ppb{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top,0px) + 8px) 10px 6px;background:#000}
+.ppb button{width:44px;height:44px;display:grid;place-items:center;color:#fff;border-radius:50%}.ppb button:active{background:rgba(255,255,255,.1)}.ppb svg{width:24px;height:24px}.ppb button:first-child svg{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.pcs.pp{background:#000;padding:calc(env(safe-area-inset-top,0px) + 62px) 0 40px!important}
+.ppav{position:relative;display:block;margin:8px auto 0;width:172px;height:172px;border-radius:50%;padding:0;box-shadow:0 0 0 3px #000,0 0 0 4.5px rgba(255,255,255,.12),0 16px 40px rgba(0,0,0,.6)}
+.ppav .av{width:100%;height:100%;font-size:62px}.ppav:active{transform:scale(.97)}
+.pp h1{margin:18px 0 2px;font-size:26px;font-weight:800;letter-spacing:-.3px;display:flex;justify-content:center;align-items:center;gap:3px;flex-wrap:wrap;padding:0 16px}.pp h1 .vb{width:23px;height:23px}.pp h1 .you{font-weight:500;color:var(--mut);font-size:21px}
+.ppu{text-align:center;color:var(--mut);font-size:15px}
+.ppact{display:flex;justify-content:center;gap:16px;margin:22px 12px 6px;flex-wrap:wrap}
+.ppact button{display:flex;flex-direction:column;align-items:center;gap:8px;color:#fff;font-size:13px;font-weight:600;min-width:78px}
+.ppact button span{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,var(--c1),var(--c2));box-shadow:0 8px 20px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.28);transition:transform .15s}
+.ppact button:active span{transform:scale(.9)}.ppact svg{width:26px;height:26px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.ppact .aa{font-size:20px;font-weight:800;letter-spacing:-.5px}
+.a-blue{--c1:#3fb4ff;--c2:#0a63ff}.a-green{--c1:#4be37a;--c2:#10a840}.a-orange{--c1:#ffb23a;--c2:#ff6a00}.a-purple{--c1:#c07bff;--c2:#7a3cff}
+.pp .pgt{margin:22px 16px 6px}.pp .pgrp{background:#0b0b0d}
+.pvbg{position:absolute;inset:-40px;background:center/cover no-repeat;filter:blur(28px) brightness(.5) saturate(1.3)}
+.pvc{position:relative;display:flex;flex-direction:column;align-items:center;gap:16px;animation:vfade .2s both}
+.pvimg{width:min(86vw,440px);aspect-ratio:1;border-radius:50%;object-fit:cover;box-shadow:0 20px 60px rgba(0,0,0,.6)}.pvimg.dfl{display:grid;place-items:center}.pvimg.dfl .av{width:100%;height:100%;font-size:110px}.pvn{font-size:22px;font-weight:800}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin:0 3px}.mgrid img{width:100%;aspect-ratio:1;object-fit:cover;cursor:pointer;border-radius:4px}
+/* camara y editor */
+.camov,.edov{position:fixed;inset:0;z-index:400;background:#000;display:flex;flex-direction:column}
+.camv{flex:1;min-height:0;width:100%;object-fit:cover;background:#000}
+.camt{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;padding:calc(env(safe-area-inset-top,0px) + 12px) 14px}
+.edb{width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;display:grid;place-items:center}.edb svg{width:24px;height:24px}
+.camb{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:center;padding:20px 0 calc(env(safe-area-inset-bottom,0px) + 28px)}
+.shut{width:78px;height:78px;border-radius:50%;border:4px solid #fff;display:grid;place-items:center}.shut i{width:60px;height:60px;border-radius:50%;background:#fff;transition:transform .12s}.shut:active i{transform:scale(.85)}
+.edtop{display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top,0px) + 10px) 12px 8px;font-weight:700}
+.edst{position:relative;flex:1;min-height:0;touch-action:none;margin:0 10px}
+.edcv{position:absolute;border-radius:2px}
+.edcr{position:absolute;border:2px solid #fff;box-shadow:0 0 0 9999px rgba(0,0,0,.62);touch-action:none;cursor:move}
+.edcr i{position:absolute;width:26px;height:26px;background:none}.edcr i::after{content:"";position:absolute;width:20px;height:20px;border:4px solid #fff}
+.edcr i[data-h=nw]{left:-8px;top:-8px}.edcr i[data-h=nw]::after{left:0;top:0;border-right:0;border-bottom:0}
+.edcr i[data-h=ne]{right:-8px;top:-8px}.edcr i[data-h=ne]::after{right:0;top:0;border-left:0;border-bottom:0}
+.edcr i[data-h=sw]{left:-8px;bottom:-8px}.edcr i[data-h=sw]::after{left:0;bottom:0;border-right:0;border-top:0}
+.edcr i[data-h=se]{right:-8px;bottom:-8px}.edcr i[data-h=se]::after{right:0;bottom:0;border-left:0;border-top:0}
+.edbar{padding:10px 12px calc(env(safe-area-inset-bottom,0px) + 14px)}
+.edch{display:flex;gap:8px;overflow-x:auto;justify-content:center;margin-bottom:12px}.edch button{flex:none;padding:7px 14px;border-radius:999px;background:#242427;color:#fff;font-size:13.5px;font-weight:600}.edch button.on{background:var(--ta,#0a84ff)}
+.edact{display:flex;gap:10px}.edact .btn{flex:1;margin:0}.edact .btn.ghost{background:#2b2b2e;color:#fff}
+/* iconos mas vivos */
+.pr.c-blue{--c1:#3fb4ff;--c2:#0a63ff}.pr.c-green{--c1:#4be37a;--c2:#10a840}.pr.c-purple{--c1:#c07bff;--c2:#7a3cff}.pr.c-orange{--c1:#ffb23a;--c2:#ff6a00}.pr.c-red{--c1:#ff7a6e;--c2:#ff2d3a}.pr.c-teal{--c1:#33e0d0;--c2:#0aa0b8}.pr.c-pink{--c1:#ff6fb3;--c2:#ff2d7a}.pr.c-indigo{--c1:#8d96ff;--c2:#4a3cf0}.pr.c-yellow{--c1:#ffe04a;--c2:#ffa800}.pr.c-cyan{--c1:#4fe0ff;--c2:#0a9bd8}
+.pr .pi{box-shadow:0 4px 12px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.35)}
+.pr.red .pi,.pr.c-red .pi{color:#fff}
+.grp .li svg{color:#4da3ff}.grp .li:nth-child(3n+2) svg{color:#ffb23a}.grp .li:nth-child(3n+3) svg{color:#4be37a}.grp .li.red svg{color:#ff5a4d}.grp .li .lic svg{color:#fff}
+
 </style>
 </head>
 <body>
@@ -1012,6 +1068,7 @@ const IC = {
   check: P('<path d="M5 12.5l4.5 4.5L19 7.5"/>'), checks: P('<path d="M1.5 12.5l4.5 4.5L15 7.5M9.5 15.5l1.5 1.5L21 7.5"/>'), clock: P('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'),
   copy: P('<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>')
 };
+const PLUSI = '<svg viewBox="0 0 24 24" class="fi"><circle cx="12" cy="12" r="10"/><path d="M12 7v10M7 12h10" stroke="var(--cmpbg,#000)" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>', MICI = '<svg viewBox="0 0 24 24" class="fi"><rect x="8.5" y="2.5" width="7" height="12" rx="3.5"/><path d="M5 11.5a7 7 0 0 0 14 0M12 18.5V22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>', SMII = '<svg viewBox="0 0 24 24" class="fi"><circle cx="12" cy="12" r="10"/><circle cx="8.8" cy="10" r="1.4" fill="var(--pillbg,#2b2b2e)"/><circle cx="15.2" cy="10" r="1.4" fill="var(--pillbg,#2b2b2e)"/><path d="M7.6 14c1 2.2 2.6 3.2 4.4 3.2s3.4-1 4.4-3.2" fill="none" stroke="var(--pillbg,#2b2b2e)" stroke-width="1.9" stroke-linecap="round"/></svg>';
 const CAMI = '<svg viewBox="0 0 24 24" class="fi"><path d="M9 3.8 7.6 6H5.2A2.7 2.7 0 0 0 2.5 8.7v8.6A2.7 2.7 0 0 0 5.2 20h13.6a2.7 2.7 0 0 0 2.7-2.7V8.7A2.7 2.7 0 0 0 18.8 6h-2.4L15 3.8z"/><circle cx="12" cy="12.8" r="3.7" fill="var(--cmpbg,#000)"/></svg>', GALI = '<svg viewBox="0 0 24 24" class="fi"><rect x="2.5" y="3.5" width="19" height="17" rx="3.6"/><circle cx="8.6" cy="9" r="2.1" fill="var(--cmpbg,#000)"/><path d="M3.5 18.4l5.3-5 4 3.6 3.1-2.9 4.6 4.3" fill="none" stroke="var(--cmpbg,#000)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>', THUMB = '<svg viewBox="0 0 24 24" class="fi"><path d="M2.5 10.2h4V21h-4zM8.2 10.4l3.6-7c1.7 0 2.9 1.5 2.5 3.1l-.8 3.2h5.6c1.8 0 3 1.7 2.5 3.4l-1.7 6.1c-.4 1.3-1.5 2.2-2.9 2.2H8.2z"/></svg>', INFOI = '<svg viewBox="0 0 24 24" class="fi"><circle cx="12" cy="12" r="10"/><path d="M12 11v5.2M12 7.4v.2" stroke="var(--hbg,#0e0e13)" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg>', DOWNI = P('<path d="M12 5v14M6 13l6 6 6-6"/>');
 const IMGI = P('<rect x="3.5" y="4.5" width="17" height="15" rx="3.5"/><circle cx="9" cy="10" r="1.8"/><path d="m4 17 4.6-4.4 3.4 3.3 2.4-2.3L20 17.5"/>');
 const DLI = P('<path d="M12 4v11M7.5 10.8 12 15.3l4.5-4.5M5 19.5h14"/>');
@@ -1523,7 +1580,7 @@ function avQuick(cid){
 function chatRow(c){
   const g = isG(c), p = g ? null : peers.get(otherOf(c)), nm = nameOf(c), un = unreadOf(c);
   const cleared = ms(c.ultimoMsgAt) <= myClear(c);
-  let sub = c.estado === "pendiente" ? "Solicitud enviada · esperando respuesta" : cleared ? "" : (c.ultimoMsg ? (c.ultimoDe === me() ? "Tú: " : (g && c.ultimoDe ? ((peers.get(c.ultimoDe) || {}).nombre || "").split(" ")[0] + ": " : "")) + c.ultimoMsg : (!c.ultimoDe ? (g ? "Grupo nuevo" : "Conectados · escribe el primer mensaje") : ""));
+  let sub = c.estado === "pendiente" ? "Solicitud enviada · esperando respuesta" : cleared ? "" : (c.ultimoMsg ? (c.ultimoDe === me() ? "Tú: " : (g && c.ultimoDe ? ((peers.get(c.ultimoDe) || {}).nombre || "").split(" ")[0] + ": " : "")) + (c.ultimoMsg === "👍" ? "Me gusta" : c.ultimoMsg) : (!c.ultimoDe ? (g ? "Grupo nuevo" : "Conectados · escribe el primer mensaje") : ""));
   return `<button class="row ${c.id === cur ? "sel" : ""}" data-act="open" data-c="${esc(c.id)}"><span class="avt" data-act="avQuick" data-c="${esc(c.id)}" role="button" aria-label="Ver foto e información">${g ? avG(nm, c.foto) : av(nm, fotoOf(p))}${!g && c.estado === "activo" && peerOnline(p) ? '<i class="odot"></i>' : ""}</span><div class="mid"><div class="nm">${g ? "" : ""}${esc(nm)}${badge(p)}</div><div class="sub ${un ? "un" : ""}">${esc(sub)}</div></div><div class="meta"><span>${esc(fmtList(ms(c.ultimoMsgAt)))}</span>${un ? `<span class="unr n">${uncOf(c)}</span>` : ""}</div></button>`;
 }
 const qMode = () => { const q = qtxt.trim(), raw = q.replace(/^@/, ""); if(/^\d+$/.test(raw)) return "id"; if(raw && (q.startsWith("@") || raw.length >= 3)) return "u"; return ""; };
@@ -1715,7 +1772,7 @@ function renderComp(){
   if(sig === compSig) return; compSig = sig;
   if(c.estado === "activo" && !c.bloqueadoPor){
     const draft = ($("cTxt") || {}).value || "";
-    w.innerHTML = `<div id="rplWrap"></div><form class="comp" id="cForm" autocomplete="off"><button class="cb" type="button" data-act="chatCam" aria-label="Cámara">${CAMI}</button><button class="cb" type="button" data-act="chatImg" aria-label="Galería">${GALI}</button><textarea id="cTxt" rows="1" maxlength="1000" placeholder="${tempOf(c) !== "off" ? "Mensaje temporal" : "Mensaje"}" enterkeyhint="send"></textarea><button class="send" type="submit" aria-label="Enviar"><span class="sq">${THUMB}</span><span class="ss">${IC.send}</span></button></form>`;
+    w.innerHTML = `<div id="rplWrap"></div><div class="emop" id="emoP" hidden></div><form class="comp" id="cForm" autocomplete="off"><button class="cb" type="button" data-act="cPlus" aria-label="Más">${PLUSI}</button><button class="cb" type="button" data-act="chatCam" aria-label="Cámara">${CAMI}</button><button class="cb" type="button" data-act="chatImg" aria-label="Galería">${GALI}</button><button class="cb cmic" type="button" data-act="cMic" aria-label="Nota de voz">${MICI}</button><div class="cpill"><textarea id="cTxt" rows="1" maxlength="1000" placeholder="${tempOf(c) !== "off" ? "Mensaje temporal" : "Mensaje"}" enterkeyhint="send"></textarea><button class="cb cem" type="button" data-act="cEmoji" aria-label="Emojis">${SMII}</button></div><button class="send" type="submit" aria-label="Enviar"><span class="sq">${THUMB}</span><span class="ss">${IC.send}</span></button></form>`;
     const ta = $("cTxt"); ta.value = draft; paintReply();
     const fit = () => { ta.style.height = "auto"; ta.style.height = Math.min(ta.scrollHeight, 130) + "px"; };
     const hasT = () => $("cForm") && $("cForm").classList.toggle("has", !!ta.value.trim()); ta.addEventListener("input", () => { fit(); hasT(); }); hasT();
@@ -1773,7 +1830,7 @@ function renderMsgs(){
     const head = g && !mine && first ? `<div class="gh"><span class="sn" style="color:hsl(${hue(m.de)} 70% 68%)">${esc(p.nombre || "…")}${badge(p)}</span>${roleTag(c, m.de)}</div>` : "";
     const media = img ? `<div class="mimg"><img data-act="lbImg" src="${esc(img)}" alt="Imagen" loading="lazy"><button class="mdots" data-act="imgMenu" data-m="${esc(m.id)}" aria-label="Más opciones">${DOTS}</button></div>` : "";
     const big = m.texto === "👍" && !img && !m.resp;
-    const bub = `<div class="b ${mine ? "me" : "him"} ${img ? "img" : ""} ${img && !m.texto ? "oi" : ""} ${big ? "big" : ""} ${first ? "fst" : ""} ${sel.has(m.id) ? "sel" : ""}" data-m="${esc(m.id)}">${head}${media}${m.texto ? `<span class="mt">${esc(m.texto)}</span>` : ""}</div>`;
+    const bub = `<div class="b ${mine ? "me" : "him"} ${img ? "img" : ""} ${img && !m.texto ? "oi" : ""} ${big ? "big" : ""} ${first ? "fst" : ""} ${sel.has(m.id) ? "sel" : ""}" data-m="${esc(m.id)}">${head}${media}${big ? `<span class="likei" aria-label="Me gusta">${THUMB}</span>` : m.texto ? `<span class="mt">${esc(m.texto)}</span>` : ""}</div>`;
     const tmx = last ? `<div class="tmx ${mine && seen && !g ? "rd" : ""}">${(m.expira || m.ins) ? `<span class="tmc">${IC.clock}</span>` : ""}${fmtT(t)}${st}</div>` : "";
     const w = `<div class="mw ${mine ? "me" : "him"} ${first ? "fst" : ""}">${m.resp ? quoteNew(m, c, mine) : ""}${bub}${tmx}</div>`;
     h += mine ? w : `<div class="mrow ${first ? "fst" : ""}">${last ? `<button class="mav" data-act="gProf" data-u="${esc(m.de)}" aria-label="Ver perfil de ${esc(p.nombre || "")}">${av(p.nombre || "?", fotoOf(p), "xs")}${peerOnline(p) ? '<i class="odot s"></i>' : ""}</button>` : '<span class="mav sp"></span>'}${w}</div>`;
@@ -1948,10 +2005,53 @@ async function fileToImg(file, maxSide, maxLen){
     throw new Error("big");
   }finally{ URL.revokeObjectURL(url); }
 }
+const CHK_ = '<svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+const ROTI = P('<path d="M20 12a8 8 0 1 1-2.6-5.9M20 4v5h-5"/>');
+function camFallback(){ imgTarget = "chat"; const f = $("imgFile"); f.setAttribute("capture", "environment"); f.click(); setTimeout(() => f.removeAttribute("capture"), 1500); }
+async function camOpen(){
+  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) return camFallback();
+  const o = document.createElement("div"); o.className = "camov"; o.innerHTML = `<video class="camv" autoplay playsinline muted></video><div class="camt"><button class="edb" data-c="x" aria-label="Cerrar">${IC.x}</button><button class="edb" data-c="flip" aria-label="Girar cámara">${ROTI}</button></div><div class="camb"><button class="shut" data-c="shot" aria-label="Tomar foto"><i></i></button></div>`;
+  document.body.appendChild(o); const v = o.querySelector("video"); let face = "environment", S = null;
+  const stop = () => { try{ S && S.getTracks().forEach((t) => t.stop()); }catch(e){} S = null; };
+  const close = () => { stop(); o.remove(); };
+  const start = async () => { stop(); try{ S = await navigator.mediaDevices.getUserMedia({ video:{ facingMode:{ ideal:face }, width:{ ideal:1920 }, height:{ ideal:1080 } }, audio:false }); v.srcObject = S; v.style.transform = face === "user" ? "scaleX(-1)" : ""; }catch(e){ console.log(e); close(); toast("No se pudo abrir la cámara. Permite el acceso a la cámara en tu navegador."); } };
+  o.addEventListener("click", (e) => { const b = e.target.closest("[data-c]"); if(!b) return; const k = b.dataset.c;
+    if(k === "x") close(); else if(k === "flip"){ face = face === "user" ? "environment" : "user"; start(); }
+    else if(k === "shot"){ if(!v.videoWidth) return; const cv = document.createElement("canvas"); cv.width = v.videoWidth; cv.height = v.videoHeight; cv.getContext("2d").drawImage(v, 0, 0); const src = cv.toDataURL("image/jpeg", .92); close(); imgTarget = "chat"; editOpen(src, (d) => chatImgPreview(d), () => camOpen()); } });
+  start();
+}
+function editOpen(src, done, retake){
+  const o = document.createElement("div"); o.className = "edov";
+  o.innerHTML = `<div class="edtop"><button class="edb" data-e="x" aria-label="Cerrar">${IC.x}</button><span>Editar foto</span><button class="edb" data-e="rot" aria-label="Girar">${ROTI}</button></div><div class="edst"><canvas class="edcv"></canvas><div class="edcr"><i data-h="nw"></i><i data-h="ne"></i><i data-h="sw"></i><i data-h="se"></i></div></div><div class="edbar"><div class="edch"><button data-r="0" class="on">Libre</button><button data-r="1">1:1</button><button data-r="0.8">4:5</button><button data-r="1.3333">4:3</button><button data-r="1.7778">16:9</button></div><div class="edact"><button class="btn ghost" data-e="can">${retake ? "Repetir" : "Cancelar"}</button><button class="btn" data-e="ok">Listo</button></div></div>`;
+  document.body.appendChild(o);
+  const st = o.querySelector(".edst"), cv = o.querySelector(".edcv"), cr = o.querySelector(".edcr"); let wc = document.createElement("canvas"), s = 1, dw = 0, dh = 0, ar = 0, K = { x:0, y:0, w:0, h:0 };
+  const place = () => { cr.style.left = cv.offsetLeft + K.x + "px"; cr.style.top = cv.offsetTop + K.y + "px"; cr.style.width = K.w + "px"; cr.style.height = K.h + "px"; };
+  const lay = () => { const W = st.clientWidth, H = st.clientHeight; s = Math.min(W / wc.width, H / wc.height); dw = Math.round(wc.width * s); dh = Math.round(wc.height * s); cv.width = dw; cv.height = dh; cv.style.left = Math.round((W - dw) / 2) + "px"; cv.style.top = Math.round((H - dh) / 2) + "px"; cv.getContext("2d").drawImage(wc, 0, 0, dw, dh); fit(); };
+  const fit = () => { if(ar){ let w = dw, h = w / ar; if(h > dh){ h = dh; w = h * ar; } K = { x:(dw - w) / 2, y:(dh - h) / 2, w, h }; } else K = { x:0, y:0, w:dw, h:dh }; place(); };
+  const im = new Image(); im.onload = () => { const k = Math.min(1, 2200 / Math.max(im.naturalWidth, im.naturalHeight)); wc.width = Math.round(im.naturalWidth * k); wc.height = Math.round(im.naturalHeight * k); wc.getContext("2d").drawImage(im, 0, 0, wc.width, wc.height); lay(); }; im.onerror = () => { o.remove(); toast("No pude abrir esa imagen."); }; im.src = src;
+  const rot = () => { const n = document.createElement("canvas"); n.width = wc.height; n.height = wc.width; const x = n.getContext("2d"); x.translate(n.width, 0); x.rotate(Math.PI / 2); x.drawImage(wc, 0, 0); wc = n; lay(); };
+  let drag = null;
+  cr.addEventListener("pointerdown", (e) => { const h = e.target.dataset && e.target.dataset.h; drag = { h: h || "move", x0: e.clientX, y0: e.clientY, K: { ...K } }; try{ cr.setPointerCapture(e.pointerId); }catch(_){} e.preventDefault(); });
+  cr.addEventListener("pointermove", (e) => { if(!drag) return; const dx = e.clientX - drag.x0, dy = e.clientY - drag.y0, B = drag.K, MIN = 50;
+    if(drag.h === "move"){ K = { ...B, x: Math.max(0, Math.min(dw - B.w, B.x + dx)), y: Math.max(0, Math.min(dh - B.h, B.y + dy)) }; }
+    else{ const fx = drag.h.includes("w") ? B.x + B.w : B.x, fy = drag.h.includes("n") ? B.y + B.h : B.y, mx = Math.max(0, Math.min(dw, (drag.h.includes("w") ? B.x : B.x + B.w) + dx)), my = Math.max(0, Math.min(dh, (drag.h.includes("n") ? B.y : B.y + B.h) + dy));
+      let w = Math.max(MIN, Math.abs(mx - fx)), h = Math.max(MIN, Math.abs(my - fy)); const sx = mx < fx ? -1 : 1, sy = my < fy ? -1 : 1;
+      if(ar){ const mw = sx > 0 ? dw - fx : fx, mh = sy > 0 ? dh - fy : fy; w = Math.min(w, mw, mh * ar); h = w / ar; }
+      K = { x: sx > 0 ? fx : fx - w, y: sy > 0 ? fy : fy - h, w, h }; }
+    place(); });
+  const up = () => { drag = null; }; cr.addEventListener("pointerup", up); cr.addEventListener("pointercancel", up);
+  const enc = () => { const cw = K.w / s, ch = K.h / s, k = Math.min(1, 1280 / Math.max(cw, ch)); let w = Math.max(1, Math.round(cw * k)), h = Math.max(1, Math.round(ch * k));
+    for(let t = 0; t < 6; t++){ const c2 = document.createElement("canvas"); c2.width = w; c2.height = h; const x = c2.getContext("2d"); x.fillStyle = "#000"; x.fillRect(0, 0, w, h); x.drawImage(wc, K.x / s, K.y / s, cw, ch, 0, 0, w, h);
+      for(let q = .86; q >= .45; q -= .1){ const d = c2.toDataURL("image/jpeg", q); if(d.length <= 250000) return d; } w = Math.round(w * .8); h = Math.round(h * .8); } return null; };
+  o.addEventListener("click", (e) => { const b = e.target.closest("button"); if(!b) return;
+    if(b.dataset.r !== undefined){ ar = Number(b.dataset.r); o.querySelectorAll(".edch button").forEach((x) => x.classList.toggle("on", x === b)); fit(); return; }
+    const k = b.dataset.e; if(k === "rot") rot(); else if(k === "x") o.remove(); else if(k === "can"){ o.remove(); if(retake) retake(); } else if(k === "ok"){ const d = enc(); if(!d) return toast("La imagen es muy grande."); o.remove(); done(d); } });
+  window.addEventListener("resize", () => { if(o.isConnected && wc.width) lay(); });
+}
 async function onImgFile(){
   const f = $("imgFile").files[0]; $("imgFile").value = ""; if(!f) return;
   if(!/^image\//.test(f.type)) return toast("Elige una imagen.");
-  try{ if(imgTarget === "chat"){ chatImgPreview(await fileToImg(f, 1280, 250000)); return; } const d = await fileToImg(f, 1080, 330000); if(imgTarget === "story") storyPreview(d); else if(imgTarget === "note") sendNote("", d); }
+  try{ if(imgTarget === "chat"){ const u = URL.createObjectURL(f); editOpen(u, (d) => { chatImgPreview(d); }, null); setTimeout(() => URL.revokeObjectURL(u), 60000); return; } const d = await fileToImg(f, 1080, 330000); if(imgTarget === "story") storyPreview(d); else if(imgTarget === "note") sendNote("", d); }
   catch(e){ console.log(e); toast("No pude leer esa imagen. Prueba con otra (JPG o PNG)."); }
 }
 const openLb = (src) => { if(!photoOk(src)) return; const l = $("lb"); l.dataset.src = src; l.innerHTML = `<img src="${esc(src)}" alt=""><div class="lbtop"><button class="ibtn" data-act="lbSave" aria-label="Guardar imagen">${DLI}</button><button class="ibtn" data-act="lbClose" aria-label="Cerrar">${IC.x}</button></div>`; l.hidden = false; };
@@ -1963,6 +2063,7 @@ function saveImg(src){
 function thumbOf(src, size = 72){
   return new Promise((res, rej) => { const im = new Image(); im.onload = () => { try{ const w = im.naturalWidth, h = im.naturalHeight, s = Math.min(w, h), cv = document.createElement("canvas"); cv.width = cv.height = size; cv.getContext("2d").drawImage(im, (w - s) / 2, (h - s) / 2, s, s, 0, 0, size, size); res(cv.toDataURL("image/jpeg", .6)); }catch(e){ rej(e); } }; im.onerror = () => rej(new Error("thumb")); im.src = src; });
 }
+const EMOS = ["😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣", "😊", "😇", "🙂", "😉", "😍", "🥰", "😘", "😋", "😜", "🤪", "😎", "🤩", "🥳", "😏", "😒", "😞", "😔", "😟", "😕", "🙁", "😣", "😢", "😭", "😤", "😠", "😡", "🤯", "😳", "🥺", "😱", "😰", "😓", "🤗", "🤔", "🤭", "🤫", "😶", "😐", "😴", "🤤", "😷", "🤒", "🥵", "🥶", "👍", "👎", "👏", "🙌", "🙏", "💪", "🤝", "✌️", "🤞", "👌", "👋", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "💔", "🔥", "✨", "🎉", "💯", "⭐", "🌹", "🍕", "🍔", "☕", "🎶", "⚽", "🚀"];
 let imgCtx = "", ciDraft = "", reply = null, nsel = new Set();
 function imgMenuSheet(src){
   imgCtx = src;
@@ -2362,7 +2463,7 @@ function groupInfo(){
       ${c.desc ? `<div class="bio">${esc(c.desc)}</div>` : ""}<div class="chip">ID <b>${esc(c.num || "—")}</b></div>
       <div style="color:var(--mut);font-size:13px;margin-top:8px">${mem.length} miembros · ${c.abierto ? "abierto" : "solo por invitación"}${c.estado === "suspendido" ? " · <b style='color:#ff6b61'>suspendido</b>" : ""}</div></div>
     ${gPerm(c, "edit") || gPerm(c, "add") ? `<div class="grp">${gPerm(c, "edit") ? `<button class="li" data-act="gEdit">${P('<path d="M4 20h4L19 9l-4-4L4 16z"/>')}<span>Editar información</span></button>` : ""}${gPerm(c, "add") ? `<button class="li" data-act="gAdd">${P('<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M19 8v6M16 11h6"/>')}<span>Añadir miembros</span></button>` : ""}</div>` : ""}
-    <div class="grp"><div class="gt">Mensajes temporales</div>${canTemp ? ["off", "24h", "ins"].map((m) => `<button class="li" data-act="setTemp" data-m="${m}"><span style="flex:1">${m === "off" ? "Desactivados" : m === "24h" ? "24 horas" : "Instantáneos"}</span>${tempOf(c) === m ? '<span style="color:var(--acc);font-weight:800"></span>' : ""}</button>`).join("") : `<div class="li" style="color:var(--mut)">${esc(TEMP_LBL[tempOf(c)])} · solo los administradores lo cambian</div>`}</div>
+    <div class="grp"><div class="gt">Mensajes temporales</div>${canTemp ? ["off", "24h", "ins"].map((m) => `<button class="li" data-act="setTemp" data-m="${m}"><span style="flex:1">${m === "off" ? "Desactivados" : m === "24h" ? "24 horas" : "Instantáneos"}</span>${tempOf(c) === m ? '<span style="color:var(--acc)"><svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>' : ""}</button>`).join("") : `<div class="li" style="color:var(--mut)">${esc(TEMP_LBL[tempOf(c)])} · solo los administradores lo cambian</div>`}</div>
     <div class="grp"><div class="gt">${mem.length} miembros</div><div style="padding:0 12px 6px">${rows}</div></div>
     <div class="grp"><div class="gt">Chat</div><button class="li" data-act="archive">${P('<path d="M3 7h18v4H3zM5 11v9h14v-9M10 15h4"/>')}<span>${isArch(c) ? "Desarchivar chat" : "Archivar chat"}</span></button><button class="li red" data-act="clrSheet">${T}<span>Vaciar chat (solo para mí)</span></button>
       ${isCr ? `<button class="li red" data-act="gDelete">${T}<span>Eliminar grupo</span></button>` : `<button class="li red" data-act="gLeave">${P('<path d="M9 21H5V3h4M16 17l5-5-5-5M21 12H9"/>')}<span>Salir del grupo</span></button>`}</div>`;
@@ -2451,6 +2552,18 @@ async function gDelete(){
 }
 
 /* ---- información del contacto, apodo, bloqueo y reporte ---- */
+function tempSheet(){
+  const c = chats.get(cur); if(!c) return;
+  $("shInfo").innerHTML = `<h2>Mensajes temporales<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div class="grp" style="margin-top:12px">${["off", "24h", "ins"].map((m) => `<button class="li" data-act="setTemp" data-m="${m}"><span style="flex:1">${TEMP_LBL[m]}${m === "ins" ? '<small style="display:block;color:var(--mut);font-size:12px">Se eliminan después de leerse</small>' : ""}</span>${tempOf(c) === m ? `<span style="color:var(--acc)">${CHK_}</span>` : ""}</button>`).join("")}</div>`; openOv("ovInfo");
+}
+function apodoSheet(){
+  const c = chats.get(cur); if(!c || isG(c)) return; const p = peers.get(otherOf(c)) || {}, ap = c["apodo" + keyOf(c, me())] || "";
+  $("shInfo").innerHTML = `<h2>Apodo<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div class="fld"><label for="apIn">Apodo <span style="font-weight:400">(solo lo ves tú)</span></label><div style="display:flex;gap:8px"><input class="in" id="apIn" maxlength="40" placeholder="${esc(p.nombre || "Apodo")}" value="${esc(ap)}"><button class="btn sm" data-act="saveAp" style="flex:none">Guardar</button></div></div>`; openOv("ovInfo");
+}
+function peerMore(){
+  const c = chats.get(cur); if(!c) return; const blk = c.bloqueadoPor === me();
+  $("shInfo").innerHTML = `<h2>Más opciones<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div class="grp" style="margin-top:12px"><button class="li" data-act="clrSheet"><span class="lic" style="--c1:#ffb23a;--c2:#ff7a00">${P('<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>')}</span><span>Vaciar chat</span></button><button class="li ${blk ? "" : "red"}" data-act="${blk ? "unblock" : "block"}"><span class="lic" style="--c1:#ff7a6e;--c2:#ff2d3a">${P('<circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/>')}</span><span>${blk ? "Desbloquear contacto" : "Bloquear contacto"}</span></button><button class="li red" data-act="repForm"><span class="lic" style="--c1:#ff6fb3;--c2:#ff2d7a">${P('<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>')}</span><span>Reportar contacto</span></button></div><div id="repBox"></div>`; openOv("ovInfo");
+}
 function infoSheet(){
   const c = chats.get(cur); if(!c) return;
   const p = peers.get(otherOf(c)) || {}, ap = c["apodo" + keyOf(c, me())] || "", blk = c.bloqueadoPor === me();
@@ -2458,7 +2571,7 @@ function infoSheet(){
   $("shInfo").innerHTML = `<h2>Opciones del chat<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2>
     <div class="grp"><div class="gt">Personalizar</div><div class="fld"><label for="apIn">Apodo <span style="font-weight:400">(solo lo ves tú)</span></label>
       <div style="display:flex;gap:8px"><input class="in" id="apIn" maxlength="40" placeholder="${esc(p.nombre || "Apodo")}" value="${esc(ap)}"><button class="btn sm" data-act="saveAp" style="flex:none">Guardar</button></div></div></div>
-    <div class="grp"><div class="gt">Mensajes temporales</div>${["off", "24h", "ins"].map((m) => `<button class="li" data-act="setTemp" data-m="${m}"><span style="flex:1">${m === "off" ? "Desactivados" : m === "24h" ? "24 horas" : "Instantáneos"}${m === "ins" ? '<small style="display:block;color:var(--mut);font-size:12px">Se eliminan segundos después de ser vistos</small>' : ""}</span>${tempOf(c) === m ? '<span style="color:var(--acc);font-weight:800"></span>' : ""}</button>`).join("")}</div>
+    <div class="grp"><div class="gt">Mensajes temporales</div>${["off", "24h", "ins"].map((m) => `<button class="li" data-act="setTemp" data-m="${m}"><span style="flex:1">${m === "off" ? "Desactivados" : m === "24h" ? "24 horas" : "Instantáneos"}${m === "ins" ? '<small style="display:block;color:var(--mut);font-size:12px">Se eliminan segundos después de ser vistos</small>' : ""}</span>${tempOf(c) === m ? '<span style="color:var(--acc)"><svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>' : ""}</button>`).join("")}</div>
     <div class="grp"><div class="gt">Chat</div><button class="li" data-act="archive">${P('<path d="M3 7h18v4H3zM5 11v9h14v-9M10 15h4"/>')}<span>${isArch(c) ? "Desarchivar chat" : "Archivar chat"}</span></button>
       <button class="li red" data-act="clrSheet">${P('<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>')}<span>Vaciar chat</span></button>
       <button class="li red" data-act="delChat">${P('<path d="M6 6l12 12M18 6 6 18"/>')}<span>Eliminar chat</span></button></div>
@@ -3031,19 +3144,22 @@ function pgClear(){ pgStack.splice(0).forEach((e) => e.el.remove()); }
 const peerOf = () => { const c = chats.get(cur); return c && !isG(c) ? otherOf(c) : null; };
 function peerHTML(uid){
   const p = peers.get(uid) || {}, self = uid === me(), foto = fotoOf(p), bio = p.bio && canSee(p, "bio") ? p.bio : "";
-  const cidP = [me(), uid].sort().join("_"), cP = chats.get(cidP), pend = !!cP && cP.estado === "pendiente" && cP.solicita !== me(), inChat = cur === cidP;
-  const row = (cls, ic, t, sub, href, act) => { const inner = `<span class="pi">${P(ic)}</span><span class="pt"><b>${t}</b>${sub ? `<small>${sub}</small>` : ""}</span>${href ? CHEV : ""}`; return href ? `<a class="pr c-${cls}" target="_blank" rel="noopener noreferrer" href="${esc(href)}">${inner}</a>` : `<div class="pr c-${cls}" ${act || ""}>${inner}</div>`; };
+  const cidP = [me(), uid].sort().join("_"), cP = chats.get(cidP), pend = !!cP && cP.estado === "pendiente" && cP.solicita !== me(), inChat = cur === cidP && !!cP && cP.estado === "activo";
+  const row = (cls, ic, t, sub, href, act) => { const inner = `<span class="pi">${P(ic)}</span><span class="pt"><b>${t}</b>${sub ? `<small>${sub}</small>` : ""}</span>${href || act ? CHEV : ""}`; return href ? `<a class="pr c-${cls}" target="_blank" rel="noopener noreferrer" href="${esc(href)}">${inner}</a>` : act ? `<button class="pr c-${cls}" ${act}>${inner}</button>` : `<div class="pr c-${cls}">${inner}</div>`; };
   const showL = canSee(p, "enl"), wa = showL && /^\d{7,15}$/.test(p.wa || "") ? p.wa : "", ig = showL && /^[A-Za-z0-9._]{1,30}$/.test(p.ig || "") ? p.ig : "", lns = showL ? linksOf(p) : [];
   const bd = canSee(p, "bdv") && p.cumple ? fmtBD(p.cumple, p.cumpleY) : "";
-  const info = [bio ? row("blue", I5.info, esc(bio), "Info") : "", bd ? row("pink", I5.star, esc(bd), "Cumpleaños") : "", paisEs(p) ? row("green", PIN, "Cuenta de " + esc(paisEs(p)), "País de registro") : "", row("indigo", I5.idc, esc(p.id || "—"), "ID · toca para copiar", "", 'data-act="peerCopy" role="button" tabindex="0" style="cursor:pointer"')].filter(Boolean).join("");
+  const info = [bio ? row("blue", I5.info, esc(bio), "Info") : "", p.usuario ? row("purple", I5.at, "@" + esc(p.usuario), "Usuario") : "", row("indigo", I5.idc, esc(p.id || "—"), "ID · toca para copiar", "", 'data-act="peerCopy"'), paisEs(p) ? row("green", PIN, "Cuenta de " + esc(paisEs(p)), "País de registro") : "", bd ? row("pink", I5.star, esc(bd), "Cumpleaños") : ""].filter(Boolean).join("");
   const soc = [wa ? row("wa", I5.wa, "WhatsApp", "+" + wa, "https://wa.me/" + wa) : "", ig ? row("ig", I5.ig, "@" + esc(ig), "Instagram", "https://instagram.com/" + ig) : "", ...lns.map((l) => row("cyan", I5.link, esc(linkName(l)), esc(linkHost(l)), l.u))].filter(Boolean).join("");
-  return `<div class="pcb"><button class="pcbb" data-act="pgBack" aria-label="Atrás">${IC.back}</button><div class="pcbm">${av(p.nombre, foto, "xs")}<b>${esc(p.nombre || "Usuario")}${badge(p)}</b></div>${inChat ? `<button class="pcbb" data-act="peerMenu" aria-label="Más opciones"><svg viewBox="0 0 24 24" style="fill:currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></button>` : '<span class="pcbb" style="visibility:hidden"></span>'}</div>
-  <div class="pgc pcs"><div class="pcv" style="--h:${hue(p.nombre)}">${foto ? `<div class="pcimg" style="background-image:url('${esc(foto)}')"></div>` : ""}<div class="pcfade"></div></div>
-    <div class="pchead"><div class="pcav">${av(p.nombre, foto, "xl")}</div>
-      <h1>${esc(p.nombre || "Usuario")}${badge(p)}${self ? '<span class="you"> (Tú)</span>' : ""}</h1>
-      ${p.usuario ? `<div class="pcu">@${esc(p.usuario)}</div>` : ""}${rkTag(p)}
-      <div class="pcact">${self ? "" : `<button data-act="peerMsg" data-u="${esc(uid)}"><span>${P('<path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/>')}</span>Mensaje</button>`}<button data-act="peerShare"><span>${P('<path d="M14 4l7 6-7 6v-4c-5 0-8 1.5-10 5 .5-5 3.5-9 10-9z"/>')}</span>Compartir</button><button data-act="peerCopy"><span>${P('<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>')}</span>Copiar ID</button></div></div>
-    <div class="pgrp pcg">${info}</div>${soc ? `<div class="pgt">Enlaces</div><div class="pgrp pcg">${soc}</div>` : ""}
+  const SHI = '<circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.8l7.4-4.3M8.3 13.2l7.4 4.3"/>';
+  const ab = (cls, ic, lb, act, extra) => `<button class="${cls}" ${act} ${extra || ""}><span>${ic}</span>${lb}</button>`;
+  const acts = [self || inChat ? "" : ab("a-blue", P('<path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/>'), "Mensaje", 'data-act="peerMsg"', `data-u="${esc(uid)}"`), inChat ? ab("a-blue", '<b class="aa">Aa</b>', "Apodo", 'data-act="ppApodo"') : "", ab("a-green", P(SHI), "Compartir", 'data-act="peerShare"'), inChat ? ab("a-orange", P(I5.pal), "Personalizar", 'data-act="pgGo" data-p="chtheme"') : ab("a-purple", P('<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>'), "Copiar ID", 'data-act="peerCopy"')].join("");
+  const chatSec = inChat ? `<div class="pgt">Información del chat</div><div class="pgrp pcg">${row("orange", '<circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 3h6"/>', "Mensajes temporales", esc(TEMP_LBL[tempOf(cP)]), "", 'data-act="ppTemp"')}${row("purple", '<rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="M4 18l5-5 4 4 3-3 4 4"/>', "Multimedia y enlaces", "Fotos y enlaces de este chat", "", 'data-act="pgGo" data-p="cmedia"')}</div>
+    <div class="pgt">Acciones</div><div class="pgrp pcg">${row("blue", '<path d="M3 7h18v4H3zM5 11v9h14v-9M10 15h4"/>', isArch(cP) ? "Desarchivar chat" : "Archivar chat", "", "", 'data-act="archive"')}${row("red", '<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>', "Eliminar chat", "Se quita de tu lista", "", 'data-act="delChat"')}</div>` : "";
+  return `<div class="ppb"><button data-act="pgBack" aria-label="Atrás">${IC.back}</button>${inChat ? `<button data-act="peerMenu" aria-label="Más opciones"><svg viewBox="0 0 24 24" style="fill:currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></button>` : "<span></span>"}</div>
+  <div class="pgc pcs pp"><button class="ppav" data-act="peerPhoto" data-u="${esc(uid)}" aria-label="Ver foto">${av(p.nombre, foto, "xl")}${peerOnline(p) && !self ? '<i class="odot l"></i>' : ""}</button>
+    <h1>${esc(p.nombre || "Usuario")}${badge(p)}${self ? '<span class="you"> (Tú)</span>' : ""}</h1>${p.usuario ? `<div class="ppu">@${esc(p.usuario)}</div>` : ""}${rkTag(p)}
+    <div class="ppact">${acts}</div>
+    <div class="pgt">Información</div><div class="pgrp pcg">${info}</div>${soc ? `<div class="pgt">Enlaces</div><div class="pgrp pcg">${soc}</div>` : ""}${chatSec}
     <div class="pfoot">Perfil en WarMess · ${esc(p.rango || "Usuario")}</div>${pend ? '<div style="height:96px"></div>' : ""}</div>
   ${pend ? `<div class="pcreq"><div class="pcrq">${esc(p.nombre || "Esta persona")} quiere conectar contigo</div><div class="pcra"><button class="btn" data-act="reqAns" data-c="${esc(cidP)}" data-ok="1">Aceptar</button><button class="btn ghost" data-act="reqAns" data-c="${esc(cidP)}" data-ok="0">Rechazar</button></div></div>` : ""}`;
 }
@@ -3059,6 +3175,9 @@ function peerScroll(el){
 function peerShare(uid){ const p = peers.get(uid) || {}, tx = `${p.nombre || "Usuario"}${p.usuario ? " (@" + p.usuario + ")" : ""} en WarMess · ID ${p.id || ""}`; if(navigator.share) navigator.share({ title:"WarMess", text:tx }).catch(() => {}); else{ try{ navigator.clipboard.writeText(tx); }catch(e){} toast("Perfil copiado"); } }
 /* --- definición de páginas --- */
 const PG = {
+  chtheme: () => { const ct = chatTheme(cur); return { t:"Personalizar chat", h:`<div class="pgt">Tema de este chat</div><div class="thg2"><button class="thc2 ${!ct ? "on" : ""}" data-act="ctPick" data-v=""><span class="thv"><i class="o"></i><i class="p"></i><i class="q"></i></span><b>General</b>${!ct ? '<span class="thk2"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>' : ""}</button>${THEMES.map((t) => `<button class="thc2 ${ct === t[0] ? "on" : ""}" data-act="ctPick" data-v="${t[0]}"><span class="thv" data-ct="${t[0]}"><i class="o"></i><i class="p"></i><i class="q"></i></span><b>${t[1]}</b>${ct === t[0] ? '<span class="thk2"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>' : ""}</button>`).join("")}</div><div class="pfoot">Solo cambia los mensajes de este chat, en este dispositivo.</div>` }; },
+  cmedia: () => { const ims = msgsData.filter((m) => photoOk(m.img)).slice().reverse(), ls = []; msgsData.forEach((m) => (String(m.texto || "").match(/https?:\/\/[^\s<]+/g) || []).forEach((u) => ls.push(u)));
+    return { t:"Multimedia y enlaces", h:`<div class="pgt">Fotos</div>${ims.length ? `<div class="mgrid">${ims.map((m) => `<img data-act="lbImg" src="${esc(m.img)}" alt="Foto" loading="lazy">`).join("")}</div>` : '<div class="pfoot">Aún no hay fotos en este chat.</div>'}<div class="pgt">Enlaces</div>${ls.length ? `<div class="pgrp">${[...new Set(ls)].reverse().map((u) => `<a class="pr c-cyan" target="_blank" rel="noopener noreferrer" href="${esc(u)}"><span class="pi">${P(I5.link)}</span><span class="pt"><b>${esc(linkHost({ u }) || u)}</b><small>${esc(u.slice(0, 60))}</small></span>${CHEV}</a>`).join("")}</div>` : '<div class="pfoot">Aún no hay enlaces en este chat.</div>'}<div class="pfoot">Se muestran los mensajes cargados en este chat.</div>` }; },
   peer: (uid) => ({ bare:true, h: peerHTML(uid), after: (el, u) => { peerScroll(el); refreshPeer(u); } }),
   settings: () => ({ t:"Ajustes", h:`<button class="pme" data-act="pgGo" data-p="profile">${av(prof.nombre, prof.foto)}<span class="pt"><b>${esc(prof.nombre)}${badge(prof)}</b><small>${esc(prof.bio || "Sin descripción")}</small></span>${CHEV}</button>
     <div class="pgrp">${pgRow(I5.key, "Cuenta", "pgGo", 'data-p="account"', "Contraseña, correo y cuentas")}${pgRow(I5.lock, "Privacidad", "pgGo", 'data-p="privacy"', "Última vez, foto, lectura, grupos")}${pgRow(I5.pal, "Apariencia", "pgGo", 'data-p="look"', "Temas, burbujas, texto y sonidos")}</div>
@@ -3363,7 +3482,7 @@ const A = {
   accept: (t) => answerReq(t.dataset.c, true), reject: (t) => answerReq(t.dataset.c, false),
   connect: (t) => connectSheet(t.dataset.u), sendReq: (t) => sendReq(t.dataset.u),
   back: () => { if(history.state && history.state.wm){ history.back(); } else closeChatUI(); },
-  info: () => (isG(chats.get(cur)) ? groupInfo() : pgGo("peer", peerOf())), peerMenu: () => infoSheet(), peerCopy: () => { const u = pgStack.length ? pgStack[pgStack.length - 1].arg : null, p = peers.get(u) || {}; try{ navigator.clipboard.writeText(String(p.id || "")); }catch(e){} toast("ID copiado"); }, peerShare: () => peerShare(pgStack[pgStack.length - 1].arg), saveAp: saveApodo, block: () => setBlock(true), unblock: () => setBlock(false), repForm: reportForm, repSend: sendReport,
+  info: () => (isG(chats.get(cur)) ? groupInfo() : pgGo("peer", peerOf())), peerCopy: () => { const u = pgStack.length ? pgStack[pgStack.length - 1].arg : null, p = peers.get(u) || {}; try{ navigator.clipboard.writeText(String(p.id || "")); }catch(e){} toast("ID copiado"); }, peerShare: () => peerShare(pgStack[pgStack.length - 1].arg), saveAp: saveApodo, block: () => setBlock(true), unblock: () => setBlock(false), repForm: reportForm, repSend: sendReport,
   older: () => { msgLimit += 40; olderFlag = true; subMsgs(); },
   admin: () => { if(typeof pgStack !== "undefined" && pgStack.length) pgClear(); openAdmin(); }, admClose, admPin: admPinGo, atab: (t) => setATab(t.dataset.t), auser: (t) => userSheet(t.dataset.u),
   aset: (t) => setEstado(t.dataset.u, t.dataset.s), adel: (t) => delUser(t.dataset.u), repDone: (t) => repSet(t.dataset.r, true), repDel: (t) => repSet(t.dataset.r, false),
@@ -3391,7 +3510,14 @@ const A = {
   sndTest: () => beep(true),
   newGroup: newGroupSheet, gpGo: createGroup, joinG: (t) => joinGroup(t.dataset.g), gBack: groupInfo, gEdit: gEditSheet, gEditSave, gAdd: gAddSheet, gSearch, gAddU: (t) => gAddU(t.dataset.u),
   gKick: (t) => gKick(t.dataset.u), gPerms: (t) => gPermsSheet(t.dataset.u), gPermSave: (t) => gPermSave(t.dataset.u, false), gAdmRm: (t) => gPermSave(t.dataset.u, true), gLeave, gDelete,
-  chatImg: () => { if(!$("cForm")) return; imgTarget = "chat"; $("imgFile").removeAttribute("capture"); $("imgFile").click(); }, chatCam: () => { if(!$("cForm")) return; imgTarget = "chat"; const f = $("imgFile"); f.setAttribute("capture", "environment"); f.click(); setTimeout(() => f.removeAttribute("capture"), 1500); }, toBot: () => { const e = $("msgs"); if(e) e.scrollTo({ top: e.scrollHeight, behavior:"smooth" }); }, ciSend, lbImg: (t) => openLb(t.getAttribute("src")), lbSave: () => saveImg($("lb").dataset.src),
+  cPlus: () => { if(!cur) return; $("shInfo").innerHTML = `<h2>Enviar<button class="ibtn" data-act="closeov" aria-label="Cerrar">${IC.x}</button></h2><div class="grp" style="margin-top:12px"><button class="li" data-act="plCam"><span class="lic" style="--c1:#ff7a6e;--c2:#ff2d3a">${CAMI}</span><span>Cámara</span></button><button class="li" data-act="plGal"><span class="lic" style="--c1:#c07bff;--c2:#7a3cff">${GALI}</span><span>Galería</span></button><button class="li" data-act="plTmp"><span class="lic" style="--c1:#ffb23a;--c2:#ff7a00">${P('<circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 3h6"/>')}</span><span>Mensajes temporales</span></button></div>`; openOv("ovInfo"); },
+  plCam: () => { closeOv("ovInfo"); camOpen(); }, plGal: () => { closeOv("ovInfo"); A_.chatImg(); }, plTmp: () => tempSheet(),
+  cMic: () => toast("Las notas de voz llegarán pronto."),
+  cEmoji: () => { const e = $("emoP"); if(!e) return; if(!e.innerHTML) e.innerHTML = EMOS.map((x) => `<button type="button" data-act="emoPick" data-e="${x}">${x}</button>`).join(""); e.hidden = !e.hidden; },
+  emoPick: (t) => { const ta = $("cTxt"); if(!ta) return; const s = ta.selectionStart || ta.value.length, e = ta.selectionEnd || s; ta.value = ta.value.slice(0, s) + t.dataset.e + ta.value.slice(e); ta.selectionStart = ta.selectionEnd = s + t.dataset.e.length; ta.dispatchEvent(new Event("input")); },
+  peerPhoto: (t) => { const p = peers.get(t.dataset.u) || {}, f = fotoOf(p); $("qv").innerHTML = `<div class="pvbg" ${photoOk(f) ? `style="background-image:url('${esc(f)}')"` : `style="background:#111"`}></div><div class="pvc">${photoOk(f) ? `<img class="pvimg" src="${esc(f)}" alt="">` : `<div class="pvimg dfl">${av(p.nombre, "", "xl")}</div>`}<div class="pvn">${esc(p.nombre || "")}</div></div>`; $("qv").hidden = false; },
+  ppApodo: apodoSheet, ppTemp: tempSheet, peerMenu: peerMore, ctPick: (t) => { if(!cur) return; store.set("wm_ct_" + cur, t.dataset.v || ""); $("main").dataset.ct = chatTheme(cur); pgRefresh(); toast(t.dataset.v ? "Tema del chat aplicado" : "Usando el tema general"); },
+  chatImg: () => { if(!$("cForm")) return; imgTarget = "chat"; $("imgFile").removeAttribute("capture"); $("imgFile").click(); }, chatCam: () => { if($("cForm")) camOpen(); }, toBot: () => { const e = $("msgs"); if(e) e.scrollTo({ top: e.scrollHeight, behavior:"smooth" }); }, ciSend, lbImg: (t) => openLb(t.getAttribute("src")), lbSave: () => saveImg($("lb").dataset.src),
   imgMenu: (t) => { const m = msgsData.find((x) => x.id === t.dataset.m); if(m && photoOk(m.img)) imgMenuSheet(m.img); }, noteImgMenu: (t) => { const n = notesData.find((x) => x.id === t.dataset.n); if(n && photoOk(n.img)) imgMenuSheet(n.img); },
   imgSave: () => { closeOv("ovInfo"); saveImg(imgCtx); }, imgView: () => { closeOv("ovInfo"); openLb(imgCtx); },
   selReply, selSave, rplX: () => { reply = null; paintReply(); }, goMsg: (t) => goMsg(t.dataset.m), gProf: (t) => { if(t.dataset.u && t.dataset.u !== me()) pgGo("peer", t.dataset.u); },
